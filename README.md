@@ -2,15 +2,13 @@
 
 # Instructor names and contact information
 
-Marcel Ramos, Ludwig Geistlinger, and Levi Waldron
+[Marcel Ramos](mailto:Marcel.Ramos@sph.cuny.edu),
+[Ludwig Geistlinger](mailto:Ludwig.Geistlinger@sph.cuny.edu), and
+[Levi Waldron](mailto:Levi.Waldron@sph.cuny.edu)
 
 CUNY School of Public Health
 55 West 125th Street
 New York, NY 10027
-
-Marcel.Ramos@sph.cuny.edu
-Ludwig.Geistlinger@sph.cuny.edu
-Levi.Waldron@sph.cuny.edu
 
 # Workshop Description
 
