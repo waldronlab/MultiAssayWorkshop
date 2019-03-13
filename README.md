@@ -4,6 +4,14 @@
 
 Marcel Ramos, Ludwig Geistlinger, and Levi Waldron
 
+CUNY School of Public Health
+55 West 125th Street
+New York, NY 10027
+
+Marcel.Ramos@sph.cuny.edu
+Ludwig.Geistlinger@sph.cuny.edu
+Levi.Waldron@sph.cuny.edu
+
 # Workshop Description
 
 This workshop demonstrates data management and analyses of multiple
@@ -12,8 +20,9 @@ using the `MultiAssayExperiment` data class and methods. It introduces
 the `RaggedExperiment` data class, which provides efficient and powerful
 operations for representation of copy number and mutation and variant
 data that are represented by different genomic ranges for each specimen.
-It also presents real-world examples using TCGA data and the `curatedTCGAData`
-experiment data package.
+It presents examples using MultiAssayExperiment with TCGA data via the
+`curatedTCGAData` experiment data package. It provides a basic overview of
+`TCGAutils` functionality to make working with TCGA data easier.
 
 ## Pre-requisites
 
