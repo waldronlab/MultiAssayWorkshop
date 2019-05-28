@@ -1,0 +1,35 @@
+Package: MultiAssayWorkshop
+Title: MultiAssayExperiment and curatedTCGAData Bioconductor 2019 Workshop
+Version: 3.9.0
+Authors@R: c(person("Marcel", "Ramos", email = "marcel.ramos@roswellpark.org",
+    role = c("aut", "cre")),
+    person("Ludwig", "Geistlinger", email = "Ludwig.Geistlinger@sph.cuny.edu",
+    role = "ctb"),
+    person("Levi", "Waldron", email = "lwaldron.research@gmail.com",
+    role = "aut"))
+Description: A workshop package for the Bioconductor 2019 conference.
+Depends: R (>= 3.6.0), R (< 3.7.0)
+Imports:
+  MultiAssayExperiment,
+  GenomicRanges,
+  RaggedExperiment,
+  curatedTCGAData,
+  GenomicDataCommons,
+  SummarizedExperiment,
+  SingleCellExperiment,
+  TCGAutils,
+  UpSetR,
+  mirbase.db,
+  TxDb.Hsapiens.UCSC.hg19.knownGene,
+  org.Hs.eg.db,
+  AnnotationFilter,
+  EnsDb.Hsapiens.v86,
+  survival,
+  survminer,
+  pheatmap
+Suggests:
+  knitr
+License: Artistic-2.0 + file LICENSE
+Encoding: UTF-8
+VignetteBuilder: knitr
+
