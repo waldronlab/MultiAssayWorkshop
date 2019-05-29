@@ -19,6 +19,10 @@ output: html_document
 ```{r include=FALSE}
 library(knitr)
 opts_chunk$set(out.width="100%")
+.sysLink <- function(...) {
+    system.file(file.path("inst", "vignettes", ...),
+        package = "MultiAssayWorkshop")
+}
 ```
 
 ## Instructor names and contact information
@@ -242,7 +246,7 @@ To better understand how it all fits together, this schematic shows the
 relationship among all as part of the curatedTCGAData pipeline.
 
 ```{r, echo = FALSE, fig.cap = "Schematic of curatedTCGAData Pipeline"}
-knitr::include_graphics("TCGAMAEPipeline20190204.png")
+knitr::include_graphics(.sysLink("TCGAMAEPipeline20190204.png"))
 ```
 
 
@@ -254,7 +258,7 @@ of multi-omics experiments.
 ### `(Ranged)SummarizedExperiment`
 
 ```{r, echo = FALSE, fig.cap = "A matrix-like container where rows represent features of interest and columns represent samples. The objects contain one or more assays, each represented by a matrix-like object of numeric or other mode."}
-knitr::include_graphics("SummarizedExperiment.png")
+knitr::include_graphics(.sysLink("SummarizedExperiment.png"))
 ```
 
 `SummarizedExperiment` is the most important Bioconductor class for matrix-like
@@ -297,7 +301,7 @@ However, `RaggedExperiment` provides a flexible set of _Assay_ methods to
 support transformation of such data to matrix format.
 
 ```{r, echo=FALSE, fig.cap="RaggedExperiment object schematic. Rows and columns represent genomic ranges and samples, respectively. Assay operations can be performed with (from left to right) compactAssay, qreduceAssay, and sparseAssay.", out.width="\\maxwidth"}
-knitr::include_graphics("RaggedExperiment.png")
+knitr::include_graphics(.sysLink("RaggedExperiment.png"))
 ```
 
 ### `MultiAssayExperiment`
@@ -340,7 +344,7 @@ operations. This class is part of the `DelayedArray` package.
 Note that any data class extending these classes, and in fact any data class supporting row and column names and subsetting can be used as an element of a `MultiAssayExperiment`.
 
 ```{r, echo = FALSE, fig.cap="MultiAssayExperiment object schematic. colData provides data about the patients, cell lines, or other biological units, with one row per unit and one column per variable. The experiments are a list of assay datasets of arbitrary class.  The sampleMap relates each column (observation) in ExperimentList to exactly one row (biological unit) in colData; however, one row of colData may map to zero, one, or more columns per assay, allowing for missing and replicate assays. sampleMap allows for per-assay sample naming conventions. Metadata can be used to store information in arbitrary format about the MultiAssayExperiment. Green stripes indicate a mapping of one subject to multiple observations across experiments.", out.width="\\maxwidth"}
-knitr::include_graphics("MultiAssayExperiment.png")
+knitr::include_graphics(.sysLink("MultiAssayExperiment.png"))
 ```
 
 
@@ -349,7 +353,7 @@ knitr::include_graphics("MultiAssayExperiment.png")
 ## API cheat sheet
 
 ```{r cheatsheet, echo = FALSE, fig.cap = "The MultiAssayExperiment API for construction, access, subsetting, management, and reshaping to formats for application of R/Bioconductor graphics and analysis packages.", out.width="\\maxwidth"}
-knitr::include_graphics("MultiAssayExperiment_cheatsheet.png")
+knitr::include_graphics(.sysLink("MultiAssayExperiment_cheatsheet.png"))
 ```
 
 
