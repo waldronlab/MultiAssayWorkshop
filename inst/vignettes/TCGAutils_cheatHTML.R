@@ -1,6 +1,6 @@
 ## @knitr cheatsheet
 
-raw <- read_excel("TCGAutils_cheatsheet.xlsx", skip = 1)
+raw <- read_excel(.sysLink("TCGAutils_cheatsheet.xlsx"), skip = 1)
 
 tabInfo <- raw[is.na(raw[[1]]), 2:3]
 names(tabInfo) <- c("Category and Function", "Description")
