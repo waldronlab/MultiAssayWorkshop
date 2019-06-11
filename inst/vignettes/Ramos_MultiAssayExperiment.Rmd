@@ -397,9 +397,14 @@ table(miniACC$race)
 * Each row maps to zero or more observations in each experiment in the
 `ExperimentList`, below.
 * One row per biological unit
-    + `MultiAssayExperiment` supports both missing observations and replicate observations, ie one row of `colData` can map to 0, 1, or more columns of any of the experimental data matrices.
-    + therefore you could treat replicate observations as one or multiple rows of `colData`, and this will result in different behaviors of functions you will learn later like subsetting, `duplicated()`, and `wideFormat()`.
-    + multiple time points, or distinct biological replicates, should probably be separate rows of the `colData`.
+    + `MultiAssayExperiment` supports both missing observations and replicate
+observations, ie one row of `colData` can map to 0, 1, or more columns of any
+of the experimental data matrices.
+    + therefore you could treat replicate observations as one or multiple rows
+of `colData`, and this will result in different behaviors of functions you will
+learn later like subsetting, `duplicated()`, and `wideFormat()`.
+    + multiple time points, or distinct biological replicates, should probably
+be separate rows of the `colData`.
 
 ### ExperimentList - experiment data
 
@@ -563,7 +568,8 @@ in identical order. For example, to keep only genes where data are available for
 RNA-seq, GISTIC copy number, and somatic mutations:
 
 ```{r}
-accmatched2 <- intersectRows(miniACC[, , c("RNASeq2GeneNorm", "gistict", "Mutations")])
+accmatched2 <- intersectRows(miniACC[, ,
+    c("RNASeq2GeneNorm", "gistict", "Mutations")])
 rownames(accmatched2)
 ```
 
@@ -725,20 +731,23 @@ The `TCGAutils` package provides additional helper functions, see below.
 ## Utilities for TCGA
 
 Aside from the available reshaping functions already included in the
-`MultiAssayExperiment` package, the `r BiocStyle::Biocpkg("TCGAutils")` package provides additional
-helper functions for working with TCGA data.
+`MultiAssayExperiment` package, the `r BiocStyle::Biocpkg("TCGAutils")` package
+provides additional helper functions for working with TCGA data.
 
 ### "Simplification" of `curatedTCGAData` objects
 
 A number of helper functions are available for managing datasets from
 `curatedTCGAData`. These include:
 
-- Conversions of `SummarizedExperiment` to `RangedSummarizedExperiment` based on `TxDb.Hsapiens.UCSC.hg19.knownGene` for:
+- Conversions of `SummarizedExperiment` to `RangedSummarizedExperiment` based
+on `TxDb.Hsapiens.UCSC.hg19.knownGene` for:
     - `mirToRanges`: microRNA
     - `symbolsToRanges`: gene symbols
-- `qreduceTCGA`: convert `RaggedExperiment` objects to `RangedSummarizedExperiment` with one row per gene symbol, for:
+- `qreduceTCGA`: convert `RaggedExperiment` objects to
+`RangedSummarizedExperiment` with one row per gene symbol, for:
     - segmented copy number datasets ("CNVSNP" and "CNASNP")
-    - somatic mutation datasets ("Mutation"), with a value of 1 for any non-silent mutation and a value of 0 for no mutation or silent mutation
+    - somatic mutation datasets ("Mutation"), with a value of 1 for any
+non-silent mutation and a value of 0 for no mutation or silent mutation
 
 The `simplifyTCGA` function combines all of the above operations to create
 a more managable `MultiAssayExperiment` object and using
@@ -763,7 +772,8 @@ head(sampleTypes)
 
 ### Curated molecular subtypes
 
-Is there subtype data available in the `MultiAssayExperiment` obtained from `curatedTCGAData`?
+Is there subtype data available in the `MultiAssayExperiment` obtained from
+`curatedTCGAData`?
 
 **Solution**
 
@@ -793,7 +803,8 @@ See the `r BiocStyle::Biocpkg("TCGAutils")` help pages for details.
 ### Other TCGA data types
 
 Helper functions to add TCGA exon files (legacy archive), copy number and
-GISTIC copy number calls to MultiAssayExperiment objects are also available in `r BiocStyle::Biocpkg("TCGAutils")`.
+GISTIC copy number calls to MultiAssayExperiment objects are also available in
+`r BiocStyle::Biocpkg("TCGAutils")`.
 
 ## Plotting, correlation, and other analyses
 
@@ -829,11 +840,13 @@ Surv(miniACC$days_to_death, miniACC$vital_status)
 
 And remove any patients missing overall survival information:
 ```{r}
-miniACCsurv <- miniACC[, complete.cases(miniACC$days_to_death, miniACC$vital_status), ]
+miniACCsurv <- miniACC[,
+    complete.cases(miniACC$days_to_death, miniACC$vital_status), ]
 ```
 
 ```{r}
-fit <- survfit(Surv(days_to_death, vital_status) ~ pathology_N_stage, data = colData(miniACCsurv))
+fit <- survfit(Surv(days_to_death, vital_status) ~ pathology_N_stage,
+    data = colData(miniACCsurv))
 ggsurvplot(fit, data = colData(miniACCsurv), risk.table = TRUE)
 ```
 
@@ -852,8 +865,8 @@ Perform a multivariate Cox regression with *EZH2* copy number (gistict),
 log2-transformed *EZH2* expression (RNASeq2GeneNorm), and nodal status
 (pathology_N_stage) as predictors:
 ```{r}
-coxph(Surv(days_to_death, vital_status) ~ gistict_EZH2 + log2(RNASeq2GeneNorm_EZH2) + pathology_N_stage,
-      data=wideacc)
+coxph(Surv(days_to_death, vital_status) ~ gistict_EZH2 +
+    log2(RNASeq2GeneNorm_EZH2) + pathology_N_stage, data=wideacc)
 ```
 
 We see that *EZH2* expression is significantly associated with overal survival
@@ -1002,6 +1015,7 @@ adding assay names to the column names.
 * Calculate the correlations, and take the absolute value (since signs of
 principal components are arbitrary)
 * Set the diagonals to NA (each variable has a correlation of 1 to itself).
+
 ```{r}
 df <- wideFormat(miniACC2)[, -1]
 mycors <- cor(as.matrix(df))
@@ -1023,7 +1037,9 @@ the protein assay.
 <p style="text-align: right;"> [back to top](#overview-of-key-data-classes) </p>
 
 ### Annotating with ranges
-This section doesn't use the `TCGAutils` shortcuts, and is more generally applicable.
+
+This section doesn't use the `TCGAutils` shortcuts, and is more generally
+applicable.
 
 Convert all the `ExperimentList` elements in `miniACC`  to
 `RangedSummarizedExperiment` objects.  Then use `rowRanges` to annotate these
