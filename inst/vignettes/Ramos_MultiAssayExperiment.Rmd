@@ -755,7 +755,7 @@ The `TCGAutils` package provides additional helper functions.
 ## Utilities for TCGA
 
 Aside from the available reshaping functions already included in the
-`MultiAssayExperiment` package, the `r BiocStyle::Biocpkg("TCGAutils")` package
+`MultiAssayExperiment` package, the `TCGAutils` package
 provides additional helper functions for working with TCGA data.
 
 A number of helper functions are available for managing datasets from
