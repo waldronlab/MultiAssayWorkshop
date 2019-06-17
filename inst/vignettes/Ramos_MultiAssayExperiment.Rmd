@@ -11,14 +11,16 @@ date: "`r format(Sys.time(), '%B %d, %Y')`"
 vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
-output: html_document
+output:
+  html_document:
+    mathjax: null
 ---
 
 # Workflow for Multi-omics Analysis with MultiAssayExperiment and curatedTCGAData
 
-```{r include=FALSE}
+```{r, include=FALSE}
 library(knitr)
-opts_chunk$set(out.width="100%")
+opts_chunk$set(out.width="100%", cache=TRUE)
 .sysLink <- function(...) {
     system.file(file.path("vignettes", ...),
         package = "MultiAssayWorkshop")
@@ -136,9 +138,9 @@ suppressPackageStartupMessages({
 |-------------------------------------|---------|
 | Overview of key data classes and packages | 30m |
 | Building a MultiAssayExperiment from scratch | 10m |
+| Subsetting and reshaping multi-assay data | 20m |
 | curatedTCGAData multi-assay dataset | 20 min |
 | TCGAutils functionality | 10m |
-| Subsetting and reshaping multi-assay data | 20m |
 | Plotting, correlation, analysis and other examples | 10m |
 
 
@@ -166,6 +168,22 @@ machine learning, and plotting
 ## Overview of key packages and data classes
 
 ### Packages
+
+#### `MultiAssayExperiment`
+
+The `MultiAssayExperiment` package provides an integrative representation
+for multi-omics data on a set of samples. Modelled after the
+`SummarizedExperiment` representation for expression data, the
+`MultiAssayExperiment` data container provides efficient and easy-to-use
+operations for manipulating multiple sets of data such as copy number
+alterations, mutations, proteomics, methylation, and other types of data.
+Compatibility with the `MultiAssayExperiment` container hinges on a small
+set of requirements making the data representation flexible to many of the
+currently available Bioconductor classes.
+
+```{r, echo = FALSE, fig.cap="MultiAssayExperiment object schematic", out.width="\\maxwidth"}
+knitr::include_graphics(.sysLink("MultiAssayExperiment.png"))
+```
 
 #### `curatedTCGAData`
 
@@ -345,21 +363,74 @@ class defined in the `GenomicFiles` package)
 datasets. It reduces memory usage and optimizes performance with delayed
 operations. This class is part of the `DelayedArray` package.
 
-Note that any data class extending these classes, and in fact any data class supporting row and column names and subsetting can be used as an element of a `MultiAssayExperiment`.
+Note that any data class extending these classes, and in fact any data class
+supporting row and column names and subsetting can be used as an element of a
+`MultiAssayExperiment`.
 
 ```{r, echo = FALSE, fig.cap="MultiAssayExperiment object schematic. colData provides data about the patients, cell lines, or other biological units, with one row per unit and one column per variable. The experiments are a list of assay datasets of arbitrary class.  The sampleMap relates each column (observation) in ExperimentList to exactly one row (biological unit) in colData; however, one row of colData may map to zero, one, or more columns per assay, allowing for missing and replicate assays. sampleMap allows for per-assay sample naming conventions. Metadata can be used to store information in arbitrary format about the MultiAssayExperiment. Green stripes indicate a mapping of one subject to multiple observations across experiments.", out.width="\\maxwidth"}
 knitr::include_graphics(.sysLink("MultiAssayExperiment.png"))
 ```
 
+## Building a MultiAssayExperiment from scratch
+
+To start from scratch building your own MultiAssayExperiment, see the package
+[Coordinating Analysis of Multi-Assay Experiments vignette](https://bioconductor.org/packages/release/bioc/vignettes/MultiAssayExperiment/inst/doc/MultiAssayExperiment.html).
+The package [cheat sheet](https://bioconductor.org/packages/release/bioc/vignettes/MultiAssayExperiment/inst/doc/MultiAssayExperiment_cheatsheet.pdf) is also helpful.
+
+If anything is unclear, please ask a question at
+https://support.bioconductor.org/ or create an issue on the [MultiAssayExperiment issue tracker](https://github.com/waldronlab/MultiAssayExperiment/issues).
+
+### MultiAssayExperiment class construction and concatenation
+
+### MultiAssayExperiment constructor function
+
+The `MultiAssayExperiment` constructor function can take three arguments:
+
+1. `experiments` - An `ExperimentList` or `list` of data
+2. `colData` - A `DataFrame` describing the patients (or cell lines, or other
+biological units)
+3. `sampleMap` - A `DataFrame` of `assay`, `primary`, and `colname` identifiers
+
+The miniACC object can be reconstructed as follows:
+
+```{r}
+data("miniACC")
+
+MultiAssayExperiment(experiments=experiments(miniACC),
+    colData=colData(miniACC),
+    sampleMap=sampleMap(miniACC),
+    metadata=metadata(miniACC))
+```
+
+### `prepMultiAssay` - Constructor function helper
+
+The `prepMultiAssay` function allows the user to diagnose typical problems
+when creating a `MultiAssayExperiment` object. See `?prepMultiAssay` for more
+details.
+
+### `c` - concatenate to MultiAssayExperiment
+
+The `c` function allows the user to concatenate an additional experiment to an
+existing `MultiAssayExperiment`. The optional `sampleMap` argument allows
+concatenating an assay whose column names do not match the row names of
+`colData`. For convenience, the _mapFrom_ argument allows the user to map from a
+particular experiment **provided** that the **order** of the colnames is in the
+**same**. A `warning` will be issued to make the user aware of this assumption.
+For example, to concatenate a matrix of log2-transformed RNA-seq results:
+
+```{r}
+miniACC2 <- c(miniACC,
+    log2rnaseq = log2(assays(miniACC)$RNASeq2GeneNorm), mapFrom=1L)
+experiments(miniACC2)
+```
 
 ## Working with MultiAssayExperiment
 
-## API cheat sheet
+### API cheat sheet
 
 ```{r cheatsheet, echo = FALSE, fig.cap = "The MultiAssayExperiment API for construction, access, subsetting, management, and reshaping to formats for application of R/Bioconductor graphics and analysis packages.", out.width="\\maxwidth"}
 knitr::include_graphics(.sysLink("MultiAssayExperiment_cheatsheet.png"))
 ```
-
 
 ### The MultiAssayExperiment miniACC demo object
 
@@ -375,7 +446,6 @@ for every patient:
 5. **miRNASeqGene**: microRNA abundance by microRNA-seq.
 
 ```{r}
-data(miniACC)
 miniACC
 ```
 
@@ -531,10 +601,12 @@ the use of `experiments(mae)[[1L]]`. For example, both of the following extract
 the `ExpressionSet` object containing RNA-seq data:
 
 ```{r}
-miniACC[[1L]]  #or equivalently, miniACC[["RNASeq2GeneNorm"]]
+miniACC[[1L]]
+## equivalently
+miniACC[["RNASeq2GeneNorm"]]
 ```
 
-## Complete cases
+### Complete cases
 
 `complete.cases()` shows which patients have complete data for all assays:
 
@@ -561,7 +633,7 @@ delimited positions correspond to patient, ie the first patient is
 colnames(accmatched)
 ```
 
-## Row names that are common across assays
+### Row names that are common across assays
 
 `intersectRows()` keeps only rows that are common to each assay, and aligns them
 in identical order. For example, to keep only genes where data are available for
@@ -575,7 +647,7 @@ rownames(accmatched2)
 
 <p style="text-align: right;"> [back to top](#overview-of-key-data-classes) </p>
 
-## Extraction
+### Extraction
 
 ### assay and assays
 
@@ -601,7 +673,7 @@ assays(miniACC)
 
 <p style="text-align: right;"> [back to top](#overview-of-key-data-classes) </p>
 
-## Summary of slots and accessors
+### Summary of slots and accessors
 
 Slot in the `MultiAssayExperiment` can be accessed or set using their accessor
 functions:
@@ -616,14 +688,14 @@ functions:
 __*__ The `$` operator on a `MultiAssayExperiment` returns a single
 column of the `colData`.
 
-## Transformation / reshaping
+### Transformation / reshaping
 
 The `longFormat` or `wideFormat` functions will "reshape" and combine
 experiments with each other and with `colData` into one `DataFrame`. These
 functions provide compatibility with most of the common R/Bioconductor functions
 for regression, machine learning, and visualization.
 
-### `longFormat`
+#### `longFormat`
 
 In _long_ format a single column provides all assay results, with additional
 optional `colData` columns whose values are repeated as necessary. Here *assay*
@@ -639,7 +711,7 @@ longFormat(miniACC[c("TP53", "CTNNB1"), , ],
            colDataCols = c("vital_status", "days_to_death"))
 ```
 
-### `wideFormat`
+#### `wideFormat`
 
 In _wide_ format, each feature from each assay goes in a separate column, with
 one row per primary identifier (patient). Here, each variable becomes a new
@@ -650,58 +722,9 @@ wideFormat(miniACC[c("TP53", "CTNNB1"), , ],
            colDataCols = c("vital_status", "days_to_death"))
 ```
 
-## MultiAssayExperiment class construction and concatenation
-
-### MultiAssayExperiment constructor function
-The `MultiAssayExperiment` constructor function can take three arguments:
-
-1. `experiments` - An `ExperimentList` or `list` of data
-2. `colData` - A `DataFrame` describing the patients (or cell lines, or other
-biological units)
-3. `sampleMap` - A `DataFrame` of `assay`, `primary`, and `colname` identifiers
-
-The miniACC object can be reconstructed as follows:
-```{r}
-MultiAssayExperiment(experiments=experiments(miniACC),
-                     colData=colData(miniACC),
-                     sampleMap=sampleMap(miniACC),
-                     metadata=metadata(miniACC))
-```
-
-
-### `prepMultiAssay` - Constructor function helper
-
-The `prepMultiAssay` function allows the user to diagnose typical problems
-when creating a `MultiAssayExperiment` object. See `?prepMultiAssay` for more
-details.
-
-### `c` - concatenate to MultiAssayExperiment
-
-The `c` function allows the user to concatenate an additional experiment to an
-existing `MultiAssayExperiment`. The optional `sampleMap` argument allows
-concatenating an assay whose column names do not match the row names of
-`colData`. For convenience, the _mapFrom_ argument allows the user to map from a
-particular experiment **provided** that the **order** of the colnames is in the
-**same**. A `warning` will be issued to make the user aware of this assumption.
-For example, to concatenate a matrix of log2-transformed RNA-seq results:
-
-```{r}
-miniACC2 <- c(miniACC, log2rnaseq = log2(assays(miniACC)$RNASeq2GeneNorm), mapFrom=1L)
-experiments(miniACC2)
-```
-
 <p style="text-align: right;"> [back to top](#overview-of-key-data-classes) </p>
 
-### Building a MultiAssayExperiment from scratch
-
-To start from scratch building your own MultiAssayExperiment, see the package
-[Coordinating Analysis of Multi-Assay Experiments vignette](https://bioconductor.org/packages/release/bioc/vignettes/MultiAssayExperiment/inst/doc/MultiAssayExperiment.html).
-The package [cheat sheet](https://bioconductor.org/packages/release/bioc/vignettes/MultiAssayExperiment/inst/doc/MultiAssayExperiment_cheatsheet.pdf) is also helpful.
-
-If anything is unclear, please ask a question at
-https://support.bioconductor.org/ or create an issue on the [MultiAssayExperiment issue tracker](https://github.com/waldronlab/MultiAssayExperiment/issues).
-
-## The Cancer Genome Atlas (TCGA) as MultiAssayExperiment objects
+## The Cancer Genome Atlas (TCGA) Data from `curatedTCGAData`
 
 Most unrestricted TCGA data are available as MultiAssayExperiment objects from
 the `curatedTCGAData` package. This represents a lot of harmonization!
@@ -711,7 +734,8 @@ library(curatedTCGAData)
 curatedTCGAData("ACC")
 suppressMessages({
     acc <- curatedTCGAData("ACC",
-        assays = c("miRNASeqGene", "RPPAArray", "Mutation", "RNASeq2GeneNorm", "CNVSNP"),
+        assays = c("miRNASeqGene", "RPPAArray", "Mutation",
+            "RNASeq2GeneNorm", "CNVSNP"),
         dry.run = FALSE)
 })
 acc
@@ -726,7 +750,7 @@ dim(colData(acc))
 tail(colnames(colData(acc)), 10)
 ```
 
-The `TCGAutils` package provides additional helper functions, see below.
+The `TCGAutils` package provides additional helper functions.
 
 ## Utilities for TCGA
 
@@ -734,29 +758,72 @@ Aside from the available reshaping functions already included in the
 `MultiAssayExperiment` package, the `r BiocStyle::Biocpkg("TCGAutils")` package
 provides additional helper functions for working with TCGA data.
 
-### "Simplification" of `curatedTCGAData` objects
-
 A number of helper functions are available for managing datasets from
 `curatedTCGAData`. These include:
 
 - Conversions of `SummarizedExperiment` to `RangedSummarizedExperiment` based
 on `TxDb.Hsapiens.UCSC.hg19.knownGene` for:
-    - `mirToRanges`: microRNA
-    - `symbolsToRanges`: gene symbols
-- `qreduceTCGA`: convert `RaggedExperiment` objects to
+    - `mirToRanges()`: microRNA
+    - `symbolsToRanges()`: gene symbols
+    - `qreduceTCGA()`: convert `RaggedExperiment` objects to
 `RangedSummarizedExperiment` with one row per gene symbol, for:
-    - segmented copy number datasets ("CNVSNP" and "CNASNP")
-    - somatic mutation datasets ("Mutation"), with a value of 1 for any
+        - segmented copy number datasets ("CNVSNP" and "CNASNP")
+        - somatic mutation datasets ("Mutation"), with a value of 1 for any
 non-silent mutation and a value of 0 for no mutation or silent mutation
+
+### (1) Conversion of row metadata for `curatedTCGAData` objects
+
+#### `mirToRanges`
+
+microRNA assays obtained from `curatedTCGAData` have annotated sequences
+that can be converted to genomic ranges using the `mirbase.db` package.
+The function looks up all sequences and converts them to ('hg19') ranges.
+For those rows that cannot be found, an 'unranged' assay is introduced
+in the resulting MultiAssayExperiment object.
+
+```{r}
+mirToRanges(acc)
+```
+
+#### `qreduceTCGA`
+
+The `qreduceTCGA` function converts `RaggedExperiment` mutation data objects
+to `RangedSummarizedExperiment` using `org.Hs.eg.db` and the `qreduceTCGA`
+utility function from `RaggedExperiment` to summarize 'silent' and 'non-silent'
+mutations based on a 'Variant_Classification' metadata column in the original
+object.
+
+```{r}
+## Update build metadata to "hg19"
+genome(acc[["ACC_Mutation-20160128"]]) <-
+    vapply(genome(acc[["ACC_Mutation-20160128"]]),
+    translateBuild, character(1L))
+
+qreduceTCGA(acc)
+```
+
+#### `symbolsToRanges`
+
+In the cases where row annotations indicate gene symbols, the `symbolsToRanges`
+utility function converts genes to genomic ranges and replaces existing
+assays with `RangedSummarizedExperiment` objects. Gene annotations are given
+as 'hg19' genomic regions.
+
+```{r}
+symbolsToRanges(acc)
+```
+
+#### `simplifyTCGA`
 
 The `simplifyTCGA` function combines all of the above operations to create
 a more managable `MultiAssayExperiment` object and using
 `RangedSummarizedExperiment` assays where possible.
 
 ```{r}
-genome(acc[[3]]) <- vapply(genome(acc[[3]]), translateBuild, character(1L))
-(simpa <- TCGAutils::simplifyTCGA(acc))
+TCGAutils::simplifyTCGA(acc)
 ```
+
+### (2) Identification and Separation of Samples
 
 ### What types of samples are in the data?
 
@@ -766,9 +833,49 @@ The `sampleTables` function gives you an overview of samples in each assay:
 
 ```{r}
 sampleTables(acc)
+```
 
+Interpretation of sample codes:
+
+```{r}
+data("sampleTypes")
 head(sampleTypes)
 ```
+
+
+### `splitAssays`: separate the data from different tissue types
+
+TCGA datasets include multiple -omics for solid tumors, adjacent normal
+tissues, blood-derived cancers and normals, and other tissue types, which may
+be mixed together in a single dataset. The `MultiAssayExperiment` object
+generated here has one patient per row of its `colData`, but each patient may
+have two or more -omics profiles by any assay, whether due to assaying of
+different types of tissues or to technical replication. `splitAssays` separates
+profiles from different tissue types (such as tumor and adjacent normal) into
+different assays of the `MultiAssayExperiment` by taking a vector of sample
+codes, and partitioning the current assays into assays with an appended sample
+code:
+
+```{r}
+split_acc <- splitAssays(acc, c("01", "11"))
+```
+
+The `MultiAssayExperiment` package then provides functionality to
+merge replicate profiles for a single patient (`mergeReplicates()`), which
+would now be appropriate but would **not** have been appropriate before
+splitting different tissue types into different assays, because that would
+average measurements  from tumors and normal tissues.
+
+`MultiAssayExperiment` also defines the `MatchedAssayExperiment` class, which
+eliminates any profiles not present across all assays and ensures identical
+ordering of profiles (columns) in each assay. In this example, it will match
+tumors to adjacent normals in subsequent assays:
+
+```{r}
+(matchmae <- as(split_acc[, , c(1, 3, 4, 5, 6)], "MatchedAssayExperiment"))
+```
+
+Only about 43 participants have data across all experiments.
 
 ### Curated molecular subtypes
 
@@ -786,25 +893,72 @@ getSubtypeMap(acc)
 head(colData(acc)$Histology)
 ```
 
-### Converting TCGA UUIDs to barcodes and back
+### (3) Translation and Interpretation of TCGA identifiers 
 
 `TCGAutils` provides a number of ID translation functions.
 These allow the user to translate from either file or case UUIDs to TCGA
 barcodes and back. These functions work by querying the Genomic Data Commons API
 via the `GenomicDataCommons` package (thanks to Sean Davis). These include:
 
-* `UUIDtoBarcode()`
-* `barcodeToUUID()`
-* `UUIDtoUUID()`
-* `filenameToBarcode()`
+#### `UUIDtoBarcode()` - UUID to TCGA barcode
 
-See the `r BiocStyle::Biocpkg("TCGAutils")` help pages for details.
+Here we have a known case UUID that we want to translate into a TCGA barcode.
 
-### Other TCGA data types
+```{r}
+UUIDtoBarcode("ae55b2d3-62a1-419e-9f9a-5ddfac356db4", from_type = "case_id")
+```
 
-Helper functions to add TCGA exon files (legacy archive), copy number and
-GISTIC copy number calls to MultiAssayExperiment objects are also available in
-`r BiocStyle::Biocpkg("TCGAutils")`.
+In cases where we want to translate a known file UUID to the associated TCGA
+patient barcode, we can use `UUIDtoBarcode`.
+
+```{r}
+UUIDtoBarcode("0001801b-54b0-4551-8d7a-d66fb59429bf", from_type = "file_id")
+```
+
+#### `barcodeToUUID()` - TCGA barcode to UUID
+
+Here we translate the first two TCGA barcodes of the previous copy-number
+alterations dataset to UUID:
+
+```{r}
+(xbarcode <- head(colnames(acc)[["ACC_CNVSNP-20160128"]], 4L))
+barcodeToUUID(xbarcode)
+```
+
+#### `UUIDtoUUID()` - file and case IDs
+
+We can also translate from file UUIDs to case UUIDs and vice versa as long as
+we know the input type. We can use the case UUID from the previous example to
+get the associated file UUIDs using `UUIDtoUUID`. Note that this translation
+is a one to many relationship, thus yielding a `data.frame` of file UUIDs for a
+single case UUID.
+
+```{r}
+head(UUIDtoUUID("ae55b2d3-62a1-419e-9f9a-5ddfac356db4", to_type = "file_id"))
+```
+
+One possible way to verify that file IDs are matching case UUIDS is to
+browse to the Genomic Data Commons webpage with the specific file UUID.
+Here we look at the first file UUID entry in the output `data.frame`:
+
+https://portal.gdc.cancer.gov/files/0b4acc9e-3933-4d74-916a-a53c4a0665e6
+
+In the page we check that the case UUID matches the input.
+
+#### `filenameToBarcode()` - Using file names as input
+
+```{r}
+fquery <- files() %>%
+    GenomicDataCommons::filter(~ cases.project.project_id == "TCGA-ACC" &
+        data_category == "Copy Number Variation" &
+        data_type == "Copy Number Segment")
+
+fnames <- head(results(fquery)$file_name)
+
+filenameToBarcode(fnames)
+```
+
+See the `TCGAutils` vignette page for more details.
 
 ## Plotting, correlation, and other analyses
 
