@@ -960,6 +960,39 @@ filenameToBarcode(fnames)
 
 See the `TCGAutils` vignette page for more details.
 
+## Bonus: `MultiAssayExperiment` - Pan-Cancer Example
+
+The `MultiAssayExperiment` class is most efficient with samples from a set
+of patients over multiple experiments but it also supports samples from
+disparate datasets where the patients are different in each dataset.
+The data container allows multiple sets of patients within the same object.
+This is nicely demonstrated using a PanCancer TCGA dataset where measurements
+are made on multiple groups of patients. In order to achieve this,
+`curatedTCGAData` allows the user to query for multiple cancer types.
+
+In the example, we can focus on one type of data:
+
+```{r}
+head(curatedTCGAData("*", "miRNA*"))
+```
+
+To obtain data for multiple cancers, we modify the first argument in
+`curatedTCGAData`:
+
+```{r}
+curatedTCGAData(c("OV", "CESC", "BRCA", "UCEC", "UCS"), "miRNA*")
+```
+
+We then request the actual data by setting the `dry.run` argument to `FALSE`:
+
+```{r}
+mirnapan <- curatedTCGAData(
+    c("OV", "CESC", "BRCA", "UCEC", "UCS"), "miRNA*", FALSE)
+```
+
+* We are currently working on helper functions to make Pan-Cancer
+analyses easier to achieve.
+
 ## Plotting, correlation, and other analyses
 
 These provide exercises and solutions using the `miniACC` dataset.
