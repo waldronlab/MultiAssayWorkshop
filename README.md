@@ -1,5 +1,11 @@
 # Workflow for Multi-omics Analysis with MultiAssayExperiment and curatedTCGAData
 
+# Quick-install
+
+```
+BiocManager::install("waldronlab/MultiAssayWorkshop", dependencies=TRUE, build_vignettes=TRUE)
+```
+
 # Instructor names and contact information
 
 [Marcel Ramos](mailto:Marcel.Ramos@sph.cuny.edu),
