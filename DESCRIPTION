@@ -27,6 +27,7 @@ Imports:
   survival,
   survminer,
   kableExtra,
+  readxl,
   pheatmap
 Suggests:
   knitr
