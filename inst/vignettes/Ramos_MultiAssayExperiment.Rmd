@@ -1,5 +1,5 @@
 ---
-title: "MultiAssayExperiment & curatedTCGAData: Integrative workflow for Multi-omics data"
+title: "MultiAssayExperiment: Integrative workflow for public multi-omics data"
 author:
   - name: Marcel Ramos
     affiliation: Roswell Park Comprehensive Cancer Center, Buffalo, NY
@@ -16,7 +16,7 @@ output:
     mathjax: null
 ---
 
-# Workflow for Multi-omics Analysis with MultiAssayExperiment and curatedTCGAData
+# Multi-omic Integration and Analysis of cBioPortal and TCGA data with MultiAssayExperiment
 
 ```{r, include=FALSE}
 library(knitr)
@@ -39,11 +39,12 @@ Comprehensive Cancer Center, Buffalo, NY] (<marcel.ramos@roswellpark.org>)
 This workshop demonstrates data management and analyses of multiple
 assays associated with a single set of biological specimens,
 using the `MultiAssayExperiment` data class and methods.  It introduces the
-facilities made available by companion packages, `curatedTCGAData` and
-`TCGAutils`, to work with TCGA data. Built using the
-`MultiAssayExperiment` class, these packages make the management of multiple
-assays easier and more efficient. The workshop also covers relevant data classes
-such as `SummarizedExperiment` and `RangedSummarizedExperiment`, which provide
+facilities made available by companion packages, `cBioPortalData`,
+`curatedTCGAData`, and `TCGAutils` to work with publicly available multi-omic
+data. Using the `MultiAssayExperiment` class, these packages make the
+management of multiple assays easier and more efficient. The workshop also
+covers, to a limited extent, relevant data classes such as
+`SummarizedExperiment` and `RangedSummarizedExperiment`, which provide
 efficient and powerful operations for representation of copy number, mutation,
 variant, and expression data that are represented by different genomic ranges
 for each specimen.
@@ -58,26 +59,27 @@ for each specimen.
 
 Participants will have a chance to build a `MultiAssayExperiment` object
 from scratch, and will also work with more complex objects provided
-by the `curatedTCGAData` package.
+by the `curatedTCGAData` and `cBioPortalData` packages.
 
 ### R/Bioconductor packages used
 
-First, please make sure you have the latest Bioconductor release version 3.9.
+First, please make sure you have the latest Bioconductor release version 3.10.
 See [Bioconductor installation](https://www.bioconductor.org/install)
 instructions:
 
-```{r, eval = FALSE}
+```{r,eval=FALSE}
 if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
 
-## Bioconductor 3.9 Stable Release
-BiocManager::install(version = "3.9")
+## Bioconductor 3.10 Stable Release
+BiocManager::install(version = "3.10")
 ```
 
 * [MultiAssayExperiment](https://bioconductor.org/packages/MultiAssayExperiment)
 * [GenomicRanges](https://bioconductor.org/packages/GenomicRanges)
 * [RaggedExperiment](https://bioconductor.org/packages/RaggedExperiment)
 * [curatedTCGAData](https://bioconductor.org/packages/curatedTCGAData)
+* [cBioPortalData](https://github.com/waldronlab/cBioPortalData)
 * [SummarizedExperiment](https://bioconductor.org/packages/SummarizedExperiment)
 * [TCGAutils](https://bioconductor.org/packages/TCGAutils)
 * [UpSetR](https://bioconductor.org/packages/UpSetR)
@@ -87,7 +89,8 @@ BiocManager::install(version = "3.9")
 * [survminer](https://cran.r-project.org/package=survminer)
 * [pheatmap](https://cran.r-project.org/package=pheatmap)
 
-```{r, eval = FALSE}
+
+```{r,include=TRUE,results="hide",message=FALSE,warning=FALSE}
 library(MultiAssayExperiment)
 library(GenomicRanges)
 library(RaggedExperiment)
@@ -104,44 +107,32 @@ library(survival)
 library(survminer)
 library(pheatmap)
 library(readxl)
+library(readr)
 library(kableExtra)
 ```
 
-```{r, echo = FALSE}
-suppressPackageStartupMessages({
-    library(MultiAssayExperiment)
-    library(GenomicRanges)
-    library(RaggedExperiment)
-    library(curatedTCGAData)
-    library(GenomicDataCommons)
-    library(SummarizedExperiment)
-    library(SingleCellExperiment)
-    library(TCGAutils)
-    library(UpSetR)
-    library(mirbase.db)
-    library(AnnotationFilter)
-    library(EnsDb.Hsapiens.v86)
-    library(survival)
-    library(survminer)
-    library(pheatmap)
-    library(S4Vectors)
-    library(readxl)
-    library(kableExtra)
-})
+### cBioPortalData installation from GitHub
+
+```{r,eval=FALSE}
+BiocManager::install("WaldronLab/cBioPortalData")
+```
+
+```{r,include=TRUE,results="hide",message=FALSE,warning=FALSE}
+library(cBioPortalData)
 ```
 
 ### Time outline
 
-1h 40m total
+1h 45m total
 
 | Activity                            | Time    |
 |-------------------------------------|---------|
-| Overview of key data classes and packages | 30m |
+| Overview of key data classes | 25m |
 | Building a MultiAssayExperiment from scratch | 10m |
+| Creating and importing TCGA multi-assay datasets | 10m |
 | Subsetting and reshaping multi-assay data | 20m |
-| curatedTCGAData multi-assay dataset | 20 min |
-| TCGAutils functionality | 10m |
-| Plotting, correlation, analysis and other examples | 10m |
+| Plotting, correlation, and other analyses | 20m |
+| Introduction to curatedTCGAData, cBioPortalData, and TCGAutils | 20m |
 
 
 ## Workshop goals and objectives
@@ -152,17 +143,18 @@ suppressPackageStartupMessages({
 * identify appropriate data structures for different 'omics data types
 * identify advantages of providing integrative data in an analysis-ready
 platform
-* gain familiarity with available functionality in TCGAutils for the management
-and coordination of TGCA data
+* gain familiarity with `cBioPortalData` and `curatedTCGAData`
+* explore available functionality in `TCGAutils` for the management and
+coordination of multi-omic public data
 
 ### Learning objectives
 
-* use curatedTCGAData to create custom on-the-fly TCGA MultiAssayExperiment
-objects
-* create a MultiAssayExperiment for TCGA or other multi'omics data
+* use `curatedTCGAData` and `cBioPortalData` to create on-the-fly multi-omics
+data objects
+* create a `MultiAssayExperiment` for other multi'omics data
 * perform subsetting, reshaping, growing, and extraction of a
-MultiAssayExperiment
-* link MultiAssayExperiment data with packages for differential expression,
+`MultiAssayExperiment`
+* link `MultiAssayExperiment` data with packages for differential expression,
 machine learning, and plotting
 
 ## Overview of key packages and data classes
@@ -183,6 +175,34 @@ currently available Bioconductor classes.
 
 ```{r, echo = FALSE, fig.cap="MultiAssayExperiment object schematic", out.width="\\maxwidth"}
 knitr::include_graphics(.sysLink("MultiAssayExperiment.png"))
+```
+
+#### `cBioPortalData`
+
+The `cBioPortalData` package provides an R/Bioconductor interface to cBioPortal
+data. The `cBioPortalData` package makes use of the revamped API and provides
+an internal caching mechanism to avoid re-querying the API. It allows users to
+download data from https://cBioPortal.org through customized queries that are
+handled for the user _in the background_.  We provide an easy to use interface
+that requires minimal knowledge of the cBioPortal data model and API.
+
+First create an API object to be able to query the website:
+
+```{r}
+cbio <- cBioPortal()
+cbio
+```
+
+To see what studies are available from the `cBioPortal`, use `getStudies`
+on the `cbio` API object:
+
+```{r}
+knitr::kable(getStudies(cbio), align = "l", escape = FALSE,
+    caption = "List of available studies from the cBioPortal") %>%
+    kableExtra::kable_styling(
+        bootstrap_options = c("hover", "striped", "responsive"),
+        full_width = FALSE
+    )
 ```
 
 #### `curatedTCGAData`
@@ -242,7 +262,7 @@ Available operations in `TCGAutils` and `MultiAssayExperiment` enable
 user-friendly operations for subsetting, separating, converting, and reshaping
 of sample and feature TCGA data.
 
-TCGAutils was developed specifically for TCGA data and for curatedTCGAData
+`TCGAutils` was developed specifically for TCGA data and for `curatedTCGAData`
 products. It provides convenience / helper functions in three major areas:
 
 1) conversion / summarization of row annotations to genomic ranges
@@ -373,12 +393,13 @@ knitr::include_graphics(.sysLink("MultiAssayExperiment.png"))
 
 ## Building a MultiAssayExperiment from scratch
 
-To start from scratch building your own MultiAssayExperiment, see the package
-[Coordinating Analysis of Multi-Assay Experiments vignette](https://bioconductor.org/packages/release/bioc/vignettes/MultiAssayExperiment/inst/doc/MultiAssayExperiment.html).
+To start from scratch building your own `MultiAssayExperiment`, see the package
+vignette [Coordinating Analysis of Multi-Assay Experiments vignette](https://bioconductor.org/packages/release/bioc/vignettes/MultiAssayExperiment/inst/doc/MultiAssayExperiment.html).
 The package [cheat sheet](https://bioconductor.org/packages/release/bioc/vignettes/MultiAssayExperiment/inst/doc/MultiAssayExperiment_cheatsheet.pdf) is also helpful.
 
 If anything is unclear, please ask a question at
-https://support.bioconductor.org/ or create an issue on the [MultiAssayExperiment issue tracker](https://github.com/waldronlab/MultiAssayExperiment/issues).
+https://support.bioconductor.org/ or create an issue on the
+[MultiAssayExperiment issue tracker](https://github.com/waldronlab/MultiAssayExperiment/issues).
 
 ### MultiAssayExperiment class construction and concatenation
 
@@ -893,7 +914,7 @@ getSubtypeMap(acc)
 head(colData(acc)$Histology)
 ```
 
-### (3) Translation and Interpretation of TCGA identifiers 
+### (3) Translation and Interpretation of TCGA identifiers
 
 `TCGAutils` provides a number of ID translation functions.
 These allow the user to translate from either file or case UUIDs to TCGA

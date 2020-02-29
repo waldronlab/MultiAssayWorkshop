@@ -1,4 +1,4 @@
-# Workflow for Multi-omics Analysis with MultiAssayExperiment and curatedTCGAData
+# Multi-omic Integration and Analysis of cBioPortal and TCGA data with MultiAssayExperiment
 
 # Quick-install
 
@@ -45,9 +45,10 @@ package and to test functionality provided in the `TCGAutils` package.
 ## R/Bioconductor packages used
 
 * [MultiAssayExperiment](http://bioconductor.org/packages/MultiAssayExperiment)
-* [RaggedExperiment](http://bioconductor.org/packages/RaggedExperiment)
 * [curatedTCGAData](http://bioconductor.org/packages/curatedTCGAData)
+* [cBioPortalData](https://github.com/waldronlab/cBioPortalData)
 * [TCGAutils](http://bioconductor.org/packages/TCGAutils)
+* [RaggedExperiment](http://bioconductor.org/packages/RaggedExperiment)
 * [SummarizedExperiment](http://bioconductor.org/packages/SummarizedExperiment)
 
 ## Time outline
@@ -58,23 +59,26 @@ package and to test functionality provided in the `TCGAutils` package.
 |-------------------------------------|---------|
 | Overview of key data classes | 25m |
 | Building a MultiAssayExperiment from scratch | 10m |
-| Creating and TCGA multi-assay dataset | 10m |
+| Creating and importing TCGA multi-assay datasets | 10m |
 | Subsetting and reshaping multi-assay data | 20m |
 | Plotting, correlation, and other analyses | 20m |
-| Introduction to curatedTCGAData and TCGAutils | 20m |
+| Introduction to curatedTCGAData, cBioPortalData, and TCGAutils | 20m |
 
 # Workshop goals and objectives
 
 ## Learning goals
 
 * identify appropriate data structures for different 'omics data types
-* gain familiarity with curatedTCGAData and TCGAutils functionality
+* gain familiarity with `cBioPortalData`, `curatedTCGAData`, and `TCGAutils`
+functionality
 
 ## Learning objectives
 
-* create a MultiAssayExperiment for TCGA or other multi'omics data
-* perform subsetting, reshaping, growing, and extraction of a MultiAssayExperiment
-* use curatedTCGAData to create custom TCGA MultiAssayExperiment objects
-* link MultiAssayExperiment data with packages for differential expression,
+* create a `MultiAssayExperiment` for `cBioPortal` and TCGA data
+* perform subsetting, reshaping, growing, and extraction of a
+`MultiAssayExperiment`
+* use `curatedTCGAData` and `cBioPortalData` to create custom TCGA
+`MultiAssayExperiment` objects
+* link `MultiAssayExperiment` data with packages for differential expression,
 machine learning, and plotting
 
