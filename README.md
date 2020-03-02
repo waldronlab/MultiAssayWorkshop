@@ -20,15 +20,16 @@ New York, NY 10027
 
 # Workshop Description
 
-This workshop demonstrates data management and analyses of multiple
-assays associated with a single set of biological specimens,
-using the `MultiAssayExperiment` data class and methods. It introduces
-the `RaggedExperiment` data class, which provides efficient and powerful
-operations for representation of copy number and mutation and variant
-data that are represented by different genomic ranges for each specimen.
-It presents examples using MultiAssayExperiment with TCGA data via the
-`curatedTCGAData` experiment data package. It provides a basic overview of
-`TCGAutils` functionality to make working with TCGA data easier.
+This workshop demonstrates the leveraging of public multi-omics databases, such
+as cBioPortal and The Cancer Genome Atlas (TCGA), through the use of the
+`cBioPortalData` and `curatedTCGAData` experiment data packages. It provides
+users with the basics of data management, using the `MultiAssayExperiment` data
+class and the `TCGAutils` utility package, and example analyses of multiple
+assays associated with a single set of biological specimens. In addition to
+providing a basic overview of key data classes, such as `MultiAssayExperiment`
+and `RaggedExperiment`, this workshop intends to provide an overview of
+`cBioPortalData` and `curatedTCGAData` experiment data packages and `TCGAutils`
+functionality aimed at enhancing the ease-of-use of TCGA data.
 
 ## Pre-requisites
 
