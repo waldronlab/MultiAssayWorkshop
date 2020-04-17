@@ -1,6 +1,10 @@
 language: r
-r:
-  - devel
-cache: packages
 sudo: false
-warnings_are_errors: false
+os:
+  - linux
+cache:
+  packages: true
+r:
+  - bioc-devel
+before_install:
+  - tlmgr install index
