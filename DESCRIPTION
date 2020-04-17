@@ -1,6 +1,6 @@
 Package: MultiAssayWorkshop
 Title: MultiAssayExperiment and curatedTCGAData Bioconductor 2019 Workshop
-Version: 3.9.0
+Version: 3.9.1
 Authors@R: c(person("Marcel", "Ramos", email = "marcel.ramos@roswellpark.org",
     role = c("aut", "cre")),
     person("Ludwig", "Geistlinger", email = "Ludwig.Geistlinger@sph.cuny.edu",
@@ -8,7 +8,7 @@ Authors@R: c(person("Marcel", "Ramos", email = "marcel.ramos@roswellpark.org",
     person("Levi", "Waldron", email = "lwaldron.research@gmail.com",
     role = "aut"))
 Description: A workshop package for the Bioconductor 2019 conference.
-Depends: R (>= 3.6.0), R (< 3.7.0)
+Depends: R (>= 3.6.0)
 Imports:
   MultiAssayExperiment,
   GenomicRanges,
