@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/waldronlab/MultiAssayWorkshop.svg?branch=master)](https://travis-ci.org/waldronlab/MultiAssayWorkshop)
+
 # Multi-omic Integration and Analysis of cBioPortal and TCGA data with MultiAssayExperiment
 
 # Quick-install
