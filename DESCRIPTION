@@ -39,9 +39,8 @@ Suggests:
   pkgdown
 License: Artistic-2.0 + file LICENSE
 Encoding: UTF-8
-VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)
-URL: https://waldronlab.github.io/MultiAssayWorkshop2020/
-BugReports: https://github.com/waldronlab/MultiAssayWorkshop2020/issues/new/choose
+URL: https://waldronlab.github.io/MultiAssayWorkshop/
+BugReports: https://github.com/waldronlab/MultiAssayWorkshop/issues/new/choose
 VignetteBuilder: knitr
-DockerImage: waldronlab/multiassayworkshop2020:latest
+DockerImage: mr148/multiassayworkshop:latest
