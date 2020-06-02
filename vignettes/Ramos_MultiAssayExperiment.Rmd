@@ -113,19 +113,18 @@ library(readr)
 library(kableExtra)
 ```
 
-### Time outline
+## Time outline
 
 1h 45m total
 
 | Activity                            | Time    |
 |-------------------------------------|---------|
-| Overview of key data classes        | 25m |
-| Building a MultiAssayExperiment from scratch | 10m |
+| Overview of key data classes | 25m |
+| Building a `MultiAssayExperiment` from scratch | 10m |
 | Creating and importing TCGA multi-assay datasets | 10m |
 | Subsetting and reshaping multi-assay data | 20m |
 | Plotting, correlation, and other analyses | 20m |
-| Introduction to curatedTCGAData, cBioPortalData, and TCGAutils | 20m |
-
+| Introduction to `curatedTCGAData`, `cBioPortalData`, and `TCGAutils` | 20m |
 
 ## Workshop goals and objectives
 

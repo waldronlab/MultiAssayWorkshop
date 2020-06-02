@@ -61,27 +61,31 @@ package and to test functionality provided in the `TCGAutils` package.
 | Activity                            | Time    |
 |-------------------------------------|---------|
 | Overview of key data classes | 25m |
-| Building a MultiAssayExperiment from scratch | 10m |
+| Building a `MultiAssayExperiment` from scratch | 10m |
 | Creating and importing TCGA multi-assay datasets | 10m |
 | Subsetting and reshaping multi-assay data | 20m |
 | Plotting, correlation, and other analyses | 20m |
-| Introduction to curatedTCGAData, cBioPortalData, and TCGAutils | 20m |
+| Introduction to `curatedTCGAData`, `cBioPortalData`, and `TCGAutils` | 20m |
 
-# Workshop goals and objectives
+## Workshop goals and objectives
 
-## Learning goals
+### Learning goals
 
-* identify appropriate data structures for different 'omics data types
-* gain familiarity with `cBioPortalData`, `curatedTCGAData`, and `TCGAutils`
-functionality
+* overview common data classes available in Bioconductor
+* understand appropriate data structures for different 'omics data types
+* identify advantages of providing integrative data in an analysis-ready
+platform
+* gain familiarity with `cBioPortalData` and `curatedTCGAData`
+* explore available functionality in `TCGAutils` for the management and
+coordination of multi-omic data
 
-## Learning objectives
+### Learning objectives
 
-* create a `MultiAssayExperiment` for `cBioPortal` and TCGA data
-* perform subsetting, reshaping, growing, and extraction of a
-`MultiAssayExperiment`
-* use `curatedTCGAData` and `cBioPortalData` to create custom TCGA
-`MultiAssayExperiment` objects
-* link `MultiAssayExperiment` data with packages for differential expression,
+* use `curatedTCGAData` and `cBioPortalData` to create on-the-fly multi-omics
+data objects
+* apply knowlege of `MultiAssayExperiment` to represent other multi'omics data
+* understand basic data management techniques with MultiAssayExperiment such as
+subsetting, reshaping, growing, and extraction
+* adapt `MultiAssayExperiment` data with packages for differential expression,
 machine learning, and plotting
 
