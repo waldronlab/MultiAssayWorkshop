@@ -1,4 +1,4 @@
-url: https://waldronlab.github.io/MultiAssayWorkshop2020
+url: https://waldronlab.github.io/MultiAssayWorkshop
 
 template:
   params:
@@ -13,6 +13,6 @@ home:
 navbar:
   right:
    - icon: fa-github
-     href: https://github.com/waldronlab/MultiAssayWorkshop2020
+     href: https://github.com/waldronlab/MultiAssayWorkshop
      
 
