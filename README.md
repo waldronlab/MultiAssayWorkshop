@@ -1,4 +1,4 @@
-[![Build Status](https://github.com/waldronlab/MultiAssayWorkshop/workflows/job1/badge.svg)](https://waldronlab.github.io/MultiAssayWorkshop)
+[![.github/workflows/basic_checks.yaml](https://github.com/waldronlab/MultiAssayWorkshop/workflows/.github/workflows/basic_checks.yaml/badge.svg)](https://waldronlab.github.io/MultiAssayWorkshop)
 
 # Multi-omic Integration and Analysis of cBioPortal and TCGA data with MultiAssayExperiment
 
