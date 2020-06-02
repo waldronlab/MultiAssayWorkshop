@@ -1,0 +1,18 @@
+url: https://waldronlab.github.io/MultiAssayWorkshop2020
+
+template:
+  params:
+    bootswatch: flatly
+    ganalytics: UA-93043521-1
+
+home:
+  title: "MultiAssayWorkshop2020"
+  type: inverse
+
+
+navbar:
+  right:
+   - icon: fa-github
+     href: https://github.com/waldronlab/MultiAssayWorkshop2020
+     
+
