@@ -35,9 +35,10 @@ Imports:
   pheatmap
 Suggests:
   knitr,
+  readr,
   rmarkdown,
   pkgdown
-License: Artistic-2.0 + file LICENSE
+License: Artistic-2.0
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 URL: https://waldronlab.github.io/MultiAssayWorkshop/
