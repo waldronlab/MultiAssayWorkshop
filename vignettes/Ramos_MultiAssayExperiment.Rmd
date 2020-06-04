@@ -223,21 +223,8 @@ knitr::kable(diseaseCodes, align = "l", escape = FALSE,
     )
 ```
 
-```{r, echo=FALSE, cache=FALSE, message=FALSE, warning=FALSE}
-knitr::read_chunk("dataTypesHTML.R")
-```
-
-```{r, echo=FALSE, cache=FALSE, message=FALSE, warning=FALSE}
-<<loadTypes>>
-```
-
-A descriptive table of available 'omics types in `curatedTCGAData`
-(thanks to Ludwig G. `@lgeistlinger`):
-
-```{r}
-## from dataTypesHTML.R
-<<dataTypesTable>>
-```
+See the `OmicsTypes` vignette for a descriptive table of 'omics types
+available in `curatedTCGAData` (thanks to Ludwig G. `@lgeistlinger`)
 
 #### `TCGAutils`
 
@@ -258,18 +245,7 @@ products. It provides convenience / helper functions in three major areas:
 
 along with additional reference data sets to explore TCGA data.
 
-```{r, echo=FALSE, cache=FALSE, message=FALSE, warning=FALSE}
-knitr::read_chunk("TCGAutils_cheatHTML.R")
-```
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-<<cheatsheet>>
-```
-
-```{r}
-## from TCGAutils_cheatHTML.R script
-<<kable_utils>>
-```
+For the cheatsheet reference table, see the `TCGAutils Cheatsheet` vignette.
 
 To better understand how it all fits together, this schematic shows the
 relationship among all as part of the curatedTCGAData pipeline.

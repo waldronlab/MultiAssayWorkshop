@@ -1,0 +1,76 @@
+---
+title: "Omics Types in curatedTCGAData"
+author:
+  - name: Ludwig Geistlinger
+    affiliation: CUNY School of Public Health, New York, NY
+vignette: >
+  %\VignetteIndexEntry{Omics Types in curatedTCGAData}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+output:
+  html_document:
+    mathjax: null
+---
+
+```{r,echo=FALSE}
+library(tibble)
+rawdat <- tibble(Section = c("SummarizedExperiment*", NA, NA, NA, NA, NA, NA,
+NA, NA, NA, NA, NA, "RangedSummarizedExperiment", NA,
+"SummarizedExperiment with HDF5Array DelayedMatrix", NA,
+NA, "RaggedExperiment", NA, NA, NA, NA, NA, NA,
+"* All can be converted to RangedSummarizedExperiment (except RPPAArray) with TCGAutils"
+), `ExperimentList data types` = c(NA, "RNASeqGene", "RNASeq2GeneNorm",
+"miRNAArray", "miRNASeqGene", "mRNAArray", "mRNAArray_huex",
+"mRNAArray_TX_g4502a", "mRNAArray_TX_ht_hg_u133a", "GISTIC_AllByGene",
+"GISTIC_ThresholdedByGene", "RPPAArray", NA, "GISTIC_Peaks", NA,
+"Methylation_methyl27", "Methylation_methyl450", NA, "CNASNP", "CNVSNP",
+"CNASeq", "Mutation*", "CNACGH_CGH_hg_244a", "CNACGH_CGH_hg_415k_g4124a", NA),
+Description = c(NA, "RSEM TPM gene expression values",
+"Upper quartile normalized RSEM TPM gene expression values",
+"Probe-level  miRNA expression values",
+"Gene-level log2 RPM miRNA expression values",
+"Unified gene-level mRNA expression values",
+"Gene-level mRNA expression values from Affymetrix Human Exon Array",
+"Gene-level mRNA expression values from Agilent 244K Array",
+"Gene-level mRNA expression values from Affymetrix Human Genome U133 Array",
+"Gene-level GISTIC2 copy number values",
+"Gene-level GISTIC2 thresholded discrete copy number values",
+"Reverse Phase Protein Array normalized protein expression values", NA,
+"GISTIC2 thresholded discrete copy number values in recurrent peak regions",
+NA,
+"Probe-level methylation beta values from Illumina HumanMethylation 27K BeadChip",
+"Probe-level methylation beta values from Infinium HumanMethylation 450K BeadChip",
+NA,
+"Segmented somatic Copy Number Alteration calls from SNP array",
+"Segmented germline Copy Number Variant calls from SNP Array",
+"Segmented somatic Copy Number Alteration calls from low pass DNA Sequencing",
+"Somatic mutations calls",
+"Segmented somatic Copy Number Alteration calls from CGH Agilent Microarray 244A",
+"Segmented somatic Copy Number Alteration calls from CGH Agilent Microarray 415K",
+NA))
+```
+
+```{r,echo=FALSE,message=FALSE,warn=FALSE}
+library(knitr)
+library(kableExtra)
+
+dataTypes <- rawdat[is.na(rawdat[[1]]), 2:3]
+names(dataTypes) <- c("ExperimentList data types", "Description")
+
+groups <- rawdat[!is.na(rawdat[[1]]), 1L]
+footnote <- gsub("\\*", "", tail(groups, 1L)[[1L]])
+groups <- unname(unlist(groups[-nrow(groups), ]))
+
+starts <- which(!is.na(rawdat[-nrow(rawdat), 1L]))+1
+ends <- c(starts[-1]-1, nrow(rawdat))
+iwidth <- ends - starts
+```
+
+```{r,echo=FALSE}
+knitr::kable(dataTypes, align = "l", escape = FALSE,
+    caption = "Descriptions of data types available by Bioconductor data class") %>%
+    kableExtra::kable_styling(bootstrap_options = c("hover", "striped", "responsive"),
+        full_width = FALSE) %>% group_rows(index = setNames(iwidth, groups)) %>%
+    footnote(symbol = footnote)
+```
+
