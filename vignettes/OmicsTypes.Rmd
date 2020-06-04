@@ -68,9 +68,13 @@ iwidth <- ends - starts
 
 ```{r,echo=FALSE}
 knitr::kable(dataTypes, align = "l", escape = FALSE,
-    caption = "Descriptions of data types available by Bioconductor data class") %>%
-    kableExtra::kable_styling(bootstrap_options = c("hover", "striped", "responsive"),
-        full_width = FALSE) %>% group_rows(index = setNames(iwidth, groups)) %>%
-    footnote(symbol = footnote)
+    caption = "Descriptions of data types available by Bioconductor data class"
+    ) %>%
+    kableExtra::kable_styling(
+        bootstrap_options = c("hover", "striped", "responsive"),
+        full_width = FALSE
+    ) %>%
+    kableExtra::group_rows(index = setNames(iwidth, groups)) %>%
+        kableExtra::footnote(symbol = footnote)
 ```
 

@@ -81,12 +81,13 @@ groups <- unname(unlist(rawtab[!is.na(rawtab[[1]]), 1L]))
 starts <- which(!is.na(rawtab[-nrow(rawtab), 1L]))+1
 ends <- c(starts[-1]-1, nrow(rawtab)+1)
 iwidth <- ends - starts
-
-## @knitr kable_utils
 ```
 
 ```{r,echo=FALSE}
 knitr::kable(tabInfo, align = "l", escape = FALSE) %>%
-    kable_styling(bootstrap_options = c("hover", "striped", "responsive"),
-        full_width = FALSE) %>% group_rows(index = setNames(iwidth, groups))
+    kableExtra::kable_styling(
+        bootstrap_options = c("hover", "striped", "responsive"),
+        full_width = FALSE
+    ) %>%
+    kableExtra::group_rows(index = setNames(iwidth, groups))
 ```

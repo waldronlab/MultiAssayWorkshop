@@ -1,6 +1,6 @@
 Package: MultiAssayWorkshop
 Title: MultiAssayExperiment and curatedTCGAData Bioconductor 2020 Workshop
-Version: 3.11.1
+Version: 3.11.2
 Authors@R: c(person("Marcel", "Ramos", email = "marcel.ramos@roswellpark.org",
     role = c("aut", "cre")),
     person("Ludwig", "Geistlinger", email = "Ludwig.Geistlinger@sph.cuny.edu",
