@@ -34,8 +34,10 @@ Imports:
   readxl,
   pheatmap
 Suggests:
+  kableExtra,
   knitr,
   readr,
+  tibble,
   rmarkdown,
   pkgdown
 License: Artistic-2.0

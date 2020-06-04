@@ -1,4 +1,20 @@
-^LICENSE\.md$
-.github
-Dockerfile
-_pkgdown.yml
+#----------------------------
+# Git
+#----------------------------
+^\.git$
+^\.github$
+^\.gitignore$
+
+#----------------------------
+# Data and files
+#----------------------------
+^.*\.rda$
+^README\.md$
+^docs$
+^Dockerfile$
+
+#----------------------------
+# Docs
+#----------------------------
+^_pkgdown\.yml$
+.*_cache$
