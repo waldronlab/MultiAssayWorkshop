@@ -1,6 +1,6 @@
-home:
-  title: "MultiAssayWorkshop2020"
-  type: inverse
+title: "MultiAssayWorkshop"
+
+url: https://waldronlab.io/MultiAssayWorkshop
 
 template:
   params:
