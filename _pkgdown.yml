@@ -1,26 +1,23 @@
-url: https://waldronlab.github.io/MultiAssayWorkshop
+home:
+  title: "MultiAssayWorkshop2020"
+  type: inverse
 
 template:
   params:
     bootswatch: flatly
 
-home:
-  title: "MultiAssayWorkshop2020"
-  type: inverse
-
-
 navbar:
   title: ~
   type: default
   left:
-      - text: Workshop
-        href: articles/Ramos_MultiAssayExperiment.html
-      - text: Reference
-        menu:
-        - text: Omics Types
-          href: articles/OmicsTypes.html
-        - text: TCGAutils Cheatsheet
-          href: articles/TCGAutilsCheatsheet.html
+    - text: Workshop
+      href: articles/Ramos_MultiAssayExperiment.html
+    - text: Reference
+      menu:
+      - text: Omics Types
+        href: articles/OmicsTypes.html
+      - text: TCGAutils Cheatsheet
+        href: articles/TCGAutilsCheatsheet.html
   right:
    - icon: fa-github
      href: https://github.com/waldronlab/MultiAssayWorkshop
