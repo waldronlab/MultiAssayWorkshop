@@ -17,12 +17,19 @@ tutorial_options(exercise.timelimit = 10)
 knitr::opts_chunk$set(error = TRUE)
 ```
 
+## MultiAssayWorkshop
+
+See the source code of the interactive exercises at https://github.com/waldronlab/MultiAssayWorkshop
+
+### Introduction
+
 In this tutorial, you will learn how to:
 
+* extract components of a MultiAssayExperiment data structure
 * use the MultiAssayExperiment constructor function to create the
 data representation from individual pieces
 
-## Extractor functions for a MultiAssayExperiment
+### Extractor functions
 
 Before we re-construct our MultiAssayExperiment object (`miniACC`)
 we will learn how to deconstruct or take component pieces from the object.
@@ -31,11 +38,14 @@ We use extractor functions to "extract" those pieces of the data.
 Study the schematic below to see the component pieces of the
 `MultiAssayExperiment` data representation.
 
-```{r mae1, echo = FALSE, fig.cap="MultiAssayExperiment object schematic. colData provides data about the patients, cell lines, or other biological units, with one row per unit and one column per variable. The experiments are a list of assay datasets of arbitrary class.  The sampleMap relates each column (observation) in ExperimentList to exactly one row (biological unit) in colData; however, one row of colData may map to zero, one, or more columns per assay, allowing for missing and replicate assays. sampleMap allows for per-assay sample naming conventions. Metadata can be used to store information in arbitrary format about the MultiAssayExperiment. Green stripes indicate a mapping of one subject to multiple observations across experiments.", out.width="100%"}
-knitr::include_graphics("images/transform-logical.png")
+```{r mae1, echo = FALSE, out.width="90%"}
+knitr::include_graphics("images/MultiAssayExperiment.png")
 ```
 
-## Experiments
+
+## *experiments* 
+
+### obtaining the list of data experiments
 
 Use the `experiments` function to take the experiment data out from
 `miniACC`
@@ -53,9 +63,133 @@ miniACC
 experiments(miniACC)
 ```
 
+###  
+
+The `experiments` function returns an `ExperimentList` object class that is part of the
+`MultiAssayExperiment`. We will see how to get a more general `List` class shortly.
+
 ###
 
 Great! Now we can see the list of experiments that were in the
 `MultiAssayExperiment` object.
 
+## *colData* 
 
+### phenotypic information
+
+Use the `colData` function to see the phenotype information from `miniACC`
+
+```{r cdat1, exercise = TRUE, exercise.eval = FALSE}
+miniACC
+```
+
+```{r cdat1-solution}
+colData(miniACC)
+```
+
+###
+
+## *assays* 
+
+### data representation as a 'List'
+
+We can also extract the list of data within the object by using the `assays` function.
+
+```{r assay1}
+assays(miniACC)
+```
+
+Now use the `class` function on the output of the `assays` function.
+
+```{r assay2, exercise = TRUE, exercise.eval = FALSE}
+assays(miniACC)
+```
+
+```{r assay2-solution}
+class(
+    assays(miniACC)
+)
+```
+
+### SimpleList
+
+The `SimpleList` class is an `S4Vectors` representation of `List`s with metadata.
+
+###
+
+Now we will see how to obtain the sample map information from the `MultiAssayExperiment`
+
+## *sampleMap*
+
+### Graph representation between patients, samples, and assays
+
+In `MultiAssayExperiment` many of the extractor functions have similar or the same naming
+convention. For example, to obtain the `sampleMap` from a `MultiAssayExperiment` we use
+`sampleMap` extractor function.
+
+```{r smap1, exercise = TRUE, exercise.eval = FALSE}
+miniACC
+```
+
+```{r smap1-solution}
+sampleMap(miniACC)
+```
+
+### Test Your Knowledge
+
+```{r expers, echo = FALSE}
+question(" What function do you use to extract the experiments from miniACC?",
+    answer("Experiments", message = "Remember, R is case sensitive!"),
+    answer("experiments", correct = TRUE),
+    answer("ExperimentList", message = "Close! This is the name of the class that houses the data."),
+    allow_retry = TRUE
+)
+```
+
+### Common mistakes
+
+Keeping track of all the names can be a challenge. It is common to confuse
+constructors with extractor functions. For example, using `ExperimentList`
+instead of `experiments` to attempt to obtain the experiment data. The software
+will give you a helpful error message when this is occurs.
+
+###
+
+```{r, eval = FALSE}
+ExperimentList(miniACC)
+```
+
+## The constructor
+
+### MultiAssayExperiment
+
+The constructor function has three main arguments all corresponding to the
+component pieces.
+
+* `experiments`
+* `colData`
+* `sampleMap`
+
+Now that we know how to obtain these from an existing `MultiAssayExperiment`,
+create one function call using the constructor and the set of extractors we
+learned above.
+
+```{r const1, exercise = TRUE, exercise.eval = FALSE}
+experiments(miniACC)
+colData(miniACC)
+sampleMap(miniACC)
+```
+
+**Hint:** See `?MultiAssayExperiment` for more details.
+
+```{r const1-solution}
+MultiAssayExperiment(
+    experiments = experiments(miniACC),
+    colData = colData(miniACC),
+    sampleMap = sampleMap(miniACC)
+)
+```
+
+### 
+
+Awesome! We have our first `MultiAssayExperiment`!
