@@ -1,0 +1,61 @@
+---
+title: "Building a MultiAssayExperiment from scratch"
+output:
+  learnr::tutorial:
+    progressive: true
+    allow_skip: true
+runtime: shiny_prerendered
+description: >
+  Learn how to use the MultiAssayExperiment constructor function using the
+  `miniACC` pre-installed dataset.
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+library(MultiAssayExperiment)
+tutorial_options(exercise.timelimit = 10)
+knitr::opts_chunk$set(error = TRUE)
+```
+
+In this tutorial, you will learn how to:
+
+* use the MultiAssayExperiment constructor function to create the
+data representation from individual pieces
+
+## Extractor functions for a MultiAssayExperiment
+
+Before we re-construct our MultiAssayExperiment object (`miniACC`)
+we will learn how to deconstruct or take component pieces from the object.
+We use extractor functions to "extract" those pieces of the data.
+
+Study the schematic below to see the component pieces of the
+`MultiAssayExperiment` data representation.
+
+```{r mae1, echo = FALSE, fig.cap="MultiAssayExperiment object schematic. colData provides data about the patients, cell lines, or other biological units, with one row per unit and one column per variable. The experiments are a list of assay datasets of arbitrary class.  The sampleMap relates each column (observation) in ExperimentList to exactly one row (biological unit) in colData; however, one row of colData may map to zero, one, or more columns per assay, allowing for missing and replicate assays. sampleMap allows for per-assay sample naming conventions. Metadata can be used to store information in arbitrary format about the MultiAssayExperiment. Green stripes indicate a mapping of one subject to multiple observations across experiments.", out.width="100%"}
+knitr::include_graphics("images/transform-logical.png")
+```
+
+## Experiments
+
+Use the `experiments` function to take the experiment data out from
+`miniACC`
+
+```{r exp1, exercise = TRUE, exercise.eval = FALSE}
+data("miniACC")
+miniACC
+
+```
+
+```{r exp1-solution}
+data("miniACC")
+miniACC
+
+experiments(miniACC)
+```
+
+###
+
+Great! Now we can see the list of experiments that were in the
+`MultiAssayExperiment` object.
+
+

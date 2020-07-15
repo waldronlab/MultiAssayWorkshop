@@ -111,38 +111,35 @@ library(kableExtra)
 
 ## Time outline
 
-1h 45m total
+55 minutes total
 
 | Activity                            | Time    |
 |-------------------------------------|---------|
-| Overview of key data classes | 25m |
+| Overview of key packages and data classes | 15m |
+| Introduction to `curatedTCGAData`, `cBioPortalData`, and `TCGAutils` | 10m |
 | Building a `MultiAssayExperiment` from scratch | 10m |
 | Creating and importing TCGA multi-assay datasets | 10m |
-| Subsetting and reshaping multi-assay data | 20m |
-| Plotting, correlation, and other analyses | 20m |
-| Introduction to `curatedTCGAData`, `cBioPortalData`, and `TCGAutils` | 20m |
+| Subsetting and reshaping multi-assay data | 10m |
 
 ## Workshop goals and objectives
 
 ### Learning goals
 
 * overview common data classes available in Bioconductor
-* understand appropriate data structures for different 'omics data types
-* identify advantages of providing integrative data in an analysis-ready
-platform
-* gain familiarity with `cBioPortalData` and `curatedTCGAData`
+* understand the data structure for representing multi-omics data
 * explore available functionality in `TCGAutils` for the management and
 coordination of multi-omic data
+* gain familiarity with `cBioPortalData` and `curatedTCGAData`
+* identify advantages of providing integrative data in an analysis-ready
+platform
 
 ### Learning objectives
 
 * use `curatedTCGAData` and `cBioPortalData` to create on-the-fly multi-omics
 data objects
-* apply knowlege of `MultiAssayExperiment` to represent other multi'omics data
-* understand basic data management techniques with MultiAssayExperiment such as
-subsetting, reshaping, growing, and extraction
-* adapt `MultiAssayExperiment` data with packages for differential expression,
-machine learning, and plotting
+* apply knowlege of `MultiAssayExperiment` to represent other multi-omics data
+* learn about data management techniques such as subsetting, reshaping,
+growing, and extraction using MultAssayExperiment
 
 ## Overview of key packages and data classes
 
@@ -157,7 +154,7 @@ for multi-omics data on a set of samples. Modelled after the
 operations for manipulating multiple sets of data such as copy number
 alterations, mutations, proteomics, methylation, and other types of data.
 Compatibility with the `MultiAssayExperiment` container hinges on a small
-set of requirements making the data representation flexible to many of the
+set of requirements, making the data representation flexible to many of the
 currently available Bioconductor classes.
 
 ```{r, echo = FALSE, fig.cap="MultiAssayExperiment object schematic", out.width="\\maxwidth"}
@@ -192,22 +189,26 @@ knitr::kable(getStudies(cbio), align = "l", escape = FALSE,
     )
 ```
 
+```{r,eval=FALSE}
+head(getStudies(cbio), 10)
+```
+
 #### `curatedTCGAData`
 
 Many tools exist for accessing and downloading The Cancer Genome Atlas (TCGA)
-data. These include but are not limited to RTCGAToolbox, GenomicDataCommons
-(package and website), TCGAbiolinks, cBioPortal, and Broad GDAC Firehose. These
-tools encompass a spectrum of strengths in ease-of-use, integration, and
-completeness of data. Few tools provide an integrative and user-friendly
-representation of TCGA data in a widely used analysis platform such as
-Bioconductor.
+data. These include but are not limited to `RTCGAToolbox`, `GenomicDataCommons`
+(package and website), `TCGAbiolinks`, the cBioPortal website, and Broad GDAC
+Firehose. These tools encompass a spectrum of strengths in ease-of-use,
+integration, and completeness of data. Few tools provide an integrative and
+user-friendly representation of TCGA data in a widely used analysis platform
+like Bioconductor.
 
 The `curatedTCGAData` experiment data package provides on-the-fly construction
 of TCGA datasets for 33 different cancer types from the
 [Broad GDAC Firehose](https://gdac.broadinstitute.org) pipeline.
-Generally, it provides data using build `hg19`. `curatedTCGAData` facilitates
-access and integration of TCGA data by providing multi-'omics data objects using
-the `MultiAssayExperiment` data class. Where other platforms provide fragmented
+Generally, it provides data from genome build `hg19`. `curatedTCGAData`
+facilitates access and integration of TCGA data by providing multi-'omics data
+objects using `MultiAssayExperiment`. Where other platforms provide fragmented
 datasets, `curatedTCGAData` ensures that all data provided is matched and
 accounted for within the phenotypic metadata.
 
@@ -221,6 +222,10 @@ knitr::kable(diseaseCodes, align = "l", escape = FALSE,
         bootstrap_options = c("hover", "striped", "responsive"),
         full_width = FALSE
     )
+```
+
+```{r,eval=FALSE}
+head(diseaseCodes)
 ```
 
 See the `OmicsTypes` vignette for a descriptive table of 'omics types
@@ -255,7 +260,7 @@ knitr::include_graphics("TCGAMAEPipeline20190204.png")
 ```
 
 
-### Classes
+### Data Classes
 
 This section summarizes three fundamental data classes for the representation
 of multi-omics experiments.
@@ -297,16 +302,23 @@ somatic mutations such as represented in `.vcf` files, and other ragged array
 schema for genomic location data.  Like the `GRangesList` class from
 `GenomicRanges`, `RaggedExperiment` can be used to represent _differing_
 genomic ranges on each of a set of samples. In fact, `RaggedExperiment`
-contains a `GRangesList`:
+contains an internal `GRangesList`:
 
 ```{r}
 showClass("RaggedExperiment")
 ```
-However, `RaggedExperiment` provides a flexible set of _Assay_ methods to
-support transformation of such data to matrix format.
+
+`RaggedExperiment` provides a flexible set of _Assay_ methods to support
+transformation of data to matrix format.
 
 ```{r, echo=FALSE, fig.cap="RaggedExperiment object schematic. Rows and columns represent genomic ranges and samples, respectively. Assay operations can be performed with (from left to right) compactAssay, qreduceAssay, and sparseAssay.", out.width="\\maxwidth"}
 knitr::include_graphics("RaggedExperiment.png")
+```
+
+## The Integrative Container
+
+```{r, echo = FALSE, fig.cap="MultiAssayExperiment object schematic. colData provides data about the patients, cell lines, or other biological units, with one row per unit and one column per variable. The experiments are a list of assay datasets of arbitrary class.  The sampleMap relates each column (observation) in ExperimentList to exactly one row (biological unit) in colData; however, one row of colData may map to zero, one, or more columns per assay, allowing for missing and replicate assays. sampleMap allows for per-assay sample naming conventions. Metadata can be used to store information in arbitrary format about the MultiAssayExperiment. Green stripes indicate a mapping of one subject to multiple observations across experiments.", out.width="\\maxwidth"}
+knitr::include_graphics("MultiAssayExperiment.png")
 ```
 
 ### `MultiAssayExperiment`
@@ -335,10 +347,10 @@ measurements are represented by IDs.
 3. `RangedSummarizedExperiment`: described above, could be used
 for gene expression, methylation, or other data types referring to genomic
 positions.
-4. `ExpressionSet`: Another rich representation for ID-based datasets, supported
-only for legacy reasons
-5. `RaggedExperiment`: described above, for non-rectangular (ragged) ranged-based datasets
-such as segmented copy number, where segmentation of
+4. `ExpressionSet`: Another rich representation for ID-based datasets,
+supported only for legacy reasons
+5. `RaggedExperiment`: described above, for non-rectangular (ragged)
+ranged-based datasets such as segmented copy number, where segmentation of
 copy number alterations occurs and different genomic locations in each sample.
 6. `RangedVcfStack`: For VCF archives broken up by chromosome (see `VcfStack`
 class defined in the `GenomicFiles` package)
@@ -350,27 +362,26 @@ Note that any data class extending these classes, and in fact any data class
 supporting row and column names and subsetting can be used as an element of a
 `MultiAssayExperiment`.
 
-```{r, echo = FALSE, fig.cap="MultiAssayExperiment object schematic. colData provides data about the patients, cell lines, or other biological units, with one row per unit and one column per variable. The experiments are a list of assay datasets of arbitrary class.  The sampleMap relates each column (observation) in ExperimentList to exactly one row (biological unit) in colData; however, one row of colData may map to zero, one, or more columns per assay, allowing for missing and replicate assays. sampleMap allows for per-assay sample naming conventions. Metadata can be used to store information in arbitrary format about the MultiAssayExperiment. Green stripes indicate a mapping of one subject to multiple observations across experiments.", out.width="\\maxwidth"}
-knitr::include_graphics("MultiAssayExperiment.png")
-```
-
 ## Building a MultiAssayExperiment from scratch
 
 To start from scratch building your own `MultiAssayExperiment`, see the package
 vignette [Coordinating Analysis of Multi-Assay Experiments vignette](https://bioconductor.org/packages/release/bioc/vignettes/MultiAssayExperiment/inst/doc/MultiAssayExperiment.html).
 The package [cheat sheet](https://bioconductor.org/packages/release/bioc/vignettes/MultiAssayExperiment/inst/doc/MultiAssayExperiment_cheatsheet.pdf) is also helpful.
 
-If anything is unclear, please ask a question at
-https://support.bioconductor.org/ or create an issue on the
-[MultiAssayExperiment issue tracker](https://github.com/waldronlab/MultiAssayExperiment/issues).
+If anything is unclear, please ask questions during the workshop.
 
-### MultiAssayExperiment class construction and concatenation
+For more involved / detailed questions and bug reports, resort to the
+Bioconductor [support site](https://support.bioconductor.org/) or create an
+issue on the [MultiAssayExperiment issue tracker](https://github.com/waldronlab/MultiAssayExperiment/issues)
+on Github.
 
-### MultiAssayExperiment constructor function
+### MultiAssayExperiment construction and concatenation
+
+#### constructor function
 
 The `MultiAssayExperiment` constructor function can take three arguments:
 
-1. `experiments` - An `ExperimentList` or `list` of data
+1. `experiments` - An `ExperimentList` or `list` of rectangular data
 2. `colData` - A `DataFrame` describing the patients (or cell lines, or other
 biological units)
 3. `sampleMap` - A `DataFrame` of `assay`, `primary`, and `colname` identifiers
@@ -386,13 +397,13 @@ MultiAssayExperiment(experiments=experiments(miniACC),
     metadata=metadata(miniACC))
 ```
 
-### `prepMultiAssay` - Constructor function helper
+#### `prepMultiAssay` - Constructor function helper
 
 The `prepMultiAssay` function allows the user to diagnose typical problems
 when creating a `MultiAssayExperiment` object. See `?prepMultiAssay` for more
 details.
 
-### `c` - concatenate to MultiAssayExperiment
+#### `c` - concatenate to MultiAssayExperiment
 
 The `c` function allows the user to concatenate an additional experiment to an
 existing `MultiAssayExperiment`. The optional `sampleMap` argument allows
@@ -1026,7 +1037,7 @@ ggsurvplot(fit, data = colData(miniACCsurv), risk.table = TRUE)
 Choose the *EZH2* gene for demonstration. This subsetting will drop assays with
 no row named EZH2:
 ```{r}
-wideacc = wideFormat(miniACC["EZH2", , ],
+wideacc <- wideFormat(miniACC["EZH2", , ],
     colDataCols=c("vital_status", "days_to_death", "pathology_N_stage"))
 wideacc$y = Surv(wideacc$days_to_death, wideacc$vital_status)
 head(wideacc)
