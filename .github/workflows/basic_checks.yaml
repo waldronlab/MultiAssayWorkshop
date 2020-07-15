@@ -1,7 +1,4 @@
-name: MAEWorkshopCheck
-
 on: push
-
 jobs:
   checkdeploy:
     runs-on: ubuntu-latest
