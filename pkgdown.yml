@@ -1,8 +1,12 @@
 pandoc: 2.7.3
 pkgdown: 1.5.1
 pkgdown_sha: ~
-articles: []
-last_built: 2020-06-05T20:01Z
+articles:
+  OmicsTypes: OmicsTypes.html
+  Ramos_MultiAssayExperiment: Ramos_MultiAssayExperiment.html
+  TCGAutilsCheatsheet: TCGAutilsCheatsheet.html
+  Exercises_MultiAssayWorkshop: tutorials/Exercises_MultiAssayWorkshop.html
+last_built: 2020-07-16T21:29Z
 urls:
   reference: https://waldronlab.io/MultiAssayWorkshop/reference
   article: https://waldronlab.io/MultiAssayWorkshop/articles
