@@ -22,4 +22,7 @@ navbar:
    - icon: fa-github
      href: https://github.com/waldronlab/MultiAssayWorkshop
      
-
+tutorials:
+- name: Build-Exercises
+  title: Build Your MAE
+  url: https://mramos.shinyapps.io/Exercises_MultiAssayWorkshop/
