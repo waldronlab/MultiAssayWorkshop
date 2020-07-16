@@ -32,12 +32,12 @@ jobs:
           Rscript -e "remotes::install_github('r-hub/sysreqs')"
           sysreqs=$(Rscript -e "cat(sysreqs::sysreq_commands('DESCRIPTION'))")
           sudo -s eval "$sysreqs"
-          
-      - name: Install dependencies
+
+      - name: Install Package and Dependencies
         run: |
-          options(repos = c(CRAN = "https://cran.r-project.org"))
-          remotes::install_local(dependencies = TRUE, repos = BiocManager::repositories(), build_vignettes = TRUE)
-          remotes::install_cran("rcmdcheck")
+          options(repos = c(CRAN = "https://cloud.r-project.org"))
+          BiocManager::install("rcmdcheck", update = TRUE, ask = FALSE)
+          remotes::install_local(dependencies = TRUE, repos = BiocManager::repositories(), build_vignettes = TRUE, upgrade = TRUE)
         shell: Rscript {0}
 
       - name: Check
@@ -46,13 +46,14 @@ jobs:
         run: rcmdcheck::rcmdcheck(args = c("--no-manual"), error_on = "warning", check_dir = "check")
         shell: Rscript {0}
         
-      - name: Publish Docker
-        uses: elgohr/Publish-Docker-Github-Action@2.18
+      - name: Push Docker container
+        uses: docker/build-push-action@v1
         with:
-          name: mr148/testmultiassay
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          tags: latest
+          repository: mr148/testmultiassay
+          tag_with_ref: true
+          push: ${{ startsWith(github.ref, 'refs/tags/') }}
 
       - name: Build pkgdown
         run: |
