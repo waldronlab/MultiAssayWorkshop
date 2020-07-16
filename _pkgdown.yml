@@ -23,6 +23,6 @@ navbar:
      href: https://github.com/waldronlab/MultiAssayWorkshop
      
 tutorials:
-- name: Build-Exercises
-  title: Build Your MAE
+- name: tutorial_build_multiassay
+  title: Build Your First MAE
   url: https://mramos.shinyapps.io/Exercises_MultiAssayWorkshop/
