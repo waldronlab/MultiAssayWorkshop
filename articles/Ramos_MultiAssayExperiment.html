@@ -113,60 +113,12 @@
 <div id="multi-omic-integration-and-analysis-of-cbioportal-and-tcga-data-with-multiassayexperiment" class="section level1">
 <h1 class="hasAnchor">
 <a href="#multi-omic-integration-and-analysis-of-cbioportal-and-tcga-data-with-multiassayexperiment" class="anchor"></a>Multi-omic Integration and Analysis of cBioPortal and TCGA data with MultiAssayExperiment</h1>
-<div id="instructor-names-and-contact-information" class="section level2">
-<h2 class="hasAnchor">
-<a href="#instructor-names-and-contact-information" class="anchor"></a>Instructor names and contact information</h2>
-<ul>
-<li>Marcel Ramos<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> <a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> (<a href="mailto:marcel.ramos@roswellpark.org" class="email">marcel.ramos@roswellpark.org</a>)</li>
-<li>Ludwig Geistlinger<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>
-</li>
-<li>Levi Waldron<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>
-</li>
-</ul>
-</div>
-<div id="workshop-description" class="section level2">
-<h2 class="hasAnchor">
-<a href="#workshop-description" class="anchor"></a>Workshop Description</h2>
-<p>This workshop demonstrates data management and analyses of multiple assays associated with a single set of biological specimens, using the <code>MultiAssayExperiment</code> data class and methods. It introduces the facilities made available by companion packages, <code>cBioPortalData</code>, <code>curatedTCGAData</code>, and <code>TCGAutils</code> to work with publicly available multi-omic data. Using the <code>MultiAssayExperiment</code> class, these packages make the management of multiple assays easier and more efficient. The workshop also covers, to a limited extent, relevant data classes such as <code>SummarizedExperiment</code> and <code>RangedSummarizedExperiment</code>, which provide efficient and powerful operations for representation of copy number, mutation, variant, and expression data that are represented by different genomic ranges for each specimen.</p>
-<div id="pre-requisites" class="section level3">
-<h3 class="hasAnchor">
-<a href="#pre-requisites" class="anchor"></a>Pre-requisites</h3>
-<ul>
-<li>Basic knowledge of R</li>
-<li>Familiarity with the GRanges and SummarizedExperiment classes</li>
-<li>Familiarity with ’omics data types including copy number and gene expression</li>
-</ul>
-</div>
-<div id="workshop-participation" class="section level3">
-<h3 class="hasAnchor">
-<a href="#workshop-participation" class="anchor"></a>Workshop Participation</h3>
-<p>Participants will have a chance to build a <code>MultiAssayExperiment</code> object from scratch, and will also work with data and interfaces from the the <code>curatedTCGAData</code> and <code>cBioPortalData</code> packages.</p>
-</div>
 <div id="rbioconductor-packages-used" class="section level3">
 <h3 class="hasAnchor">
 <a href="#rbioconductor-packages-used" class="anchor"></a>R/Bioconductor packages used</h3>
-<p>First, please make sure you have the latest Bioconductor release version 3.11. See <a href="https://www.bioconductor.org/install">Bioconductor installation</a> instructions:</p>
-<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="kw">if</span> (!<span class="fu"><a href="https://rdrr.io/r/base/ns-load.html">requireNamespace</a></span>(<span class="st">"BiocManager"</span>, <span class="kw">quietly</span> <span class="kw">=</span> <span class="fl">TRUE</span>))
-    <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"BiocManager"</span>)
-
-<span class="co">## Bioconductor 3.11 Stable Release</span>
-<span class="kw pkg">BiocManager</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/install.html">install</a></span>(<span class="kw">version</span> <span class="kw">=</span> <span class="st">"3.11"</span>)</pre></body></html></div>
-<ul>
-<li><a href="https://bioconductor.org/packages/MultiAssayExperiment">MultiAssayExperiment</a></li>
-<li><a href="https://bioconductor.org/packages/GenomicRanges">GenomicRanges</a></li>
-<li><a href="https://bioconductor.org/packages/RaggedExperiment">RaggedExperiment</a></li>
-<li><a href="https://bioconductor.org/packages/curatedTCGAData">curatedTCGAData</a></li>
-<li><a href="https://github.com/waldronlab/cBioPortalData">cBioPortalData</a></li>
-<li><a href="https://bioconductor.org/packages/SummarizedExperiment">SummarizedExperiment</a></li>
-<li><a href="https://bioconductor.org/packages/TCGAutils">TCGAutils</a></li>
-<li><a href="https://bioconductor.org/packages/UpSetR">UpSetR</a></li>
-<li><a href="https://bioconductor.org/packages/AnnotationFilter">AnnotationFilter</a></li>
-<li><a href="https://bioconductor.org/packages/EnsDb.Hsapiens.v86">EnsDb.Hsapiens.v86</a></li>
-<li><a href="https://cran.r-project.org/package=survival">survival</a></li>
-<li><a href="https://cran.r-project.org/package=survminer">survminer</a></li>
-<li><a href="https://cran.r-project.org/package=pheatmap">pheatmap</a></li>
-</ul>
-<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">MultiAssayExperiment</span>)
+<p>The workshop uses a Docker container with Bioconductor devel version <code>3.12</code>. If you would like to install Bioconductor on your computer <strong>at a later date</strong>, see the <a href="https://www.bioconductor.org/install">Bioconductor installation</a> instructions.</p>
+<p>Here is a list of packages that we will be using:</p>
+<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">MultiAssayExperiment</span>)
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">GenomicRanges</span>)
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">RaggedExperiment</span>)
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">curatedTCGAData</span>)
@@ -185,66 +137,6 @@
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">readxl</span>)
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">readr</span>)
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">kableExtra</span>)</pre></body></html></div>
-</div>
-</div>
-<div id="time-outline" class="section level2">
-<h2 class="hasAnchor">
-<a href="#time-outline" class="anchor"></a>Time outline</h2>
-<p>55 minutes total</p>
-<table class="table">
-<thead><tr class="header">
-<th>Activity</th>
-<th>Time</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td>Overview of key packages and data classes</td>
-<td>15m</td>
-</tr>
-<tr class="even">
-<td>Introduction to <code>curatedTCGAData</code>, <code>cBioPortalData</code>, and <code>TCGAutils</code>
-</td>
-<td>10m</td>
-</tr>
-<tr class="odd">
-<td>Building a <code>MultiAssayExperiment</code> from scratch</td>
-<td>10m</td>
-</tr>
-<tr class="even">
-<td>Creating and importing TCGA multi-assay datasets</td>
-<td>10m</td>
-</tr>
-<tr class="odd">
-<td>Subsetting and reshaping multi-assay data</td>
-<td>10m</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="workshop-goals-and-objectives" class="section level2">
-<h2 class="hasAnchor">
-<a href="#workshop-goals-and-objectives" class="anchor"></a>Workshop goals and objectives</h2>
-<div id="learning-goals" class="section level3">
-<h3 class="hasAnchor">
-<a href="#learning-goals" class="anchor"></a>Learning goals</h3>
-<ul>
-<li>overview common data classes available in Bioconductor</li>
-<li>understand the data structure for representing multi-omics data</li>
-<li>explore available functionality in <code>TCGAutils</code> for the management and coordination of multi-omic data</li>
-<li>gain familiarity with <code>cBioPortalData</code> and <code>curatedTCGAData</code>
-</li>
-<li>identify advantages of providing integrative data in an analysis-ready platform</li>
-</ul>
-</div>
-<div id="learning-objectives" class="section level3">
-<h3 class="hasAnchor">
-<a href="#learning-objectives" class="anchor"></a>Learning objectives</h3>
-<ul>
-<li>use <code>curatedTCGAData</code> and <code>cBioPortalData</code> to create on-the-fly multi-omics data objects</li>
-<li>apply knowlege of <code>MultiAssayExperiment</code> to represent other multi-omics data</li>
-<li>learn about data management techniques such as subsetting, reshaping, growing, and extraction using MultAssayExperiment</li>
-</ul>
-</div>
 </div>
 <div id="overview-of-key-packages-and-data-classes" class="section level2">
 <h2 class="hasAnchor">
@@ -318,7 +210,7 @@ A matrix-like container where rows represent features of interest and columns re
 </p>
 </div>
 <p><code>SummarizedExperiment</code> is the most important Bioconductor class for matrix-like experimental data, including from RNA sequencing and microarray experiments. It can store multiple experimental data matrices of identical dimensions, with associated metadata on the rows/genes/transcripts/other measurements (<code>rowData</code>), column/sample phenotype or clinical data (<code>colData</code>), and the overall experiment (<code>metadata</code>). The derivative class <code>RangedSummarizedExperiment</code> associates a <code>GRanges</code> or <code>GRangesList</code> vector with the rows. These classes supersede the use of <code>ExpressionSet</code>. Note that many other classes for experimental data are actually derived from <code>SummarizedExperiment</code>; for example, the <code>SingleCellExperiment</code> class for single-cell RNA sequencing experiments extends <code>RangedSummarizedExperiment</code>, which in turn extends <code>SummarizedExperiment</code>:</p>
-<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">SingleCellExperiment</span>)
+<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">SingleCellExperiment</span>)
 <span class="fu">extends</span>(<span class="st">"SingleCellExperiment"</span>)</pre></body></html></div>
 <pre><code>## [1] "SingleCellExperiment"       "RangedSummarizedExperiment"
 ## [3] "SummarizedExperiment"       "RectangularData"           
@@ -331,7 +223,7 @@ A matrix-like container where rows represent features of interest and columns re
 <a href="#raggedexperiment" class="anchor"></a><code>RaggedExperiment</code>
 </h3>
 <p><code>RaggedExperiment</code> is a flexible data representation for segmented copy number, somatic mutations such as represented in <code>.vcf</code> files, and other ragged array schema for genomic location data. Like the <code>GRangesList</code> class from <code>GenomicRanges</code>, <code>RaggedExperiment</code> can be used to represent <em>differing</em> genomic ranges on each of a set of samples. In fact, <code>RaggedExperiment</code> contains an internal <code>GRangesList</code>:</p>
-<div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="fu">showClass</span>(<span class="st">"RaggedExperiment"</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="fu">showClass</span>(<span class="st">"RaggedExperiment"</span>)</pre></body></html></div>
 <pre><code>## Class "RaggedExperiment" [package "RaggedExperiment"]
 ## 
 ## Slots:
@@ -402,7 +294,7 @@ MultiAssayExperiment object schematic. colData provides data about the patients,
 <code>sampleMap</code> - A <code>DataFrame</code> of <code>assay</code>, <code>primary</code>, and <code>colname</code> identifiers</li>
 </ol>
 <p>The miniACC object can be reconstructed as follows:</p>
-<div class="sourceCode" id="cb7"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span>(<span class="st">"miniACC"</span>)
+<div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span>(<span class="st">"miniACC"</span>)
 
 <span class="fu"><a href="https://rdrr.io/pkg/MultiAssayExperiment/man/MultiAssayExperiment.html">MultiAssayExperiment</a></span>(<span class="kw">experiments</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/pkg/MultiAssayExperiment/man/MultiAssayExperiment-methods.html">experiments</a></span>(<span class="no">miniACC</span>),
     <span class="kw">colData</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/pkg/SummarizedExperiment/man/SummarizedExperiment-class.html">colData</a></span>(<span class="no">miniACC</span>),
@@ -434,11 +326,11 @@ MultiAssayExperiment object schematic. colData provides data about the patients,
 <h4 class="hasAnchor">
 <a href="#c---concatenate-to-multiassayexperiment" class="anchor"></a><code>c</code> - concatenate to MultiAssayExperiment</h4>
 <p>The <code>c</code> function allows the user to concatenate an additional experiment to an existing <code>MultiAssayExperiment</code>. The optional <code>sampleMap</code> argument allows concatenating an assay whose column names do not match the row names of <code>colData</code>. For convenience, the <em>mapFrom</em> argument allows the user to map from a particular experiment <strong>provided</strong> that the <strong>order</strong> of the colnames is in the <strong>same</strong>. A <code>warning</code> will be issued to make the user aware of this assumption. For example, to concatenate a matrix of log2-transformed RNA-seq results:</p>
-<div class="sourceCode" id="cb9"><html><body><pre class="r"><span class="no">miniACC2</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="no">miniACC</span>,
+<div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="no">miniACC2</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="no">miniACC</span>,
     <span class="kw">log2rnaseq</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log2</a></span>(<span class="fu"><a href="https://rdrr.io/pkg/SummarizedExperiment/man/SummarizedExperiment-class.html">assays</a></span>(<span class="no">miniACC</span>)$<span class="no">RNASeq2GeneNorm</span>), <span class="kw">mapFrom</span><span class="kw">=</span><span class="fl">1L</span>)</pre></body></html></div>
 <pre><code>## Warning: Assuming column order in the data provided 
 ##  matches the order in 'mapFrom' experiment(s) colnames</code></pre>
-<div class="sourceCode" id="cb11"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/MultiAssayExperiment/man/MultiAssayExperiment-methods.html">experiments</a></span>(<span class="no">miniACC2</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb10"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/MultiAssayExperiment/man/MultiAssayExperiment-methods.html">experiments</a></span>(<span class="no">miniACC2</span>)</pre></body></html></div>
 <pre><code>## ExperimentList class object of length 6:
 ##  [1] RNASeq2GeneNorm: SummarizedExperiment with 198 rows and 79 columns
 ##  [2] gistict: SummarizedExperiment with 198 rows and 90 columns
@@ -477,7 +369,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <li>
 <strong>miRNASeqGene</strong>: microRNA abundance by microRNA-seq.</li>
 </ol>
-<div class="sourceCode" id="cb13"><html><body><pre class="r"><span class="no">miniACC</span></pre></body></html></div>
+<div class="sourceCode" id="cb12"><html><body><pre class="r"><span class="no">miniACC</span></pre></body></html></div>
 <pre><code>## A MultiAssayExperiment object of 5 listed
 ##  experiments with user-defined names and respective classes.
 ##  Containing an ExperimentList class object of length 5:
@@ -499,7 +391,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <h3 class="hasAnchor">
 <a href="#coldata---information-biological-units" class="anchor"></a>colData - information biological units</h3>
 <p>This slot is a <code>DataFrame</code> describing the characteristics of biological units, for example clinical data for patients. In the prepared datasets from [The Cancer Genome Atlas][], each row is one patient and each column is a clinical, pathological, subtype, or other variable. The <code><a href="https://rdrr.io/r/base/Extract.html">$</a></code> function provides a shortcut for accessing or setting <code>colData</code> columns.</p>
-<div class="sourceCode" id="cb15"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/SummarizedExperiment/man/SummarizedExperiment-class.html">colData</a></span>(<span class="no">miniACC</span>)[<span class="fl">1</span>:<span class="fl">4</span>, <span class="fl">1</span>:<span class="fl">4</span>]</pre></body></html></div>
+<div class="sourceCode" id="cb14"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/SummarizedExperiment/man/SummarizedExperiment-class.html">colData</a></span>(<span class="no">miniACC</span>)[<span class="fl">1</span>:<span class="fl">4</span>, <span class="fl">1</span>:<span class="fl">4</span>]</pre></body></html></div>
 <pre><code>## DataFrame with 4 rows and 4 columns
 ##                 patientID years_to_birth vital_status days_to_death
 ##               &lt;character&gt;      &lt;integer&gt;    &lt;integer&gt;     &lt;integer&gt;
@@ -507,7 +399,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 ## TCGA-OR-A5J2 TCGA-OR-A5J2             44            1          1677
 ## TCGA-OR-A5J3 TCGA-OR-A5J3             23            0            NA
 ## TCGA-OR-A5J4 TCGA-OR-A5J4             23            1           423</code></pre>
-<div class="sourceCode" id="cb17"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span>(<span class="no">miniACC</span>$<span class="no">race</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb16"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span>(<span class="no">miniACC</span>$<span class="no">race</span>)</pre></body></html></div>
 <pre><code>## 
 ##                     asian black or african american                     white 
 ##                         2                         1                        78</code></pre>
@@ -528,7 +420,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <h3 class="hasAnchor">
 <a href="#experimentlist---experiment-data" class="anchor"></a>ExperimentList - experiment data</h3>
 <p>A base <code>list</code> or <code>ExperimentList</code> object containing the experimental datasets for the set of samples collected. This gets converted into a class <code>ExperimentList</code> during construction.</p>
-<div class="sourceCode" id="cb19"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/MultiAssayExperiment/man/MultiAssayExperiment-methods.html">experiments</a></span>(<span class="no">miniACC</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb18"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/MultiAssayExperiment/man/MultiAssayExperiment-methods.html">experiments</a></span>(<span class="no">miniACC</span>)</pre></body></html></div>
 <pre><code>## ExperimentList class object of length 5:
 ##  [1] RNASeq2GeneNorm: SummarizedExperiment with 198 rows and 79 columns
 ##  [2] gistict: SummarizedExperiment with 198 rows and 90 columns
@@ -559,7 +451,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <code>colname</code> column: identifiers of assay results, and found in the column names of <code>ExperimentList</code> elements Helper functions are available for creating a map from a list. See <code><a href="https://rdrr.io/pkg/MultiAssayExperiment/man/mapToList.html">?listToMap</a></code>
 </li>
 </ol>
-<div class="sourceCode" id="cb21"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/MultiAssayExperiment/man/MultiAssayExperiment-methods.html">sampleMap</a></span>(<span class="no">miniACC</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb20"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/MultiAssayExperiment/man/MultiAssayExperiment-methods.html">sampleMap</a></span>(<span class="no">miniACC</span>)</pre></body></html></div>
 <pre><code>## DataFrame with 385 rows and 3 columns
 ##               assay      primary                colname
 ##            &lt;factor&gt;  &lt;character&gt;            &lt;character&gt;
@@ -588,7 +480,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <h3 class="hasAnchor">
 <a href="#metadata" class="anchor"></a>metadata</h3>
 <p>Metadata can be used to keep additional information about patients, assays performed on individuals or on the entire cohort, or features such as genes, proteins, and genomic ranges. There are many options available for storing metadata. First, <code>MultiAssayExperiment</code> has its own metadata for describing the entire experiment:</p>
-<div class="sourceCode" id="cb23"><html><body><pre class="r"><span class="fu">metadata</span>(<span class="no">miniACC</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb22"><html><body><pre class="r"><span class="fu">metadata</span>(<span class="no">miniACC</span>)</pre></body></html></div>
 <pre><code>## $title
 ## [1] "Comprehensive Pan-Genomic Characterization of Adrenocortical Carcinoma"
 ## 
@@ -616,13 +508,13 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <p>In pseudo code below, the subsetting operations work on the rows of the following indices: 1. <em>i</em> experimental data rows 2. <em>j</em> the primary names or the column names (entered as a <code>list</code> or <code>List</code>) 3. <em>k</em> assay</p>
 <pre><code>multiassayexperiment[i = rownames, j = primary or colnames, k = assay]</code></pre>
 <p>Subsetting operations always return another <code>MultiAssayExperiment</code>. For example, the following will return any rows named “MAPK14” or “IGFBP2”, and remove any assays where no rows match:</p>
-<div class="sourceCode" id="cb26"><html><body><pre class="r"><span class="no">miniACC</span>[<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"MAPK14"</span>, <span class="st">"IGFBP2"</span>), , ]</pre></body></html></div>
+<div class="sourceCode" id="cb25"><html><body><pre class="r"><span class="no">miniACC</span>[<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"MAPK14"</span>, <span class="st">"IGFBP2"</span>), , ]</pre></body></html></div>
 <pre><code>## harmonizing input:
 ##   removing 170 sampleMap rows not in names(experiments)</code></pre>
 <p>The following will keep only patients of pathological stage iv, and all their associated assays:</p>
-<div class="sourceCode" id="cb28"><html><body><pre class="r"><span class="no">miniACC</span>[, <span class="no">miniACC</span>$<span class="no">pathologic_stage</span> <span class="kw">==</span> <span class="st">"stage iv"</span>, ]</pre></body></html></div>
+<div class="sourceCode" id="cb27"><html><body><pre class="r"><span class="no">miniACC</span>[, <span class="no">miniACC</span>$<span class="no">pathologic_stage</span> <span class="kw">==</span> <span class="st">"stage iv"</span>, ]</pre></body></html></div>
 <p>And the following will keep only the RNA-seq dataset, and only patients for which this assay is available:</p>
-<div class="sourceCode" id="cb29"><html><body><pre class="r"><span class="no">miniACC</span>[, , <span class="st">"RNASeq2GeneNorm"</span>]</pre></body></html></div>
+<div class="sourceCode" id="cb28"><html><body><pre class="r"><span class="no">miniACC</span>[, , <span class="st">"RNASeq2GeneNorm"</span>]</pre></body></html></div>
 <pre><code>## harmonizing input:
 ##   removing 306 sampleMap rows not in names(experiments)
 ##   removing 13 colData rownames not in sampleMap 'primary'</code></pre>
@@ -637,7 +529,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <a href="#double-bracket" class="anchor"></a>Double bracket <code>[[</code>
 </h3>
 <p>The “double bracket” method (<code><a href="https://rdrr.io/r/base/Extract.html">[[</a></code>) is a convenience function for extracting a single element of the <code>MultiAssayExperiment</code> <code>ExperimentList</code>. It avoids the use of <code>experiments(mae)[[1L]]</code>. For example, both of the following extract the <code>ExpressionSet</code> object containing RNA-seq data:</p>
-<div class="sourceCode" id="cb31"><html><body><pre class="r"><span class="no">miniACC</span><span class="kw">[[</span><span class="fl">1L</span>]]</pre></body></html></div>
+<div class="sourceCode" id="cb30"><html><body><pre class="r"><span class="no">miniACC</span><span class="kw">[[</span><span class="fl">1L</span>]]</pre></body></html></div>
 <pre><code>## class: SummarizedExperiment 
 ## dim: 198 79 
 ## metadata(3): experimentData annotation protocolData
@@ -647,7 +539,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 ## colnames(79): TCGA-OR-A5J1-01A-11R-A29S-07 TCGA-OR-A5J2-01A-11R-A29S-07
 ##   ... TCGA-PK-A5HA-01A-11R-A29S-07 TCGA-PK-A5HB-01A-11R-A29S-07
 ## colData names(0):</code></pre>
-<div class="sourceCode" id="cb33"><html><body><pre class="r"><span class="co">## equivalently</span>
+<div class="sourceCode" id="cb32"><html><body><pre class="r"><span class="co">## equivalently</span>
 <span class="no">miniACC</span><span class="kw">[[</span><span class="st">"RNASeq2GeneNorm"</span>]]</pre></body></html></div>
 <pre><code>## class: SummarizedExperiment 
 ## dim: 198 79 
@@ -663,13 +555,13 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <h3 class="hasAnchor">
 <a href="#complete-cases" class="anchor"></a>Complete cases</h3>
 <p><code><a href="https://rdrr.io/r/stats/complete.cases.html">complete.cases()</a></code> shows which patients have complete data for all assays:</p>
-<div class="sourceCode" id="cb35"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="fu"><a href="https://rdrr.io/r/stats/complete.cases.html">complete.cases</a></span>(<span class="no">miniACC</span>))</pre></body></html></div>
+<div class="sourceCode" id="cb34"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="fu"><a href="https://rdrr.io/r/stats/complete.cases.html">complete.cases</a></span>(<span class="no">miniACC</span>))</pre></body></html></div>
 <pre><code>##    Mode   FALSE    TRUE 
 ## logical      49      43</code></pre>
 <p>The above logical vector could be used for patient subsetting. More simply, <code><a href="https://rdrr.io/pkg/MultiAssayExperiment/man/MultiAssayExperiment-helpers.html">intersectColumns()</a></code> will select complete cases and rearrange each <code>ExperimentList</code> element so its columns correspond exactly to rows of <code>colData</code> in the same order:</p>
-<div class="sourceCode" id="cb37"><html><body><pre class="r"><span class="no">accmatched</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/pkg/MultiAssayExperiment/man/MultiAssayExperiment-helpers.html">intersectColumns</a></span>(<span class="no">miniACC</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb36"><html><body><pre class="r"><span class="no">accmatched</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/pkg/MultiAssayExperiment/man/MultiAssayExperiment-helpers.html">intersectColumns</a></span>(<span class="no">miniACC</span>)</pre></body></html></div>
 <p>Note, the column names of the assays in <code>accmatched</code> are not the same because of assay-specific identifiers, but they have been automatically re-arranged to correspond to the same patients. In these TCGA assays, the first three <code><a href="https://rdrr.io/r/base/Arithmetic.html">-</a></code> delimited positions correspond to patient, ie the first patient is <em>TCGA-OR-A5J2</em>:</p>
-<div class="sourceCode" id="cb38"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span>(<span class="no">accmatched</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb37"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span>(<span class="no">accmatched</span>)</pre></body></html></div>
 <pre><code>## CharacterList of length 5
 ## [["RNASeq2GeneNorm"]] TCGA-OR-A5J2-01A-11R-A29S-07 ...
 ## [["gistict"]] TCGA-OR-A5J2-01A-11D-A29H-01 ... TCGA-PK-A5HA-01A-11D-A29H-01
@@ -681,11 +573,11 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <h3 class="hasAnchor">
 <a href="#row-names-that-are-common-across-assays" class="anchor"></a>Row names that are common across assays</h3>
 <p><code><a href="https://rdrr.io/pkg/MultiAssayExperiment/man/MultiAssayExperiment-helpers.html">intersectRows()</a></code> keeps only rows that are common to each assay, and aligns them in identical order. For example, to keep only genes where data are available for RNA-seq, GISTIC copy number, and somatic mutations:</p>
-<div class="sourceCode" id="cb40"><html><body><pre class="r"><span class="no">accmatched2</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/MultiAssayExperiment/man/MultiAssayExperiment-helpers.html">intersectRows</a></span>(<span class="no">miniACC</span>[, ,
+<div class="sourceCode" id="cb39"><html><body><pre class="r"><span class="no">accmatched2</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/MultiAssayExperiment/man/MultiAssayExperiment-helpers.html">intersectRows</a></span>(<span class="no">miniACC</span>[, ,
     <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"RNASeq2GeneNorm"</span>, <span class="st">"gistict"</span>, <span class="st">"Mutations"</span>)])</pre></body></html></div>
 <pre><code>## harmonizing input:
 ##   removing 126 sampleMap rows not in names(experiments)</code></pre>
-<div class="sourceCode" id="cb42"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span>(<span class="no">accmatched2</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb41"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span>(<span class="no">accmatched2</span>)</pre></body></html></div>
 <pre><code>## CharacterList of length 3
 ## [["RNASeq2GeneNorm"]] DIRAS3 G6PD KDR ERBB3 AKT1S1 ... RET CDKN2A MACC1 CHGA
 ## [["gistict"]] DIRAS3 G6PD KDR ERBB3 AKT1S1 ... PREX1 RET CDKN2A MACC1 CHGA
@@ -702,10 +594,10 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <h3 class="hasAnchor">
 <a href="#assay-and-assays" class="anchor"></a>assay and assays</h3>
 <p>The <code>assay</code> and <code>assays</code> methods follow <code>SummarizedExperiment</code> convention. The <code>assay</code> (singular) method will extract the first element of the <code>ExperimentList</code> and will return a <code>matrix</code>.</p>
-<div class="sourceCode" id="cb44"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span>(<span class="fu"><a href="https://rdrr.io/pkg/SummarizedExperiment/man/SummarizedExperiment-class.html">assay</a></span>(<span class="no">miniACC</span>))</pre></body></html></div>
+<div class="sourceCode" id="cb43"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span>(<span class="fu"><a href="https://rdrr.io/pkg/SummarizedExperiment/man/SummarizedExperiment-class.html">assay</a></span>(<span class="no">miniACC</span>))</pre></body></html></div>
 <pre><code>## [1] "matrix" "array"</code></pre>
 <p>The <code>assays</code> (plural) method will return a <code>SimpleList</code> of the data with each element being a <code>matrix</code>.</p>
-<div class="sourceCode" id="cb46"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/SummarizedExperiment/man/SummarizedExperiment-class.html">assays</a></span>(<span class="no">miniACC</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb45"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/SummarizedExperiment/man/SummarizedExperiment-class.html">assays</a></span>(<span class="no">miniACC</span>)</pre></body></html></div>
 <pre><code>## List of length 5
 ## names(5): RNASeq2GeneNorm gistict RPPAArray Mutations miRNASeqGene</code></pre>
 <p><em>Key point:</em></p>
@@ -756,7 +648,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <a href="#longformat" class="anchor"></a><code>longFormat</code>
 </h4>
 <p>In <em>long</em> format a single column provides all assay results, with additional optional <code>colData</code> columns whose values are repeated as necessary. Here <em>assay</em> is the name of the ExperimentList element, <em>primary</em> is the patient identifier (rowname of colData), <em>rowname</em> is the assay rowname (in this case genes), <em>colname</em> is the assay-specific identifier (column name), <em>value</em> is the numeric measurement (gene expression, copy number, presence of a non-silent mutation, etc), and following these are the <em>vital_status</em> and <em>days_to_death</em> colData columns that have been added:</p>
-<div class="sourceCode" id="cb48"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/MultiAssayExperiment/man/MultiAssayExperiment-helpers.html">longFormat</a></span>(<span class="no">miniACC</span>[<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"TP53"</span>, <span class="st">"CTNNB1"</span>), , ],
+<div class="sourceCode" id="cb47"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/MultiAssayExperiment/man/MultiAssayExperiment-helpers.html">longFormat</a></span>(<span class="no">miniACC</span>[<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"TP53"</span>, <span class="st">"CTNNB1"</span>), , ],
            <span class="kw">colDataCols</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"vital_status"</span>, <span class="st">"days_to_death"</span>))</pre></body></html></div>
 <pre><code>## harmonizing input:
 ##   removing 126 sampleMap rows not in names(experiments)</code></pre>
@@ -793,7 +685,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <a href="#wideformat" class="anchor"></a><code>wideFormat</code>
 </h4>
 <p>In <em>wide</em> format, each feature from each assay goes in a separate column, with one row per primary identifier (patient). Here, each variable becomes a new column:</p>
-<div class="sourceCode" id="cb51"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/MultiAssayExperiment/man/MultiAssayExperiment-helpers.html">wideFormat</a></span>(<span class="no">miniACC</span>[<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"TP53"</span>, <span class="st">"CTNNB1"</span>), , ],
+<div class="sourceCode" id="cb50"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/MultiAssayExperiment/man/MultiAssayExperiment-helpers.html">wideFormat</a></span>(<span class="no">miniACC</span>[<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"TP53"</span>, <span class="st">"CTNNB1"</span>), , ],
            <span class="kw">colDataCols</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"vital_status"</span>, <span class="st">"days_to_death"</span>))</pre></body></html></div>
 <pre><code>## harmonizing input:
 ##   removing 126 sampleMap rows not in names(experiments)</code></pre>
@@ -848,7 +740,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <a href="#the-cancer-genome-atlas-tcga-data-from-curatedtcgadata" class="anchor"></a>The Cancer Genome Atlas (TCGA) Data from <code>curatedTCGAData</code>
 </h2>
 <p>Most unrestricted TCGA data are available as MultiAssayExperiment objects from the <code>curatedTCGAData</code> package. This represents a lot of harmonization!</p>
-<div class="sourceCode" id="cb54"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">curatedTCGAData</span>)
+<div class="sourceCode" id="cb53"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">curatedTCGAData</span>)
 <span class="fu"><a href="https://rdrr.io/pkg/curatedTCGAData/man/curatedTCGAData.html">curatedTCGAData</a></span>(<span class="st">"ACC"</span>)</pre></body></html></div>
 <pre><code>##                                    Title DispatchClass
 ## 1                    ACC_CNASNP-20160128           Rda
@@ -862,7 +754,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 ## 11                 ACC_Mutation-20160128           Rda
 ## 12          ACC_RNASeq2GeneNorm-20160128           Rda
 ## 13                ACC_RPPAArray-20160128           Rda</code></pre>
-<div class="sourceCode" id="cb56"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/message.html">suppressMessages</a></span>({
+<div class="sourceCode" id="cb55"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/message.html">suppressMessages</a></span>({
     <span class="no">acc</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/curatedTCGAData/man/curatedTCGAData.html">curatedTCGAData</a></span>(<span class="st">"ACC"</span>,
         <span class="kw">assays</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"miRNASeqGene"</span>, <span class="st">"RPPAArray"</span>, <span class="st">"Mutation"</span>,
             <span class="st">"RNASeq2GeneNorm"</span>, <span class="st">"CNVSNP"</span>),
@@ -886,9 +778,9 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 ##  assays() - convert ExperimentList to a SimpleList of matrices
 ##  exportClass() - save all data to files</code></pre>
 <p>These objects contain most unrestricted TCGA assay and clinical / pathological data, as well as material curated from the supplements of published TCGA primary papers at the end of the colData columns:</p>
-<div class="sourceCode" id="cb58"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span>(<span class="fu"><a href="https://rdrr.io/pkg/SummarizedExperiment/man/SummarizedExperiment-class.html">colData</a></span>(<span class="no">acc</span>))</pre></body></html></div>
+<div class="sourceCode" id="cb57"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span>(<span class="fu"><a href="https://rdrr.io/pkg/SummarizedExperiment/man/SummarizedExperiment-class.html">colData</a></span>(<span class="no">acc</span>))</pre></body></html></div>
 <pre><code>## [1]  92 822</code></pre>
-<div class="sourceCode" id="cb60"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">tail</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span>(<span class="fu"><a href="https://rdrr.io/pkg/SummarizedExperiment/man/SummarizedExperiment-class.html">colData</a></span>(<span class="no">acc</span>)), <span class="fl">10</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb59"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">tail</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span>(<span class="fu"><a href="https://rdrr.io/pkg/SummarizedExperiment/man/SummarizedExperiment-class.html">colData</a></span>(<span class="no">acc</span>)), <span class="fl">10</span>)</pre></body></html></div>
 <pre><code>##  [1] "MethyLevel"       "miRNA.cluster"    "SCNA.cluster"     "protein.cluster" 
 ##  [5] "COC"              "OncoSign"         "purity"           "ploidy"          
 ##  [9] "genome_doublings" "ADS"</code></pre>
@@ -924,7 +816,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <a href="#mirtoranges" class="anchor"></a><code>mirToRanges</code>
 </h4>
 <p>microRNA assays obtained from <code>curatedTCGAData</code> have annotated sequences that can be converted to genomic ranges using the <code>mirbase.db</code> package. The function looks up all sequences and converts them to (‘hg19’) ranges. For those rows that cannot be found, an ‘unranged’ assay is introduced in the resulting MultiAssayExperiment object.</p>
-<div class="sourceCode" id="cb62"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/simplifyTCGA.html">mirToRanges</a></span>(<span class="no">acc</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb61"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/simplifyTCGA.html">mirToRanges</a></span>(<span class="no">acc</span>)</pre></body></html></div>
 <pre><code>## harmonizing input:
 ##   removing 80 sampleMap rows not in names(experiments)</code></pre>
 <pre><code>## A MultiAssayExperiment object of 6 listed
@@ -950,7 +842,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <a href="#qreducetcga" class="anchor"></a><code>qreduceTCGA</code>
 </h4>
 <p>The <code>qreduceTCGA</code> function converts <code>RaggedExperiment</code> mutation data objects to <code>RangedSummarizedExperiment</code> using <code>org.Hs.eg.db</code> and the <code>qreduceTCGA</code> utility function from <code>RaggedExperiment</code> to summarize ‘silent’ and ‘non-silent’ mutations based on a ‘Variant_Classification’ metadata column in the original object.</p>
-<div class="sourceCode" id="cb65"><html><body><pre class="r"><span class="co">## Update build metadata to "hg19"</span>
+<div class="sourceCode" id="cb64"><html><body><pre class="r"><span class="co">## Update build metadata to "hg19"</span>
 <span class="fu">genome</span>(<span class="no">acc</span><span class="kw">[[</span><span class="st">"ACC_Mutation-20160128"</span>]]) <span class="kw">&lt;-</span>
     <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">vapply</a></span>(<span class="fu">genome</span>(<span class="no">acc</span><span class="kw">[[</span><span class="st">"ACC_Mutation-20160128"</span>]]),
     <span class="no">translateBuild</span>, <span class="fu"><a href="https://rdrr.io/r/base/character.html">character</a></span>(<span class="fl">1L</span>))
@@ -991,7 +883,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <a href="#symbolstoranges" class="anchor"></a><code>symbolsToRanges</code>
 </h4>
 <p>In the cases where row annotations indicate gene symbols, the <code>symbolsToRanges</code> utility function converts genes to genomic ranges and replaces existing assays with <code>RangedSummarizedExperiment</code> objects. Gene annotations are given as ‘hg19’ genomic regions.</p>
-<div class="sourceCode" id="cb73"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/simplifyTCGA.html">symbolsToRanges</a></span>(<span class="no">acc</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb72"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/simplifyTCGA.html">symbolsToRanges</a></span>(<span class="no">acc</span>)</pre></body></html></div>
 <pre><code>##   403 genes were dropped because they have exons located on both strands
 ##   of the same reference sequence or on more than one reference sequence,
 ##   so cannot be represented by a single genomic range.
@@ -1023,7 +915,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <a href="#simplifytcga" class="anchor"></a><code>simplifyTCGA</code>
 </h4>
 <p>The <code>simplifyTCGA</code> function combines all of the above operations to create a more managable <code>MultiAssayExperiment</code> object and using <code>RangedSummarizedExperiment</code> assays where possible.</p>
-<div class="sourceCode" id="cb78"><html><body><pre class="r"><span class="kw pkg">TCGAutils</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/simplifyTCGA.html">simplifyTCGA</a></span>(<span class="no">acc</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb77"><html><body><pre class="r"><span class="kw pkg">TCGAutils</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/simplifyTCGA.html">simplifyTCGA</a></span>(<span class="no">acc</span>)</pre></body></html></div>
 <pre><code>##   403 genes were dropped because they have exons located on both strands
 ##   of the same reference sequence or on more than one reference sequence,
 ##   so cannot be represented by a single genomic range.
@@ -1075,7 +967,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <a href="#what-types-of-samples-are-in-the-data" class="anchor"></a>What types of samples are in the data?</h3>
 <p><strong>Solution</strong></p>
 <p>The <code>sampleTables</code> function gives you an overview of samples in each assay:</p>
-<div class="sourceCode" id="cb89"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/curatedTCGAData-helpers.html">sampleTables</a></span>(<span class="no">acc</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb88"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/curatedTCGAData-helpers.html">sampleTables</a></span>(<span class="no">acc</span>)</pre></body></html></div>
 <pre><code>## $`ACC_CNVSNP-20160128`
 ## 
 ## 01 10 11 
@@ -1101,7 +993,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 ## 01 
 ## 46</code></pre>
 <p>Interpretation of sample codes:</p>
-<div class="sourceCode" id="cb91"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span>(<span class="st">"sampleTypes"</span>)
+<div class="sourceCode" id="cb90"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span>(<span class="st">"sampleTypes"</span>)
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">sampleTypes</span>)</pre></body></html></div>
 <pre><code>##   Code                                      Definition Short.Letter.Code
 ## 1   01                             Primary Solid Tumor                TP
@@ -1115,12 +1007,12 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <h3 class="hasAnchor">
 <a href="#splitassays-separate-the-data-from-different-tissue-types" class="anchor"></a><code>splitAssays</code>: separate the data from different tissue types</h3>
 <p>TCGA datasets include multiple -omics for solid tumors, adjacent normal tissues, blood-derived cancers and normals, and other tissue types, which may be mixed together in a single dataset. The <code>MultiAssayExperiment</code> object generated here has one patient per row of its <code>colData</code>, but each patient may have two or more -omics profiles by any assay, whether due to assaying of different types of tissues or to technical replication. <code>splitAssays</code> separates profiles from different tissue types (such as tumor and adjacent normal) into different assays of the <code>MultiAssayExperiment</code> by taking a vector of sample codes, and partitioning the current assays into assays with an appended sample code:</p>
-<div class="sourceCode" id="cb93"><html><body><pre class="r"><span class="no">split_acc</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/curatedTCGAData-helpers.html">splitAssays</a></span>(<span class="no">acc</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"01"</span>, <span class="st">"11"</span>))</pre></body></html></div>
+<div class="sourceCode" id="cb92"><html><body><pre class="r"><span class="no">split_acc</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/curatedTCGAData-helpers.html">splitAssays</a></span>(<span class="no">acc</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"01"</span>, <span class="st">"11"</span>))</pre></body></html></div>
 <pre><code>## Warning: Some 'sampleCodes' not found in assays</code></pre>
 <pre><code>## Warning in .checkBarcodes(barcodes): Inconsistent barcode lengths: 28, 27</code></pre>
 <p>The <code>MultiAssayExperiment</code> package then provides functionality to merge replicate profiles for a single patient (<code><a href="https://rdrr.io/pkg/MultiAssayExperiment/man/MultiAssayExperiment-helpers.html">mergeReplicates()</a></code>), which would now be appropriate but would <strong>not</strong> have been appropriate before splitting different tissue types into different assays, because that would average measurements from tumors and normal tissues.</p>
 <p><code>MultiAssayExperiment</code> also defines the <code>MatchedAssayExperiment</code> class, which eliminates any profiles not present across all assays and ensures identical ordering of profiles (columns) in each assay. In this example, it will match tumors to adjacent normals in subsequent assays:</p>
-<div class="sourceCode" id="cb96"><html><body><pre class="r">(<span class="no">matchmae</span> <span class="kw">&lt;-</span> <span class="fu">as</span>(<span class="no">split_acc</span>[, , <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span>, <span class="fl">6</span>)], <span class="st">"MatchedAssayExperiment"</span>))</pre></body></html></div>
+<div class="sourceCode" id="cb95"><html><body><pre class="r">(<span class="no">matchmae</span> <span class="kw">&lt;-</span> <span class="fu">as</span>(<span class="no">split_acc</span>[, , <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span>, <span class="fl">6</span>)], <span class="st">"MatchedAssayExperiment"</span>))</pre></body></html></div>
 <pre><code>## harmonizing input:
 ##   removing 5 sampleMap rows not in names(experiments)</code></pre>
 <pre><code>## A MatchedAssayExperiment object of 5 listed
@@ -1147,7 +1039,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <p>Is there subtype data available in the <code>MultiAssayExperiment</code> obtained from <code>curatedTCGAData</code>?</p>
 <p><strong>Solution</strong></p>
 <p>The <code>getSubtypeMap</code> function will show actual variable names found in <code>colData</code> that contain subtype information. This can only be obtained from <code>MultiAssayExperiment</code> objects provided by <code>curatedTCGAData</code>.</p>
-<div class="sourceCode" id="cb99"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/curatedTCGAData-helpers.html">getSubtypeMap</a></span>(<span class="no">acc</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb98"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/curatedTCGAData-helpers.html">getSubtypeMap</a></span>(<span class="no">acc</span>)</pre></body></html></div>
 <pre><code>##          ACC_annotations     ACC_subtype
 ## 1             Patient_ID       patientID
 ## 2  histological_subtypes       Histology
@@ -1159,7 +1051,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 ## 8       protein_subtypes protein cluster
 ## 9   integrative_subtypes             COC
 ## 10     mutation_subtypes        OncoSign</code></pre>
-<div class="sourceCode" id="cb101"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="fu"><a href="https://rdrr.io/pkg/SummarizedExperiment/man/SummarizedExperiment-class.html">colData</a></span>(<span class="no">acc</span>)$<span class="no">Histology</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb100"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="fu"><a href="https://rdrr.io/pkg/SummarizedExperiment/man/SummarizedExperiment-class.html">colData</a></span>(<span class="no">acc</span>)$<span class="no">Histology</span>)</pre></body></html></div>
 <pre><code>## [1] "Usual Type" "Usual Type" "Usual Type" "Usual Type" "Usual Type"
 ## [6] "Usual Type"</code></pre>
 </div>
@@ -1171,11 +1063,11 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <h4 class="hasAnchor">
 <a href="#uuidtobarcode---uuid-to-tcga-barcode" class="anchor"></a><code>UUIDtoBarcode()</code> - UUID to TCGA barcode</h4>
 <p>Here we have a known case UUID that we want to translate into a TCGA barcode.</p>
-<div class="sourceCode" id="cb103"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/ID-translation.html">UUIDtoBarcode</a></span>(<span class="st">"ae55b2d3-62a1-419e-9f9a-5ddfac356db4"</span>, <span class="kw">from_type</span> <span class="kw">=</span> <span class="st">"case_id"</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb102"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/ID-translation.html">UUIDtoBarcode</a></span>(<span class="st">"ae55b2d3-62a1-419e-9f9a-5ddfac356db4"</span>, <span class="kw">from_type</span> <span class="kw">=</span> <span class="st">"case_id"</span>)</pre></body></html></div>
 <pre><code>##                                case_id submitter_id
 ## 1 ae55b2d3-62a1-419e-9f9a-5ddfac356db4 TCGA-B0-5117</code></pre>
 <p>In cases where we want to translate a known file UUID to the associated TCGA patient barcode, we can use <code>UUIDtoBarcode</code>.</p>
-<div class="sourceCode" id="cb105"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/ID-translation.html">UUIDtoBarcode</a></span>(<span class="st">"0001801b-54b0-4551-8d7a-d66fb59429bf"</span>, <span class="kw">from_type</span> <span class="kw">=</span> <span class="st">"file_id"</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb104"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/ID-translation.html">UUIDtoBarcode</a></span>(<span class="st">"0001801b-54b0-4551-8d7a-d66fb59429bf"</span>, <span class="kw">from_type</span> <span class="kw">=</span> <span class="st">"file_id"</span>)</pre></body></html></div>
 <pre><code>##                                file_id associated_entities.entity_submitter_id
 ## 1 0001801b-54b0-4551-8d7a-d66fb59429bf            TCGA-B0-5094-11A-01D-1421-08</code></pre>
 </div>
@@ -1183,10 +1075,10 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <h4 class="hasAnchor">
 <a href="#barcodetouuid---tcga-barcode-to-uuid" class="anchor"></a><code>barcodeToUUID()</code> - TCGA barcode to UUID</h4>
 <p>Here we translate the first two TCGA barcodes of the previous copy-number alterations dataset to UUID:</p>
-<div class="sourceCode" id="cb107"><html><body><pre class="r">(<span class="no">xbarcode</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span>(<span class="no">acc</span>)<span class="kw">[[</span><span class="st">"ACC_CNVSNP-20160128"</span>]], <span class="fl">4L</span>))</pre></body></html></div>
+<div class="sourceCode" id="cb106"><html><body><pre class="r">(<span class="no">xbarcode</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span>(<span class="no">acc</span>)<span class="kw">[[</span><span class="st">"ACC_CNVSNP-20160128"</span>]], <span class="fl">4L</span>))</pre></body></html></div>
 <pre><code>## [1] "TCGA-OR-A5J1-01A-11D-A29H-01" "TCGA-OR-A5J1-10A-01D-A29K-01"
 ## [3] "TCGA-OR-A5J2-01A-11D-A29H-01" "TCGA-OR-A5J2-10A-01D-A29K-01"</code></pre>
-<div class="sourceCode" id="cb109"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/ID-translation.html">barcodeToUUID</a></span>(<span class="no">xbarcode</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb108"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/ID-translation.html">barcodeToUUID</a></span>(<span class="no">xbarcode</span>)</pre></body></html></div>
 <pre><code>##           submitter_aliquot_ids                          aliquot_ids
 ## 6  TCGA-OR-A5J1-01A-11D-A29H-01 1387b6c7-48fe-4961-86a7-0bdcbd3fef92
 ## 9  TCGA-OR-A5J1-10A-01D-A29K-01 cb537629-6a01-4d67-84ea-dbf130bd59c7
@@ -1197,7 +1089,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <h4 class="hasAnchor">
 <a href="#uuidtouuid---file-and-case-ids" class="anchor"></a><code>UUIDtoUUID()</code> - file and case IDs</h4>
 <p>We can also translate from file UUIDs to case UUIDs and vice versa as long as we know the input type. We can use the case UUID from the previous example to get the associated file UUIDs using <code>UUIDtoUUID</code>. Note that this translation is a one to many relationship, thus yielding a <code>data.frame</code> of file UUIDs for a single case UUID.</p>
-<div class="sourceCode" id="cb111"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/ID-translation.html">UUIDtoUUID</a></span>(<span class="st">"ae55b2d3-62a1-419e-9f9a-5ddfac356db4"</span>, <span class="kw">to_type</span> <span class="kw">=</span> <span class="st">"file_id"</span>))</pre></body></html></div>
+<div class="sourceCode" id="cb110"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/ID-translation.html">UUIDtoUUID</a></span>(<span class="st">"ae55b2d3-62a1-419e-9f9a-5ddfac356db4"</span>, <span class="kw">to_type</span> <span class="kw">=</span> <span class="st">"file_id"</span>))</pre></body></html></div>
 <pre><code>##                                case_id                        files.file_id
 ## 1 ae55b2d3-62a1-419e-9f9a-5ddfac356db4 48c342b0-e7a2-4a7b-8556-55bcd8ad9ea0
 ## 2 ae55b2d3-62a1-419e-9f9a-5ddfac356db4 db8ba5d3-76be-4a67-a575-803ba483b6f9
@@ -1212,7 +1104,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <div id="filenametobarcode---using-file-names-as-input" class="section level4">
 <h4 class="hasAnchor">
 <a href="#filenametobarcode---using-file-names-as-input" class="anchor"></a><code>filenameToBarcode()</code> - Using file names as input</h4>
-<div class="sourceCode" id="cb113"><html><body><pre class="r"><span class="no">fquery</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/GenomicDataCommons/man/query.html">files</a></span>() <span class="kw">%&gt;%</span>
+<div class="sourceCode" id="cb112"><html><body><pre class="r"><span class="no">fquery</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/GenomicDataCommons/man/query.html">files</a></span>() <span class="kw">%&gt;%</span>
     <span class="kw pkg">GenomicDataCommons</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/GenomicDataCommons/man/filtering.html">filter</a></span>(~ <span class="no">cases.project.project_id</span> <span class="kw">==</span> <span class="st">"TCGA-ACC"</span> <span class="kw">&amp;</span>
         <span class="no">data_category</span> <span class="kw">==</span> <span class="st">"Copy Number Variation"</span> <span class="kw">&amp;</span>
         <span class="no">data_type</span> <span class="kw">==</span> <span class="st">"Copy Number Segment"</span>)
@@ -1243,7 +1135,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <a href="#bonus-multiassayexperiment---pan-cancer-example" class="anchor"></a>Bonus: <code>MultiAssayExperiment</code> - Pan-Cancer Example</h2>
 <p>The <code>MultiAssayExperiment</code> class is most efficient with samples from a set of patients over multiple experiments but it also supports samples from disparate datasets where the patients are different in each dataset. The data container allows multiple sets of patients within the same object. This is nicely demonstrated using a PanCancer TCGA dataset where measurements are made on multiple groups of patients. In order to achieve this, <code>curatedTCGAData</code> allows the user to query for multiple cancer types.</p>
 <p>In the example, we can focus on one type of data:</p>
-<div class="sourceCode" id="cb115"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="fu"><a href="https://rdrr.io/pkg/curatedTCGAData/man/curatedTCGAData.html">curatedTCGAData</a></span>(<span class="st">"*"</span>, <span class="st">"miRNA*"</span>))</pre></body></html></div>
+<div class="sourceCode" id="cb114"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="fu"><a href="https://rdrr.io/pkg/curatedTCGAData/man/curatedTCGAData.html">curatedTCGAData</a></span>(<span class="st">"*"</span>, <span class="st">"miRNA*"</span>))</pre></body></html></div>
 <pre><code>##                         Title DispatchClass
 ## 10  ACC_miRNASeqGene-20160128           Rda
 ## 25 BLCA_miRNASeqGene-20160128           Rda
@@ -1252,7 +1144,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 ## 74 CHOL_miRNASeqGene-20160128           Rda
 ## 91 COAD_miRNASeqGene-20160128           Rda</code></pre>
 <p>To obtain data for multiple cancers, we modify the first argument in <code>curatedTCGAData</code>:</p>
-<div class="sourceCode" id="cb117"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/curatedTCGAData/man/curatedTCGAData.html">curatedTCGAData</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"OV"</span>, <span class="st">"CESC"</span>, <span class="st">"BRCA"</span>, <span class="st">"UCEC"</span>, <span class="st">"UCS"</span>), <span class="st">"miRNA*"</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb116"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/curatedTCGAData/man/curatedTCGAData.html">curatedTCGAData</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"OV"</span>, <span class="st">"CESC"</span>, <span class="st">"BRCA"</span>, <span class="st">"UCEC"</span>, <span class="st">"UCS"</span>), <span class="st">"miRNA*"</span>)</pre></body></html></div>
 <pre><code>##                          Title DispatchClass
 ## 43  BRCA_miRNASeqGene-20160128           Rda
 ## 60  CESC_miRNASeqGene-20160128           Rda
@@ -1261,7 +1153,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 ## 505 UCEC_miRNASeqGene-20160128           Rda
 ## 521  UCS_miRNASeqGene-20160128           Rda</code></pre>
 <p>We then request the actual data by setting the <code>dry.run</code> argument to <code>FALSE</code>:</p>
-<div class="sourceCode" id="cb119"><html><body><pre class="r"><span class="no">mirnapan</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/curatedTCGAData/man/curatedTCGAData.html">curatedTCGAData</a></span>(
+<div class="sourceCode" id="cb118"><html><body><pre class="r"><span class="no">mirnapan</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/curatedTCGAData/man/curatedTCGAData.html">curatedTCGAData</a></span>(
     <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"OV"</span>, <span class="st">"CESC"</span>, <span class="st">"BRCA"</span>, <span class="st">"UCEC"</span>, <span class="st">"UCS"</span>), <span class="st">"miRNA*"</span>, <span class="fl">FALSE</span>)</pre></body></html></div>
 <pre><code>## snapshotDate(): 2020-07-10</code></pre>
 <pre><code>## Working on: BRCA_miRNASeqGene-20160128</code></pre>
@@ -1385,8 +1277,8 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <a href="#how-many-miniacc-samples-have-data-for-each-combination-of-assays" class="anchor"></a>How many <code>miniACC</code> samples have data for each combination of assays?</h3>
 <p><strong>Solution</strong></p>
 <p>The built-in <code>upsetSamples</code> creates an “upset” Venn diagram to answer this question:</p>
-<div class="sourceCode" id="cb227"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/MultiAssayExperiment/man/upsetSamples.html">upsetSamples</a></span>(<span class="no">miniACC</span>)</pre></body></html></div>
-<p><img src="Ramos_MultiAssayExperiment_files/figure-html/unnamed-chunk-49-1.png" width="100%"></p>
+<div class="sourceCode" id="cb226"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/MultiAssayExperiment/man/upsetSamples.html">upsetSamples</a></span>(<span class="no">miniACC</span>)</pre></body></html></div>
+<p><img src="Ramos_MultiAssayExperiment_files/figure-html/unnamed-chunk-48-1.png" width="100%"></p>
 <p>In this dataset only 43 samples have all 5 assays, 32 are missing reverse-phase protein (RPPAArray), 2 are missing Mutations, 1 is missing gistict, 12 have only mutations and gistict, etc.</p>
 </div>
 <div id="kaplan-meier-plot-stratified-by-pathology_n_stage" class="section level3">
@@ -1395,7 +1287,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <p>Create a Kaplan-meier plot, using pathology_N_stage as a stratifying variable.</p>
 <p><strong>Solution</strong></p>
 <p>The colData provides clinical data for things like a Kaplan-Meier plot for overall survival stratified by nodal stage.</p>
-<div class="sourceCode" id="cb228"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/survival/man/Surv.html">Surv</a></span>(<span class="no">miniACC</span>$<span class="no">days_to_death</span>, <span class="no">miniACC</span>$<span class="no">vital_status</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb227"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/survival/man/Surv.html">Surv</a></span>(<span class="no">miniACC</span>$<span class="no">days_to_death</span>, <span class="no">miniACC</span>$<span class="no">vital_status</span>)</pre></body></html></div>
 <pre><code>##  [1] 1355  1677    NA+  423   365    NA+  490   579    NA+  922   551  1750 
 ## [13]   NA+ 2105    NA+  541    NA+   NA+  490    NA+   NA+  562    NA+   NA+
 ## [25]   NA+   NA+   NA+   NA+  289    NA+   NA+   NA+  552    NA+   NA+   NA+
@@ -1405,24 +1297,24 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 ## [73] 1105    NA+ 1613    NA+   NA+ 2405    NA+   NA+   NA+   NA+   NA+  207 
 ## [85]    0    NA+   NA+   NA+   NA+   NA+   NA+  383</code></pre>
 <p>And remove any patients missing overall survival information:</p>
-<div class="sourceCode" id="cb230"><html><body><pre class="r"><span class="no">miniACCsurv</span> <span class="kw">&lt;-</span> <span class="no">miniACC</span>[,
+<div class="sourceCode" id="cb229"><html><body><pre class="r"><span class="no">miniACCsurv</span> <span class="kw">&lt;-</span> <span class="no">miniACC</span>[,
     <span class="fu"><a href="https://rdrr.io/r/stats/complete.cases.html">complete.cases</a></span>(<span class="no">miniACC</span>$<span class="no">days_to_death</span>, <span class="no">miniACC</span>$<span class="no">vital_status</span>), ]</pre></body></html></div>
-<div class="sourceCode" id="cb231"><html><body><pre class="r"><span class="no">fit</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/survival/man/survfit.html">survfit</a></span>(<span class="fu"><a href="https://rdrr.io/pkg/survival/man/Surv.html">Surv</a></span>(<span class="no">days_to_death</span>, <span class="no">vital_status</span>) ~ <span class="no">pathology_N_stage</span>,
+<div class="sourceCode" id="cb230"><html><body><pre class="r"><span class="no">fit</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/survival/man/survfit.html">survfit</a></span>(<span class="fu"><a href="https://rdrr.io/pkg/survival/man/Surv.html">Surv</a></span>(<span class="no">days_to_death</span>, <span class="no">vital_status</span>) ~ <span class="no">pathology_N_stage</span>,
     <span class="kw">data</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/pkg/SummarizedExperiment/man/SummarizedExperiment-class.html">colData</a></span>(<span class="no">miniACCsurv</span>))
 <span class="fu"><a href="https://rdrr.io/pkg/survminer/man/ggsurvplot.html">ggsurvplot</a></span>(<span class="no">fit</span>, <span class="kw">data</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/pkg/SummarizedExperiment/man/SummarizedExperiment-class.html">colData</a></span>(<span class="no">miniACCsurv</span>), <span class="kw">risk.table</span> <span class="kw">=</span> <span class="fl">TRUE</span>)</pre></body></html></div>
 <pre><code>## Warning: Vectorized input to `element_text()` is not officially supported.
 ## Results may be unexpected or may change in future versions of ggplot2.</code></pre>
-<p><img src="Ramos_MultiAssayExperiment_files/figure-html/unnamed-chunk-52-1.png" width="100%"></p>
+<p><img src="Ramos_MultiAssayExperiment_files/figure-html/unnamed-chunk-51-1.png" width="100%"></p>
 </div>
 <div id="multivariate-cox-regression-including-rna-seq-copy-number-and-pathology" class="section level3">
 <h3 class="hasAnchor">
 <a href="#multivariate-cox-regression-including-rna-seq-copy-number-and-pathology" class="anchor"></a>Multivariate Cox regression including RNA-seq, copy number, and pathology</h3>
 <p>Choose the <em>EZH2</em> gene for demonstration. This subsetting will drop assays with no row named EZH2:</p>
-<div class="sourceCode" id="cb233"><html><body><pre class="r"><span class="no">wideacc</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/MultiAssayExperiment/man/MultiAssayExperiment-helpers.html">wideFormat</a></span>(<span class="no">miniACC</span>[<span class="st">"EZH2"</span>, , ],
+<div class="sourceCode" id="cb232"><html><body><pre class="r"><span class="no">wideacc</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/MultiAssayExperiment/man/MultiAssayExperiment-helpers.html">wideFormat</a></span>(<span class="no">miniACC</span>[<span class="st">"EZH2"</span>, , ],
     <span class="kw">colDataCols</span><span class="kw">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"vital_status"</span>, <span class="st">"days_to_death"</span>, <span class="st">"pathology_N_stage"</span>))</pre></body></html></div>
 <pre><code>## harmonizing input:
 ##   removing 216 sampleMap rows not in names(experiments)</code></pre>
-<div class="sourceCode" id="cb235"><html><body><pre class="r"><span class="no">wideacc</span>$<span class="no">y</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/pkg/survival/man/Surv.html">Surv</a></span>(<span class="no">wideacc</span>$<span class="no">days_to_death</span>, <span class="no">wideacc</span>$<span class="no">vital_status</span>)
+<div class="sourceCode" id="cb234"><html><body><pre class="r"><span class="no">wideacc</span>$<span class="no">y</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/pkg/survival/man/Surv.html">Surv</a></span>(<span class="no">wideacc</span>$<span class="no">days_to_death</span>, <span class="no">wideacc</span>$<span class="no">vital_status</span>)
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">wideacc</span>)</pre></body></html></div>
 <pre><code>## DataFrame with 6 rows and 7 columns
 ##        primary vital_status days_to_death pathology_N_stage
@@ -1442,7 +1334,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 ## 5             366.3826            1  365:1
 ## 6              30.7371            1   NA:0</code></pre>
 <p>Perform a multivariate Cox regression with <em>EZH2</em> copy number (gistict), log2-transformed <em>EZH2</em> expression (RNASeq2GeneNorm), and nodal status (pathology_N_stage) as predictors:</p>
-<div class="sourceCode" id="cb237"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/survival/man/coxph.html">coxph</a></span>(<span class="fu"><a href="https://rdrr.io/pkg/survival/man/Surv.html">Surv</a></span>(<span class="no">days_to_death</span>, <span class="no">vital_status</span>) ~ <span class="no">gistict_EZH2</span> +
+<div class="sourceCode" id="cb236"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/survival/man/coxph.html">coxph</a></span>(<span class="fu"><a href="https://rdrr.io/pkg/survival/man/Surv.html">Surv</a></span>(<span class="no">days_to_death</span>, <span class="no">vital_status</span>) ~ <span class="no">gistict_EZH2</span> +
     <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log2</a></span>(<span class="no">RNASeq2GeneNorm_EZH2</span>) + <span class="no">pathology_N_stage</span>, <span class="kw">data</span><span class="kw">=</span><span class="no">wideacc</span>)</pre></body></html></div>
 <pre><code>## Call:
 ## coxph(formula = Surv(days_to_death, vital_status) ~ gistict_EZH2 + 
@@ -1469,34 +1361,34 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <p>For all genes where there is both recurrent copy number (gistict assay) and RNA-seq, calculate the correlation between log2(RNAseq + 1) and copy number. Create a histogram of these correlations. Compare this with the histogram of correlations between all <em>unmatched</em> gene - copy number pairs.</p>
 <p><strong>Solution</strong></p>
 <p>First, narrow down <code>miniACC</code> to only the assays needed:</p>
-<div class="sourceCode" id="cb239"><html><body><pre class="r"><span class="no">subacc</span> <span class="kw">&lt;-</span> <span class="no">miniACC</span>[, , <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"RNASeq2GeneNorm"</span>, <span class="st">"gistict"</span>)]</pre></body></html></div>
+<div class="sourceCode" id="cb238"><html><body><pre class="r"><span class="no">subacc</span> <span class="kw">&lt;-</span> <span class="no">miniACC</span>[, , <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"RNASeq2GeneNorm"</span>, <span class="st">"gistict"</span>)]</pre></body></html></div>
 <pre><code>## harmonizing input:
 ##   removing 216 sampleMap rows not in names(experiments)</code></pre>
 <p>Align the rows and columns, keeping only samples with both assays available:</p>
-<div class="sourceCode" id="cb241"><html><body><pre class="r"><span class="no">subacc</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/MultiAssayExperiment/man/MultiAssayExperiment-helpers.html">intersectColumns</a></span>(<span class="no">subacc</span>)
+<div class="sourceCode" id="cb240"><html><body><pre class="r"><span class="no">subacc</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/MultiAssayExperiment/man/MultiAssayExperiment-helpers.html">intersectColumns</a></span>(<span class="no">subacc</span>)
 <span class="no">subacc</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/MultiAssayExperiment/man/MultiAssayExperiment-helpers.html">intersectRows</a></span>(<span class="no">subacc</span>)</pre></body></html></div>
 <p>Create a list of numeric matrices:</p>
-<div class="sourceCode" id="cb242"><html><body><pre class="r"><span class="no">subacc.list</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/SummarizedExperiment/man/SummarizedExperiment-class.html">assays</a></span>(<span class="no">subacc</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb241"><html><body><pre class="r"><span class="no">subacc.list</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/SummarizedExperiment/man/SummarizedExperiment-class.html">assays</a></span>(<span class="no">subacc</span>)</pre></body></html></div>
 <p>Log-transform the RNA-seq assay:</p>
-<div class="sourceCode" id="cb243"><html><body><pre class="r"><span class="no">subacc.list</span><span class="kw">[[</span><span class="fl">1</span>]] <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log2</a></span>(<span class="no">subacc.list</span><span class="kw">[[</span><span class="fl">1</span>]] + <span class="fl">1</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb242"><html><body><pre class="r"><span class="no">subacc.list</span><span class="kw">[[</span><span class="fl">1</span>]] <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log2</a></span>(<span class="no">subacc.list</span><span class="kw">[[</span><span class="fl">1</span>]] + <span class="fl">1</span>)</pre></body></html></div>
 <p>Transpose both, so genes are in columns:</p>
-<div class="sourceCode" id="cb244"><html><body><pre class="r"><span class="no">subacc.list</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span>(<span class="no">subacc.list</span>, <span class="no">t</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb243"><html><body><pre class="r"><span class="no">subacc.list</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span>(<span class="no">subacc.list</span>, <span class="no">t</span>)</pre></body></html></div>
 <p>Calculate the correlation between columns in the first matrix and columns in the second matrix:</p>
-<div class="sourceCode" id="cb245"><html><body><pre class="r"><span class="no">corres</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span>(<span class="no">subacc.list</span><span class="kw">[[</span><span class="fl">1</span>]], <span class="no">subacc.list</span><span class="kw">[[</span><span class="fl">2</span>]])</pre></body></html></div>
+<div class="sourceCode" id="cb244"><html><body><pre class="r"><span class="no">corres</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span>(<span class="no">subacc.list</span><span class="kw">[[</span><span class="fl">1</span>]], <span class="no">subacc.list</span><span class="kw">[[</span><span class="fl">2</span>]])</pre></body></html></div>
 <p>And finally, create the histograms:</p>
-<div class="sourceCode" id="cb246"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/diag.html">diag</a></span>(<span class="no">corres</span>))</pre></body></html></div>
-<p><img src="Ramos_MultiAssayExperiment_files/figure-html/unnamed-chunk-61-1.png" width="100%"></p>
-<div class="sourceCode" id="cb247"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span>(<span class="no">corres</span>[<span class="fu"><a href="https://rdrr.io/r/base/lower.tri.html">upper.tri</a></span>(<span class="no">corres</span>)])</pre></body></html></div>
-<p><img src="Ramos_MultiAssayExperiment_files/figure-html/unnamed-chunk-61-2.png" width="100%"></p>
+<div class="sourceCode" id="cb245"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/diag.html">diag</a></span>(<span class="no">corres</span>))</pre></body></html></div>
+<p><img src="Ramos_MultiAssayExperiment_files/figure-html/unnamed-chunk-60-1.png" width="100%"></p>
+<div class="sourceCode" id="cb246"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span>(<span class="no">corres</span>[<span class="fu"><a href="https://rdrr.io/r/base/lower.tri.html">upper.tri</a></span>(<span class="no">corres</span>)])</pre></body></html></div>
+<p><img src="Ramos_MultiAssayExperiment_files/figure-html/unnamed-chunk-60-2.png" width="100%"></p>
 <p><strong>Part 2</strong></p>
 <p>For the gene with highest correlation to copy number, make a box plot of log2 expression against copy number.</p>
 <p><strong>Solution</strong></p>
 <p>First, identify the gene with highest correlation between expression and copy number:</p>
-<div class="sourceCode" id="cb248"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/which.min.html">which.max</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/diag.html">diag</a></span>(<span class="no">corres</span>))</pre></body></html></div>
+<div class="sourceCode" id="cb247"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/which.min.html">which.max</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/diag.html">diag</a></span>(<span class="no">corres</span>))</pre></body></html></div>
 <pre><code>## EIF4E 
 ##    91</code></pre>
 <p>You could now make the plot by taking the EIF4E columns from each element of the list subacc.list <em>list</em> that was extracted from the subacc <em>MultiAssayExperiment</em>, but let’s do it by subsetting and extracting from the <em>MultiAssayExperiment</em>:</p>
-<div class="sourceCode" id="cb250"><html><body><pre class="r"><span class="no">df</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/MultiAssayExperiment/man/MultiAssayExperiment-helpers.html">wideFormat</a></span>(<span class="no">subacc</span>[<span class="st">"EIF4E"</span>, , ])
+<div class="sourceCode" id="cb249"><html><body><pre class="r"><span class="no">df</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/MultiAssayExperiment/man/MultiAssayExperiment-helpers.html">wideFormat</a></span>(<span class="no">subacc</span>[<span class="st">"EIF4E"</span>, , ])
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">df</span>)</pre></body></html></div>
 <pre><code>## DataFrame with 6 rows and 3 columns
 ##        primary RNASeq2GeneNorm_EIF4E gistict_EIF4E
@@ -1507,11 +1399,11 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 ## 4 TCGA-OR-A5J5              1129.357             1
 ## 5 TCGA-OR-A5J6               822.078             0
 ## 6 TCGA-OR-A5J7               344.565            -1</code></pre>
-<div class="sourceCode" id="cb252"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span>(<span class="no">RNASeq2GeneNorm_EIF4E</span> ~ <span class="no">gistict_EIF4E</span>,
+<div class="sourceCode" id="cb251"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span>(<span class="no">RNASeq2GeneNorm_EIF4E</span> ~ <span class="no">gistict_EIF4E</span>,
         <span class="kw">data</span><span class="kw">=</span><span class="no">df</span>, <span class="kw">varwidth</span><span class="kw">=</span><span class="fl">TRUE</span>,
         <span class="kw">xlab</span><span class="kw">=</span><span class="st">"GISTIC Relative Copy Number Call"</span>,
         <span class="kw">ylab</span><span class="kw">=</span><span class="st">"RNA-seq counts"</span>)</pre></body></html></div>
-<p><img src="Ramos_MultiAssayExperiment_files/figure-html/unnamed-chunk-64-1.png" width="100%"></p>
+<p><img src="Ramos_MultiAssayExperiment_files/figure-html/unnamed-chunk-63-1.png" width="100%"></p>
 <p style="text-align: right;">
 <a href="#overview-of-key-data-classes">back to top</a>
 </p>
@@ -1522,7 +1414,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <p>Perform Principal Components Analysis of each of the five assays, using samples available on each assay, log-transforming RNA-seq data first. Using the first 10 components, calculate Pearson correlation between all scores and plot these correlations as a heatmap to identify correlated components across assays.</p>
 <p><strong>Solution</strong></p>
 <p>Here’s a function to simplify doing the PCAs:</p>
-<div class="sourceCode" id="cb253"><html><body><pre class="r"><span class="no">getLoadings</span> <span class="kw">&lt;-</span> <span class="kw">function</span>(<span class="no">x</span>, <span class="no">ncomp</span><span class="kw">=</span><span class="fl">10</span>, <span class="no">dolog</span><span class="kw">=</span><span class="fl">FALSE</span>, <span class="no">center</span><span class="kw">=</span><span class="fl">TRUE</span>, <span class="no">scale.</span><span class="kw">=</span><span class="fl">TRUE</span>){
+<div class="sourceCode" id="cb252"><html><body><pre class="r"><span class="no">getLoadings</span> <span class="kw">&lt;-</span> <span class="kw">function</span>(<span class="no">x</span>, <span class="no">ncomp</span><span class="kw">=</span><span class="fl">10</span>, <span class="no">dolog</span><span class="kw">=</span><span class="fl">FALSE</span>, <span class="no">center</span><span class="kw">=</span><span class="fl">TRUE</span>, <span class="no">scale.</span><span class="kw">=</span><span class="fl">TRUE</span>){
   <span class="kw">if</span>(<span class="no">dolog</span>){
     <span class="no">x</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log2</a></span>(<span class="no">x</span> + <span class="fl">1</span>)
   }
@@ -1530,27 +1422,27 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
   <span class="fu"><a href="https://rdrr.io/r/base/function.html">return</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span>(<span class="no">pc</span>$<span class="no">rotation</span>[, <span class="fl">1</span>:<span class="fl">10</span>]))
 }</pre></body></html></div>
 <p>Although it would be possible to do the following with a loop, the different data types do require different options for PCA (e.g. mutations are a 0/1 matrix with 1 meaning there is a somatic mutation, and gistict varies between -2 for homozygous loss and 2 for a genome doubling, so neither make sense to scale and center). So it is just as well to do the following one by one, concatenating each PCA results to the MultiAssayExperiment:</p>
-<div class="sourceCode" id="cb254"><html><body><pre class="r"><span class="no">miniACC2</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/MultiAssayExperiment/man/MultiAssayExperiment-helpers.html">intersectColumns</a></span>(<span class="no">miniACC</span>)
+<div class="sourceCode" id="cb253"><html><body><pre class="r"><span class="no">miniACC2</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/MultiAssayExperiment/man/MultiAssayExperiment-helpers.html">intersectColumns</a></span>(<span class="no">miniACC</span>)
 <span class="no">miniACC2</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="no">miniACC2</span>, <span class="kw">rnaseqPCA</span><span class="kw">=</span><span class="fu">getLoadings</span>(<span class="fu"><a href="https://rdrr.io/pkg/SummarizedExperiment/man/SummarizedExperiment-class.html">assays</a></span>(<span class="no">miniACC2</span>)<span class="kw">[[</span><span class="fl">1</span>]], <span class="kw">dolog</span><span class="kw">=</span><span class="fl">TRUE</span>), <span class="kw">mapFrom</span><span class="kw">=</span><span class="fl">1L</span>)</pre></body></html></div>
 <pre><code>## Warning: Assuming column order in the data provided 
 ##  matches the order in 'mapFrom' experiment(s) colnames</code></pre>
-<div class="sourceCode" id="cb256"><html><body><pre class="r"><span class="no">miniACC2</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="no">miniACC2</span>, <span class="kw">gistictPCA</span><span class="kw">=</span><span class="fu">getLoadings</span>(<span class="fu"><a href="https://rdrr.io/pkg/SummarizedExperiment/man/SummarizedExperiment-class.html">assays</a></span>(<span class="no">miniACC2</span>)<span class="kw">[[</span><span class="fl">2</span>]], <span class="kw">center</span><span class="kw">=</span><span class="fl">FALSE</span>, <span class="kw">scale.</span><span class="kw">=</span><span class="fl">FALSE</span>), <span class="kw">mapFrom</span><span class="kw">=</span><span class="fl">2L</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb255"><html><body><pre class="r"><span class="no">miniACC2</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="no">miniACC2</span>, <span class="kw">gistictPCA</span><span class="kw">=</span><span class="fu">getLoadings</span>(<span class="fu"><a href="https://rdrr.io/pkg/SummarizedExperiment/man/SummarizedExperiment-class.html">assays</a></span>(<span class="no">miniACC2</span>)<span class="kw">[[</span><span class="fl">2</span>]], <span class="kw">center</span><span class="kw">=</span><span class="fl">FALSE</span>, <span class="kw">scale.</span><span class="kw">=</span><span class="fl">FALSE</span>), <span class="kw">mapFrom</span><span class="kw">=</span><span class="fl">2L</span>)</pre></body></html></div>
 <pre><code>## Warning: Assuming column order in the data provided 
 ##  matches the order in 'mapFrom' experiment(s) colnames</code></pre>
-<div class="sourceCode" id="cb258"><html><body><pre class="r"><span class="no">miniACC2</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="no">miniACC2</span>, <span class="kw">proteinPCA</span><span class="kw">=</span><span class="fu">getLoadings</span>(<span class="fu"><a href="https://rdrr.io/pkg/SummarizedExperiment/man/SummarizedExperiment-class.html">assays</a></span>(<span class="no">miniACC2</span>)<span class="kw">[[</span><span class="fl">3</span>]]), <span class="kw">mapFrom</span><span class="kw">=</span><span class="fl">3L</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb257"><html><body><pre class="r"><span class="no">miniACC2</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="no">miniACC2</span>, <span class="kw">proteinPCA</span><span class="kw">=</span><span class="fu">getLoadings</span>(<span class="fu"><a href="https://rdrr.io/pkg/SummarizedExperiment/man/SummarizedExperiment-class.html">assays</a></span>(<span class="no">miniACC2</span>)<span class="kw">[[</span><span class="fl">3</span>]]), <span class="kw">mapFrom</span><span class="kw">=</span><span class="fl">3L</span>)</pre></body></html></div>
 <pre><code>## Warning: Assuming column order in the data provided 
 ##  matches the order in 'mapFrom' experiment(s) colnames</code></pre>
-<div class="sourceCode" id="cb260"><html><body><pre class="r"><span class="no">miniACC2</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="no">miniACC2</span>, <span class="kw">mutationsPCA</span><span class="kw">=</span><span class="fu">getLoadings</span>(<span class="fu"><a href="https://rdrr.io/pkg/SummarizedExperiment/man/SummarizedExperiment-class.html">assays</a></span>(<span class="no">miniACC2</span>)<span class="kw">[[</span><span class="fl">4</span>]], <span class="kw">center</span><span class="kw">=</span><span class="fl">FALSE</span>, <span class="kw">scale.</span><span class="kw">=</span><span class="fl">FALSE</span>), <span class="kw">mapFrom</span><span class="kw">=</span><span class="fl">4L</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb259"><html><body><pre class="r"><span class="no">miniACC2</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="no">miniACC2</span>, <span class="kw">mutationsPCA</span><span class="kw">=</span><span class="fu">getLoadings</span>(<span class="fu"><a href="https://rdrr.io/pkg/SummarizedExperiment/man/SummarizedExperiment-class.html">assays</a></span>(<span class="no">miniACC2</span>)<span class="kw">[[</span><span class="fl">4</span>]], <span class="kw">center</span><span class="kw">=</span><span class="fl">FALSE</span>, <span class="kw">scale.</span><span class="kw">=</span><span class="fl">FALSE</span>), <span class="kw">mapFrom</span><span class="kw">=</span><span class="fl">4L</span>)</pre></body></html></div>
 <pre><code>## Warning: Assuming column order in the data provided 
 ##  matches the order in 'mapFrom' experiment(s) colnames</code></pre>
-<div class="sourceCode" id="cb262"><html><body><pre class="r"><span class="no">miniACC2</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="no">miniACC2</span>, <span class="kw">miRNAPCA</span><span class="kw">=</span><span class="fu">getLoadings</span>(<span class="fu"><a href="https://rdrr.io/pkg/SummarizedExperiment/man/SummarizedExperiment-class.html">assays</a></span>(<span class="no">miniACC2</span>)<span class="kw">[[</span><span class="fl">5</span>]]), <span class="kw">mapFrom</span><span class="kw">=</span><span class="fl">5L</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb261"><html><body><pre class="r"><span class="no">miniACC2</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="no">miniACC2</span>, <span class="kw">miRNAPCA</span><span class="kw">=</span><span class="fu">getLoadings</span>(<span class="fu"><a href="https://rdrr.io/pkg/SummarizedExperiment/man/SummarizedExperiment-class.html">assays</a></span>(<span class="no">miniACC2</span>)<span class="kw">[[</span><span class="fl">5</span>]]), <span class="kw">mapFrom</span><span class="kw">=</span><span class="fl">5L</span>)</pre></body></html></div>
 <pre><code>## Warning: Assuming column order in the data provided 
 ##  matches the order in 'mapFrom' experiment(s) colnames</code></pre>
 <p>Now subset to keep <em>only</em> the PCA results:</p>
-<div class="sourceCode" id="cb264"><html><body><pre class="r"><span class="no">miniACC2</span> <span class="kw">&lt;-</span> <span class="no">miniACC2</span>[, , <span class="fl">6</span>:<span class="fl">10</span>]</pre></body></html></div>
+<div class="sourceCode" id="cb263"><html><body><pre class="r"><span class="no">miniACC2</span> <span class="kw">&lt;-</span> <span class="no">miniACC2</span>[, , <span class="fl">6</span>:<span class="fl">10</span>]</pre></body></html></div>
 <pre><code>## harmonizing input:
 ##   removing 215 sampleMap rows not in names(experiments)</code></pre>
-<div class="sourceCode" id="cb266"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/MultiAssayExperiment/man/MultiAssayExperiment-methods.html">experiments</a></span>(<span class="no">miniACC2</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb265"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/MultiAssayExperiment/man/MultiAssayExperiment-methods.html">experiments</a></span>(<span class="no">miniACC2</span>)</pre></body></html></div>
 <pre><code>## ExperimentList class object of length 5:
 ##  [1] rnaseqPCA: matrix with 10 rows and 43 columns
 ##  [2] gistictPCA: matrix with 10 rows and 43 columns
@@ -1559,15 +1451,15 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 ##  [5] miRNAPCA: matrix with 10 rows and 43 columns</code></pre>
 <p>Note, it would be equally easy (and maybe better) to do PCA on all samples available for each assay, then do intersectColumns at this point instead.</p>
 <p>Now, steps for calculating the correlations and plotting a heatmap: * Use <em>wideFormat</em> to paste these together, which has the nice property of adding assay names to the column names. * The first column always contains the sample identifier, so remove it. * Coerce to a matrix * Calculate the correlations, and take the absolute value (since signs of principal components are arbitrary) * Set the diagonals to NA (each variable has a correlation of 1 to itself).</p>
-<div class="sourceCode" id="cb268"><html><body><pre class="r"><span class="no">df</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/MultiAssayExperiment/man/MultiAssayExperiment-helpers.html">wideFormat</a></span>(<span class="no">miniACC2</span>)[, -<span class="fl">1</span>]
+<div class="sourceCode" id="cb267"><html><body><pre class="r"><span class="no">df</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/MultiAssayExperiment/man/MultiAssayExperiment-helpers.html">wideFormat</a></span>(<span class="no">miniACC2</span>)[, -<span class="fl">1</span>]
 <span class="no">mycors</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/matrix.html">as.matrix</a></span>(<span class="no">df</span>))
 <span class="no">mycors</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">abs</a></span>(<span class="no">mycors</span>)
 <span class="fu"><a href="https://rdrr.io/r/base/diag.html">diag</a></span>(<span class="no">mycors</span>) <span class="kw">&lt;-</span> <span class="fl">NA</span></pre></body></html></div>
 <p>To simplify the heatmap, show only components that have at least one correlation greater than 0.5.</p>
-<div class="sourceCode" id="cb269"><html><body><pre class="r"><span class="no">has.high.cor</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span>(<span class="no">mycors</span>, <span class="fl">2</span>, <span class="no">max</span>, <span class="kw">na.rm</span><span class="kw">=</span><span class="fl">TRUE</span>) <span class="kw">&gt;</span> <span class="fl">0.5</span>
+<div class="sourceCode" id="cb268"><html><body><pre class="r"><span class="no">has.high.cor</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span>(<span class="no">mycors</span>, <span class="fl">2</span>, <span class="no">max</span>, <span class="kw">na.rm</span><span class="kw">=</span><span class="fl">TRUE</span>) <span class="kw">&gt;</span> <span class="fl">0.5</span>
 <span class="no">mycors</span> <span class="kw">&lt;-</span> <span class="no">mycors</span>[<span class="no">has.high.cor</span>, <span class="no">has.high.cor</span>]
 <span class="kw pkg">pheatmap</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/pheatmap/man/pheatmap.html">pheatmap</a></span>(<span class="no">mycors</span>)</pre></body></html></div>
-<p><img src="Ramos_MultiAssayExperiment_files/figure-html/unnamed-chunk-69-1.png" width="100%"></p>
+<p><img src="Ramos_MultiAssayExperiment_files/figure-html/unnamed-chunk-68-1.png" width="100%"></p>
 <p>The highest correlation present is between PC2 of the RNA-seq assay, and PC1 of the protein assay.</p>
 <p style="text-align: right;">
 <a href="#overview-of-key-data-classes">back to top</a>
@@ -1580,7 +1472,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <p>Convert all the <code>ExperimentList</code> elements in <code>miniACC</code> to <code>RangedSummarizedExperiment</code> objects. Then use <code>rowRanges</code> to annotate these objects with genomic ranges. For the microRNA assay, annotate instead with the genomic coordinates of predicted targets.</p>
 <p><strong>Solution</strong></p>
 <p>The following shortcut function takes a list of human gene symbols and uses <code>AnnotationFilter</code> and <code>EnsDb.Hsapiens.v86</code> to look up the ranges, and return these as a GRangesList which can be used to replace the rowRanges of the SummarizedExperiment objects:</p>
-<div class="sourceCode" id="cb270"><html><body><pre class="r"><span class="no">getrr</span> <span class="kw">&lt;-</span> <span class="kw">function</span>(<span class="no">identifiers</span>, <span class="no">EnsDbFilterFunc</span><span class="kw">=</span><span class="kw pkg">AnnotationFilter</span><span class="kw ns">::</span><span class="no"><a href="https://rdrr.io/pkg/AnnotationFilter/man/AnnotationFilter.html">SymbolFilter</a></span>) {
+<div class="sourceCode" id="cb269"><html><body><pre class="r"><span class="no">getrr</span> <span class="kw">&lt;-</span> <span class="kw">function</span>(<span class="no">identifiers</span>, <span class="no">EnsDbFilterFunc</span><span class="kw">=</span><span class="kw pkg">AnnotationFilter</span><span class="kw ns">::</span><span class="no"><a href="https://rdrr.io/pkg/AnnotationFilter/man/AnnotationFilter.html">SymbolFilter</a></span>) {
     <span class="no">edb</span> <span class="kw">&lt;-</span> <span class="kw pkg">EnsDb.Hsapiens.v86</span><span class="kw ns">::</span><span class="no"><a href="https://rdrr.io/pkg/EnsDb.Hsapiens.v86/man/package.html">EnsDb.Hsapiens.v86</a></span>
     <span class="no">afl</span> <span class="kw">&lt;-</span> <span class="kw pkg">AnnotationFilter</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/AnnotationFilter/man/AnnotationFilterList.html">AnnotationFilterList</a></span>(
         <span class="fu">EnsDbFilterFunc</span>(<span class="no">identifiers</span>),
@@ -1593,7 +1485,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
     <span class="fu"><a href="https://rdrr.io/r/base/function.html">return</a></span>(<span class="no">grl</span>)
 }</pre></body></html></div>
 <p>For example:</p>
-<div class="sourceCode" id="cb271"><html><body><pre class="r"><span class="fu">getrr</span>(<span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span>(<span class="no">miniACC</span>)<span class="kw">[[</span><span class="fl">1</span>]])</pre></body></html></div>
+<div class="sourceCode" id="cb270"><html><body><pre class="r"><span class="fu">getrr</span>(<span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span>(<span class="no">miniACC</span>)<span class="kw">[[</span><span class="fl">1</span>]])</pre></body></html></div>
 <pre><code>## GRangesList object of length 198:
 ## $DIRAS3
 ## GRanges object with 1 range and 7 metadata columns:
@@ -1640,13 +1532,13 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 ## ...
 ## &lt;195 more elements&gt;</code></pre>
 <p>Use this to set the rowRanges of experiments 1-4 with these GRangesList objects</p>
-<div class="sourceCode" id="cb273"><html><body><pre class="r"><span class="no">rseACC</span> <span class="kw">&lt;-</span> <span class="no">miniACC</span>
+<div class="sourceCode" id="cb272"><html><body><pre class="r"><span class="no">rseACC</span> <span class="kw">&lt;-</span> <span class="no">miniACC</span>
 <span class="no">withRSE</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">1</span>:<span class="fl">3</span>, <span class="fl">5</span>)
 <span class="kw">for</span> (<span class="no">i</span> <span class="kw">in</span> <span class="no">withRSE</span>){
   <span class="fu"><a href="https://rdrr.io/pkg/SummarizedExperiment/man/RangedSummarizedExperiment-class.html">rowRanges</a></span>(<span class="no">rseACC</span><span class="kw">[[</span><span class="no">i</span>]]) <span class="kw">&lt;-</span> <span class="fu">getrr</span>(<span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span>(<span class="no">rseACC</span><span class="kw">[[</span><span class="no">i</span>]]))
 }</pre></body></html></div>
 <p>Note that the class of experiments 1-4 is now <code>RangedSummarizedExperiment</code>:</p>
-<div class="sourceCode" id="cb274"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/MultiAssayExperiment/man/MultiAssayExperiment-methods.html">experiments</a></span>(<span class="no">rseACC</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb273"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/MultiAssayExperiment/man/MultiAssayExperiment-methods.html">experiments</a></span>(<span class="no">rseACC</span>)</pre></body></html></div>
 <pre><code>## ExperimentList class object of length 5:
 ##  [1] RNASeq2GeneNorm: RangedSummarizedExperiment with 198 rows and 79 columns
 ##  [2] gistict: RangedSummarizedExperiment with 198 rows and 90 columns
@@ -1654,7 +1546,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 ##  [4] Mutations: matrix with 97 rows and 90 columns
 ##  [5] miRNASeqGene: RangedSummarizedExperiment with 471 rows and 80 columns</code></pre>
 <p>With ranged objects in the MultiAssayExperiment, you can then do subsetting by ranges. For example, select all genes on chromosome 1 for the four <em>rangedSummarizedExperiment</em> objects:</p>
-<div class="sourceCode" id="cb276"><html><body><pre class="r"><span class="no">rseACC</span>[<span class="fu"><a href="https://rdrr.io/pkg/GenomicRanges/man/GRanges-class.html">GRanges</a></span>(<span class="kw">seqnames</span><span class="kw">=</span><span class="st">"1:1-1e9"</span>), , <span class="no">withRSE</span>]</pre></body></html></div>
+<div class="sourceCode" id="cb275"><html><body><pre class="r"><span class="no">rseACC</span>[<span class="fu"><a href="https://rdrr.io/pkg/GenomicRanges/man/GRanges-class.html">GRanges</a></span>(<span class="kw">seqnames</span><span class="kw">=</span><span class="st">"1:1-1e9"</span>), , <span class="no">withRSE</span>]</pre></body></html></div>
 <pre><code>## harmonizing input:
 ##   removing 90 sampleMap rows not in names(experiments)</code></pre>
 <pre><code>## harmonizing input:
@@ -1679,15 +1571,6 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 </p>
 </div>
 </div>
-</div>
-<div class="footnotes">
-<hr>
-<ol>
-<li id="fn1"><p>City University of New York, New York, NY, USA<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>Roswell Park Comprehensive Cancer Center, Buffalo, NY<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
-<li id="fn3"><p>City University of New York, New York, NY, USA<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
-<li id="fn4"><p>City University of New York, New York, NY, USA<a href="#fnref4" class="footnote-back">↩︎</a></p></li>
-</ol>
 </div>
   </div>
 

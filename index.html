@@ -128,24 +128,32 @@
 <div id="workshop-participation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#workshop-participation" class="anchor"></a>Workshop Participation</h2>
-<p>Students will have a chance to build a <code>MultiAssayExperiment</code> object from scratch, to work with complex objects provided by the <code>curatedTCGAData</code> package and to test functionality provided in the <code>TCGAutils</code> package.</p>
+<p>Participants will have a chance to build a <code>MultiAssayExperiment</code> object from scratch, and will also work with data and interfaces from the the <code>curatedTCGAData</code> and <code>cBioPortalData</code> packages.</p>
 </div>
 <div id="rbioconductor-packages-used" class="section level2">
 <h2 class="hasAnchor">
 <a href="#rbioconductor-packages-used" class="anchor"></a>R/Bioconductor packages used</h2>
 <ul>
-<li><a href="http://bioconductor.org/packages/MultiAssayExperiment">MultiAssayExperiment</a></li>
-<li><a href="http://bioconductor.org/packages/curatedTCGAData">curatedTCGAData</a></li>
-<li><a href="https://github.com/waldronlab/cBioPortalData">cBioPortalData</a></li>
-<li><a href="http://bioconductor.org/packages/TCGAutils">TCGAutils</a></li>
-<li><a href="http://bioconductor.org/packages/RaggedExperiment">RaggedExperiment</a></li>
-<li><a href="http://bioconductor.org/packages/SummarizedExperiment">SummarizedExperiment</a></li>
+<li><a href="https://bioconductor.org/packages/MultiAssayExperiment">MultiAssayExperiment</a></li>
+<li><a href="https://bioconductor.org/packages/GenomicRanges">GenomicRanges</a></li>
+<li><a href="https://bioconductor.org/packages/RaggedExperiment">RaggedExperiment</a></li>
+<li><a href="https://bioconductor.org/packages/curatedTCGAData">curatedTCGAData</a></li>
+<li><a href="https://bioconductor.org/packages/cBioPortalData">cBioPortalData</a></li>
+<li><a href="https://bioconductor.org/packages/SummarizedExperiment">SummarizedExperiment</a></li>
+<li><a href="https://bioconductor.org/packages/TCGAutils">TCGAutils</a></li>
+<li><a href="https://bioconductor.org/packages/UpSetR">UpSetR</a></li>
+<li><a href="https://bioconductor.org/packages/mirbase.db">mirbase.db</a></li>
+<li><a href="https://bioconductor.org/packages/AnnotationFilter">AnnotationFilter</a></li>
+<li><a href="https://bioconductor.org/packages/EnsDb.Hsapiens.v86">EnsDb.Hsapiens.v86</a></li>
+<li><a href="https://cran.r-project.org/package=survival">survival</a></li>
+<li><a href="https://cran.r-project.org/package=survminer">survminer</a></li>
+<li><a href="https://cran.r-project.org/package=pheatmap">pheatmap</a></li>
 </ul>
 </div>
 <div id="time-outline" class="section level2">
 <h2 class="hasAnchor">
 <a href="#time-outline" class="anchor"></a>Time outline</h2>
-<p>1h 45m total</p>
+<p>55 minutes total</p>
 <table class="table">
 <thead><tr class="header">
 <th>Activity</th>
@@ -153,29 +161,25 @@
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td>Overview of key data classes</td>
-<td>25m</td>
-</tr>
-<tr class="even">
-<td>Building a <code>MultiAssayExperiment</code> from scratch</td>
-<td>10m</td>
-</tr>
-<tr class="odd">
-<td>Creating and importing TCGA multi-assay datasets</td>
-<td>10m</td>
-</tr>
-<tr class="even">
-<td>Subsetting and reshaping multi-assay data</td>
-<td>20m</td>
-</tr>
-<tr class="odd">
-<td>Plotting, correlation, and other analyses</td>
-<td>20m</td>
+<td>Overview of key packages and data classes</td>
+<td>15m</td>
 </tr>
 <tr class="even">
 <td>Introduction to <code>curatedTCGAData</code>, <code>cBioPortalData</code>, and <code>TCGAutils</code>
 </td>
-<td>20m</td>
+<td>10m</td>
+</tr>
+<tr class="odd">
+<td>Building a <code>MultiAssayExperiment</code> from scratch</td>
+<td>10m</td>
+</tr>
+<tr class="even">
+<td>Creating and importing TCGA multi-assay datasets</td>
+<td>10m</td>
+</tr>
+<tr class="odd">
+<td>Subsetting and reshaping multi-assay data</td>
+<td>10m</td>
 </tr>
 </tbody>
 </table>
@@ -189,10 +193,10 @@
 <ul>
 <li>overview common data classes available in Bioconductor</li>
 <li>understand appropriate data structures for different ’omics data types</li>
-<li>identify advantages of providing integrative data in an analysis-ready platform</li>
+<li>explore available functionality in <code>TCGAutils</code> for the management and coordination of multi-omic data</li>
 <li>gain familiarity with <code>cBioPortalData</code> and <code>curatedTCGAData</code>
 </li>
-<li>explore available functionality in <code>TCGAutils</code> for the management and coordination of multi-omic data</li>
+<li>identify advantages of providing integrative data in an analysis-ready platform</li>
 </ul>
 </div>
 <div id="learning-objectives" class="section level3">
@@ -200,9 +204,8 @@
 <a href="#learning-objectives" class="anchor"></a>Learning objectives</h3>
 <ul>
 <li>use <code>curatedTCGAData</code> and <code>cBioPortalData</code> to create on-the-fly multi-omics data objects</li>
-<li>apply knowlege of <code>MultiAssayExperiment</code> to represent other multi’omics data</li>
-<li>understand basic data management techniques with MultiAssayExperiment such as subsetting, reshaping, growing, and extraction</li>
-<li>adapt <code>MultiAssayExperiment</code> data with packages for differential expression, machine learning, and plotting</li>
+<li>apply knowlege of <code>MultiAssayExperiment</code> to represent other multi-omics data</li>
+<li>learn about data management techniques such as subsetting, reshaping, growing, and extraction using MultAssayExperiment</li>
 </ul>
 </div>
 </div>
