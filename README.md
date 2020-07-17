@@ -41,31 +41,38 @@ functionality aimed at enhancing the ease-of-use of TCGA data.
 
 ## Workshop Participation
 
-Students will have a chance to build a `MultiAssayExperiment` object
-from scratch, to work with complex objects provided by the `curatedTCGAData`
-package and to test functionality provided in the `TCGAutils` package.
+Participants will have a chance to build a `MultiAssayExperiment` object
+from scratch, and will also work with data and interfaces from the
+the `curatedTCGAData` and `cBioPortalData` packages.
 
 ## R/Bioconductor packages used
 
-* [MultiAssayExperiment](http://bioconductor.org/packages/MultiAssayExperiment)
-* [curatedTCGAData](http://bioconductor.org/packages/curatedTCGAData)
-* [cBioPortalData](https://github.com/waldronlab/cBioPortalData)
-* [TCGAutils](http://bioconductor.org/packages/TCGAutils)
-* [RaggedExperiment](http://bioconductor.org/packages/RaggedExperiment)
-* [SummarizedExperiment](http://bioconductor.org/packages/SummarizedExperiment)
+* [MultiAssayExperiment](https://bioconductor.org/packages/MultiAssayExperiment)
+* [GenomicRanges](https://bioconductor.org/packages/GenomicRanges)
+* [RaggedExperiment](https://bioconductor.org/packages/RaggedExperiment)
+* [curatedTCGAData](https://bioconductor.org/packages/curatedTCGAData)
+* [cBioPortalData](https://bioconductor.org/packages/cBioPortalData)
+* [SummarizedExperiment](https://bioconductor.org/packages/SummarizedExperiment)
+* [TCGAutils](https://bioconductor.org/packages/TCGAutils)
+* [UpSetR](https://bioconductor.org/packages/UpSetR)
+* [mirbase.db](https://bioconductor.org/packages/mirbase.db)
+* [AnnotationFilter](https://bioconductor.org/packages/AnnotationFilter)
+* [EnsDb.Hsapiens.v86](https://bioconductor.org/packages/EnsDb.Hsapiens.v86)
+* [survival](https://cran.r-project.org/package=survival)
+* [survminer](https://cran.r-project.org/package=survminer)
+* [pheatmap](https://cran.r-project.org/package=pheatmap)
 
 ## Time outline
 
-1h 45m total
+55 minutes total
 
 | Activity                            | Time    |
 |-------------------------------------|---------|
-| Overview of key data classes | 25m |
+| Overview of key packages and data classes | 15m |
+| Introduction to `curatedTCGAData`, `cBioPortalData`, and `TCGAutils` | 10m |
 | Building a `MultiAssayExperiment` from scratch | 10m |
 | Creating and importing TCGA multi-assay datasets | 10m |
-| Subsetting and reshaping multi-assay data | 20m |
-| Plotting, correlation, and other analyses | 20m |
-| Introduction to `curatedTCGAData`, `cBioPortalData`, and `TCGAutils` | 20m |
+| Subsetting and reshaping multi-assay data | 10m |
 
 ## Workshop goals and objectives
 
@@ -73,19 +80,17 @@ package and to test functionality provided in the `TCGAutils` package.
 
 * overview common data classes available in Bioconductor
 * understand appropriate data structures for different 'omics data types
-* identify advantages of providing integrative data in an analysis-ready
-platform
-* gain familiarity with `cBioPortalData` and `curatedTCGAData`
 * explore available functionality in `TCGAutils` for the management and
 coordination of multi-omic data
+* gain familiarity with `cBioPortalData` and `curatedTCGAData`
+* identify advantages of providing integrative data in an analysis-ready
+platform
 
 ### Learning objectives
 
 * use `curatedTCGAData` and `cBioPortalData` to create on-the-fly multi-omics
 data objects
-* apply knowlege of `MultiAssayExperiment` to represent other multi'omics data
-* understand basic data management techniques with MultiAssayExperiment such as
-subsetting, reshaping, growing, and extraction
-* adapt `MultiAssayExperiment` data with packages for differential expression,
-machine learning, and plotting
+* apply knowlege of `MultiAssayExperiment` to represent other multi-omics data
+* learn about data management techniques such as subsetting, reshaping,
+growing, and extraction using MultAssayExperiment
 

@@ -24,68 +24,14 @@ library(knitr)
 opts_chunk$set(out.width="100%", cache=TRUE)
 ```
 
-## Instructor names and contact information
-
-* Marcel Ramos^[City University of New York, New York, NY, USA] ^[Roswell Park
-Comprehensive Cancer Center, Buffalo, NY] (<marcel.ramos@roswellpark.org>)
-* Ludwig Geistlinger^[City University of New York, New York, NY, USA]
-* Levi Waldron^[City University of New York, New York, NY, USA]
-
-## Workshop Description
-
-This workshop demonstrates data management and analyses of multiple
-assays associated with a single set of biological specimens,
-using the `MultiAssayExperiment` data class and methods.  It introduces the
-facilities made available by companion packages, `cBioPortalData`,
-`curatedTCGAData`, and `TCGAutils` to work with publicly available multi-omic
-data. Using the `MultiAssayExperiment` class, these packages make the
-management of multiple assays easier and more efficient. The workshop also
-covers, to a limited extent, relevant data classes such as
-`SummarizedExperiment` and `RangedSummarizedExperiment`, which provide
-efficient and powerful operations for representation of copy number, mutation,
-variant, and expression data that are represented by different genomic ranges
-for each specimen.
-
-### Pre-requisites
-
-* Basic knowledge of R
-* Familiarity with the GRanges and SummarizedExperiment classes
-* Familiarity with 'omics data types including copy number and gene expression
-
-### Workshop Participation
-
-Participants will have a chance to build a `MultiAssayExperiment` object
-from scratch, and will also work with data and interfaces from the
-the `curatedTCGAData` and `cBioPortalData` packages.
-
 ### R/Bioconductor packages used
 
-First, please make sure you have the latest Bioconductor release version 3.11.
-See [Bioconductor installation](https://www.bioconductor.org/install)
-instructions:
+The workshop uses a Docker container with Bioconductor devel version `3.12`.
+If you would like to install Bioconductor on your computer **at a later date**,
+see the [Bioconductor installation](https://www.bioconductor.org/install)
+instructions.
 
-```{r,eval=FALSE}
-if (!requireNamespace("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
-
-## Bioconductor 3.11 Stable Release
-BiocManager::install(version = "3.11")
-```
-
-* [MultiAssayExperiment](https://bioconductor.org/packages/MultiAssayExperiment)
-* [GenomicRanges](https://bioconductor.org/packages/GenomicRanges)
-* [RaggedExperiment](https://bioconductor.org/packages/RaggedExperiment)
-* [curatedTCGAData](https://bioconductor.org/packages/curatedTCGAData)
-* [cBioPortalData](https://github.com/waldronlab/cBioPortalData)
-* [SummarizedExperiment](https://bioconductor.org/packages/SummarizedExperiment)
-* [TCGAutils](https://bioconductor.org/packages/TCGAutils)
-* [UpSetR](https://bioconductor.org/packages/UpSetR)
-* [AnnotationFilter](https://bioconductor.org/packages/AnnotationFilter)
-* [EnsDb.Hsapiens.v86](https://bioconductor.org/packages/EnsDb.Hsapiens.v86)
-* [survival](https://cran.r-project.org/package=survival)
-* [survminer](https://cran.r-project.org/package=survminer)
-* [pheatmap](https://cran.r-project.org/package=pheatmap)
-
+Here is a list of packages that we will be using:
 
 ```{r,include=TRUE,results="hide",message=FALSE,warning=FALSE}
 library(MultiAssayExperiment)
@@ -108,38 +54,6 @@ library(readxl)
 library(readr)
 library(kableExtra)
 ```
-
-## Time outline
-
-55 minutes total
-
-| Activity                            | Time    |
-|-------------------------------------|---------|
-| Overview of key packages and data classes | 15m |
-| Introduction to `curatedTCGAData`, `cBioPortalData`, and `TCGAutils` | 10m |
-| Building a `MultiAssayExperiment` from scratch | 10m |
-| Creating and importing TCGA multi-assay datasets | 10m |
-| Subsetting and reshaping multi-assay data | 10m |
-
-## Workshop goals and objectives
-
-### Learning goals
-
-* overview common data classes available in Bioconductor
-* understand the data structure for representing multi-omics data
-* explore available functionality in `TCGAutils` for the management and
-coordination of multi-omic data
-* gain familiarity with `cBioPortalData` and `curatedTCGAData`
-* identify advantages of providing integrative data in an analysis-ready
-platform
-
-### Learning objectives
-
-* use `curatedTCGAData` and `cBioPortalData` to create on-the-fly multi-omics
-data objects
-* apply knowlege of `MultiAssayExperiment` to represent other multi-omics data
-* learn about data management techniques such as subsetting, reshaping,
-growing, and extraction using MultAssayExperiment
 
 ## Overview of key packages and data classes
 
