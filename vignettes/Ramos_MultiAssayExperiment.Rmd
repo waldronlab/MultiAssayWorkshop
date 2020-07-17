@@ -170,29 +170,6 @@ download data from https://cBioPortal.org through customized queries that are
 handled for the user _in the background_.  We provide an easy to use interface
 that requires minimal knowledge of the cBioPortal data model and API.
 
-First create an API object to be able to query the website:
-
-```{r}
-cbio <- cBioPortal()
-cbio
-```
-
-To see what studies are available from the `cBioPortal`, use `getStudies`
-on the `cbio` API object:
-
-```{r}
-knitr::kable(getStudies(cbio), align = "l", escape = FALSE,
-    caption = "List of available studies from the cBioPortal") %>%
-    kableExtra::kable_styling(
-        bootstrap_options = c("hover", "striped", "responsive"),
-        full_width = FALSE
-    )
-```
-
-```{r,eval=FALSE}
-head(getStudies(cbio), 10)
-```
-
 #### `curatedTCGAData`
 
 Many tools exist for accessing and downloading The Cancer Genome Atlas (TCGA)
@@ -212,24 +189,13 @@ objects using `MultiAssayExperiment`. Where other platforms provide fragmented
 datasets, `curatedTCGAData` ensures that all data provided is matched and
 accounted for within the phenotypic metadata.
 
-A list of available cancer types can be obtained from `TCGAutils::diseaseCodes`:
+Reference vignettes:
 
-```{r}
-data("diseaseCodes")
-knitr::kable(diseaseCodes, align = "l", escape = FALSE,
-    caption = "List of available cancer types from curatedTCGAData") %>%
-    kableExtra::kable_styling(
-        bootstrap_options = c("hover", "striped", "responsive"),
-        full_width = FALSE
-    )
-```
+* `Available Studies` -- (curatedTCGAData section) A list of available cancer
+studies from `TCGAutils::diseaseCodes`.
 
-```{r,eval=FALSE}
-head(diseaseCodes)
-```
-
-See the `OmicsTypes` vignette for a descriptive table of 'omics types
-available in `curatedTCGAData` (thanks to Ludwig G. `@lgeistlinger`)
+* `OmicsTypes` -- A descriptive table of 'omics types in `curatedTCGAData`
+(thanks to Ludwig G. `@lgeistlinger`)
 
 #### `TCGAutils`
 

@@ -84,7 +84,7 @@ iwidth <- ends - starts
 ```
 
 ```{r,echo=FALSE}
-knitr::kable(tabInfo, align = "l", escape = FALSE) %>%
+knitr::kable(tabInfo, align = "l", escape = FALSE, format = "html") %>%
     kableExtra::kable_styling(
         bootstrap_options = c("hover", "striped", "responsive"),
         full_width = FALSE

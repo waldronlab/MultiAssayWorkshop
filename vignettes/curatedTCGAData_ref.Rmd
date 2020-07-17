@@ -1,7 +1,9 @@
 ---
-title: "Omics Types in curatedTCGAData"
+title: "curatedTCGAData Reference"
 author:
   - name: Ludwig Geistlinger
+    affiliation: CUNY School of Public Health, New York, NY
+  - name: Marcel Ramos
     affiliation: CUNY School of Public Health, New York, NY
 vignette: >
   %\VignetteIndexEntry{Omics Types in curatedTCGAData}
@@ -12,8 +14,25 @@ output:
     mathjax: null
 ---
 
-```{r,echo=FALSE}
+# curatedTCGAData
+
+## Available cancer datasets from `TCGAutils::diseaseCodes`
+
+```{r,echo=FALSE,message=FALSE,warn=FALSE}
+library(TCGAutils)
 library(tibble)
+data("diseaseCodes")
+knitr::kable(diseaseCodes, align = "l", escape = FALSE, format = "html",
+    caption = "List of available cancer types from TCGAutils") %>%
+    kableExtra::kable_styling(
+        bootstrap_options = c("hover", "striped", "responsive"),
+        full_width = FALSE
+    )
+```
+
+## Omics Assays in curatedTCGAData
+
+```{r,echo=FALSE}
 rawdat <- tibble(Section = c("SummarizedExperiment*", NA, NA, NA, NA, NA, NA,
 NA, NA, NA, NA, NA, "RangedSummarizedExperiment", NA,
 "SummarizedExperiment with HDF5Array DelayedMatrix", NA,
@@ -67,7 +86,7 @@ iwidth <- ends - starts
 ```
 
 ```{r,echo=FALSE}
-knitr::kable(dataTypes, align = "l", escape = FALSE,
+knitr::kable(dataTypes, align = "l", escape = FALSE, format = "html",
     caption = "Descriptions of data types available by Bioconductor data class"
     ) %>%
     kableExtra::kable_styling(
