@@ -4,12 +4,15 @@
     <loc>https://waldronlab.io/MultiAssayWorkshop/index.html</loc>
   </url>
   <url>
-    <loc>https://waldronlab.io/MultiAssayWorkshop/articles/OmicsTypes.html</loc>
-  </url>
-  <url>
     <loc>https://waldronlab.io/MultiAssayWorkshop/articles/Ramos_MultiAssayExperiment.html</loc>
   </url>
   <url>
     <loc>https://waldronlab.io/MultiAssayWorkshop/articles/TCGAutilsCheatsheet.html</loc>
+  </url>
+  <url>
+    <loc>https://waldronlab.io/MultiAssayWorkshop/articles/cBioPortal_Studies.html</loc>
+  </url>
+  <url>
+    <loc>https://waldronlab.io/MultiAssayWorkshop/articles/curatedTCGAData_ref.html</loc>
   </url>
 </urlset>
