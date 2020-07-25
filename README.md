@@ -48,19 +48,11 @@ the `curatedTCGAData` and `cBioPortalData` packages.
 ## R/Bioconductor packages used
 
 * [MultiAssayExperiment](https://bioconductor.org/packages/MultiAssayExperiment)
-* [GenomicRanges](https://bioconductor.org/packages/GenomicRanges)
 * [RaggedExperiment](https://bioconductor.org/packages/RaggedExperiment)
 * [curatedTCGAData](https://bioconductor.org/packages/curatedTCGAData)
 * [cBioPortalData](https://bioconductor.org/packages/cBioPortalData)
-* [SummarizedExperiment](https://bioconductor.org/packages/SummarizedExperiment)
 * [TCGAutils](https://bioconductor.org/packages/TCGAutils)
 * [UpSetR](https://bioconductor.org/packages/UpSetR)
-* [mirbase.db](https://bioconductor.org/packages/mirbase.db)
-* [AnnotationFilter](https://bioconductor.org/packages/AnnotationFilter)
-* [EnsDb.Hsapiens.v86](https://bioconductor.org/packages/EnsDb.Hsapiens.v86)
-* [survival](https://cran.r-project.org/package=survival)
-* [survminer](https://cran.r-project.org/package=survminer)
-* [pheatmap](https://cran.r-project.org/package=pheatmap)
 
 ## Time outline
 
@@ -69,8 +61,8 @@ the `curatedTCGAData` and `cBioPortalData` packages.
 | Activity                            | Time    |
 |-------------------------------------|---------|
 | Overview of key packages and data classes | 15m |
-| Introduction to `curatedTCGAData`, `cBioPortalData`, and `TCGAutils` | 10m |
 | Building a `MultiAssayExperiment` from scratch | 10m |
+| Introduction to `curatedTCGAData`, `cBioPortalData`, and `TCGAutils` | 10m |
 | Creating and importing TCGA multi-assay datasets | 10m |
 | Subsetting and reshaping multi-assay data | 10m |
 
@@ -93,4 +85,12 @@ data objects
 * apply knowlege of `MultiAssayExperiment` to represent other multi-omics data
 * learn about data management techniques such as subsetting, reshaping,
 growing, and extraction using MultAssayExperiment
+
+## Questions & Comments
+
+For more involved / detailed questions, comments, or bug reports, resort to the
+Bioconductor [support site](https://support.bioconductor.org/) or create an
+issue on the `MultiAssayExperiment`
+[issue tracker](https://github.com/waldronlab/MultiAssayExperiment/issues) on
+GitHub.
 

@@ -69,7 +69,7 @@ NA,
 )
 ```
 
-```{r,echo=FALSE,message=FALSE,warn=FALSE}
+```{r,echo=FALSE,message=FALSE,warning=FALSE}
 library(knitr)
 library(kableExtra)
 

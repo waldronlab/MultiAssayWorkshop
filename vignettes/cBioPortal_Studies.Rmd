@@ -26,7 +26,7 @@ function.
 
 * Scroll to the right for more information (esp. for the `studyId` column)
 
-```{r,echo=FALSE,message=FALSE,warn=FALSE}
+```{r,echo=FALSE,message=FALSE,warning=FALSE}
 library(cBioPortalData)
 library(knitr)
 cbio <- cBioPortal()

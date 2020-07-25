@@ -43,7 +43,7 @@ knitr::include_graphics("images/MultiAssayExperiment.png")
 ```
 
 
-## *experiments* 
+## *experiments*
 
 ### obtaining the list of data experiments
 
@@ -63,7 +63,7 @@ miniACC
 experiments(miniACC)
 ```
 
-###  
+###
 
 The `experiments` function returns an `ExperimentList` object class that is part of the
 `MultiAssayExperiment`. We will see how to get a more general `List` class shortly.
@@ -73,7 +73,7 @@ The `experiments` function returns an `ExperimentList` object class that is part
 Great! Now we can see the list of experiments that were in the
 `MultiAssayExperiment` object.
 
-## *colData* 
+## *colData*
 
 ### phenotypic information
 
@@ -87,9 +87,24 @@ miniACC
 colData(miniACC)
 ```
 
+### colData column extraction
+
+Obtain the 'race' variable from the `colData` dataset
+
+```{r cdat2, exercise = TRUE, exercise.eval = FALSE}
+miniACC
+```
+
+```{r cdat2-solution}
+colData(miniACC)$race
+colData(miniACC)[["race"]]
+# OR
+miniACC$race
+```
+
 ###
 
-## *assays* 
+## *assays*
 
 ### data representation as a 'List'
 
@@ -190,6 +205,6 @@ MultiAssayExperiment(
 )
 ```
 
-### 
+###
 
 Awesome! We have our first `MultiAssayExperiment`!
