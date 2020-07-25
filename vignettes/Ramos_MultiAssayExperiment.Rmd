@@ -21,18 +21,14 @@ output:
 .infobox {
   padding: 1em 1em 1em 4em;
   margin-bottom: 10px;
-  background: #DCDCDC 5px center/3em no-repeat;
-  color: #8B0000;
   border: 2px solid #008000;
   border-radius: 10px;
+  background: #DCDCDC 5px center/3em no-repeat;
+  color: #8B0000;
 }
 
 .center {
   text-align: center;
-}
-
-.attention {
-  background-image: url("attention.png");
 }
 ```
 
@@ -57,6 +53,7 @@ library(MultiAssayExperiment)
 library(curatedTCGAData)
 library(cBioPortalData)
 library(TCGAutils)
+library(GenomicDataCommons)
 library(UpSetR)
 ```
 
@@ -238,15 +235,16 @@ _Note_. The `MultiAssayExperiment` package then provides functionality to
 merge replicate profiles for a single patient (`mergeReplicates()`).
 
 
-:::: {.infobox .attention data-latex="attention"}
+::: {.infobox data-latex=""}
 
 **Key points**
 
-* Point one
-* Point two
+* `MultiAssayExperiment` coordinates different Bioconductor classes into
+one unified object
+* `MultiAssayExperiment` is an infrastructure package while `curatedTCGAData`
+and `cBioPortalData` provide data on cancer studies including TCGA
 
-::::
-
+:::
 
 
 ## Building from Scratch: `MultiAssayExperiment`
@@ -273,6 +271,17 @@ miniACC
 
 [Click Here](../tutorials/Exercise_MultiAssay.html) to open the `shiny`
 tutorial.
+
+::: {.infobox data-latex=""}
+
+**Key points**
+
+* Extractor functions allow users to take components from the
+`MultiAssayExperiment` object
+* They're usually the same name as the component except for `experiments`
+which extracts the `ExperimentList`
+
+:::
 
 ## Notes on Working with MultiAssayExperiment
 
@@ -500,6 +509,19 @@ getStudies(cbio)
 )
 ```
 
+
+::: {.infobox data-latex=""}
+
+**Key points**
+
+* `curatedTCGAData` provides TCGA data with some curation including
+tumor subtype information
+* `cBioPortalData` has two main functions, one for downloading pre-packaged
+data and another for sending queries through the cBioPortal API
+
+:::
+
+
 ## Utilities for TCGA
 
 Aside from the available reshaping functions already included in the
@@ -693,6 +715,16 @@ filenameToBarcode(fnames)
 
 See the `TCGAutils` vignette page for more details.
 
+::: {.infobox data-latex=""}
+
+**Key points**
+
+* `TCGAutils` provides users additional tools for modifying row and column
+metadata
+* The package works mainly with TCGA data including barcode identifiers
+
+:::
+
 ## MultiAssayExperiment Subsetting
 
 ### Single bracket `[`
@@ -866,6 +898,18 @@ wideFormat(miniACC[c("TP53", "CTNNB1"), , ],
 ```
 
 <p style="text-align: right;"> [back to top](#overview-of-key-packages-and-data-classes) </p>
+
+::: {.infobox data-latex=""}
+
+**Key points**
+
+* Knowing how to subset a `MultiAssayExperiment` object is important to
+be able to restrict observations and measurements to particular phenotypes
+or sample types
+* Functions such as `longFormat` and `wideFormat` are helpful for downstream
+analysis functions that require a certain type of input format
+
+:::
 
 [Broad GDAC Firehose]: https://gdac.broadinstitute.org
 [The Cancer Genome Atlas]: https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga
