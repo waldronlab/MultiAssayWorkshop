@@ -14,6 +14,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 output:
   html_document:
+    toc: true
     mathjax: null
 ---
 
@@ -37,6 +38,17 @@ output:
 ```{r, include=FALSE}
 library(knitr)
 opts_chunk$set(out.width="100%", cache=TRUE)
+```
+
+## Ways to participate
+
+* Go to the conference instance registration webpage and use these credentials:
+    * username: `rstudio`
+    * password: `welcome-to-bioc2020`
+* View the [workshop website](https://waldronlab.io/MultiAssayWorkshop/)
+* Docker users can run this workshop locally via:
+```
+docker run -e PASSWORD=bioc -p 8787:8787 mr148/multiassayworkshop:latest
 ```
 
 ## Requirements: R/Bioconductor packages
@@ -563,11 +575,14 @@ utility function from `RaggedExperiment` to summarize 'silent' and 'non-silent'
 mutations based on a 'Variant_Classification' metadata column in the original
 object.
 
-```{r}
+```{r,eval=FALSE}
 ## Update build metadata to "hg19"
-genome(acc[["ACC_Mutation-20160128"]]) <-
-    vapply(genome(acc[["ACC_Mutation-20160128"]]),
-    translateBuild, character(1L))
+genome(acc[["ACC_Mutation-20160128"]]) <- "NCBI37"
+seqlevelsStyle(acc[["ACC_Mutation-20160128"]]) <- "UCSC"
+
+gnome <- genome(acc[["ACC_Mutation-20160128"]])
+gnome <- translateBuild(gnome)
+genome(acc[["ACC_Mutation-20160128"]]) <- gnome
 
 qreduceTCGA(acc)
 ```
@@ -910,6 +925,15 @@ or sample types
 analysis functions that require a certain type of input format
 
 :::
+
+### Bonus: Visualization of Sample Sets
+
+Here we use the built-in visualization functionality to what extent the
+samples in each assay overlap:
+
+```{r}
+upsetSamples(miniACC)
+```
 
 [Broad GDAC Firehose]: https://gdac.broadinstitute.org
 [The Cancer Genome Atlas]: https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga
