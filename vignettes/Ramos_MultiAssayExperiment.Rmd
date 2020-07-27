@@ -16,6 +16,7 @@ output:
   html_document:
     toc: true
     mathjax: null
+bibliography: MultiAssay.bib
 ---
 
 ```{css, echo=FALSE}
@@ -68,6 +69,11 @@ library(TCGAutils)
 library(GenomicDataCommons)
 library(UpSetR)
 ```
+
+### Citing MultiAssayExperiment
+
+Please use this citation [@Ramos2017-er] when using
+`MultiAssayExperiment`, your citations are appreciated!
 
 ### Key Packages
 
@@ -937,3 +943,5 @@ upsetSamples(miniACC)
 
 [Broad GDAC Firehose]: https://gdac.broadinstitute.org
 [The Cancer Genome Atlas]: https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga
+
+## References
