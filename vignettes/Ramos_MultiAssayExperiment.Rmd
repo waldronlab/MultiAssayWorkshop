@@ -575,7 +575,7 @@ utility function from `RaggedExperiment` to summarize 'silent' and 'non-silent'
 mutations based on a 'Variant_Classification' metadata column in the original
 object.
 
-```{r,eval=FALSE}
+```{r}
 ## Update build metadata to "hg19"
 genome(acc[["ACC_Mutation-20160128"]]) <- "NCBI37"
 seqlevelsStyle(acc[["ACC_Mutation-20160128"]]) <- "UCSC"
