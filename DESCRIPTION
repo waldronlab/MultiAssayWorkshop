@@ -32,7 +32,6 @@ Imports:
   shiny,
   survival,
   survminer,
-  kableExtra,
   readxl,
   pheatmap
 Suggests:
