@@ -98,7 +98,7 @@
             <address class="author_afil">
       CUNY School of Public Health, New York, NY<br><h4 class="author">Levi Waldron</h4>
             <address class="author_afil">
-      CUNY School of Public Health, New York, NY<br><h4 class="date">July 27, 2020</h4>
+      CUNY School of Public Health, New York, NY<br><h4 class="date">July 28, 2020</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/waldronlab/MultiAssayWorkshop/blob/master/vignettes/Ramos_MultiAssayExperiment.Rmd"><code>vignettes/Ramos_MultiAssayExperiment.Rmd</code></a></small>
       <div class="hidden name"><code>Ramos_MultiAssayExperiment.Rmd</code></div>
@@ -707,7 +707,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <p>First, we create an API object using the <code>cBioPortal</code> function. This will allow us to subsequently generate queries for the service.</p>
 <div class="sourceCode" id="cb38"><html><body><pre class="r"><span class="no">cbio</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/cBioPortalData/man/cBioPortal.html">cBioPortal</a></span>()
 <span class="fu"><a href="https://rdrr.io/pkg/cBioPortalData/man/cBioPortal.html">getStudies</a></span>(<span class="no">cbio</span>)</pre></body></html></div>
-<pre><code>## # A tibble: 287 x 13
+<pre><code>## # A tibble: 288 x 13
 ##    name  shortName description publicStudy pmid  citation groups status
 ##    &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;       &lt;lgl&gt;       &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;   &lt;int&gt;
 ##  1 Chol… Cholangi… Exome sequ… TRUE        2418… Chan-on… "PUBL…      0
@@ -720,7 +720,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 ##  8 Thym… TET (NCI) Whole exom… TRUE        2497… Petrini… "PUBL…      0
 ##  9 Neur… NBL (Col… Whole-geno… TRUE        2646… Peifer … ""          0
 ## 10 Myel… MDS (Tok… Whole exom… TRUE        2190… Yoshida… ""          0
-## # … with 277 more rows, and 5 more variables: importDate &lt;chr&gt;,
+## # … with 278 more rows, and 5 more variables: importDate &lt;chr&gt;,
 ## #   allSampleCount &lt;int&gt;, studyId &lt;chr&gt;, cancerTypeId &lt;chr&gt;,
 ## #   referenceGenome &lt;chr&gt;</code></pre>
 <div class="sourceCode" id="cb40"><html><body><pre class="r">(
