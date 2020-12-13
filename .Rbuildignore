@@ -19,3 +19,5 @@
 ^_pkgdown\.yml$
 .*_cache$
 ^pkgdown$
+^.*\.Rproj$
+^\.Rproj\.user$
