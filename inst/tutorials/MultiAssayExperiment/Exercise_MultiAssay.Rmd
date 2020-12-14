@@ -13,25 +13,26 @@ description: >
 ```{r setup, include=FALSE}
 library(learnr)
 library(MultiAssayExperiment)
-tutorial_options(exercise.timelimit = 10)
+tutorial_options(exercise.timelimit = 60)
 knitr::opts_chunk$set(error = TRUE)
 ```
 
 ## MultiAssayWorkshop
 
-See the source code of the interactive exercises at https://github.com/waldronlab/MultiAssayWorkshop
+See the source code of the interactive exercises at
+https://github.com/waldronlab/MultiAssayWorkshop
 
 ### Introduction
 
 In this tutorial, you will learn how to:
 
-* extract components of a MultiAssayExperiment data structure
-* use the MultiAssayExperiment constructor function to create the
+* extract components of a `MultiAssayExperiment` data structure
+* use the `MultiAssayExperiment` constructor function to create the
 data representation from individual pieces
 
 ### Extractor functions
 
-Before we re-construct our MultiAssayExperiment object (`miniACC`)
+Before we re-construct our `MultiAssayExperiment` object (`miniACC`)
 we will learn how to deconstruct or take component pieces from the object.
 We use extractor functions to "extract" those pieces of the data.
 
