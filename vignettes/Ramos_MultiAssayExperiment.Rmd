@@ -469,12 +469,13 @@ the `curatedTCGAData` package. This represents a lot of harmonization!
 
 ```{r,include=TRUE,message=FALSE,warning=FALSE}
 library(curatedTCGAData)
-curatedTCGAData("ACC")
+curatedTCGAData("ACC", version = "1.1.38", dry.run = TRUE)
 acc <- curatedTCGAData(
     diseaseCode = "ACC",
     assays = c(
         "miRNASeqGene", "RPPAArray", "Mutation", "RNASeq2GeneNorm", "CNVSNP"
     ),
+    version = "1.1.38",
     dry.run = FALSE
 )
 acc
