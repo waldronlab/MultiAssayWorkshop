@@ -2,6 +2,10 @@ name: MAE Workshop Check
 
 on: push
 
+env:
+  cache-version: v1
+  repo-name: mr148/multiassayworkshop
+
 jobs:
   checkdeploy:
     runs-on: ubuntu-20.04
@@ -21,12 +25,12 @@ jobs:
         uses: actions/cache@v1
         with:
           path: /usr/local/lib/R/site-library
-          key: ${{ runner.os }}-r-1-${{ hashFiles('.github/depends.Rds') }}
-          restore-keys: ${{ runner.os }}-r-1-
+          key: ${{ env.cache-version }}-${{ runner.os }}-r-${{ hashFiles('.github/depends.Rds') }}
+          restore-keys: ${{ env.cache-version }}-${{ runner.os }}-r-
 
       - name: Install Package Dependencies
         run: |
-          options(repos = c(CRAN = "https://cloud.r-project.org"))
+          options(repos = c(CRAN = "https://cran.r-project.org"))
           remotes::install_local(dependencies = TRUE, repos = BiocManager::repositories(), build_vignettes = TRUE, upgrade = TRUE)
           BiocManager::install("rcmdcheck", update = TRUE, ask = FALSE)
         shell: Rscript {0}
@@ -36,15 +40,6 @@ jobs:
           _R_CHECK_CRAN_INCOMING_REMOTE_: false
         run: rcmdcheck::rcmdcheck(args = c("--no-manual"), error_on = "error", check_dir = "check")
         shell: Rscript {0}
-        
-      - name: Build and Push Docker container
-        if: ${{ success() }}
-        uses: docker/build-push-action@v1
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-          repository: mr148/multiassayworkshop
-          tag_with_ref: true
 
       - name: Build pkgdown
         run: |
@@ -62,4 +57,15 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages # The branch the action should deploy to.
           FOLDER: docs # The folder the action should deploy.
+
+      - name: Build and Push Docker container
+        if: ${{ success() }}
+        uses: docker/build-push-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: ${{ env.repo-name }}
+          tag_with_ref: true
+          tag_with_sha: true
+          tags: latest
 
