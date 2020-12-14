@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">MultiAssayWorkshop</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.13.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.13.2</span>
       </span>
     </div>
 
@@ -99,7 +99,7 @@
             <address class="author_afil">
       CUNY School of Public Health, New York, NY<br><h4 class="author">Levi Waldron</h4>
             <address class="author_afil">
-      CUNY School of Public Health, New York, NY<br><h4 class="date">December 03, 2020</h4>
+      CUNY School of Public Health, New York, NY<br><h4 class="date">December 14, 2020</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/waldronlab/MultiAssayWorkshop/blob/master/vignettes/Ramos_MultiAssayExperiment.Rmd"><code>vignettes/Ramos_MultiAssayExperiment.Rmd</code></a></small>
       <div class="hidden name"><code>Ramos_MultiAssayExperiment.Rmd</code></div>
@@ -627,7 +627,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <p>Most unrestricted TCGA data are available as <code>MultiAssayExperiment</code> objects from the <code>curatedTCGAData</code> package. This represents a lot of harmonization!</p>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">curatedTCGAData</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/pkg/curatedTCGAData/man/curatedTCGAData.html">curatedTCGAData</a></span><span class="op">(</span><span class="st">"ACC"</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://rdrr.io/pkg/curatedTCGAData/man/curatedTCGAData.html">curatedTCGAData</a></span><span class="op">(</span><span class="st">"ACC"</span>, version <span class="op">=</span> <span class="st">"1.1.38"</span>, dry.run <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <pre><code>##     ah_id                                 title file_size
 ## 1   EH558                   ACC_CNASNP-20160128    0.8 Mb
 ## 2   EH559                   ACC_CNVSNP-20160128    0.2 Mb
@@ -658,6 +658,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
     assays <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>
         <span class="st">"miRNASeqGene"</span>, <span class="st">"RPPAArray"</span>, <span class="st">"Mutation"</span>, <span class="st">"RNASeq2GeneNorm"</span>, <span class="st">"CNVSNP"</span>
     <span class="op">)</span>,
+    version <span class="op">=</span> <span class="st">"1.1.38"</span>,
     dry.run <span class="op">=</span> <span class="cn">FALSE</span>
 <span class="op">)</span>
 <span class="va">acc</span></code></pre></div>
