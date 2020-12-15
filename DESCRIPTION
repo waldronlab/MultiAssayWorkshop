@@ -1,5 +1,5 @@
 Package: MultiAssayWorkshop
-Title: MultiAssayExperiment and curatedTCGAData Bioconductor 2020 Workshop
+Title: Multi-omic Integration and Analysis of cBioPortal and TCGA data with MultiAssayExperiment
 Version: 3.13.2
 Authors@R: c(person("Marcel", "Ramos", email = "marcel.ramos@roswellpark.org",
     role = c("aut", "cre")),
@@ -7,10 +7,10 @@ Authors@R: c(person("Marcel", "Ramos", email = "marcel.ramos@roswellpark.org",
     role = "ctb"),
     person("Levi", "Waldron", email = "lwaldron.research@gmail.com",
     role = "aut"))
-Description: This is a workshop package for the Bioconductor 2020 conference.
-  It is meant to build using GitHub actions and pkgdown package. The topics
-  covered in this workshop are MultiAssayExperiment, curatedTCGAData, and
-  cBioPortalData. Some R knowledge is required for attending this workshop.
+Description: This is a workshop on acquiring and analyzing data through the
+  curatedTCGAData and cBioPortalData packages as MultiAssayExperiment objects.
+  It built using GitHub actions and pkgdown. Some knowledge of R and basic 
+  Bioconductor structures such as SummarizedExperiment is assumed. 
 Depends: R (>= 4.0.0)
 Imports:
   MultiAssayExperiment,
