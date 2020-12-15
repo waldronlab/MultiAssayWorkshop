@@ -16,6 +16,8 @@ navbar:
       menu:
       - text: Build Your First MAE
         href: tutorials/Exercise_MultiAssay.html
+      - text: Download and Use cBioPortal Data
+        href: tutorials/cBioPortalData_Intro.html
     - text: Reference
       menu:
       - text: cBioPortal Studies
@@ -32,4 +34,6 @@ tutorials:
 - name: Exercise_MultiAssay
   title: Build Your First MAE
   url: https://mramos.shinyapps.io/Exercises_MultiAssayWorkshop/
-
+- name: cBioPortalData_Intro
+  title: Download and Use cBioPortal Data
+  url: https://mramos.shinyapps.io/cBioPortalData_Tutorial/
