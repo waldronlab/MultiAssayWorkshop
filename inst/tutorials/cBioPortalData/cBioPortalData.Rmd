@@ -119,6 +119,10 @@ We need to know:
 * `by` - whether we want these features as Entrez IDs or Hugo Symbols.
 * `molecularProfileIds` - specific assays that make up a study
 
+```{r,echo=FALSE}
+cbio <- cBioPortal()
+```
+
 ### genePanels 
 
 Use the `genePanels` function to see what gene panels are available (if
