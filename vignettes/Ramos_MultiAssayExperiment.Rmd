@@ -189,7 +189,7 @@ showClass("RaggedExperiment")
 transformation of data to matrix format.
 
 ```{r, echo=FALSE, fig.cap="RaggedExperiment object schematic. Rows and columns represent genomic ranges and samples, respectively. Assay operations can be performed with (from left to right) compactAssay, qreduceAssay, and sparseAssay.", out.width="\\maxwidth"}
-knitr::include_graphics("RaggedExperiment.png")
+knitr::include_graphics("RaggedExperiment_Schematic.png")
 ```
 
 ## The Integrative Container
