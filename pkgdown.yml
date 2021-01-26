@@ -1,4 +1,4 @@
-pandoc: 2.7.3
+pandoc: 2.11.2
 pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
@@ -6,7 +6,7 @@ articles:
   TCGAutilsCheatsheet: TCGAutilsCheatsheet.html
   cBioPortal_Studies: cBioPortal_Studies.html
   curatedTCGAData_ref: curatedTCGAData_ref.html
-last_built: 2020-12-16T19:41Z
+last_built: 2021-01-26T16:53Z
 urls:
   reference: https://waldronlab.io/MultiAssayWorkshop/reference
   article: https://waldronlab.io/MultiAssayWorkshop/articles
