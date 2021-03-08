@@ -98,14 +98,16 @@
   <div class="contents col-md-9">
 
 <p><img src="https://github.com/waldronlab/MultiAssayWorkshop/workflows/MAEWorkshopCheck/badge.svg" alt="MAEWorkshopCheck"></p>
-<div id="multi-omic-integration-and-analysis-of-cbioportal-and-tcga-data-with-multiassayexperiment" class="section level1">
+<div id="multi-omic-integration-of-cbioportal-and-tcga-data-with-multiassayexperiment" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#multi-omic-integration-and-analysis-of-cbioportal-and-tcga-data-with-multiassayexperiment" class="anchor"></a>Multi-omic Integration and Analysis of cBioPortal and TCGA data with MultiAssayExperiment</h1></div>
+<a href="#multi-omic-integration-of-cbioportal-and-tcga-data-with-multiassayexperiment" class="anchor"></a>Multi-omic Integration of cBioPortal and TCGA data with MultiAssayExperiment</h1></div>
 </div>
 <div id="quick-install" class="section level1">
 <h1 class="hasAnchor">
 <a href="#quick-install" class="anchor"></a>Quick-install</h1>
-<pre><code><a href="https://rdrr.io/pkg/BiocManager/man/install.html">BiocManager::install("waldronlab/MultiAssayWorkshop", dependencies=TRUE, build_vignettes=TRUE)</a></code></pre>
+<pre><code><a href="https://rdrr.io/pkg/BiocManager/man/install.html">BiocManager::install(
+    "waldronlab/MultiAssayWorkshop", dependencies=TRUE, build_vignettes=TRUE
+)</a></code></pre>
 </div>
 <div id="instructor-names-and-contact-information" class="section level1">
 <h1 class="hasAnchor">
@@ -118,7 +120,7 @@
 <div id="workshop-description" class="section level1">
 <h1 class="hasAnchor">
 <a href="#workshop-description" class="anchor"></a>Workshop Description</h1>
-<p>This workshop demonstrates the leveraging of public multi-omics databases, such as cBioPortal and The Cancer Genome Atlas (TCGA), through the use of the <code>cBioPortalData</code> and <code>curatedTCGAData</code> experiment data packages. It provides users with the basics of data management, using the <code>MultiAssayExperiment</code> data class and the <code>TCGAutils</code> utility package, and example analyses of multiple assays associated with a single set of biological specimens. In addition to providing a basic overview of key data classes, such as <code>MultiAssayExperiment</code> and <code>RaggedExperiment</code>, this workshop intends to provide an overview of <code>cBioPortalData</code> and <code>curatedTCGAData</code> experiment data packages and <code>TCGAutils</code> functionality aimed at enhancing the ease-of-use of TCGA data.</p>
+<p>This workshop demonstrates the leveraging of public multi-omics databases, such as cBioPortal and The Cancer Genome Atlas (TCGA), through an overview of the <code>cBioPortalData</code> and <code>curatedTCGAData</code> experiment data packages. It introduces users to minimal data management with <code>MultiAssayExperiment</code> and <code>TCGAutils</code>, packages that organize and manage multi-omics datasets. The workshop aims to improve the ease-of-use of TCGA data, and introduce participants to common Bioconductor data structures including <code>SummarizedExperiment</code>, <code>MultiAssayExperiment</code> and <code>RaggedExperiment</code>. The workshop will also mention soon-to-be-released updates to <code>MultiAssayExperiment</code> such as renaming primary identifiers, column names, splitting assays, and <code>maftools</code> compatibility.</p>
 <div id="pre-requisites" class="section level2">
 <h2 class="hasAnchor">
 <a href="#pre-requisites" class="anchor"></a>Pre-requisites</h2>
