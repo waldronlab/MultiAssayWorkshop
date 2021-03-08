@@ -1,11 +1,13 @@
 ![MAEWorkshopCheck](https://github.com/waldronlab/MultiAssayWorkshop/workflows/MAEWorkshopCheck/badge.svg)
 
-# Multi-omic Integration and Analysis of cBioPortal and TCGA data with MultiAssayExperiment
+# Multi-omic Integration of cBioPortal and TCGA data with MultiAssayExperiment
 
 # Quick-install
 
 ```
-BiocManager::install("waldronlab/MultiAssayWorkshop", dependencies=TRUE, build_vignettes=TRUE)
+BiocManager::install(
+    "waldronlab/MultiAssayWorkshop", dependencies=TRUE, build_vignettes=TRUE
+)
 ```
 
 # Instructor names and contact information
@@ -23,15 +25,16 @@ New York, NY 10027
 # Workshop Description
 
 This workshop demonstrates the leveraging of public multi-omics databases, such
-as cBioPortal and The Cancer Genome Atlas (TCGA), through the use of the
-`cBioPortalData` and `curatedTCGAData` experiment data packages. It provides
-users with the basics of data management, using the `MultiAssayExperiment` data
-class and the `TCGAutils` utility package, and example analyses of multiple
-assays associated with a single set of biological specimens. In addition to
-providing a basic overview of key data classes, such as `MultiAssayExperiment`
-and `RaggedExperiment`, this workshop intends to provide an overview of
-`cBioPortalData` and `curatedTCGAData` experiment data packages and `TCGAutils`
-functionality aimed at enhancing the ease-of-use of TCGA data.
+as cBioPortal and The Cancer Genome Atlas (TCGA), through an overview of the
+`cBioPortalData` and `curatedTCGAData` experiment data packages. It
+introduces users to minimal data management with `MultiAssayExperiment` and
+`TCGAutils`, packages that organize and manage multi-omics datasets. The
+workshop aims to improve the ease-of-use of TCGA data, and introduce
+participants to common Bioconductor data structures including
+`SummarizedExperiment`, `MultiAssayExperiment` and `RaggedExperiment`. The
+workshop will also mention soon-to-be-released updates to
+`MultiAssayExperiment` such as renaming primary identifiers, column names,
+splitting assays, and `maftools` compatibility.
 
 ## Pre-requisites
 
