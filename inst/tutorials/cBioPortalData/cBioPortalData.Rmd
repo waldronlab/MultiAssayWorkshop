@@ -29,7 +29,7 @@ https://github.com/waldronlab/MultiAssayWorkshop
 ### What data is available? 
 
 First we need to know if we are interested in any of the data that is offered
-by The cBio Genomics Portal.
+by the cBio Genomics Portal.
 
 ### Using the `data` function
 
