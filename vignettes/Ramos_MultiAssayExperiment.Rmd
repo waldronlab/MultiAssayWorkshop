@@ -58,7 +58,7 @@ docker run -e PASSWORD=bioc -p 8787:8787 mr148/multiassayworkshop:latest
 
 ## Requirements: R/Bioconductor packages
 
-The workshop uses a Docker container with Bioconductor devel version `3.12`.
+The workshop uses a Docker container with Bioconductor devel version `3.14`.
 If you would like to install Bioconductor on your computer **at a later date**,
 see the [Bioconductor installation](https://www.bioconductor.org/install)
 instructions.
