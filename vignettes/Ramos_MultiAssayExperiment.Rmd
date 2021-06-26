@@ -72,6 +72,7 @@ library(cBioPortalData)
 library(TCGAutils)
 library(SingleCellMultiModal)
 library(UpSetR)
+library(GenomicDataCommons)
 ```
 
 ### Citing MultiAssayExperiment
