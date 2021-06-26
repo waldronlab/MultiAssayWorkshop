@@ -48,7 +48,7 @@ opts_chunk$set(out.width="100%", cache=TRUE)
 * See the instruction [Google slides](https://tinyurl.com/MultiAssayWorkshop)
 * Go to the conference instance registration webpage and use these credentials:
     * username: `rstudio`
-    * password: `welcome-to-bioc2020`
+    * password: `welcome-to-bioc2021`
 * Browse to the [workshop website](https://waldronlab.io/MultiAssayWorkshop/)
 * (Alternatively) Docker users can run this workshop locally via:
 
@@ -70,14 +70,25 @@ library(MultiAssayExperiment)
 library(curatedTCGAData)
 library(cBioPortalData)
 library(TCGAutils)
-library(GenomicDataCommons)
+library(SingleCellMultiModal)
 library(UpSetR)
 ```
 
 ### Citing MultiAssayExperiment
 
-Please use this citation [@Ramos2017-er] when using
-`MultiAssayExperiment`, your citations are appreciated!
+Please use these citations [@Ramos2017-er] and [@Ramos2020-ya] when using
+`MultiAssayExperiment`, `curatedTCGAData`, or `cBioPortalData`.
+Your citations are very much appreciated!
+
+### Overview of Packages
+
+| Package              | Description |
+|----------------------|----------------------------------------------------|
+| MultiAssayExperiment | Infrastructure package to represent multi-omics data|
+| curatedTCGAData      | Downloads TCGA data from ExperimentHub in MultiAssayExperiment form |
+| cBioPortalData       | Access over 300 study datasets from the cBio Genomics Portal |
+| TCGAutils            | Make use of utility functions for working with TCGA data |
+| SingleCellMultiModal | Obtain single cell data from various multi-modality studies |
 
 ### Key Packages
 
@@ -98,6 +109,7 @@ knitr::include_graphics("MultiAssayExperiment.png")
 * makes use of the revamped API with caching
 * queries are handled for the user _in the background_
 * easy-to-use interface (no knowledge of the cBioPortal data model required)
+* see `getStudies()` for a list of available studies
 
 #### `curatedTCGAData`
 
@@ -119,6 +131,14 @@ studies from `TCGAutils::diseaseCodes`.
 
 * `OmicsTypes` -- A descriptive table of 'omics types in `curatedTCGAData`
 (thanks to Ludwig G. `@lgeistlinger`)
+
+#### `SingleCellMultiModal`
+
+* Serves multi-modal datasets from GEO and other sources as
+`MultiAssayExperiment` data representations. Some representations are out of
+memory using the `HDF5` format as well as the `MTX` format.
+* Available technologies are scNMT, 10X Multiome, seqFISH, (EC)CITEseq,
+SCoPE2 and others.
 
 #### `TCGAutils`
 
@@ -186,7 +206,7 @@ showClass("RaggedExperiment")
 ```
 
 `RaggedExperiment` provides a flexible set of _*Assay_ methods to support
-transformation of data to matrix format.
+transformation of ranged list data to matrix format.
 
 ```{r, echo=FALSE, fig.cap="RaggedExperiment object schematic. Rows and columns represent genomic ranges and samples, respectively. Assay operations can be performed with (from left to right) compactAssay, qreduceAssay, and sparseAssay.", out.width="\\maxwidth"}
 knitr::include_graphics("RaggedExperiment_Schematic.png")
@@ -237,8 +257,8 @@ operations. This class is part of the `DelayedArray` package.
 </details>
 
 
-_Note_. many data classes that support row and column naming and subsetting
-can be used in a `MultiAssayExperiment`.
+_Note_. Data classes that support row and column naming and subsetting may be
+used in a `MultiAssayExperiment`.
 
 ### `MatchedAssayExperiment`
 
@@ -253,7 +273,7 @@ as(x, "MatchedAssayExperiment")
 MatchedAssayExperiment(mae)
 ```
 
-_Note_. The `MultiAssayExperiment` package then provides functionality to
+_Note_. The `MultiAssayExperiment` package provides functionality to
 merge replicate profiles for a single patient (`mergeReplicates()`).
 
 
@@ -317,7 +337,7 @@ knitr::include_graphics("MultiAssayExperiment_cheatsheet.png")
 
 #### constructor function
 
-The `MultiAssayExperiment` constructor function can take three arguments:
+The `MultiAssayExperiment` constructor function accepts three arguments:
 
 1. `experiments` - An `ExperimentList` or `list` of rectangular data
 2. `colData` - A `DataFrame` describing the patients (or cell lines, or other
@@ -335,13 +355,13 @@ MultiAssayExperiment(
 )
 ```
 
-#### `prepMultiAssay` - Constructor function helper
+#### Getting help with `prepMultiAssay`
 
 The `prepMultiAssay` function allows the user to diagnose typical problems
 when creating a `MultiAssayExperiment` object. See `?prepMultiAssay` for more
 details.
 
-#### `c` - concatenate to MultiAssayExperiment
+#### Combining MultiAssayExperiment object with the `c` function
 
 The `c` function allows the user to concatenate an additional experiment to an
 existing `MultiAssayExperiment`. The optional `sampleMap` argument allows
@@ -373,46 +393,54 @@ colData(miniACC)[1:4, 1:4]
 table(miniACC$race)
 ```
 
-*Key points about the colData:*
+Note. `MultiAssayExperiment` supports both missing observations and replicate
+observations, i.e., one row of `colData` can map to 0, 1, or more columns of
+any of the experimental data matrices. One could therefore treat replicate
+observations as one or multiple rows of `colData`. This can result in
+different subsetting, `duplicated()`, and `wideFormat()` behaviors.
 
-* Each row maps to zero or more observations in each experiment in the
-`ExperimentList`, below.
-* One row per biological unit
-    + `MultiAssayExperiment` supports both missing observations and replicate
-observations, ie one row of `colData` can map to 0, 1, or more columns of any
-of the experimental data matrices.
-    + therefore you could treat replicate observations as one or multiple rows
-of `colData`, and this will result in different behaviors of functions you will
-learn later like subsetting, `duplicated()`, and `wideFormat()`.
-    + multiple time points, or distinct biological replicates, should probably
-be separate rows of the `colData`.
+Note. Multiple time points, or distinct biological replicates, can be separate
+rows of the `colData`.
+
+::: {.infobox data-latex=""}
+
+**Key points**
+
+* Each row maps to zero or more observations in each experiment
+* Usually, organized as one row per biological unit
+
+:::
 
 
 ### ExperimentList - experiment data
 
-A base `list` or `ExperimentList` object containing the experimental datasets
-for the set of samples collected. This gets converted into a class
-`ExperimentList` during construction.
+Experimental datasets can be input as either a base `list` or `ExperimentList`
+object for the set of samples collected. To see the experiments use the
+`experiments` getter function.
 
 ```{r}
 experiments(miniACC)
 ```
 
+Note. Each matrix column must correspond to exactly one row in `colData`. In
+other words, each patient or cell line must be traceable. However, multiple
+columns can come from the same patient, or there can be no data for that
+patient.
+
+::: {.infobox data-latex=""}
+
 *Key points:*
 
-* One matrix-like dataset per list element (although they do not even need to be
-matrix-like, see for example the `RaggedExperiment` package)
-* One matrix column per assayed specimen. Each matrix column must correspond to
-exactly one row of `colData`: in other words, you must know which patient or
-cell line the observation came from. However, multiple columns can come from the
-same patient, or there can be no data for that patient.
+* One rectangular dataset per list element
+* One column per assayed specimen.
 * Matrix rows correspond to variables, e.g. genes or genomic ranges
 * `ExperimentList` elements can be genomic range-based (e.g.
-`SummarizedExperiment::RangedSummarizedExperiment-class` or
-`RaggedExperiment::RaggedExperiment-class`) or ID-based data (e.g.
-`SummarizedExperiment::SummarizedExperiment-class`, `Biobase::eSet-class`
-`base::matrix-class`, `DelayedArray::DelayedArray-class`, and derived classes)
-* Any data class can be included in the `ExperimentList`, as long as it
+`SummarizedExperiment` or `RaggedExperiment`) or ID-based data
+* Most rectangular-type data classes are supported
+
+:::
+
+Note. Any data class can be included in the `ExperimentList`, as long as it
 supports: single-bracket subsetting (`[`), `dimnames`, and `dim`. Most data
 classes defined in Bioconductor meet these requirements.
 
@@ -437,10 +465,14 @@ Helper functions are available for creating a map from a list. See `?listToMap`
 sampleMap(miniACC)
 ```
 
+::: {.infobox data-latex=""}
+
 *Key points:*
 
 * relates experimental observations (`colnames`) to `colData`
 * permits experiment-specific sample naming, missing, and replicate observations
+
+:::
 
 <p style="text-align: right;"> [back to top](#overview-of-key-data-classes) </p>
 
@@ -464,38 +496,46 @@ classes.
 
 ## The Cancer Genome Atlas (TCGA) Data from `curatedTCGAData`
 
-Most unrestricted TCGA data are available as `MultiAssayExperiment` objects from
-the `curatedTCGAData` package. This represents a lot of harmonization!
+Most unrestricted TCGA data (from 33 cancer types) are available as
+`MultiAssayExperiment` objects from the `curatedTCGAData` package. This
+represents a lot of harmonization!
+
+Here we list the available data for the Adrenocortical Carcinoma (`"ACC"`)
+cancer type:
 
 ```{r,include=TRUE,message=FALSE,warning=FALSE}
 library(curatedTCGAData)
-curatedTCGAData("ACC", version = "1.1.38", dry.run = TRUE)
+curatedTCGAData("ACC", version = "2.0.1", dry.run = TRUE)
+```
+
+We then download the data with `dry.run` set to `FALSE`.
+
+```{r,include=TRUE,message=FALSE,warning=FALSE}
 acc <- curatedTCGAData(
     diseaseCode = "ACC",
     assays = c(
         "miRNASeqGene", "RPPAArray", "Mutation", "RNASeq2GeneNorm", "CNVSNP"
     ),
-    version = "1.1.38",
+    version = "2.0.1",
     dry.run = FALSE
 )
 acc
 ```
 
 These objects contain most unrestricted TCGA assay and clinical / pathological
-data, as well as material curated from the supplements of published TCGA primary
-papers at the end of the colData columns:
+data, as well as some curated data from the supplements of published TCGA
+primary papers at the end of the colData columns:
 
 ```{r}
 dim(colData(acc))
 tail(colnames(colData(acc)), 10)
 ```
 
-The `TCGAutils` package provides additional helper functions.
-
 ## `cBioPortalData`
 
-The [cBio Genomics Portal](https://www.cbioportal.org/) provides access to more
-than 260 datasets collected and curated from different instutions.
+To date, the [cBio Genomics Portal](https://www.cbioportal.org/) provides
+access to more than 300 datasets collected and curated from different
+instutions.
 
 There are two main ways of accessing this data:
 
@@ -504,17 +544,7 @@ There are two main ways of accessing this data:
 
 _Note_. `pkgdown` reference website here: https://waldronlab.io/cBioPortalData/
 
-### cBioDataPack
-
-```{r,include=TRUE,message=FALSE,warning=FALSE}
-library(cBioPortalData)
-data("studiesTable")
-head(studiesTable[["cancer_study_id"]])
-
-(uvm <- cBioDataPack("uvm_tcga"))
-```
-
-### cBioPortalData
+### Listing the studies available
 
 First, we create an API object using the `cBioPortal` function.
 This will allow us to subsequently generate queries for the service.
@@ -524,6 +554,28 @@ cbio <- cBioPortal()
 getStudies(cbio)
 ```
 
+We can also see the build status of the datasets using the `buildReport`
+argument.
+
+```{r}
+getStudies(cbio, buildReport = TRUE)
+```
+
+This adds two additional columns to the end of the dataset reporting
+the status of the builds. Not all studies can be converted to
+`MultiAssayExperiment`. Some studies require additonal cleaning
+to be represented with `MultiAssayExperiment`.
+
+### cBioDataPack
+
+```{r,include=TRUE,message=FALSE,warning=FALSE}
+library(cBioPortalData)
+
+(uvm <- cBioDataPack("uvm_tcga"))
+```
+
+### cBioPortalData
+
 ```{r}
 (
     urcc <- cBioPortalData(
@@ -531,7 +583,6 @@ getStudies(cbio)
     )
 )
 ```
-
 
 ::: {.infobox data-latex=""}
 
@@ -751,36 +802,40 @@ metadata
 
 :::
 
-## MultiAssayExperiment Subsetting
+## Data Management with MultiAssayExperiment
 
-### Single bracket `[`
+### Single bracket `[` subsetting
 
-In pseudo code below, the subsetting operations work on the rows of the
+In the pseudo code below, the subsetting operations work on the rows of the
 following indices:
+
 1. _i_ experimental data rows
-2. _j_ the primary names or the column names (entered as a `list` or `List`)
+2. _j_ the primary names (vector input) or the column names (`list` or `List`
+  inputs)
 3. _k_ assay
 
 ```
 multiassayexperiment[i = rownames, j = primary or colnames, k = assay]
 ```
 
-Subsetting operations always return another `MultiAssayExperiment`. For example,
-the following will return any rows named "MAPK14" or "IGFBP2", and remove any
-assays where no rows match:
+Subsetting operations always return another `MultiAssayExperiment`. For
+example, the following will return any rows named "MAPK14" or "IGFBP2", and
+remove any assays where no rows match:
 
 ```{r, results='hide'}
 miniACC[c("MAPK14", "IGFBP2"), , ]
 ```
 
-The following will keep only patients of pathological stage iv, and all their
+The following will keep only patients of pathological stage IV, and all their
 associated assays:
+
 ```{r, results='hide'}
 miniACC[, miniACC$pathologic_stage == "stage iv", ]
 ```
 
 And the following will keep only the RNA-seq dataset, and only patients for
 which this assay is available:
+
 ```{r, results='hide'}
 miniACC[, , "RNASeq2GeneNorm"]
 ```
@@ -794,7 +849,7 @@ the first subsetting position will subset these objects as in
 be subset to zero rows.
 
 
-### Double bracket `[[`
+### Double bracket `[[` subsetting
 
 The "double bracket" method (`[[`) is a convenience function for extracting
 a single element of the `MultiAssayExperiment` `ExperimentList`. It avoids
@@ -806,6 +861,8 @@ miniACC[[1L]]
 ## equivalently
 miniACC[["RNASeq2GeneNorm"]]
 ```
+
+To preserve the `colData` during the extraction, see `?getWithColData`.
 
 ### Complete cases
 
@@ -867,17 +924,21 @@ element being a `matrix`.
 assays(miniACC)
 ```
 
+::: {.infobox data-latex=""}
+
 *Key point:*
 
-* Whereas the `[[` returned an assay as its original class, `assay()` and
-`assays()` convert the assay data to matrix form.
+* Whereas the `[[` returned an experiment in its original class, `assay()` and
+`assays()` convert the assay data to matrix format.
+
+:::
 
 <p style="text-align: right;"> [back to top](#overview-of-key-packages-and-data-classes) </p>
 
 ### Summary of slots and accessors
 
-Slot in the `MultiAssayExperiment` can be accessed or set using their accessor
-functions:
+Slot in the `MultiAssayExperiment` can be accessed or set using the respective
+accessor functions:
 
 | Slot | Accessor |
 |------|----------|
