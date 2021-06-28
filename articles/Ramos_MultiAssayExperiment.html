@@ -77,7 +77,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/waldronlab/MultiAssayWorkshop">
-    <span class="fas fa-github"></span>
+    <span class="fa fa-github"></span>
      
   </a>
 </li>
@@ -91,7 +91,7 @@
 
       
 
-      </header><script src="Ramos_MultiAssayExperiment_files/header-attrs-2.7/header-attrs.js"></script><div class="row">
+      </header><script src="Ramos_MultiAssayExperiment_files/header-attrs-2.9/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>MultiAssayExperiment: Integrative workflow for public multi-omics data</h1>
@@ -101,7 +101,7 @@
             <address class="author_afil">
       CUNY School of Public Health, New York, NY<br><h4 class="author">Levi Waldron</h4>
             <address class="author_afil">
-      CUNY School of Public Health, New York, NY<br><h4 class="date">March 10, 2021</h4>
+      CUNY School of Public Health, New York, NY<br><h4 class="date">June 28, 2021</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/waldronlab/MultiAssayWorkshop/blob/master/vignettes/Ramos_MultiAssayExperiment.Rmd"><code>vignettes/Ramos_MultiAssayExperiment.Rmd</code></a></small>
       <div class="hidden name"><code>Ramos_MultiAssayExperiment.Rmd</code></div>
@@ -140,7 +140,7 @@
 <ul>
 <li>username: <code>rstudio</code>
 </li>
-<li>password: <code>welcome-to-bioc2020</code>
+<li>password: <code>welcome-to-bioc2021</code>
 </li>
 </ul>
 </li>
@@ -153,19 +153,56 @@
 <div id="requirements-rbioconductor-packages" class="section level2">
 <h2 class="hasAnchor">
 <a href="#requirements-rbioconductor-packages" class="anchor"></a>Requirements: R/Bioconductor packages</h2>
-<p>The workshop uses a Docker container with Bioconductor devel version <code>3.12</code>. If you would like to install Bioconductor on your computer <strong>at a later date</strong>, see the <a href="https://www.bioconductor.org/install">Bioconductor installation</a> instructions.</p>
+<p>The workshop uses a Docker container with Bioconductor devel version <code>3.14</code>. If you would like to install Bioconductor on your computer <strong>at a later date</strong>, see the <a href="https://www.bioconductor.org/install">Bioconductor installation</a> instructions.</p>
 <p>Here is a list of packages that we will be using:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://waldronlab.io/MultiAssayExperiment/">MultiAssayExperiment</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">curatedTCGAData</span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">cBioPortalData</span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">TCGAutils</span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://bioconductor.org/packages/GenomicDataCommons">GenomicDataCommons</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://github.com/hms-dbmi/UpSetR">UpSetR</a></span><span class="op">)</span></code></pre></div>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">SingleCellMultiModal</span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://github.com/hms-dbmi/UpSetR">UpSetR</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://bioconductor.org/packages/GenomicDataCommons">GenomicDataCommons</a></span><span class="op">)</span></code></pre></div>
 <div id="citing-multiassayexperiment" class="section level3">
 <h3 class="hasAnchor">
 <a href="#citing-multiassayexperiment" class="anchor"></a>Citing MultiAssayExperiment</h3>
-<p>Please use this citation <span class="citation">(Ramos et al. 2017)</span> when using <code>MultiAssayExperiment</code>, your citations are appreciated!</p>
+<p>Please use these citations <span class="citation">(Ramos et al. 2017)</span> and <span class="citation">(Ramos et al. 2020)</span> when using <code>MultiAssayExperiment</code>, <code>curatedTCGAData</code>, or <code>cBioPortalData</code>. Your citations are very much appreciated!</p>
+</div>
+<div id="overview-of-packages" class="section level3">
+<h3 class="hasAnchor">
+<a href="#overview-of-packages" class="anchor"></a>Overview of Packages</h3>
+<table class="table">
+<colgroup>
+<col width="29%">
+<col width="70%">
+</colgroup>
+<thead><tr class="header">
+<th>Package</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>MultiAssayExperiment</td>
+<td>Infrastructure package to represent multi-omics data</td>
+</tr>
+<tr class="even">
+<td>curatedTCGAData</td>
+<td>Downloads TCGA data from ExperimentHub in MultiAssayExperiment form</td>
+</tr>
+<tr class="odd">
+<td>cBioPortalData</td>
+<td>Access over 300 study datasets from the cBio Genomics Portal</td>
+</tr>
+<tr class="even">
+<td>TCGAutils</td>
+<td>Make use of utility functions for working with TCGA data</td>
+</tr>
+<tr class="odd">
+<td>SingleCellMultiModal</td>
+<td>Obtain single cell data from various multi-modality studies</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="key-packages" class="section level3">
 <h3 class="hasAnchor">
@@ -195,6 +232,7 @@ MultiAssayExperiment object schematic
 <li>queries are handled for the user <em>in the background</em>
 </li>
 <li>easy-to-use interface (no knowledge of the cBioPortal data model required)</li>
+<li>see <code><a href="https://rdrr.io/pkg/cBioPortalData/man/cBioPortal.html">getStudies()</a></code> for a list of available studies</li>
 </ul>
 </div>
 <div id="curatedtcgadata" class="section level4">
@@ -219,6 +257,15 @@ MultiAssayExperiment object schematic
 <ul>
 <li><p><code>Available Studies</code> – (curatedTCGAData section) A list of available cancer studies from <code><a href="https://rdrr.io/pkg/TCGAutils/man/diseaseCodes.html">TCGAutils::diseaseCodes</a></code>.</p></li>
 <li><p><code>OmicsTypes</code> – A descriptive table of ’omics types in <code>curatedTCGAData</code> (thanks to Ludwig G. <code>@lgeistlinger</code>)</p></li>
+</ul>
+</div>
+<div id="singlecellmultimodal" class="section level4">
+<h4 class="hasAnchor">
+<a href="#singlecellmultimodal" class="anchor"></a><code>SingleCellMultiModal</code>
+</h4>
+<ul>
+<li>Serves multi-modal datasets from GEO and other sources as <code>MultiAssayExperiment</code> data representations. Some representations are out of memory using the <code>HDF5</code> format as well as the <code>MTX</code> format.</li>
+<li>Available technologies are scNMT, 10X Multiome, seqFISH, (EC)CITEseq, SCoPE2 and others.</li>
 </ul>
 </div>
 <div id="tcgautils" class="section level4">
@@ -299,7 +346,7 @@ A matrix-like container where rows represent features of interest and columns re
 ## Class: GRangesList     integer     integer        list
 ## 
 ## Extends: "Annotated"</code></pre>
-<p><code>RaggedExperiment</code> provides a flexible set of _*Assay_ methods to support transformation of data to matrix format.</p>
+<p><code>RaggedExperiment</code> provides a flexible set of _*Assay_ methods to support transformation of ranged list data to matrix format.</p>
 <div class="figure">
 <img src="RaggedExperiment_Schematic.png" alt="RaggedExperiment object schematic. Rows and columns represent genomic ranges and samples, respectively. Assay operations can be performed with (from left to right) compactAssay, qreduceAssay, and sparseAssay." width="\maxwidth"><p class="caption">
 RaggedExperiment object schematic. Rows and columns represent genomic ranges and samples, respectively. Assay operations can be performed with (from left to right) compactAssay, qreduceAssay, and sparseAssay.
@@ -343,7 +390,7 @@ MultiAssayExperiment object schematic. colData provides data about the patients,
 <code>RangedVcfStack</code>: For VCF archives broken up by chromosome (see <code>VcfStack</code> class defined in the <code>GenomicFiles</code> package)</li>
 <li>
 <code>DelayedMatrix</code>: An on-disk representation of matrix-like objects for large datasets. It reduces memory usage and optimizes performance with delayed operations. This class is part of the <code>DelayedArray</code> package.</li>
-</ol></details><p><em>Note</em>. many data classes that support row and column naming and subsetting can be used in a <code>MultiAssayExperiment</code>.</p>
+</ol></details><p><em>Note</em>. Data classes that support row and column naming and subsetting may be used in a <code>MultiAssayExperiment</code>.</p>
 </div>
 <div id="matchedassayexperiment" class="section level3">
 <h3 class="hasAnchor">
@@ -360,7 +407,7 @@ MultiAssayExperiment object schematic. colData provides data about the patients,
 
 <span class="co"># construction from MAE</span>
 <span class="fu"><a href="http://waldronlab.io/MultiAssayExperiment/reference/MatchedAssayExperiment-class.html">MatchedAssayExperiment</a></span><span class="op">(</span><span class="va">mae</span><span class="op">)</span></code></pre></div>
-<p><em>Note</em>. The <code>MultiAssayExperiment</code> package then provides functionality to merge replicate profiles for a single patient (<code><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html">mergeReplicates()</a></code>).</p>
+<p><em>Note</em>. The <code>MultiAssayExperiment</code> package provides functionality to merge replicate profiles for a single patient (<code><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html">mergeReplicates()</a></code>).</p>
 <div class="infobox">
 <p><strong>Key points</strong></p>
 <ul>
@@ -444,7 +491,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <div id="constructor-function" class="section level4">
 <h4 class="hasAnchor">
 <a href="#constructor-function" class="anchor"></a>constructor function</h4>
-<p>The <code>MultiAssayExperiment</code> constructor function can take three arguments:</p>
+<p>The <code>MultiAssayExperiment</code> constructor function accepts three arguments:</p>
 <ol style="list-style-type: decimal">
 <li>
 <code>experiments</code> - An <code>ExperimentList</code> or <code>list</code> of rectangular data</li>
@@ -478,14 +525,15 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 ##  assays() - convert ExperimentList to a SimpleList of matrices
 ##  exportClass() - save all data to files</code></pre>
 </div>
-<div id="prepmultiassay---constructor-function-helper" class="section level4">
+<div id="getting-help-with-prepmultiassay" class="section level4">
 <h4 class="hasAnchor">
-<a href="#prepmultiassay---constructor-function-helper" class="anchor"></a><code>prepMultiAssay</code> - Constructor function helper</h4>
+<a href="#getting-help-with-prepmultiassay" class="anchor"></a>Getting help with <code>prepMultiAssay</code>
+</h4>
 <p>The <code>prepMultiAssay</code> function allows the user to diagnose typical problems when creating a <code>MultiAssayExperiment</code> object. See <code><a href="http://waldronlab.io/MultiAssayExperiment/reference/prepMultiAssay.html">?prepMultiAssay</a></code> for more details.</p>
 </div>
-<div id="c---concatenate-to-multiassayexperiment" class="section level4">
+<div id="combining-multiassayexperiment-object-with-the-c-function" class="section level4">
 <h4 class="hasAnchor">
-<a href="#c---concatenate-to-multiassayexperiment" class="anchor"></a><code>c</code> - concatenate to MultiAssayExperiment</h4>
+<a href="#combining-multiassayexperiment-object-with-the-c-function" class="anchor"></a>Combining MultiAssayExperiment object with the <code>c</code> function</h4>
 <p>The <code>c</code> function allows the user to concatenate an additional experiment to an existing <code>MultiAssayExperiment</code>. The optional <code>sampleMap</code> argument allows concatenating an assay whose column names do not match the row names of <code>colData</code>. For convenience, the <em>mapFrom</em> argument allows the user to map from a particular experiment <strong>provided</strong> that the <strong>order</strong> of the colnames is in the <strong>same</strong>. A <code>warning</code> will be issued to make the user aware of this assumption. For example, to concatenate a matrix of log2-transformed RNA-seq results:</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">miniACC2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>
@@ -524,23 +572,20 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <pre><code>## 
 ##                     asian black or african american                     white 
 ##                         2                         1                        78</code></pre>
-<p><em>Key points about the colData:</em></p>
+<p>Note. <code>MultiAssayExperiment</code> supports both missing observations and replicate observations, i.e., one row of <code>colData</code> can map to 0, 1, or more columns of any of the experimental data matrices. One could therefore treat replicate observations as one or multiple rows of <code>colData</code>. This can result in different subsetting, <code><a href="https://rdrr.io/r/base/duplicated.html">duplicated()</a></code>, and <code><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html">wideFormat()</a></code> behaviors.</p>
+<p>Note. Multiple time points, or distinct biological replicates, can be separate rows of the <code>colData</code>.</p>
+<div class="infobox">
+<p><strong>Key points</strong></p>
 <ul>
-<li>Each row maps to zero or more observations in each experiment in the <code>ExperimentList</code>, below.</li>
-<li>One row per biological unit
-<ul>
-<li>
-<code>MultiAssayExperiment</code> supports both missing observations and replicate observations, ie one row of <code>colData</code> can map to 0, 1, or more columns of any of the experimental data matrices.</li>
-<li>therefore you could treat replicate observations as one or multiple rows of <code>colData</code>, and this will result in different behaviors of functions you will learn later like subsetting, <code><a href="https://rdrr.io/r/base/duplicated.html">duplicated()</a></code>, and <code><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html">wideFormat()</a></code>.</li>
-<li>multiple time points, or distinct biological replicates, should probably be separate rows of the <code>colData</code>.</li>
+<li>Each row maps to zero or more observations in each experiment</li>
+<li>Usually, organized as one row per biological unit</li>
 </ul>
-</li>
-</ul>
+</div>
 </div>
 <div id="experimentlist---experiment-data" class="section level3">
 <h3 class="hasAnchor">
 <a href="#experimentlist---experiment-data" class="anchor"></a>ExperimentList - experiment data</h3>
-<p>A base <code>list</code> or <code>ExperimentList</code> object containing the experimental datasets for the set of samples collected. This gets converted into a class <code>ExperimentList</code> during construction.</p>
+<p>Experimental datasets can be input as either a base <code>list</code> or <code>ExperimentList</code> object for the set of samples collected. To see the experiments use the <code>experiments</code> getter function.</p>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-methods.html">experiments</a></span><span class="op">(</span><span class="va">miniACC</span><span class="op">)</span></code></pre></div>
 <pre><code>## ExperimentList class object of length 5:
@@ -549,15 +594,19 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 ##  [3] RPPAArray: SummarizedExperiment with 33 rows and 46 columns
 ##  [4] Mutations: matrix with 97 rows and 90 columns
 ##  [5] miRNASeqGene: SummarizedExperiment with 471 rows and 80 columns</code></pre>
+<p>Note. Each matrix column must correspond to exactly one row in <code>colData</code>. In other words, each patient or cell line must be traceable. However, multiple columns can come from the same patient, or there can be no data for that patient.</p>
+<div class="infobox">
 <p><em>Key points:</em></p>
 <ul>
-<li>One matrix-like dataset per list element (although they do not even need to be matrix-like, see for example the <code>RaggedExperiment</code> package)</li>
-<li>One matrix column per assayed specimen. Each matrix column must correspond to exactly one row of <code>colData</code>: in other words, you must know which patient or cell line the observation came from. However, multiple columns can come from the same patient, or there can be no data for that patient.</li>
+<li>One rectangular dataset per list element</li>
+<li>One column per assayed specimen.</li>
 <li>Matrix rows correspond to variables, e.g. genes or genomic ranges</li>
 <li>
-<code>ExperimentList</code> elements can be genomic range-based (e.g. <code>SummarizedExperiment::RangedSummarizedExperiment-class</code> or <code>RaggedExperiment::RaggedExperiment-class</code>) or ID-based data (e.g. <code>SummarizedExperiment::SummarizedExperiment-class</code>, <code>Biobase::eSet-class</code> <code>base::matrix-class</code>, <code>DelayedArray::DelayedArray-class</code>, and derived classes)</li>
-<li>Any data class can be included in the <code>ExperimentList</code>, as long as it supports: single-bracket subsetting (<code><a href="https://rdrr.io/r/base/Extract.html">[</a></code>), <code>dimnames</code>, and <code>dim</code>. Most data classes defined in Bioconductor meet these requirements.</li>
+<code>ExperimentList</code> elements can be genomic range-based (e.g. <code>SummarizedExperiment</code> or <code>RaggedExperiment</code>) or ID-based data</li>
+<li>Most rectangular-type data classes are supported</li>
 </ul>
+</div>
+<p>Note. Any data class can be included in the <code>ExperimentList</code>, as long as it supports: single-bracket subsetting (<code><a href="https://rdrr.io/r/base/Extract.html">[</a></code>), <code>dimnames</code>, and <code>dim</code>. Most data classes defined in Bioconductor meet these requirements.</p>
 </div>
 <div id="samplemap---relationship-graph" class="section level3">
 <h3 class="hasAnchor">
@@ -589,12 +638,14 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 ## 383    miRNASeqGene TCGA-PK-A5H9 TCGA-PK-A5H9-01A-11R..
 ## 384    miRNASeqGene TCGA-PK-A5HA TCGA-PK-A5HA-01A-11R..
 ## 385    miRNASeqGene TCGA-PK-A5HB TCGA-PK-A5HB-01A-11R..</code></pre>
+<div class="infobox">
 <p><em>Key points:</em></p>
 <ul>
 <li>relates experimental observations (<code>colnames</code>) to <code>colData</code>
 </li>
 <li>permits experiment-specific sample naming, missing, and replicate observations</li>
 </ul>
+</div>
 <p style="text-align: right;">
 <a href="#overview-of-key-data-classes">back to top</a>
 </p>
@@ -626,41 +677,45 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <h2 class="hasAnchor">
 <a href="#the-cancer-genome-atlas-tcga-data-from-curatedtcgadata" class="anchor"></a>The Cancer Genome Atlas (TCGA) Data from <code>curatedTCGAData</code>
 </h2>
-<p>Most unrestricted TCGA data are available as <code>MultiAssayExperiment</code> objects from the <code>curatedTCGAData</code> package. This represents a lot of harmonization!</p>
+<p>Most unrestricted TCGA data (from 33 cancer types) are available as <code>MultiAssayExperiment</code> objects from the <code>curatedTCGAData</code> package. This represents a lot of harmonization!</p>
+<p>Here we list the available data for the Adrenocortical Carcinoma (<code>"ACC"</code>) cancer type:</p>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">curatedTCGAData</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/pkg/curatedTCGAData/man/curatedTCGAData.html">curatedTCGAData</a></span><span class="op">(</span><span class="st">"ACC"</span>, version <span class="op">=</span> <span class="st">"1.1.38"</span>, dry.run <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://rdrr.io/pkg/curatedTCGAData/man/curatedTCGAData.html">curatedTCGAData</a></span><span class="op">(</span><span class="st">"ACC"</span>, version <span class="op">=</span> <span class="st">"2.0.1"</span>, dry.run <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <pre><code>##     ah_id                                 title file_size
-## 1   EH558                   ACC_CNASNP-20160128    0.8 Mb
-## 2   EH559                   ACC_CNVSNP-20160128    0.2 Mb
-## 3   EH561         ACC_GISTIC_AllByGene-20160128    0.3 Mb
-## 4  EH2115             ACC_GISTIC_Peaks-20160128      0 Mb
-## 5   EH562 ACC_GISTIC_ThresholdedByGene-20160128    0.2 Mb
-## 6  EH2116       ACC_Methylation-20160128_assays  236.4 Mb
-## 7  EH2117           ACC_Methylation-20160128_se    6.1 Mb
-## 8   EH565             ACC_miRNASeqGene-20160128    0.1 Mb
-## 9   EH566                 ACC_Mutation-20160128    0.7 Mb
-## 10  EH567          ACC_RNASeq2GeneNorm-20160128      4 Mb
-## 11  EH568                ACC_RPPAArray-20160128    0.1 Mb
+## 1  EH4737                   ACC_CNASNP-20160128    0.8 Mb
+## 2  EH4738                   ACC_CNVSNP-20160128    0.2 Mb
+## 3  EH4740         ACC_GISTIC_AllByGene-20160128    0.2 Mb
+## 4  EH4741             ACC_GISTIC_Peaks-20160128      0 Mb
+## 5  EH4742 ACC_GISTIC_ThresholdedByGene-20160128    0.2 Mb
+## 6  EH4744       ACC_Methylation-20160128_assays  239.2 Mb
+## 7  EH4745           ACC_Methylation-20160128_se      6 Mb
+## 8  EH4746             ACC_miRNASeqGene-20160128    0.1 Mb
+## 9  EH4747                 ACC_Mutation-20160128    0.7 Mb
+## 10 EH4748              ACC_RNASeq2Gene-20160128    2.7 Mb
+## 11 EH4749          ACC_RNASeq2GeneNorm-20160128      4 Mb
+## 12 EH4750                ACC_RPPAArray-20160128    0.1 Mb
 ##                    rdataclass rdatadateadded rdatadateremoved
-## 1            RaggedExperiment     2017-10-10             &lt;NA&gt;
-## 2            RaggedExperiment     2017-10-10             &lt;NA&gt;
-## 3        SummarizedExperiment     2017-10-10             &lt;NA&gt;
-## 4  RangedSummarizedExperiment     2019-01-09             &lt;NA&gt;
-## 5        SummarizedExperiment     2017-10-10             &lt;NA&gt;
-## 6        SummarizedExperiment     2019-01-09             &lt;NA&gt;
-## 7            RaggedExperiment     2019-01-09             &lt;NA&gt;
-## 8        SummarizedExperiment     2017-10-10             &lt;NA&gt;
-## 9            RaggedExperiment     2017-10-10             &lt;NA&gt;
-## 10       SummarizedExperiment     2017-10-10             &lt;NA&gt;
-## 11       SummarizedExperiment     2017-10-10             &lt;NA&gt;</code></pre>
+## 1            RaggedExperiment     2021-01-27             &lt;NA&gt;
+## 2            RaggedExperiment     2021-01-27             &lt;NA&gt;
+## 3        SummarizedExperiment     2021-01-27             &lt;NA&gt;
+## 4  RangedSummarizedExperiment     2021-01-27             &lt;NA&gt;
+## 5        SummarizedExperiment     2021-01-27             &lt;NA&gt;
+## 6        SummarizedExperiment     2021-01-27             &lt;NA&gt;
+## 7            RaggedExperiment     2021-01-27             &lt;NA&gt;
+## 8        SummarizedExperiment     2021-01-27             &lt;NA&gt;
+## 9        SummarizedExperiment     2021-01-27             &lt;NA&gt;
+## 10       SummarizedExperiment     2021-01-27             &lt;NA&gt;
+## 11                     DFrame     2021-01-27             &lt;NA&gt;
+## 12       SummarizedExperiment     2021-01-27             &lt;NA&gt;</code></pre>
+<p>We then download the data with <code>dry.run</code> set to <code>FALSE</code>.</p>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">acc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/curatedTCGAData/man/curatedTCGAData.html">curatedTCGAData</a></span><span class="op">(</span>
     diseaseCode <span class="op">=</span> <span class="st">"ACC"</span>,
     assays <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>
         <span class="st">"miRNASeqGene"</span>, <span class="st">"RPPAArray"</span>, <span class="st">"Mutation"</span>, <span class="st">"RNASeq2GeneNorm"</span>, <span class="st">"CNVSNP"</span>
     <span class="op">)</span>,
-    version <span class="op">=</span> <span class="st">"1.1.38"</span>,
+    version <span class="op">=</span> <span class="st">"2.0.1"</span>,
     dry.run <span class="op">=</span> <span class="cn">FALSE</span>
 <span class="op">)</span>
 <span class="va">acc</span></code></pre></div>
@@ -680,7 +735,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 ##  *Format() - convert into a long or wide DataFrame
 ##  assays() - convert ExperimentList to a SimpleList of matrices
 ##  exportClass() - save all data to files</code></pre>
-<p>These objects contain most unrestricted TCGA assay and clinical / pathological data, as well as material curated from the supplements of published TCGA primary papers at the end of the colData columns:</p>
+<p>These objects contain most unrestricted TCGA assay and clinical / pathological data, as well as some curated data from the supplements of published TCGA primary papers at the end of the colData columns:</p>
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="fu">colData</span><span class="op">(</span><span class="va">acc</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code>## [1]  92 822</code></pre>
@@ -689,13 +744,12 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <pre><code>##  [1] "MethyLevel"       "miRNA.cluster"    "SCNA.cluster"     "protein.cluster" 
 ##  [5] "COC"              "OncoSign"         "purity"           "ploidy"          
 ##  [9] "genome_doublings" "ADS"</code></pre>
-<p>The <code>TCGAutils</code> package provides additional helper functions.</p>
 </div>
 <div id="cbioportaldata-1" class="section level2">
 <h2 class="hasAnchor">
 <a href="#cbioportaldata-1" class="anchor"></a><code>cBioPortalData</code>
 </h2>
-<p>The <a href="https://www.cbioportal.org/">cBio Genomics Portal</a> provides access to more than 260 datasets collected and curated from different instutions.</p>
+<p>To date, the <a href="https://www.cbioportal.org/">cBio Genomics Portal</a> provides access to more than 300 datasets collected and curated from different instutions.</p>
 <p>There are two main ways of accessing this data:</p>
 <ol style="list-style-type: decimal">
 <li>
@@ -704,24 +758,64 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <code>cBioPortalData</code> - data from the API</li>
 </ol>
 <p><em>Note</em>. <code>pkgdown</code> reference website here: <a href="https://waldronlab.io/cBioPortalData/" class="uri">https://waldronlab.io/cBioPortalData/</a></p>
+<div id="listing-the-studies-available" class="section level3">
+<h3 class="hasAnchor">
+<a href="#listing-the-studies-available" class="anchor"></a>Listing the studies available</h3>
+<p>First, we create an API object using the <code>cBioPortal</code> function. This will allow us to subsequently generate queries for the service.</p>
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">cbio</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/cBioPortalData/man/cBioPortal.html">cBioPortal</a></span><span class="op">(</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/pkg/cBioPortalData/man/cBioPortal.html">getStudies</a></span><span class="op">(</span><span class="va">cbio</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 314 x 13
+##    name     shortName  description    publicStudy pmid    citation groups status
+##    &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;          &lt;lgl&gt;       &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt;   &lt;int&gt;
+##  1 Pan-Lun… NSCLC (TC… "Whole-exome … TRUE        271587… TCGA, N… ""          0
+##  2 Gliobla… GBM (TCGA) "TCGA Gliobla… TRUE        &lt;NA&gt;    &lt;NA&gt;     "PUBL…      0
+##  3 Head an… Head &amp; ne… "TCGA Head an… TRUE        &lt;NA&gt;    &lt;NA&gt;     "PUBL…      0
+##  4 Breast … Breast (T… "Whole-exome … TRUE        264514… TCGA, C… "PUBL…      0
+##  5 Ovarian… Ovarian (… "Whole exome … TRUE        217203… TCGA, N… "PUBL…      0
+##  6 Uterine… Uterine (… "Whole exome … TRUE        236363… TCGA, N… "PUBL…      0
+##  7 Bladder… BLCA (TCG… "Whole-exome … TRUE        289887… Roberts… "PUBL…      0
+##  8 Head an… Head &amp; ne… "Head and Nec… TRUE        296250… TCGA, C… "PUBL…      0
+##  9 Lung Ad… Lung aden… "Lung Adenoca… TRUE        296250… TCGA, C… "PUBL…      0
+## 10 Lung Sq… Lung squ … "Lung Squamou… TRUE        296250… TCGA, C… "PUBL…      0
+## # … with 304 more rows, and 5 more variables: importDate &lt;chr&gt;,
+## #   allSampleCount &lt;int&gt;, studyId &lt;chr&gt;, cancerTypeId &lt;chr&gt;,
+## #   referenceGenome &lt;chr&gt;</code></pre>
+<p>We can also see the build status of the datasets using the <code>buildReport</code> argument.</p>
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/cBioPortalData/man/cBioPortal.html">getStudies</a></span><span class="op">(</span><span class="va">cbio</span>, buildReport <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 314 x 15
+##    name     shortName  description    publicStudy pmid    citation groups status
+##    &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;          &lt;lgl&gt;       &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt;   &lt;int&gt;
+##  1 Pan-Lun… NSCLC (TC… "Whole-exome … TRUE        271587… TCGA, N… ""          0
+##  2 Gliobla… GBM (TCGA) "TCGA Gliobla… TRUE        &lt;NA&gt;    &lt;NA&gt;     "PUBL…      0
+##  3 Head an… Head &amp; ne… "TCGA Head an… TRUE        &lt;NA&gt;    &lt;NA&gt;     "PUBL…      0
+##  4 Breast … Breast (T… "Whole-exome … TRUE        264514… TCGA, C… "PUBL…      0
+##  5 Ovarian… Ovarian (… "Whole exome … TRUE        217203… TCGA, N… "PUBL…      0
+##  6 Uterine… Uterine (… "Whole exome … TRUE        236363… TCGA, N… "PUBL…      0
+##  7 Bladder… BLCA (TCG… "Whole-exome … TRUE        289887… Roberts… "PUBL…      0
+##  8 Head an… Head &amp; ne… "Head and Nec… TRUE        296250… TCGA, C… "PUBL…      0
+##  9 Lung Ad… Lung aden… "Lung Adenoca… TRUE        296250… TCGA, C… "PUBL…      0
+## 10 Lung Sq… Lung squ … "Lung Squamou… TRUE        296250… TCGA, C… "PUBL…      0
+## # … with 304 more rows, and 7 more variables: importDate &lt;chr&gt;,
+## #   allSampleCount &lt;int&gt;, studyId &lt;chr&gt;, cancerTypeId &lt;chr&gt;,
+## #   referenceGenome &lt;chr&gt;, api_build &lt;lgl&gt;, pack_build &lt;lgl&gt;</code></pre>
+<p>This adds two additional columns to the end of the dataset reporting the status of the builds. Not all studies can be converted to <code>MultiAssayExperiment</code>. Some studies require additonal cleaning to be represented with <code>MultiAssayExperiment</code>.</p>
+</div>
 <div id="cbiodatapack" class="section level3">
 <h3 class="hasAnchor">
 <a href="#cbiodatapack" class="anchor"></a>cBioDataPack</h3>
-<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">cBioPortalData</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"studiesTable"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">studiesTable</span><span class="op">[[</span><span class="st">"cancer_study_id"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></code></pre></div>
-<pre><code>## [1] "paac_jhu_2014"       "mel_tsam_liang_2017" "all_stjude_2015"    
-## [4] "all_stjude_2016"     "aml_ohsu_2018"       "laml_tcga"</code></pre>
-<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="op">(</span><span class="va">uvm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/cBioPortalData/man/cBioDataPack.html">cBioDataPack</a></span><span class="op">(</span><span class="st">"uvm_tcga"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+
+<span class="op">(</span><span class="va">uvm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/cBioPortalData/man/cBioDataPack.html">cBioDataPack</a></span><span class="op">(</span><span class="st">"uvm_tcga"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code>## A MultiAssayExperiment object of 9 listed
 ##  experiments with user-defined names and respective classes.
 ##  Containing an ExperimentList class object of length 9:
 ##  [1] cna_hg19.seg: RaggedExperiment with 7618 rows and 80 columns
 ##  [2] CNA: SummarizedExperiment with 24776 rows and 80 columns
 ##  [3] linear_CNA: SummarizedExperiment with 24776 rows and 80 columns
-##  [4] methylation_hm450: SummarizedExperiment with 15191 rows and 80 columns
+##  [4] methylation_hm450: SummarizedExperiment with 15469 rows and 80 columns
 ##  [5] mutations_extended: RaggedExperiment with 2174 rows and 80 columns
 ##  [6] mutations_mskcc: RaggedExperiment with 2174 rows and 80 columns
 ##  [7] RNA_Seq_v2_expression_median: SummarizedExperiment with 20531 rows and 80 columns
@@ -739,26 +833,6 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <div id="cbioportaldata-2" class="section level3">
 <h3 class="hasAnchor">
 <a href="#cbioportaldata-2" class="anchor"></a>cBioPortalData</h3>
-<p>First, we create an API object using the <code>cBioPortal</code> function. This will allow us to subsequently generate queries for the service.</p>
-<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">cbio</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/cBioPortalData/man/cBioPortal.html">cBioPortal</a></span><span class="op">(</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/pkg/cBioPortalData/man/cBioPortal.html">getStudies</a></span><span class="op">(</span><span class="va">cbio</span><span class="op">)</span></code></pre></div>
-<pre><code>## # A tibble: 303 x 13
-##    name     shortName  description     publicStudy pmid  citation  groups status
-##    &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;           &lt;lgl&gt;       &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;   &lt;int&gt;
-##  1 Oral Sq… Head &amp; ne… Comprehensive … TRUE        2361… Pickerin… ""          0
-##  2 Hepatoc… HCC (Inse… Whole-exome se… TRUE        2582… Schulze … "PUBL…      0
-##  3 Uveal M… UM (QIMR)  Whole-genome o… TRUE        2668… Johansso… "PUBL…      0
-##  4 Neurobl… NBL (AMC)  Whole genome s… TRUE        2236… Molenaar… "PUBL…      0
-##  5 Nasopha… NPC (Sing… Whole exome se… TRUE        2495… Lin et a… "PUBL…      0
-##  6 Neurobl… NBL (Colo… Whole-genome s… TRUE        2646… Peifer e… ""          0
-##  7 Myelody… MDS (Toky… Whole exome se… TRUE        2190… Yoshida … ""          0
-##  8 Insulin… Panet (Sh… Whole exome se… TRUE        2432… Cao et a… ""          0
-##  9 Pleural… PLMESO (N… Whole-exome se… TRUE        2548… Guo et a… ""          0
-## 10 Pilocyt… PAST (Nat… Whole-genome s… TRUE        2381… Jones et… "PUBL…      0
-## # … with 293 more rows, and 5 more variables: importDate &lt;chr&gt;,
-## #   allSampleCount &lt;int&gt;, studyId &lt;chr&gt;, cancerTypeId &lt;chr&gt;,
-## #   referenceGenome &lt;chr&gt;</code></pre>
 <div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="op">(</span>
     <span class="va">urcc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/cBioPortalData/man/cBioPortalData.html">cBioPortalData</a></span><span class="op">(</span>
@@ -768,7 +842,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <pre><code>## A MultiAssayExperiment object of 2 listed
 ##  experiments with user-defined names and respective classes.
 ##  Containing an ExperimentList class object of length 2:
-##  [1] urcc_mskcc_2016_cna: SummarizedExperiment with 213 rows and 62 columns
+##  [1] urcc_mskcc_2016_cna: SummarizedExperiment with 214 rows and 62 columns
 ##  [2] urcc_mskcc_2016_mutations: RangedSummarizedExperiment with 147 rows and 53 columns
 ## Functionality:
 ##  experiments() - obtain the ExperimentList instance
@@ -821,6 +895,8 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <p>microRNA assays obtained from <code>curatedTCGAData</code> have annotated sequences that can be converted to genomic ranges using the <code>mirbase.db</code> package. The function looks up all sequences and converts them to (‘hg19’) ranges. For those rows that cannot be found, an ‘unranged’ assay is introduced in the resulting MultiAssayExperiment object.</p>
 <div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/simplifyTCGA.html">mirToRanges</a></span><span class="op">(</span><span class="va">acc</span><span class="op">)</span></code></pre></div>
+<pre><code>## Warning in (function (seqlevels, genome, new_style) : cannot switch some of
+## hg19's seqlevels from UCSC to NCBI style</code></pre>
 <pre><code>## Warning: 'experiments' dropped; see 'metadata'</code></pre>
 <pre><code>## harmonizing input:
 ##   removing 80 sampleMap rows not in names(experiments)</code></pre>
@@ -847,7 +923,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <a href="#qreducetcga" class="anchor"></a><code>qreduceTCGA</code>
 </h4>
 <p>The <code>qreduceTCGA</code> function converts <code>RaggedExperiment</code> mutation data objects to <code>RangedSummarizedExperiment</code> using <code>org.Hs.eg.db</code> and the <code>qreduceTCGA</code> utility function from <code>RaggedExperiment</code> to summarize ‘silent’ and ‘non-silent’ mutations based on a ‘Variant_Classification’ metadata column in the original object.</p>
-<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## Update build metadata to "hg19"</span>
 <span class="fu">genome</span><span class="op">(</span><span class="va">acc</span><span class="op">[[</span><span class="st">"ACC_Mutation-20160128"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="st">"NCBI37"</span>
 <span class="fu">seqlevelsStyle</span><span class="op">(</span><span class="va">acc</span><span class="op">[[</span><span class="st">"ACC_Mutation-20160128"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="st">"UCSC"</span>
@@ -863,9 +939,14 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 ##   so cannot be represented by a single genomic range.
 ##   Use 'single.strand.genes.only=FALSE' to get all the genes in a
 ##   GRangesList object, or use suppressMessages() to suppress this message.</code></pre>
+<pre><code>## Warning in (function (seqlevels, genome, new_style) : cannot switch some of
+## hg19's seqlevels from UCSC to NCBI style</code></pre>
 <pre><code>## 'select()' returned 1:1 mapping between keys and columns</code></pre>
 <pre><code>## Warning in .normarg_seqlevelsStyle(value): more than one seqlevels style
-## supplied, using the 1st one only</code></pre>
+## supplied, using the 1st one only
+
+## Warning in .normarg_seqlevelsStyle(value): cannot switch some of hg19's
+## seqlevels from UCSC to NCBI style</code></pre>
 <pre><code>## Warning: 'experiments' dropped; see 'metadata'</code></pre>
 <pre><code>## harmonizing input:
 ##   removing 270 sampleMap rows not in names(experiments)</code></pre>
@@ -875,8 +956,8 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 ##  [1] ACC_miRNASeqGene-20160128: SummarizedExperiment with 1046 rows and 80 columns
 ##  [2] ACC_RNASeq2GeneNorm-20160128: SummarizedExperiment with 20501 rows and 79 columns
 ##  [3] ACC_RPPAArray-20160128: SummarizedExperiment with 192 rows and 46 columns
-##  [4] ACC_Mutation-20160128_simplified: RangedSummarizedExperiment with 22918 rows and 90 columns
-##  [5] ACC_CNVSNP-20160128_simplified: RangedSummarizedExperiment with 22918 rows and 180 columns
+##  [4] ACC_Mutation-20160128_simplified: RangedSummarizedExperiment with 22917 rows and 90 columns
+##  [5] ACC_CNVSNP-20160128_simplified: RangedSummarizedExperiment with 22917 rows and 180 columns
 ## Functionality:
 ##  experiments() - obtain the ExperimentList instance
 ##  colData() - the primary/phenotype DataFrame
@@ -891,13 +972,15 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <a href="#symbolstoranges" class="anchor"></a><code>symbolsToRanges</code>
 </h4>
 <p>In the cases where row annotations indicate gene symbols, the <code>symbolsToRanges</code> utility function converts genes to genomic ranges and replaces existing assays with <code>RangedSummarizedExperiment</code> objects. Gene annotations are given as ‘hg19’ genomic regions.</p>
-<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/simplifyTCGA.html">symbolsToRanges</a></span><span class="op">(</span><span class="va">acc</span><span class="op">)</span></code></pre></div>
 <pre><code>##   403 genes were dropped because they have exons located on both strands
 ##   of the same reference sequence or on more than one reference sequence,
 ##   so cannot be represented by a single genomic range.
 ##   Use 'single.strand.genes.only=FALSE' to get all the genes in a
 ##   GRangesList object, or use suppressMessages() to suppress this message.</code></pre>
+<pre><code>## Warning in (function (seqlevels, genome, new_style) : cannot switch some of
+## hg19's seqlevels from UCSC to NCBI style</code></pre>
 <pre><code>## 'select()' returned 1:1 mapping between keys and columns</code></pre>
 <pre><code>## Warning: 'experiments' dropped; see 'metadata'</code></pre>
 <pre><code>## harmonizing input:
@@ -909,8 +992,8 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 ##  [2] ACC_miRNASeqGene-20160128: SummarizedExperiment with 1046 rows and 80 columns
 ##  [3] ACC_Mutation-20160128: RaggedExperiment with 20166 rows and 90 columns
 ##  [4] ACC_RPPAArray-20160128: SummarizedExperiment with 192 rows and 46 columns
-##  [5] ACC_RNASeq2GeneNorm-20160128_ranged: RangedSummarizedExperiment with 17208 rows and 79 columns
-##  [6] ACC_RNASeq2GeneNorm-20160128_unranged: SummarizedExperiment with 3293 rows and 79 columns
+##  [5] ACC_RNASeq2GeneNorm-20160128_ranged: RangedSummarizedExperiment with 17152 rows and 79 columns
+##  [6] ACC_RNASeq2GeneNorm-20160128_unranged: SummarizedExperiment with 3349 rows and 79 columns
 ## Functionality:
 ##  experiments() - obtain the ExperimentList instance
 ##  colData() - the primary/phenotype DataFrame
@@ -925,27 +1008,38 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <a href="#simplifytcga" class="anchor"></a><code>simplifyTCGA</code>
 </h4>
 <p>The <code>simplifyTCGA</code> function combines all of the above operations to create a more managable <code>MultiAssayExperiment</code> object and using <code>RangedSummarizedExperiment</code> assays where possible.</p>
-<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">TCGAutils</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/simplifyTCGA.html">simplifyTCGA</a></span><span class="op">(</span><span class="va">acc</span><span class="op">)</span></code></pre></div>
 <pre><code>##   403 genes were dropped because they have exons located on both strands
 ##   of the same reference sequence or on more than one reference sequence,
 ##   so cannot be represented by a single genomic range.
 ##   Use 'single.strand.genes.only=FALSE' to get all the genes in a
 ##   GRangesList object, or use suppressMessages() to suppress this message.</code></pre>
+<pre><code>## Warning in (function (seqlevels, genome, new_style) : cannot switch some of
+## hg19's seqlevels from UCSC to NCBI style</code></pre>
 <pre><code>## 'select()' returned 1:1 mapping between keys and columns</code></pre>
 <pre><code>## Warning in .normarg_seqlevelsStyle(value): more than one seqlevels style
-## supplied, using the 1st one only</code></pre>
+## supplied, using the 1st one only
+
+## Warning in .normarg_seqlevelsStyle(value): cannot switch some of hg19's
+## seqlevels from UCSC to NCBI style</code></pre>
 <pre><code>## Warning: 'experiments' dropped; see 'metadata'</code></pre>
 <pre><code>## harmonizing input:
 ##   removing 270 sampleMap rows not in names(experiments)</code></pre>
-<pre><code>## Warning: 'experiments' dropped; see 'metadata'</code></pre>
+<pre><code>## Warning in (function (seqlevels, genome, new_style) : cannot switch some of
+## hg19's seqlevels from UCSC to NCBI style
+
+## Warning in (function (seqlevels, genome, new_style) : 'experiments' dropped; see
+## 'metadata'</code></pre>
 <pre><code>## harmonizing input:
-##   removing 80 sampleMap rows not in names(experiments)</code></pre>
-<pre><code>##   403 genes were dropped because they have exons located on both strands
+##   removing 80 sampleMap rows not in names(experiments)
+##   403 genes were dropped because they have exons located on both strands
 ##   of the same reference sequence or on more than one reference sequence,
 ##   so cannot be represented by a single genomic range.
 ##   Use 'single.strand.genes.only=FALSE' to get all the genes in a
 ##   GRangesList object, or use suppressMessages() to suppress this message.</code></pre>
+<pre><code>## Warning in (function (seqlevels, genome, new_style) : cannot switch some of
+## hg19's seqlevels from UCSC to NCBI style</code></pre>
 <pre><code>## 'select()' returned 1:1 mapping between keys and columns</code></pre>
 <pre><code>## Warning: 'experiments' dropped; see 'metadata'</code></pre>
 <pre><code>## harmonizing input:
@@ -954,12 +1048,12 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 ##  experiments with user-defined names and respective classes.
 ##  Containing an ExperimentList class object of length 7:
 ##  [1] ACC_RPPAArray-20160128: SummarizedExperiment with 192 rows and 46 columns
-##  [2] ACC_Mutation-20160128_simplified: RangedSummarizedExperiment with 22918 rows and 90 columns
-##  [3] ACC_CNVSNP-20160128_simplified: RangedSummarizedExperiment with 22918 rows and 180 columns
+##  [2] ACC_Mutation-20160128_simplified: RangedSummarizedExperiment with 22917 rows and 90 columns
+##  [3] ACC_CNVSNP-20160128_simplified: RangedSummarizedExperiment with 22917 rows and 180 columns
 ##  [4] ACC_miRNASeqGene-20160128_ranged: RangedSummarizedExperiment with 1002 rows and 80 columns
 ##  [5] ACC_miRNASeqGene-20160128_unranged: SummarizedExperiment with 44 rows and 80 columns
-##  [6] ACC_RNASeq2GeneNorm-20160128_ranged: RangedSummarizedExperiment with 17208 rows and 79 columns
-##  [7] ACC_RNASeq2GeneNorm-20160128_unranged: SummarizedExperiment with 3293 rows and 79 columns
+##  [6] ACC_RNASeq2GeneNorm-20160128_ranged: RangedSummarizedExperiment with 17152 rows and 79 columns
+##  [7] ACC_RNASeq2GeneNorm-20160128_unranged: SummarizedExperiment with 3349 rows and 79 columns
 ## Functionality:
 ##  experiments() - obtain the ExperimentList instance
 ##  colData() - the primary/phenotype DataFrame
@@ -979,7 +1073,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <a href="#what-types-of-samples-are-in-the-data" class="anchor"></a>What types of samples are in the data?</h3>
 <p><strong>Solution</strong></p>
 <p>The <code>sampleTables</code> function gives you an overview of samples in each assay:</p>
-<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/curatedTCGAData-helpers.html">sampleTables</a></span><span class="op">(</span><span class="va">acc</span><span class="op">)</span></code></pre></div>
 <pre><code>## $`ACC_CNVSNP-20160128`
 ## 
@@ -1006,7 +1100,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 ## 01 
 ## 46</code></pre>
 <p>Interpretation of sample codes:</p>
-<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"sampleTypes"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">sampleTypes</span><span class="op">)</span></code></pre></div>
 <pre><code>##   Code                                      Definition Short.Letter.Code
@@ -1021,7 +1115,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <h3 class="hasAnchor">
 <a href="#splitassays-separate-the-data-from-different-tissue-types" class="anchor"></a><code>splitAssays</code>: separate the data from different tissue types</h3>
 <p>TCGA datasets include multiple -omics for solid tumors, adjacent normal tissues, blood-derived cancers and normals, and other tissue types, which may be mixed together in a single dataset. The <code>MultiAssayExperiment</code> object generated here has one patient per row of its <code>colData</code>, but each patient may have two or more -omics profiles by any assay, whether due to assaying of different types of tissues or to technical replication. <code>splitAssays</code> separates profiles from different tissue types (such as tumor and adjacent normal) into different assays of the <code>MultiAssayExperiment</code> by taking a vector of sample codes, and partitioning the current assays into assays with an appended sample code:</p>
-<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">split_acc</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html">splitAssays</a></span><span class="op">(</span><span class="va">acc</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"01"</span>, <span class="st">"11"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code>## Warning: 'splitAssays' is deprecated.
 ## Use 'TCGAsplitAssays' instead.
@@ -1036,7 +1130,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <p>Is there subtype data available in the <code>MultiAssayExperiment</code> obtained from <code>curatedTCGAData</code>?</p>
 <p><strong>Solution</strong></p>
 <p>The <code>getSubtypeMap</code> function will show actual variable names found in <code>colData</code> that contain subtype information. This can only be obtained from <code>MultiAssayExperiment</code> objects provided by <code>curatedTCGAData</code>.</p>
-<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/curatedTCGAData-helpers.html">getSubtypeMap</a></span><span class="op">(</span><span class="va">acc</span><span class="op">)</span></code></pre></div>
 <pre><code>##          ACC_annotations     ACC_subtype
 ## 1             Patient_ID       patientID
@@ -1049,7 +1143,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 ## 8       protein_subtypes protein cluster
 ## 9   integrative_subtypes             COC
 ## 10     mutation_subtypes        OncoSign</code></pre>
-<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fu">colData</span><span class="op">(</span><span class="va">acc</span><span class="op">)</span><span class="op">$</span><span class="va">Histology</span><span class="op">)</span></code></pre></div>
 <pre><code>## [1] "Usual Type" "Usual Type" "Usual Type" "Usual Type" "Usual Type"
 ## [6] "Usual Type"</code></pre>
@@ -1062,12 +1156,12 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <h4 class="hasAnchor">
 <a href="#uuidtobarcode---uuid-to-tcga-barcode" class="anchor"></a><code>UUIDtoBarcode()</code> - UUID to TCGA barcode</h4>
 <p>Here we have a known case UUID that we want to translate into a TCGA barcode.</p>
-<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/ID-translation.html">UUIDtoBarcode</a></span><span class="op">(</span><span class="st">"ae55b2d3-62a1-419e-9f9a-5ddfac356db4"</span>, from_type <span class="op">=</span> <span class="st">"case_id"</span><span class="op">)</span></code></pre></div>
 <pre><code>##                                case_id submitter_id
 ## 1 ae55b2d3-62a1-419e-9f9a-5ddfac356db4 TCGA-B0-5117</code></pre>
 <p>In cases where we want to translate a known file UUID to the associated TCGA patient barcode, we can use <code>UUIDtoBarcode</code>.</p>
-<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/ID-translation.html">UUIDtoBarcode</a></span><span class="op">(</span><span class="st">"0001801b-54b0-4551-8d7a-d66fb59429bf"</span>, from_type <span class="op">=</span> <span class="st">"file_id"</span><span class="op">)</span></code></pre></div>
 <pre><code>##                                file_id associated_entities.entity_submitter_id
 ## 1 0001801b-54b0-4551-8d7a-d66fb59429bf            TCGA-B0-5094-11A-01D-1421-08</code></pre>
@@ -1076,11 +1170,11 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <h4 class="hasAnchor">
 <a href="#barcodetouuid---tcga-barcode-to-uuid" class="anchor"></a><code>barcodeToUUID()</code> - TCGA barcode to UUID</h4>
 <p>Here we translate the first two TCGA barcodes of the previous copy-number alterations dataset to UUID:</p>
-<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="op">(</span><span class="va">xbarcode</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">acc</span><span class="op">)</span><span class="op">[[</span><span class="st">"ACC_CNVSNP-20160128"</span><span class="op">]</span><span class="op">]</span>, <span class="fl">4L</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code>## [1] "TCGA-OR-A5J1-01A-11D-A29H-01" "TCGA-OR-A5J1-10A-01D-A29K-01"
 ## [3] "TCGA-OR-A5J2-01A-11D-A29H-01" "TCGA-OR-A5J2-10A-01D-A29K-01"</code></pre>
-<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/ID-translation.html">barcodeToUUID</a></span><span class="op">(</span><span class="va">xbarcode</span><span class="op">)</span></code></pre></div>
 <pre><code>##           submitter_aliquot_ids                          aliquot_ids
 ## 16 TCGA-OR-A5J1-01A-11D-A29H-01 1387b6c7-48fe-4961-86a7-0bdcbd3fef92
@@ -1092,7 +1186,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <h4 class="hasAnchor">
 <a href="#uuidtouuid---file-and-case-ids" class="anchor"></a><code>UUIDtoUUID()</code> - file and case IDs</h4>
 <p>We can also translate from file UUIDs to case UUIDs and vice versa as long as we know the input type. We can use the case UUID from the previous example to get the associated file UUIDs using <code>UUIDtoUUID</code>. Note that this translation is a one to many relationship, thus yielding a <code>data.frame</code> of file UUIDs for a single case UUID.</p>
-<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/ID-translation.html">UUIDtoUUID</a></span><span class="op">(</span><span class="st">"ae55b2d3-62a1-419e-9f9a-5ddfac356db4"</span>, to_type <span class="op">=</span> <span class="st">"file_id"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code>##                                case_id                        files.file_id
 ## 1 ae55b2d3-62a1-419e-9f9a-5ddfac356db4 48c342b0-e7a2-4a7b-8556-55bcd8ad9ea0
@@ -1108,7 +1202,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <div id="filenametobarcode---using-file-names-as-input" class="section level4">
 <h4 class="hasAnchor">
 <a href="#filenametobarcode---using-file-names-as-input" class="anchor"></a><code>filenameToBarcode()</code> - Using file names as input</h4>
-<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">fquery</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/GenomicDataCommons/man/query.html">files</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
     <span class="fu">GenomicDataCommons</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/GenomicDataCommons/man/filtering.html">filter</a></span><span class="op">(</span><span class="op">~</span> <span class="va">cases.project.project_id</span> <span class="op">==</span> <span class="st">"TCGA-ACC"</span> <span class="op">&amp;</span>
         <span class="va">data_category</span> <span class="op">==</span> <span class="st">"Copy Number Variation"</span> <span class="op">&amp;</span>
@@ -1117,20 +1211,20 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <span class="va">fnames</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/GenomicDataCommons/man/results.html">results</a></span><span class="op">(</span><span class="va">fquery</span><span class="op">)</span><span class="op">$</span><span class="va">file_name</span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/ID-translation.html">filenameToBarcode</a></span><span class="op">(</span><span class="va">fnames</span><span class="op">)</span></code></pre></div>
-<pre><code>##                                                                 file_name
-## 1 BLAIN_p_TCGA_282_304_b2_N_GenomeWideSNP_6_E11_1348556.grch38.seg.v2.txt
-## 2 AQUAE_p_TCGA_112_304_b2_N_GenomeWideSNP_6_E01_1348422.grch38.seg.v2.txt
-## 3 AQUAE_p_TCGA_112_304_b2_N_GenomeWideSNP_6_A10_1348266.grch38.seg.v2.txt
-## 4 BLAIN_p_TCGA_282_304_b2_N_GenomeWideSNP_6_C11_1348522.grch38.seg.v2.txt
-## 5 BLAIN_p_TCGA_282_304_b2_N_GenomeWideSNP_6_C03_1348442.grch38.seg.v2.txt
-## 6 AQUAE_p_TCGA_112_304_b2_N_GenomeWideSNP_6_F07_1348352.grch38.seg.v2.txt
+<pre><code>##                                                                      file_name
+## 1      AQUAE_p_TCGA_112_304_b2_N_GenomeWideSNP_6_D11_1348418.grch38.seg.v2.txt
+## 2      BLAIN_p_TCGA_282_304_b2_N_GenomeWideSNP_6_F02_1348534.grch38.seg.v2.txt
+## 3      BLAIN_p_TCGA_282_304_b2_N_GenomeWideSNP_6_F10_1348518.grch38.seg.v2.txt
+## 4      BLAIN_p_TCGA_282_304_b2_N_GenomeWideSNP_6_C01_1348494.grch38.seg.v2.txt
+## 5      BLAIN_p_TCGA_282_304_b2_N_GenomeWideSNP_6_A06_1348570.grch38.seg.v2.txt
+## 6 GAMED_p_TCGA_B_312_313_314_NSP_GenomeWideSNP_6_D08_1361766.grch38.seg.v2.txt
 ##                                file_id        aliquots.submitter_id
-## 1 8f1630cb-f6f9-44df-84bd-d4fca168aa70 TCGA-OR-A5K4-01A-11D-A29H-01
-## 2 eec6400b-611d-4f3d-8406-87ae81d4de70 TCGA-OR-A5L9-01A-11D-A29H-01
-## 3 6738b6fb-16bc-448e-9a28-c306ebe98615 TCGA-OR-A5LC-10A-01D-A29K-01
-## 4 0c0f5938-bb3c-424a-8d25-f80ee281e4ed TCGA-OR-A5JT-10A-01D-A29K-01
-## 5 b517c681-5a71-4e17-b12c-0dd2cc41e4ca TCGA-OR-A5JC-10A-01D-A29K-01
-## 6 2b059b73-ef28-407a-9efb-1b5ba5c37f66 TCGA-OR-A5LM-01A-11D-A29H-01</code></pre>
+## 1 5cb7549c-b8ab-4427-9848-df3120135ea8 TCGA-OR-A5LJ-01A-11D-A29H-01
+## 2 a1cbb02a-6234-4f71-bb79-629756648965 TCGA-OR-A5JI-01A-11D-A29H-01
+## 3 e46a1773-92f0-4ed1-916d-d3493ba6bbe4 TCGA-OR-A5JZ-01A-11D-A29H-01
+## 4 f5878652-b136-4d3c-8637-0d6ac93716e3 TCGA-OR-A5K6-10A-01D-A29K-01
+## 5 87e35d28-4492-418f-bdde-8539038358b6 TCGA-OR-A5JW-10A-01D-A29K-01
+## 6 15fc6276-4697-4fdf-b1cc-b3d8f5d728dc TCGA-OR-A5JU-01A-11D-A309-01</code></pre>
 <p>See the <code>TCGAutils</code> vignette page for more details.</p>
 <div class="infobox">
 <p><strong>Key points</strong></p>
@@ -1143,23 +1237,30 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 </div>
 </div>
 </div>
-<div id="multiassayexperiment-subsetting" class="section level2">
+<div id="data-management-with-multiassayexperiment" class="section level2">
 <h2 class="hasAnchor">
-<a href="#multiassayexperiment-subsetting" class="anchor"></a>MultiAssayExperiment Subsetting</h2>
-<div id="single-bracket" class="section level3">
+<a href="#data-management-with-multiassayexperiment" class="anchor"></a>Data Management with MultiAssayExperiment</h2>
+<div id="single-bracket-subsetting" class="section level3">
 <h3 class="hasAnchor">
-<a href="#single-bracket" class="anchor"></a>Single bracket <code>[</code>
-</h3>
-<p>In pseudo code below, the subsetting operations work on the rows of the following indices: 1. <em>i</em> experimental data rows 2. <em>j</em> the primary names or the column names (entered as a <code>list</code> or <code>List</code>) 3. <em>k</em> assay</p>
+<a href="#single-bracket-subsetting" class="anchor"></a>Single bracket <code>[</code> subsetting</h3>
+<p>In the pseudo code below, the subsetting operations work on the rows of the following indices:</p>
+<ol style="list-style-type: decimal">
+<li>
+<em>i</em> experimental data rows</li>
+<li>
+<em>j</em> the primary names (vector input) or the column names (<code>list</code> or <code>List</code> inputs)</li>
+<li>
+<em>k</em> assay</li>
+</ol>
 <pre><code>multiassayexperiment[i = rownames, j = primary or colnames, k = assay]</code></pre>
 <p>Subsetting operations always return another <code>MultiAssayExperiment</code>. For example, the following will return any rows named “MAPK14” or “IGFBP2,” and remove any assays where no rows match:</p>
-<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">miniACC</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"MAPK14"</span>, <span class="st">"IGFBP2"</span><span class="op">)</span>, , <span class="op">]</span></code></pre></div>
-<p>The following will keep only patients of pathological stage iv, and all their associated assays:</p>
-<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
+<p>The following will keep only patients of pathological stage IV, and all their associated assays:</p>
+<div class="sourceCode" id="cb103"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">miniACC</span><span class="op">[</span>, <span class="va">miniACC</span><span class="op">$</span><span class="va">pathologic_stage</span> <span class="op">==</span> <span class="st">"stage iv"</span>, <span class="op">]</span></code></pre></div>
 <p>And the following will keep only the RNA-seq dataset, and only patients for which this assay is available:</p>
-<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb104"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">miniACC</span><span class="op">[</span>, , <span class="st">"RNASeq2GeneNorm"</span><span class="op">]</span></code></pre></div>
 <pre><code>## Warning: 'experiments' dropped; see 'metadata'</code></pre>
 <pre><code>## harmonizing input:
@@ -1171,12 +1272,11 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <a href="#subsetting-by-genomic-ranges" class="anchor"></a>Subsetting by genomic ranges</h3>
 <p>If any ExperimentList objects have features represented by genomic ranges (e.g. <code>RangedSummarizedExperiment</code>, <code>RaggedExperiment</code>), then a <code>GRanges</code> object in the first subsetting position will subset these objects as in <code><a href="https://rdrr.io/pkg/GenomicRanges/man/findOverlaps-methods.html">GenomicRanges::findOverlaps()</a></code>. Any non-ranged <code>ExperimentList</code> element will be subset to zero rows.</p>
 </div>
-<div id="double-bracket" class="section level3">
+<div id="double-bracket-subsetting" class="section level3">
 <h3 class="hasAnchor">
-<a href="#double-bracket" class="anchor"></a>Double bracket <code>[[</code>
-</h3>
+<a href="#double-bracket-subsetting" class="anchor"></a>Double bracket <code>[[</code> subsetting</h3>
 <p>The “double bracket” method (<code><a href="https://rdrr.io/r/base/Extract.html">[[</a></code>) is a convenience function for extracting a single element of the <code>MultiAssayExperiment</code> <code>ExperimentList</code>. It avoids the use of <code>experiments(mae)[[1L]]</code>. For example, both of the following extract the <code>ExpressionSet</code> object containing RNA-seq data:</p>
-<div class="sourceCode" id="cb103"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb107"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">miniACC</span><span class="op">[[</span><span class="fl">1L</span><span class="op">]</span><span class="op">]</span></code></pre></div>
 <pre><code>## class: SummarizedExperiment 
 ## dim: 198 79 
@@ -1187,7 +1287,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 ## colnames(79): TCGA-OR-A5J1-01A-11R-A29S-07 TCGA-OR-A5J2-01A-11R-A29S-07
 ##   ... TCGA-PK-A5HA-01A-11R-A29S-07 TCGA-PK-A5HB-01A-11R-A29S-07
 ## colData names(0):</code></pre>
-<div class="sourceCode" id="cb105"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb109"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## equivalently</span>
 <span class="va">miniACC</span><span class="op">[[</span><span class="st">"RNASeq2GeneNorm"</span><span class="op">]</span><span class="op">]</span></code></pre></div>
 <pre><code>## class: SummarizedExperiment 
@@ -1199,20 +1299,21 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 ## colnames(79): TCGA-OR-A5J1-01A-11R-A29S-07 TCGA-OR-A5J2-01A-11R-A29S-07
 ##   ... TCGA-PK-A5HA-01A-11R-A29S-07 TCGA-PK-A5HB-01A-11R-A29S-07
 ## colData names(0):</code></pre>
+<p>To preserve the <code>colData</code> during the extraction, see <code><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html">?getWithColData</a></code>.</p>
 </div>
 <div id="complete-cases" class="section level3">
 <h3 class="hasAnchor">
 <a href="#complete-cases" class="anchor"></a>Complete cases</h3>
 <p><code><a href="https://rdrr.io/r/stats/complete.cases.html">complete.cases()</a></code> shows which patients have complete data for all assays:</p>
-<div class="sourceCode" id="cb107"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb111"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/complete.cases.html">complete.cases</a></span><span class="op">(</span><span class="va">miniACC</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code>##    Mode   FALSE    TRUE 
 ## logical      49      43</code></pre>
 <p>The above logical vector could be used for patient subsetting. More simply, <code><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html">intersectColumns()</a></code> will select complete cases and rearrange each <code>ExperimentList</code> element so its columns correspond exactly to rows of <code>colData</code> in the same order:</p>
-<div class="sourceCode" id="cb109"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb113"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">accmatched</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html">intersectColumns</a></span><span class="op">(</span><span class="va">miniACC</span><span class="op">)</span></code></pre></div>
 <p>Note, the column names of the assays in <code>accmatched</code> are not the same because of assay-specific identifiers, but they have been automatically re-arranged to correspond to the same patients. In these TCGA assays, the first three <code><a href="https://rdrr.io/r/base/Arithmetic.html">-</a></code> delimited positions correspond to patient, ie the first patient is <em>TCGA-OR-A5J2</em>:</p>
-<div class="sourceCode" id="cb110"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb114"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">accmatched</span><span class="op">)</span></code></pre></div>
 <pre><code>## CharacterList of length 5
 ## [["RNASeq2GeneNorm"]] TCGA-OR-A5J2-01A-11R-A29S-07 ...
@@ -1225,13 +1326,13 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <h3 class="hasAnchor">
 <a href="#row-names-that-are-common-across-assays" class="anchor"></a>Row names that are common across assays</h3>
 <p><code><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html">intersectRows()</a></code> keeps only rows that are common to each assay, and aligns them in identical order. For example, to keep only genes where data are available for RNA-seq, GISTIC copy number, and somatic mutations:</p>
-<div class="sourceCode" id="cb112"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb116"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">accmatched2</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html">intersectRows</a></span><span class="op">(</span><span class="va">miniACC</span><span class="op">[</span>, ,
     <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"RNASeq2GeneNorm"</span>, <span class="st">"gistict"</span>, <span class="st">"Mutations"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></code></pre></div>
 <pre><code>## Warning: 'experiments' dropped; see 'metadata'</code></pre>
 <pre><code>## harmonizing input:
 ##   removing 126 sampleMap rows not in names(experiments)</code></pre>
-<div class="sourceCode" id="cb115"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb119"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">accmatched2</span><span class="op">)</span></code></pre></div>
 <pre><code>## CharacterList of length 3
 ## [["RNASeq2GeneNorm"]] DIRAS3 G6PD KDR ERBB3 AKT1S1 ... RET CDKN2A MACC1 CHGA
@@ -1249,18 +1350,20 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <h3 class="hasAnchor">
 <a href="#assay-and-assays" class="anchor"></a>assay and assays</h3>
 <p>The <code>assay</code> and <code>assays</code> methods follow <code>SummarizedExperiment</code> convention. The <code>assay</code> (singular) method will extract the first element of the <code>ExperimentList</code> and will return a <code>matrix</code>.</p>
-<div class="sourceCode" id="cb117"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb121"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="fu">assay</span><span class="op">(</span><span class="va">miniACC</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code>## [1] "matrix" "array"</code></pre>
 <p>The <code>assays</code> (plural) method will return a <code>SimpleList</code> of the data with each element being a <code>matrix</code>.</p>
-<div class="sourceCode" id="cb119"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb123"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">assays</span><span class="op">(</span><span class="va">miniACC</span><span class="op">)</span></code></pre></div>
 <pre><code>## List of length 5
 ## names(5): RNASeq2GeneNorm gistict RPPAArray Mutations miRNASeqGene</code></pre>
+<div class="infobox">
 <p><em>Key point:</em></p>
 <ul>
-<li>Whereas the <code><a href="https://rdrr.io/r/base/Extract.html">[[</a></code> returned an assay as its original class, <code>assay()</code> and <code>assays()</code> convert the assay data to matrix form.</li>
+<li>Whereas the <code><a href="https://rdrr.io/r/base/Extract.html">[[</a></code> returned an experiment in its original class, <code>assay()</code> and <code>assays()</code> convert the assay data to matrix format.</li>
 </ul>
+</div>
 <p style="text-align: right;">
 <a href="#overview-of-key-packages-and-data-classes">back to top</a>
 </p>
@@ -1268,7 +1371,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <div id="summary-of-slots-and-accessors" class="section level3">
 <h3 class="hasAnchor">
 <a href="#summary-of-slots-and-accessors" class="anchor"></a>Summary of slots and accessors</h3>
-<p>Slot in the <code>MultiAssayExperiment</code> can be accessed or set using their accessor functions:</p>
+<p>Slot in the <code>MultiAssayExperiment</code> can be accessed or set using the respective accessor functions:</p>
 <table class="table">
 <thead><tr class="header">
 <th>Slot</th>
@@ -1305,7 +1408,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <a href="#longformat" class="anchor"></a><code>longFormat</code>
 </h4>
 <p>In <em>long</em> format a single column provides all assay results, with additional optional <code>colData</code> columns whose values are repeated as necessary. Here <em>assay</em> is the name of the ExperimentList element, <em>primary</em> is the patient identifier (rowname of colData), <em>rowname</em> is the assay rowname (in this case genes), <em>colname</em> is the assay-specific identifier (column name), <em>value</em> is the numeric measurement (gene expression, copy number, presence of a non-silent mutation, etc), and following these are the <em>vital_status</em> and <em>days_to_death</em> colData columns that have been added:</p>
-<div class="sourceCode" id="cb121"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb125"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html">longFormat</a></span><span class="op">(</span><span class="va">miniACC</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"TP53"</span>, <span class="st">"CTNNB1"</span><span class="op">)</span>, , <span class="op">]</span>,
     colDataCols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"vital_status"</span>, <span class="st">"days_to_death"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code>## harmonizing input:
@@ -1343,7 +1446,7 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <a href="#wideformat" class="anchor"></a><code>wideFormat</code>
 </h4>
 <p>In <em>wide</em> format, each feature from each assay goes in a separate column, with one row per primary identifier (patient). Here, each variable becomes a new column:</p>
-<div class="sourceCode" id="cb124"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb128"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html">wideFormat</a></span><span class="op">(</span><span class="va">miniACC</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"TP53"</span>, <span class="st">"CTNNB1"</span><span class="op">)</span>, , <span class="op">]</span>,
     colDataCols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"vital_status"</span>, <span class="st">"days_to_death"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code>## harmonizing input:
@@ -1404,15 +1507,18 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <h3 class="hasAnchor">
 <a href="#bonus-visualization-of-sample-sets" class="anchor"></a>Bonus: Visualization of Sample Sets</h3>
 <p>Here we use the built-in visualization functionality to what extent the samples in each assay overlap:</p>
-<div class="sourceCode" id="cb127"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb131"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="http://waldronlab.io/MultiAssayExperiment/reference/upsetSamples.html">upsetSamples</a></span><span class="op">(</span><span class="va">miniACC</span><span class="op">)</span></code></pre></div>
-<p><img src="Ramos_MultiAssayExperiment_files/figure-html/unnamed-chunk-49-1.png" width="100%"></p>
+<p><img src="Ramos_MultiAssayExperiment_files/figure-html/unnamed-chunk-51-1.png" width="100%"></p>
 </div>
 </div>
 <div id="references" class="section level2 unnumbered">
 <h2 class="hasAnchor">
 <a href="#references" class="anchor"></a>References</h2>
 <div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Ramos2020-ya" class="csl-entry">
+Ramos, Marcel, Ludwig Geistlinger, Sehyun Oh, Lucas Schiffer, Rimsha Azhar, Hanish Kodali, Ino de Bruijn, et al. 2020. <span>“Multiomic Integration of Public Oncology Databases in Bioconductor.”</span> <em>JCO Clin Cancer Inform</em> 4 (October): 958–71.
+</div>
 <div id="ref-Ramos2017-er" class="csl-entry">
 Ramos, Marcel, Lucas Schiffer, Angela Re, Rimsha Azhar, Azfar Basunia, Carmen Rodriguez, Tiffany Chan, et al. 2017. <span>“Software for the Integration of Multiomics Experiments in Bioconductor.”</span> <em>Cancer Res.</em> 77 (21): e39–42.
 </div>
