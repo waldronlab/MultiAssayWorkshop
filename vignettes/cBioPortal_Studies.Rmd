@@ -12,44 +12,29 @@ output:
     mathjax: null
 ---
 
-# Available Studies by function
+# Available Studies
 
-## cBioPortalData()
+## cBioPortalData() && cBioDataPack()
 
-These studies are available through the cBioPortal API, i.e., `cBioPortalData`
-function.
-
-### NOTES
-
-*  This list is different from those studies available via the `cBioDataPack`
-function.
-
-* Scroll to the right for more information (esp. for the `studyId` column)
+These are the studies available through the cBio Genomics Portal website.
 
 ```{r,echo=FALSE,message=FALSE,warning=FALSE}
 library(cBioPortalData)
 library(knitr)
 cbio <- cBioPortal()
-knitr::kable(getStudies(cbio), align = "l", escape = FALSE, format = "html",
-    caption = "List of available studies from cBioPortalData API") %>%
+gst <- getStudies(cbio, buildReport = TRUE)
+knitr::kable(gst, align = "l", escape = FALSE, format = "html",
+    caption = "List of available studies from the cBio Genomics PortalData") %>%
     kableExtra::kable_styling(
         bootstrap_options = c("hover", "striped", "responsive"),
         full_width = FALSE
     )
 ```
 
-## cBioDataPack()
+### NOTES
 
-```{r,echo=FALSE}
-data("studiesTable")
-studiesTable$URL <- vapply(studiesTable$URL, paste, character(1L), collapse = ", ")
-library(tibble)
-studiesTable <- as_tibble(studiesTable)
-knitr::kable(studiesTable, align = "l", escape = FALSE, format = "html",
-    caption = "List of available packaged studies in cBioDataPack") %>%
-    kableExtra::kable_styling(
-        bootstrap_options = c("hover", "striped", "responsive"),
-        full_width = FALSE
-    )
-```
-
+The last two columns indicate the build status of the studyIds in the table.
+`pack_build` is a logical vector that indicates which studies are currently
+building as `MultiAssayExperiment` representations with the `cBioDataPack`
+function. The corresponding column for the `cBioPortalData` function is
+`api_build`.
