@@ -999,14 +999,31 @@ analysis functions that require a certain type of input format
 
 :::
 
-### Bonus: Visualization of Sample Sets
+## SingleCellMultiModal
 
-Here we use the built-in visualization functionality to what extent the
-samples in each assay overlap:
+`SingleCellMultiModal` is an `ExperimentHub` package that serves multiple
+datasets obtained from GEO and other sources and represents them as
+`MultiAssayExperiment` objects. We provide several multi-modal datasets
+including scNMT, 10X Multiome, seqFISH, CITEseq, SCoPE2, and others. The scope
+of the package is is to provide data for benchmarking and analysis.
+
+Users can access the data for a particular technology with the appropriate
+function. For example, to obtain a small data.frame of what data is available
+for `scNMT`, the user would enter:
 
 ```{r}
-upsetSamples(miniACC)
+scNMT("mouse_gastrulation", dry.run = TRUE, version = '2.0.0')
 ```
+
+We can see that there are a few assays for each modality.
+
+The user can also use the help function to get a list of all the functions
+available in the package:
+
+```{r, eval=FALSE}
+help(package = "SingleCellMultiModal", help_type = "html")
+```
+
 
 [Broad GDAC Firehose]: https://gdac.broadinstitute.org
 [The Cancer Genome Atlas]: https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga
