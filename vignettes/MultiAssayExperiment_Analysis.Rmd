@@ -1,5 +1,5 @@
 ---
-title: "MultiAssayExperiment: Example Public-omic Analyses"
+title: "MultiAssayExperiment: Example multi-omic analyses with public data"
 author:
   - name: Marcel Ramos
     - affiliation: Roswell Park Comprehensive Cancer Center, Buffalo, NY
@@ -10,7 +10,7 @@ author:
     affiliation: CUNY School of Public Health, New York, NY
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 vignette: >
-  %\VignetteIndexEntry{Integrating multi-omics data with MultiAssayExperiment}
+  %\VignetteIndexEntry{Example multi-omic analyses with public data}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 output:
