@@ -2,8 +2,7 @@
 title: "MultiAssayExperiment: Example multi-omic analyses with public data"
 author:
   - name: Marcel Ramos
-    - affiliation: Roswell Park Comprehensive Cancer Center, Buffalo, NY
-    - affiliation: CUNY School of Public Health, New York, NY
+    affiliation: Roswell Park Comprehensive Cancer Center, Buffalo, NY
   - name: Ludwig Geistlinger
     affiliation: CUNY School of Public Health, New York, NY
   - name: Levi Waldron
