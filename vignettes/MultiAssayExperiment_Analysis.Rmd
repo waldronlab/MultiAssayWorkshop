@@ -45,8 +45,8 @@ upsetSamples(miniACC)
 ```
 
 In this dataset only 43 samples have all 5 assays, 32 are missing reverse-phase
-protein (RPPAArray), 2 are missing Mutations, 1 is missing gistict, 12 have
-only mutations and gistict, etc.
+protein (RPPAArray), 12 have only mutations and gistict, 2 are missing
+Mutations, 1 is missing gistict, etc.
 
 ## Kaplan-meier plot stratified by pathology_N_stage
 
@@ -62,13 +62,18 @@ Surv(miniACC$days_to_death, miniACC$vital_status)
 ```
 
 And remove any patients missing overall survival information:
+
 ```{r}
-miniACCsurv <- miniACC[, complete.cases(miniACC$days_to_death, miniACC$vital_status), ]
+miniACCsurv <-
+    miniACC[, complete.cases(miniACC$days_to_death, miniACC$vital_status), ]
 miniACCsurv
 ```
 
 ```{r}
-fit <- survfit(Surv(days_to_death, vital_status) ~ pathology_N_stage, data = colData(miniACCsurv))
+fit <- survfit(
+    Surv(days_to_death, vital_status) ~ pathology_N_stage,
+    data = colData(miniACCsurv)
+)
 ggsurvplot(fit, data = colData(miniACCsurv), risk.table = TRUE)
 ```
 
@@ -99,8 +104,8 @@ coxph(
 We see that *EZH2* expression is significantly associated with overal survival
 (p < 0.001), but *EZH2* copy number and nodal status are not. This analysis
 could easily be extended to the whole genome for discovery of prognostic
-features by repeated univariate regressions over columns, penalized multivariate
-regression, etc.
+features by repeated univariate regressions over columns, penalized
+multivariate regression, etc.
 
 For further detail, see the main `MultiAssayExperiment` vignette.
 
@@ -122,34 +127,39 @@ subacc <- miniACC[, , c("RNASeq2GeneNorm", "gistict")]
 ```
 
 Align the rows and columns, keeping only samples with both assays available:
+
 ```{r}
 subacc <- intersectColumns(subacc)
 subacc <- intersectRows(subacc)
 ```
 
 Create a list of numeric matrices:
+
 ```{r}
 subacc.list <- assays(subacc)
 ```
 
 Log-transform the RNA-seq assay:
+
 ```{r}
 subacc.list[[1]] <- log2(subacc.list[[1]] + 1)
 ```
 
 Transpose both, so genes are in columns:
+
 ```{r}
 subacc.list <- lapply(subacc.list, t)
 ```
 
-Calculate the correlation between columns in the first matrix and columns in the
-second matrix:
+Calculate the correlation between columns in the first matrix and columns in
+the second matrix:
 
 ```{r}
 corres <- cor(subacc.list[[1]], subacc.list[[2]])
 ```
 
 And finally, create the histograms:
+
 ```{r}
 hist(diag(corres))
 hist(corres[upper.tri(corres)])
@@ -164,12 +174,13 @@ expression against copy number.
 
 First, identify the gene with highest correlation between expression and copy
 number:
+
 ```{r}
 which.max(diag(corres))
 ```
 
-You could now make the plot by taking the EIF4E columns from each element of the
-list subacc.list *list* that was extracted from the subacc
+You could now make the plot by taking the EIF4E columns from each element of
+the list subacc.list *list* that was extracted from the subacc
 *MultiAssayExperiment*, but let's do it by subsetting and extracting from the
 *MultiAssayExperiment*:
 
@@ -207,27 +218,32 @@ getLoadings <-
 ```
 
 Although it would be possible to do the following with a loop, the different
-data types do require different options for PCA (e.g. mutations are a 0/1 matrix
-with 1 meaning there is a somatic mutation, and gistict varies between -2 for
-homozygous loss and 2 for a genome doubling, so neither make sense to scale and
-center). So it is just as well to do the following one by one, concatenating
-each PCA results to the MultiAssayExperiment:
+data types do require different options for PCA (e.g. mutations are a 0/1
+matrix with 1 meaning there is a somatic mutation, and gistict varies between
+-2 for homozygous loss and 2 for a genome doubling, so neither make sense to
+scale and center). So it is just as well to do the following one by one,
+concatenating each PCA results to the MultiAssayExperiment:
 
 ```{r}
 miniACC2 <- intersectColumns(miniACC)
 miniACC2 <- c(miniACC2,
     rnaseqPCA = getLoadings(assays(miniACC2)[[1]], dolog=TRUE),
-    gistictPCA = getLoadings(assays(miniACC2)[[2]], center=FALSE, scale.=FALSE),
+    gistictPCA = getLoadings(
+        assays(miniACC2)[[2]], center=FALSE, scale.=FALSE
+    ),
     proteinPCA = getLoadings(assays(miniACC2)[[3]]),
-    mutationsPCA = getLoadings(assays(miniACC2)[[4]], center=FALSE, scale.=FALSE),
+    mutationsPCA = getLoadings(
+        assays(miniACC2)[[4]], center=FALSE, scale.=FALSE
+    ),
     miRNAPCA = getLoadings(assays(miniACC2)[[5]]),
     mapFrom = 1:5
 )
 ```
 
 Now subset to keep *only* the PCA results:
+
 ```{r}
-miniACC2 <- miniACC2[, , 6:10]
+miniACC2 <- miniACC2[, , grep("PCA$", names(miniACC2))]
 experiments(miniACC2)
 ```
 
@@ -251,8 +267,8 @@ mycors <- abs(mycors)
 diag(mycors) <- NA
 ```
 
-To simplify the heatmap, show only components that have at least one correlation
-greater than 0.5.
+To simplify the heatmap, show only components that have at least one
+correlation greater than 0.5.
 
 ```{r}
 has.high.cor <- apply(mycors, 2, max, na.rm=TRUE) > 0.5
