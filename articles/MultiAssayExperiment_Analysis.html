@@ -101,7 +101,7 @@
             <address class="author_afil">
       CUNY School of Public Health, New York, NY<br><h4 class="author">Levi Waldron</h4>
             <address class="author_afil">
-      CUNY School of Public Health, New York, NY<br><h4 class="date">July 16, 2021</h4>
+      CUNY School of Public Health, New York, NY<br><h4 class="date">July 19, 2021</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/waldronlab/MultiAssayWorkshop/blob/master/vignettes/MultiAssayExperiment_Analysis.Rmd"><code>vignettes/MultiAssayExperiment_Analysis.Rmd</code></a></small>
       <div class="hidden name"><code>MultiAssayExperiment_Analysis.Rmd</code></div>
@@ -135,7 +135,7 @@
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"miniACC"</span><span class="op">)</span>
 <span class="fu"><a href="http://waldronlab.io/MultiAssayExperiment/reference/upsetSamples.html">upsetSamples</a></span><span class="op">(</span><span class="va">miniACC</span><span class="op">)</span></code></pre></div>
 <p><img src="MultiAssayExperiment_Analysis_files/figure-html/unnamed-chunk-2-1.png" width="700"></p>
-<p>In this dataset only 43 samples have all 5 assays, 32 are missing reverse-phase protein (RPPAArray), 2 are missing Mutations, 1 is missing gistict, 12 have only mutations and gistict, etc.</p>
+<p>In this dataset only 43 samples have all 5 assays, 32 are missing reverse-phase protein (RPPAArray), 12 have only mutations and gistict, 2 are missing Mutations, 1 is missing gistict, etc.</p>
 </div>
 <div id="kaplan-meier-plot-stratified-by-pathology_n_stage" class="section level2">
 <h2 class="hasAnchor">
@@ -155,7 +155,8 @@
 ## [85]    0    NA+   NA+   NA+   NA+   NA+   NA+  383</code></pre>
 <p>And remove any patients missing overall survival information:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">miniACCsurv</span> <span class="op">&lt;-</span> <span class="va">miniACC</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/stats/complete.cases.html">complete.cases</a></span><span class="op">(</span><span class="va">miniACC</span><span class="op">$</span><span class="va">days_to_death</span>, <span class="va">miniACC</span><span class="op">$</span><span class="va">vital_status</span><span class="op">)</span>, <span class="op">]</span>
+<code class="sourceCode R"><span class="va">miniACCsurv</span> <span class="op">&lt;-</span>
+    <span class="va">miniACC</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/stats/complete.cases.html">complete.cases</a></span><span class="op">(</span><span class="va">miniACC</span><span class="op">$</span><span class="va">days_to_death</span>, <span class="va">miniACC</span><span class="op">$</span><span class="va">vital_status</span><span class="op">)</span>, <span class="op">]</span>
 <span class="va">miniACCsurv</span></code></pre></div>
 <pre><code>## A MultiAssayExperiment object of 5 listed
 ##  experiments with user-defined names and respective classes.
@@ -174,7 +175,10 @@
 ##  assays() - convert ExperimentList to a SimpleList of matrices
 ##  exportClass() - save all data to files</code></pre>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/survival/man/survfit.html">survfit</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/survival/man/Surv.html">Surv</a></span><span class="op">(</span><span class="va">days_to_death</span>, <span class="va">vital_status</span><span class="op">)</span> <span class="op">~</span> <span class="va">pathology_N_stage</span>, data <span class="op">=</span> <span class="fu">colData</span><span class="op">(</span><span class="va">miniACCsurv</span><span class="op">)</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/survival/man/survfit.html">survfit</a></span><span class="op">(</span>
+    <span class="fu"><a href="https://rdrr.io/pkg/survival/man/Surv.html">Surv</a></span><span class="op">(</span><span class="va">days_to_death</span>, <span class="va">vital_status</span><span class="op">)</span> <span class="op">~</span> <span class="va">pathology_N_stage</span>,
+    data <span class="op">=</span> <span class="fu">colData</span><span class="op">(</span><span class="va">miniACCsurv</span><span class="op">)</span>
+<span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/survminer/man/ggsurvplot.html">ggsurvplot</a></span><span class="op">(</span><span class="va">fit</span>, data <span class="op">=</span> <span class="fu">colData</span><span class="op">(</span><span class="va">miniACCsurv</span><span class="op">)</span>, risk.table <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <p><img src="MultiAssayExperiment_Analysis_files/figure-html/unnamed-chunk-5-1.png" width="700"></p>
 </div>
@@ -311,9 +315,13 @@
 <code class="sourceCode R"><span class="va">miniACC2</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html">intersectColumns</a></span><span class="op">(</span><span class="va">miniACC</span><span class="op">)</span>
 <span class="va">miniACC2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">miniACC2</span>,
     rnaseqPCA <span class="op">=</span> <span class="fu">getLoadings</span><span class="op">(</span><span class="fu">assays</span><span class="op">(</span><span class="va">miniACC2</span><span class="op">)</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>, dolog<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>,
-    gistictPCA <span class="op">=</span> <span class="fu">getLoadings</span><span class="op">(</span><span class="fu">assays</span><span class="op">(</span><span class="va">miniACC2</span><span class="op">)</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span>, center<span class="op">=</span><span class="cn">FALSE</span>, scale.<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span>,
+    gistictPCA <span class="op">=</span> <span class="fu">getLoadings</span><span class="op">(</span>
+        <span class="fu">assays</span><span class="op">(</span><span class="va">miniACC2</span><span class="op">)</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span>, center<span class="op">=</span><span class="cn">FALSE</span>, scale.<span class="op">=</span><span class="cn">FALSE</span>
+    <span class="op">)</span>,
     proteinPCA <span class="op">=</span> <span class="fu">getLoadings</span><span class="op">(</span><span class="fu">assays</span><span class="op">(</span><span class="va">miniACC2</span><span class="op">)</span><span class="op">[[</span><span class="fl">3</span><span class="op">]</span><span class="op">]</span><span class="op">)</span>,
-    mutationsPCA <span class="op">=</span> <span class="fu">getLoadings</span><span class="op">(</span><span class="fu">assays</span><span class="op">(</span><span class="va">miniACC2</span><span class="op">)</span><span class="op">[[</span><span class="fl">4</span><span class="op">]</span><span class="op">]</span>, center<span class="op">=</span><span class="cn">FALSE</span>, scale.<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span>,
+    mutationsPCA <span class="op">=</span> <span class="fu">getLoadings</span><span class="op">(</span>
+        <span class="fu">assays</span><span class="op">(</span><span class="va">miniACC2</span><span class="op">)</span><span class="op">[[</span><span class="fl">4</span><span class="op">]</span><span class="op">]</span>, center<span class="op">=</span><span class="cn">FALSE</span>, scale.<span class="op">=</span><span class="cn">FALSE</span>
+    <span class="op">)</span>,
     miRNAPCA <span class="op">=</span> <span class="fu">getLoadings</span><span class="op">(</span><span class="fu">assays</span><span class="op">(</span><span class="va">miniACC2</span><span class="op">)</span><span class="op">[[</span><span class="fl">5</span><span class="op">]</span><span class="op">]</span><span class="op">)</span>,
     mapFrom <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span>
 <span class="op">)</span></code></pre></div>
@@ -321,7 +329,7 @@
 ##  matches the order in 'mapFrom' experiment(s) colnames</code></pre>
 <p>Now subset to keep <em>only</em> the PCA results:</p>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">miniACC2</span> <span class="op">&lt;-</span> <span class="va">miniACC2</span><span class="op">[</span>, , <span class="fl">6</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span></code></pre></div>
+<code class="sourceCode R"><span class="va">miniACC2</span> <span class="op">&lt;-</span> <span class="va">miniACC2</span><span class="op">[</span>, , <span class="fu"><a href="https://rdrr.io/r/base/grep.html">grep</a></span><span class="op">(</span><span class="st">"PCA$"</span>, <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">miniACC2</span><span class="op">)</span><span class="op">)</span><span class="op">]</span></code></pre></div>
 <pre><code>## Warning: 'experiments' dropped; see 'metadata'</code></pre>
 <pre><code>## harmonizing input:
 ##   removing 215 sampleMap rows not in names(experiments)</code></pre>
