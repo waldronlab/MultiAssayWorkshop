@@ -66,8 +66,9 @@ experiments(miniACC)
 
 ###
 
-The `experiments` function returns an `ExperimentList` object class that is part of the
-`MultiAssayExperiment`. We will see how to get a more general `List` class shortly.
+The `experiments` function returns an `ExperimentList` object class that is
+part of the `MultiAssayExperiment`. We will see how to get a more general
+`List` class shortly.
 
 ###
 

@@ -48,7 +48,7 @@ opts_chunk$set(out.width="100%", cache=TRUE)
 * See the instruction [Google slides](https://tinyurl.com/MultiAssayWorkshop)
 * Go to the conference instance registration webpage and use these credentials:
     * username: `rstudio`
-    * password: `welcome-to-bioc2021`
+    * password: `rstudio`
 * Browse to the [workshop website](https://waldronlab.io/MultiAssayWorkshop/)
 * (Alternatively) Docker users can run this workshop locally via:
 

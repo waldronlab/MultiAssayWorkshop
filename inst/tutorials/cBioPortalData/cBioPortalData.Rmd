@@ -26,7 +26,7 @@ In this tutorial, you will learn when and how to use
 **Note**. See the source code of the interactive exercises at
 https://github.com/waldronlab/MultiAssayWorkshop
 
-### What data is available? 
+### What data is available?
 
 First we need to know if we are interested in any of the data that is offered
 by the cBio Genomics Portal.
@@ -35,7 +35,7 @@ by the cBio Genomics Portal.
 
 To see a list of datasets provided by cBioPortal, let's look at
 `cBioPortalData`'s published datasets. Use the `data` function with
-the `package` argument set to `"cBioPortalData"` to get the table. 
+the `package` argument set to `"cBioPortalData"` to get the table.
 
 ```{r seedata, exercise=TRUE}
 
@@ -49,32 +49,35 @@ data(package = "cBioPortalData")
 
 *Great!*
 
-### studiesTable 
+### getStudies()
 
-Now have a look at the first few rows in `studiesTable` using `head`:
+We can use the `getStudies` function to get a list of available studies from
+the API. Enter `cbio` as the input to `getStudies()`. We also want the build
+reporting enabled with `buildReport = TRUE`.
 
-```{r studiestable, exercise=TRUE, exercise.lines = 3}
-data("studiesTable", package = "cBioPortalData")
+```{r getstudies, exercise=TRUE, exercise.lines = 3}
+cbio <- cBioPortal()
+getStudies(buildReport = TRUE)
 ```
 
-```{r studiestable-solution}
-head(studiesTable)
+```{r getstudies-solution}
+getStudies(api = cbio, buildReport = TRUE)
 ```
 
 ###
 
 We are interested in the first and second to last columns in the table, namely
-`cancer_study_id` and `pack_build`.
+`studyId` and `pack_build` / `api_build`.
 
 
 ## Pre-packaged Data
 
 ### cBioDataPack
 
-Now that we have an idea of how to see what studies are documented and available
-for download, we can bring one in. Let's use the `cBioDataPack` function to
-download the Acute Lymphocytic Lukemia from St. Jude dataset with the study
-identifier: `"all_stjude_2016"`
+Now that we have an idea of how to see what studies are documented and
+available for download, we can bring one in. Let's use the `cBioDataPack`
+function to download the Acute Lymphocytic Lukemia from St. Jude dataset with
+the study identifier: `"all_stjude_2016"`
 
 ```{r stjude, exercise=TRUE, exercise.eval=FALSE}
 "all_stjude_2016"
@@ -87,8 +90,9 @@ cBioDataPack(cancer_study_id = "all_stjude_2016")
 ###
 
 Great! We just loaded our first packaged dataset. Note that not all packages
-currently build as `MultiAssayExperiment` objects. Refer to the `studiesTable`
-to see which study identifiers are working as `MultiAssayExperiment`!
+currently build as `MultiAssayExperiment` objects. Refer to the `pack_build`
+column in `getStudies()`, with the `buildReport = TRUE` enabled, to see which
+study identifiers are working as `MultiAssayExperiment` represenations!
 
 ## API Data
 
@@ -113,8 +117,8 @@ cbio <- cBioPortal()
 First let's look at what pieces of information we need to write a successful
 `cBioPortalData` function call.
 
-We need to know: 
-* `studyId` - the study identifier from `studiesTable`
+We need to know:
+* `studyId` - the study identifier from `getStudies`
 * `genePanelId` or `genes` - what features we are interested in
 * `by` - whether we want these features as Entrez IDs or Hugo Symbols.
 * `molecularProfileIds` - specific assays that make up a study
@@ -123,7 +127,7 @@ We need to know:
 cbio <- cBioPortal()
 ```
 
-### genePanels 
+### genePanels
 
 Use the `genePanels` function to see what gene panels are available (if
 desired).
@@ -154,7 +158,7 @@ molecularProfiles(cbio, studyId = "acc_tcga")
 Now that we have all the pieces, we can construct the `cBioPortalData` function
 call based on the examples provided. We want to look at the `acc_tcga` `studyId`
 along with a couple of `molecularProfileIds` say `'acc_tcga_rppa'` and
-`'acc_tcga_mutations'`. For this example, let's use `'IMPACT341'` as the 
+`'acc_tcga_mutations'`. For this example, let's use `'IMPACT341'` as the
 `genePanelId` of interest. Let's put all of these in the function.
 
 ```{r querycbio, exercise = TRUE, exercise.eval = FALSE}
