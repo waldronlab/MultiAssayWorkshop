@@ -22,6 +22,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -34,7 +36,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">MultiAssayWorkshop</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.13.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.13.6</span>
       </span>
     </div>
 
@@ -79,7 +81,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/waldronlab/MultiAssayWorkshop">
+  <a href="https://github.com/waldronlab/MultiAssayWorkshop" class="external-link">
     <span class="fa fa-github"></span>
      
   </a>
@@ -97,59 +99,61 @@
       </header><div class="row">
   <div class="contents col-md-9">
 
-<p><img src="https://github.com/waldronlab/MultiAssayWorkshop/workflows/MAEWorkshopCheck/badge.svg" alt="MAEWorkshopCheck"></p>
-<div id="multi-omic-integration-of-cbioportal-and-tcga-data-with-multiassayexperiment" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#multi-omic-integration-of-cbioportal-and-tcga-data-with-multiassayexperiment" class="anchor"></a>Multi-omic Integration of cBioPortal and TCGA data with MultiAssayExperiment</h1></div>
+<div class="figure">
+<img src="https://github.com/waldronlab/MultiAssayWorkshop/workflows/MAEWorkshopCheck/badge.svg" alt=""><p class="caption">MAEWorkshopCheck</p>
 </div>
-<div id="quick-install" class="section level1">
-<h1 class="hasAnchor">
-<a href="#quick-install" class="anchor"></a>Quick-install</h1>
-<pre><code><a href="https://rdrr.io/pkg/BiocManager/man/install.html">BiocManager::install(
-    "waldronlab/MultiAssayWorkshop", dependencies=TRUE, build_vignettes=TRUE
-)</a></code></pre>
+<div class="section level1">
+<div class="page-header"><h1 id="multi-omic-integration-of-cbioportal-and-tcga-data-with-multiassayexperiment">Multi-omic Integration of cBioPortal and TCGA data with MultiAssayExperiment<a class="anchor" aria-label="anchor" href="#multi-omic-integration-of-cbioportal-and-tcga-data-with-multiassayexperiment"></a>
+</h1></div>
 </div>
-<div id="instructor-names-and-contact-information" class="section level1">
-<h1 class="hasAnchor">
-<a href="#instructor-names-and-contact-information" class="anchor"></a>Instructor names and contact information</h1>
+<div class="section level1">
+<h1 id="quick-install">Quick-install<a class="anchor" aria-label="anchor" href="#quick-install"></a>
+</h1>
+<pre><code><span class="fu">BiocManager</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/install.html" class="external-link">install</a></span><span class="op">(</span>
+    <span class="st">"waldronlab/MultiAssayWorkshop"</span>, dependencies<span class="op">=</span><span class="cn">TRUE</span>, build_vignettes<span class="op">=</span><span class="cn">TRUE</span>
+<span class="op">)</span></code></pre>
+</div>
+<div class="section level1">
+<h1 id="instructor-names-and-contact-information">Instructor names and contact information<a class="anchor" aria-label="anchor" href="#instructor-names-and-contact-information"></a>
+</h1>
 <p><a href="mailto:Marcel.Ramos@sph.cuny.edu">Marcel Ramos</a>, <a href="mailto:Ludwig.Geistlinger@sph.cuny.edu">Ludwig Geistlinger</a>, and <a href="mailto:Levi.Waldron@sph.cuny.edu">Levi Waldron</a></p>
 <p>CUNY School of Public Health</p>
 <p>55 West 125th Street</p>
 <p>New York, NY 10027</p>
 </div>
-<div id="workshop-description" class="section level1">
-<h1 class="hasAnchor">
-<a href="#workshop-description" class="anchor"></a>Workshop Description</h1>
+<div class="section level1">
+<h1 id="workshop-description">Workshop Description<a class="anchor" aria-label="anchor" href="#workshop-description"></a>
+</h1>
 <p>This workshop demonstrates the leveraging of public multi-omics databases, such as cBioPortal and The Cancer Genome Atlas (TCGA), through an overview of the <code>cBioPortalData</code> and <code>curatedTCGAData</code> experiment data packages. It introduces users to minimal data management with <code>MultiAssayExperiment</code> and <code>TCGAutils</code>, packages that organize and manage multi-omics datasets. The workshop aims to improve the ease-of-use of TCGA data, and introduce participants to common Bioconductor data structures including <code>SummarizedExperiment</code>, <code>MultiAssayExperiment</code> and <code>RaggedExperiment</code>. The workshop will also mention soon-to-be-released updates to <code>MultiAssayExperiment</code> such as renaming primary identifiers, column names, splitting assays, and <code>maftools</code> compatibility.</p>
-<div id="pre-requisites" class="section level2">
-<h2 class="hasAnchor">
-<a href="#pre-requisites" class="anchor"></a>Pre-requisites</h2>
+<div class="section level2">
+<h2 id="pre-requisites">Pre-requisites<a class="anchor" aria-label="anchor" href="#pre-requisites"></a>
+</h2>
 <ul>
 <li>Basic knowledge of R syntax</li>
 <li>Familiarity with the GRanges and SummarizedExperiment classes</li>
 <li>Familiarity with ’omics data types including copy number and gene expression</li>
 </ul>
 </div>
-<div id="workshop-participation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#workshop-participation" class="anchor"></a>Workshop Participation</h2>
+<div class="section level2">
+<h2 id="workshop-participation">Workshop Participation<a class="anchor" aria-label="anchor" href="#workshop-participation"></a>
+</h2>
 <p>Participants will have a chance to build a <code>MultiAssayExperiment</code> object from scratch, and will also work with data and interfaces from the the <code>curatedTCGAData</code> and <code>cBioPortalData</code> packages.</p>
 </div>
-<div id="rbioconductor-packages-used" class="section level2">
-<h2 class="hasAnchor">
-<a href="#rbioconductor-packages-used" class="anchor"></a>R/Bioconductor packages used</h2>
+<div class="section level2">
+<h2 id="rbioconductor-packages-used">R/Bioconductor packages used<a class="anchor" aria-label="anchor" href="#rbioconductor-packages-used"></a>
+</h2>
 <ul>
-<li><a href="https://bioconductor.org/packages/MultiAssayExperiment">MultiAssayExperiment</a></li>
-<li><a href="https://bioconductor.org/packages/RaggedExperiment">RaggedExperiment</a></li>
-<li><a href="https://bioconductor.org/packages/curatedTCGAData">curatedTCGAData</a></li>
-<li><a href="https://bioconductor.org/packages/cBioPortalData">cBioPortalData</a></li>
-<li><a href="https://bioconductor.org/packages/TCGAutils">TCGAutils</a></li>
-<li><a href="https://bioconductor.org/packages/UpSetR">UpSetR</a></li>
+<li><a href="https://bioconductor.org/packages/MultiAssayExperiment" class="external-link">MultiAssayExperiment</a></li>
+<li><a href="https://bioconductor.org/packages/RaggedExperiment" class="external-link">RaggedExperiment</a></li>
+<li><a href="https://bioconductor.org/packages/curatedTCGAData" class="external-link">curatedTCGAData</a></li>
+<li><a href="https://bioconductor.org/packages/cBioPortalData" class="external-link">cBioPortalData</a></li>
+<li><a href="https://bioconductor.org/packages/TCGAutils" class="external-link">TCGAutils</a></li>
+<li><a href="https://bioconductor.org/packages/UpSetR" class="external-link">UpSetR</a></li>
 </ul>
 </div>
-<div id="time-outline" class="section level2">
-<h2 class="hasAnchor">
-<a href="#time-outline" class="anchor"></a>Time outline</h2>
+<div class="section level2">
+<h2 id="time-outline">Time outline<a class="anchor" aria-label="anchor" href="#time-outline"></a>
+</h2>
 <p>55 minutes total</p>
 <table class="table">
 <thead><tr class="header">
@@ -181,12 +185,12 @@
 </tbody>
 </table>
 </div>
-<div id="workshop-goals-and-objectives" class="section level2">
-<h2 class="hasAnchor">
-<a href="#workshop-goals-and-objectives" class="anchor"></a>Workshop goals and objectives</h2>
-<div id="learning-goals" class="section level3">
-<h3 class="hasAnchor">
-<a href="#learning-goals" class="anchor"></a>Learning goals</h3>
+<div class="section level2">
+<h2 id="workshop-goals-and-objectives">Workshop goals and objectives<a class="anchor" aria-label="anchor" href="#workshop-goals-and-objectives"></a>
+</h2>
+<div class="section level3">
+<h3 id="learning-goals">Learning goals<a class="anchor" aria-label="anchor" href="#learning-goals"></a>
+</h3>
 <ul>
 <li>overview common data classes available in Bioconductor</li>
 <li>understand appropriate data structures for different ’omics data types</li>
@@ -196,9 +200,9 @@
 <li>identify advantages of providing integrative data in an analysis-ready platform</li>
 </ul>
 </div>
-<div id="learning-objectives" class="section level3">
-<h3 class="hasAnchor">
-<a href="#learning-objectives" class="anchor"></a>Learning objectives</h3>
+<div class="section level3">
+<h3 id="learning-objectives">Learning objectives<a class="anchor" aria-label="anchor" href="#learning-objectives"></a>
+</h3>
 <ul>
 <li>use <code>curatedTCGAData</code> and <code>cBioPortalData</code> to create on-the-fly multi-omics data objects</li>
 <li>apply knowlege of <code>MultiAssayExperiment</code> to represent other multi-omics data</li>
@@ -206,10 +210,10 @@
 </ul>
 </div>
 </div>
-<div id="questions--comments" class="section level2">
-<h2 class="hasAnchor">
-<a href="#questions--comments" class="anchor"></a>Questions &amp; Comments</h2>
-<p>For more involved / detailed questions, comments, or bug reports, resort to the Bioconductor <a href="https://support.bioconductor.org/">support site</a> or create an issue on the <code>MultiAssayExperiment</code> <a href="https://github.com/waldronlab/MultiAssayExperiment/issues">issue tracker</a> on GitHub.</p>
+<div class="section level2">
+<h2 id="questions--comments">Questions &amp; Comments<a class="anchor" aria-label="anchor" href="#questions--comments"></a>
+</h2>
+<p>For more involved / detailed questions, comments, or bug reports, resort to the Bioconductor <a href="https://support.bioconductor.org/" class="external-link">support site</a> or create an issue on the <code>MultiAssayExperiment</code> <a href="https://github.com/waldronlab/MultiAssayExperiment/issues" class="external-link">issue tracker</a> on GitHub.</p>
 </div>
 </div>
 
@@ -217,39 +221,51 @@
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Browse source code at <br><a href="https://github.com/waldronlab/MultiAssayWorkshop/">https://​github.com/​waldronlab/​MultiAssayWorkshop/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/waldronlab/MultiAssayWorkshop/issues/new/choose">https://​github.com/​waldronlab/​MultiAssayWorkshop/​issues/​new/​choose</a>
-</li>
+<li><a href="https://github.com/waldronlab/MultiAssayWorkshop/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/waldronlab/MultiAssayWorkshop/issues/new/choose" class="external-link">Report a bug</a></li>
 </ul>
 </div>
+
 <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
-<li><a href="https://www.r-project.org/Licenses/Artistic-2.0">Artistic-2.0</a></li>
+<li><a href="https://www.r-project.org/Licenses/Artistic-2.0" class="external-link">Artistic-2.0</a></li>
 </ul>
 </div>
+
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
+<ul class="list-unstyled">
+<li><a href="authors.html#citation">Citing MultiAssayWorkshop</a></li>
+</ul>
+</div>
+
 <div class="developers">
-<h2>Developers</h2>
+<h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
 <li>Marcel Ramos <br><small class="roles"> Author, maintainer </small>  </li>
 <li>Levi Waldron <br><small class="roles"> Author </small>  </li>
-<li><a href="authors.html">All authors...</a></li>
+<li><a href="authors.html">More about authors...</a></li>
 </ul>
 </div>
+
+
 
   </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by Marcel Ramos, Levi Waldron.</p>
+  <p></p>
+<p>Developed by Marcel Ramos, Levi Waldron.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
 </div>
 
       </footer>
@@ -257,6 +273,8 @@
 
   
 
+
+  
 
   </body>
 </html>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://waldronlab.io/MultiAssayWorkshop/index.html</loc>
+    <loc>https://waldronlab.io/MultiAssayWorkshop/404.html</loc>
   </url>
   <url>
     <loc>https://waldronlab.io/MultiAssayWorkshop/articles/MultiAssayExperiment_Analysis.html</loc>
@@ -17,5 +17,26 @@
   </url>
   <url>
     <loc>https://waldronlab.io/MultiAssayWorkshop/articles/curatedTCGAData_ref.html</loc>
+  </url>
+  <url>
+    <loc>https://waldronlab.io/MultiAssayWorkshop/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>https://waldronlab.io/MultiAssayWorkshop/authors.html</loc>
+  </url>
+  <url>
+    <loc>https://waldronlab.io/MultiAssayWorkshop/index.html</loc>
+  </url>
+  <url>
+    <loc>https://waldronlab.io/MultiAssayWorkshop/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>https://waldronlab.io/MultiAssayWorkshop/tutorials/Exercise_MultiAssay.html</loc>
+  </url>
+  <url>
+    <loc>https://waldronlab.io/MultiAssayWorkshop/tutorials/cBioPortalData_Intro.html</loc>
+  </url>
+  <url>
+    <loc>https://waldronlab.io/MultiAssayWorkshop/tutorials/index.html</loc>
   </url>
 </urlset>
