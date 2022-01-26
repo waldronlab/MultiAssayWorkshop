@@ -103,7 +103,7 @@
             <address class="author_afil">
       CUNY School of Public Health, New York, NY<br><h4 data-toc-skip class="author">Levi Waldron</h4>
             <address class="author_afil">
-      CUNY School of Public Health, New York, NY<br><h4 data-toc-skip class="date">December 10, 2021</h4>
+      CUNY School of Public Health, New York, NY<br><h4 data-toc-skip class="date">January 26, 2022</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/waldronlab/MultiAssayWorkshop/blob/HEAD/vignettes/MultiAssayExperiment_Analysis.Rmd" class="external-link"><code>vignettes/MultiAssayExperiment_Analysis.Rmd</code></a></small>
       <div class="hidden name"><code>MultiAssayExperiment_Analysis.Rmd</code></div>
@@ -115,22 +115,22 @@
 
     
     
-<div class="section level1">
-<h1 id="required-packages">Required packages<a class="anchor" aria-label="anchor" href="#required-packages"></a>
-</h1>
+<div class="section level2">
+<h2 id="required-packages">Required packages<a class="anchor" aria-label="anchor" href="#required-packages"></a>
+</h2>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://waldronlab.io/MultiAssayExperiment/" class="external-link">MultiAssayExperiment</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/therneau/survival" class="external-link">survival</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rpkgs.datanovia.com/survminer/index.html" class="external-link">survminer</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">pheatmap</span><span class="op">)</span></code></pre></div>
 </div>
-<div class="section level1">
-<h1 id="k-m-plots-correl-pca-and-other-analyses">K-M plots, Correl, PCA, and other analyses<a class="anchor" aria-label="anchor" href="#k-m-plots-correl-pca-and-other-analyses"></a>
-</h1>
-<p>These provide exercises and solutions using the <code>miniACC</code> dataset.</p>
 <div class="section level2">
-<h2 id="how-many-miniacc-samples-have-data-for-each-combination-of-assays">How many <code>miniACC</code> samples have data for each combination of assays?<a class="anchor" aria-label="anchor" href="#how-many-miniacc-samples-have-data-for-each-combination-of-assays"></a>
+<h2 id="k-m-plots-correl-pca-and-other-analyses">K-M plots, Correl, PCA, and other analyses<a class="anchor" aria-label="anchor" href="#k-m-plots-correl-pca-and-other-analyses"></a>
 </h2>
+<p>These provide exercises and solutions using the <code>miniACC</code> dataset.</p>
+<div class="section level3">
+<h3 id="how-many-miniacc-samples-have-data-for-each-combination-of-assays">How many <code>miniACC</code> samples have data for each combination of assays?<a class="anchor" aria-label="anchor" href="#how-many-miniacc-samples-have-data-for-each-combination-of-assays"></a>
+</h3>
 <p><strong>Solution</strong></p>
 <p>The built-in <code>upsetSamples</code> creates an “upset” Venn diagram to answer this question:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
@@ -139,9 +139,9 @@
 <p><img src="MultiAssayExperiment_Analysis_files/figure-html/unnamed-chunk-2-1.png" width="700"></p>
 <p>In this dataset only 43 samples have all 5 assays, 32 are missing reverse-phase protein (RPPAArray), 12 have only mutations and gistict, 2 are missing Mutations, 1 is missing gistict, etc.</p>
 </div>
-<div class="section level2">
-<h2 id="kaplan-meier-plot-stratified-by-pathology_n_stage">Kaplan-meier plot stratified by pathology_N_stage<a class="anchor" aria-label="anchor" href="#kaplan-meier-plot-stratified-by-pathology_n_stage"></a>
-</h2>
+<div class="section level3">
+<h3 id="kaplan-meier-plot-stratified-by-pathology_n_stage">Kaplan-meier plot stratified by pathology_N_stage<a class="anchor" aria-label="anchor" href="#kaplan-meier-plot-stratified-by-pathology_n_stage"></a>
+</h3>
 <p>Create a Kaplan-meier plot, using pathology_N_stage as a stratifying variable.</p>
 <p><strong>Solution</strong></p>
 <p>The colData provides clinical data for things like a Kaplan-Meier plot for overall survival stratified by nodal stage.</p>
@@ -184,9 +184,9 @@
 <span class="fu"><a href="https://rdrr.io/pkg/survminer/man/ggsurvplot.html" class="external-link">ggsurvplot</a></span><span class="op">(</span><span class="va">fit</span>, data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/SummarizedExperiment/man/SummarizedExperiment-class.html" class="external-link">colData</a></span><span class="op">(</span><span class="va">miniACCsurv</span><span class="op">)</span>, risk.table <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <p><img src="MultiAssayExperiment_Analysis_files/figure-html/unnamed-chunk-5-1.png" width="700"></p>
 </div>
-<div class="section level2">
-<h2 id="multivariate-cox-regression-including-rna-seq-copy-number-and-pathology">Multivariate Cox regression including RNA-seq, copy number, and pathology<a class="anchor" aria-label="anchor" href="#multivariate-cox-regression-including-rna-seq-copy-number-and-pathology"></a>
-</h2>
+<div class="section level3">
+<h3 id="multivariate-cox-regression-including-rna-seq-copy-number-and-pathology">Multivariate Cox regression including RNA-seq, copy number, and pathology<a class="anchor" aria-label="anchor" href="#multivariate-cox-regression-including-rna-seq-copy-number-and-pathology"></a>
+</h3>
 <p>Choose the <em>EZH2</em> gene for demonstration. This subsetting will drop assays with no row named EZH2:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">wideacc</span> <span class="op">=</span> <span class="fu"><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html" class="external-link">wideFormat</a></span><span class="op">(</span><span class="va">miniACC</span><span class="op">[</span><span class="st">"EZH2"</span>, , <span class="op">]</span>,
@@ -235,9 +235,9 @@
 <p>We see that <em>EZH2</em> expression is significantly associated with overal survival (p &lt; 0.001), but <em>EZH2</em> copy number and nodal status are not. This analysis could easily be extended to the whole genome for discovery of prognostic features by repeated univariate regressions over columns, penalized multivariate regression, etc.</p>
 <p>For further detail, see the main <code>MultiAssayExperiment</code> vignette.</p>
 </div>
-<div class="section level2">
-<h2 id="correlation-between-rna-seq-and-copy-number">Correlation between RNA-seq and copy number<a class="anchor" aria-label="anchor" href="#correlation-between-rna-seq-and-copy-number"></a>
-</h2>
+<div class="section level3">
+<h3 id="correlation-between-rna-seq-and-copy-number">Correlation between RNA-seq and copy number<a class="anchor" aria-label="anchor" href="#correlation-between-rna-seq-and-copy-number"></a>
+</h3>
 <p><strong>Part 1</strong></p>
 <p>For all genes where there is both recurrent copy number (gistict assay) and RNA-seq, calculate the correlation between log2(RNAseq + 1) and copy number. Create a histogram of these correlations. Compare this with the histogram of correlations between all <em>unmatched</em> gene - copy number pairs.</p>
 <p><strong>Solution</strong></p>
@@ -298,9 +298,9 @@
         ylab<span class="op">=</span><span class="st">"RNA-seq counts"</span><span class="op">)</span></code></pre></div>
 <p><img src="MultiAssayExperiment_Analysis_files/figure-html/unnamed-chunk-17-1.png" width="700"></p>
 </div>
-<div class="section level2">
-<h2 id="identifying-correlated-principal-components">Identifying correlated principal components<a class="anchor" aria-label="anchor" href="#identifying-correlated-principal-components"></a>
-</h2>
+<div class="section level3">
+<h3 id="identifying-correlated-principal-components">Identifying correlated principal components<a class="anchor" aria-label="anchor" href="#identifying-correlated-principal-components"></a>
+</h3>
 <p>Perform Principal Components Analysis of each of the five assays, using samples available on each assay, log-transforming RNA-seq data first. Using the first 10 components, calculate Pearson correlation between all scores and plot these correlations as a heatmap to identify correlated components across assays.</p>
 <p><strong>Solution</strong></p>
 <p>Here’s a function to simplify doing the PCAs:</p>
@@ -385,7 +385,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
       </footer>
