@@ -23,6 +23,9 @@ Imports:
   SummarizedExperiment,
   SingleCellExperiment,
   SingleCellMultiModal,
+  scran,
+  scater,
+  uwot,
   TCGAutils,
   UpSetR,
   mirbase.db,
@@ -40,7 +43,8 @@ Suggests:
   readr,
   tibble,
   rmarkdown,
-  pkgdown
+  pkgdown,
+  BiocStyle
 License: Artistic-2.0
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
