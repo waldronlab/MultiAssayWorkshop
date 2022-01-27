@@ -1,6 +1,6 @@
 Package: MultiAssayWorkshop
 Title: Multi-omic Integration and Analysis of cBioPortal and TCGA data with MultiAssayExperiment
-Version: 3.13.6
+Version: 3.14.0
 Authors@R: c(person("Marcel", "Ramos", email = "marcel.ramos@roswellpark.org",
     role = c("aut", "cre")),
     person("Ludwig", "Geistlinger", email = "Ludwig.Geistlinger@sph.cuny.edu",
@@ -11,7 +11,7 @@ Description: This is a workshop on acquiring and analyzing data through the
   curatedTCGAData and cBioPortalData packages as MultiAssayExperiment objects.
   It built using GitHub actions and pkgdown. Some knowledge of R and basic 
   Bioconductor structures such as SummarizedExperiment is assumed. 
-Depends: R (>= 4.0.0)
+Depends: R (>= 4.1.0)
 Imports:
   MultiAssayExperiment,
   GenomicRanges,
@@ -23,9 +23,6 @@ Imports:
   SummarizedExperiment,
   SingleCellExperiment,
   SingleCellMultiModal,
-  scran,
-  scater,
-  uwot,
   TCGAutils,
   UpSetR,
   mirbase.db,
@@ -42,6 +39,9 @@ Suggests:
   knitr,
   readr,
   tibble,
+  scran,
+  scater,
+  uwot,
   rmarkdown,
   pkgdown,
   BiocStyle
