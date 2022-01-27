@@ -3,7 +3,7 @@ name: MAE Workshop Check
 on: push
 
 env:
-  cache-version: v1
+  cache-version: v2
   repo-name: mr148/multiassayworkshop
 
 jobs:
