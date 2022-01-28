@@ -31,24 +31,6 @@ https://github.com/waldronlab/MultiAssayWorkshop
 First we need to know if we are interested in any of the data that is offered
 by the cBio Genomics Portal.
 
-### Using the `data` function
-
-To see a list of datasets provided by cBioPortal, let's look at
-`cBioPortalData`'s published datasets. Use the `data` function with
-the `package` argument set to `"cBioPortalData"` to get the table.
-
-```{r seedata, exercise=TRUE}
-
-```
-
-```{r seedata-solution}
-data(package = "cBioPortalData")
-```
-
-###
-
-*Great!*
-
 ### getStudies()
 
 We can use the `getStudies` function to get a list of available studies from
@@ -136,6 +118,20 @@ desired).
 genePanels(cbio)
 ```
 
+### genes
+
+We can have a look at a table of genes with the `geneTable` function.
+
+```{r genetable, exercise = TRUE, exercise.eval = FALSE}
+geneTable(cbio)
+```
+
+Notice that the output changes by page number and based on the `pageSize`
+parameter.
+
+If you have a specific set of genes in mind, those can be used as input into
+the main `cBioPortalData` function. We will see how in a few moments.
+
 ### molecularProfileIds
 
 Use the `molecularProfiles` function to see all the assays available for a
@@ -165,7 +161,7 @@ along with a couple of `molecularProfileIds` say `'acc_tcga_rppa'` and
 cBioPortalData(
     cbio,
     studyId = ,
-    genePanelId = ,
+    genePanelId = , # OR genes =
     molecularProfileIds = c(),
     by = "entrezGeneId"
 )
@@ -176,6 +172,15 @@ cBioPortalData(
     cbio,
     studyId = "acc_tcga",
     genePanelId = "IMPACT341",
+    molecularProfileIds = c("acc_tcga_rppa", "acc_tcga_mutations"),
+    by = "entrezGeneId"
+)
+
+## example with genes argument
+cBioPortalData(
+    cbio,
+    studyId = "acc_tcga",
+    genes = c(25, 84142, 207, 208, 10000, 238, 242, 139285, 324, 367),
     molecularProfileIds = c("acc_tcga_rppa", "acc_tcga_mutations"),
     by = "entrezGeneId"
 )
