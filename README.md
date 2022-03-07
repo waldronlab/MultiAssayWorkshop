@@ -24,22 +24,26 @@ New York, NY 10027
 
 # Workshop Description
 
-This workshop demonstrates the leveraging of public multi-omics databases, such
-as cBioPortal and The Cancer Genome Atlas (TCGA), through an overview of the
-`cBioPortalData` and `curatedTCGAData` experiment data packages. It
-introduces users to minimal data management with `MultiAssayExperiment` and
-`TCGAutils`, packages that organize and manage multi-omics datasets. The
-workshop aims to improve the ease-of-use of TCGA data, and introduce
-participants to common Bioconductor data structures including
-`SummarizedExperiment`, `MultiAssayExperiment` and `RaggedExperiment`. The
-workshop will also mention soon-to-be-released updates to
-`MultiAssayExperiment` such as renaming primary identifiers, column names,
-splitting assays, and `maftools` compatibility.
+This workshop demonstrates how to leverage public multi-omics databases, such
+as the cBioPortal and The Cancer Genome Atlas (TCGA). Workshop participants
+are given an overview of the `cBioPortalData`, `curatedTCGAData`, and
+`terraTCGAdata` (experimental) data packages. It introduces users to minimal
+data management with `MultiAssayExperiment` and `TCGAutils`, packages that
+organize and manage multi-omics datasets. The workshop will provide
+participants with ways to improve the ease-of-use of TCGA data, and introduce
+them to common Bioconductor data classes including `SummarizedExperiment`,
+`MultiAssayExperiment`, and `RaggedExperiment`. The workshop will also
+demonstrate the experimental `terraTCGAdata` package for working with TCGA data
+on the AnVIL Terra platform, as well as, a review of updates to existing
+functionality in `cBioPortalData`, `MultiAssayExperiment`, and `TCGAutils`.
+
+**Keywords**: Data Representation, Infrastructure, cBioPortal, MultiOmic
+Integration
 
 ## Pre-requisites
 
 * Basic knowledge of R syntax
-* Familiarity with the GRanges and SummarizedExperiment classes
+* Familiarity with the `GRanges` and `SummarizedExperiment` classes
 * Familiarity with 'omics data types including copy number and gene expression
 
 ## Workshop Participation
@@ -65,7 +69,7 @@ the `curatedTCGAData` and `cBioPortalData` packages.
 |-------------------------------------|---------|
 | Overview of key packages and data classes | 15m |
 | Building a `MultiAssayExperiment` from scratch | 10m |
-| Introduction to `curatedTCGAData`, `cBioPortalData`, and `TCGAutils` | 10m |
+| Introduction to `curatedTCGAData`, `cBioPortalData`, and `terraTCGAdata` | 10m |
 | Creating and importing TCGA multi-assay datasets | 10m |
 | Subsetting and reshaping multi-assay data | 10m |
 
@@ -77,14 +81,15 @@ the `curatedTCGAData` and `cBioPortalData` packages.
 * understand appropriate data structures for different 'omics data types
 * explore available functionality in `TCGAutils` for the management and
 coordination of multi-omic data
-* gain familiarity with `cBioPortalData` and `curatedTCGAData`
+* gain familiarity with `cBioPortalData`, `curatedTCGAData`, and
+`terraTCGAdata`
 * identify advantages of providing integrative data in an analysis-ready
 platform
 
 ### Learning objectives
 
-* use `curatedTCGAData` and `cBioPortalData` to create on-the-fly multi-omics
-data objects
+* use `curatedTCGAData`, `cBioPortalData`, and `terraTCGAdata` to create
+on-the-fly multi-omics data objects
 * apply knowlege of `MultiAssayExperiment` to represent other multi-omics data
 * learn about data management techniques such as subsetting, reshaping,
 growing, and extraction using MultAssayExperiment
