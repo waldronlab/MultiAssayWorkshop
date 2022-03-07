@@ -43,7 +43,7 @@
   <a href="../articles/Ramos_MultiAssayExperiment.html">Workshop</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Tutorial
      
     <span class="caret"></span>
@@ -58,7 +58,7 @@
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Reference
      
     <span class="caret"></span>
@@ -96,14 +96,20 @@
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1 data-toc-skip>MultiAssayExperiment: Example multi-omic analyses with public data</h1>
-                        <h4 data-toc-skip class="author">Marcel Ramos</h4>
+      <h1 data-toc-skip>MultiAssayExperiment: Example multi-omic
+analyses with public data</h1>
+                        <h4 data-toc-skip class="author">Marcel
+Ramos</h4>
             <address class="author_afil">
-      Roswell Park Comprehensive Cancer Center, Buffalo, NY<br><h4 data-toc-skip class="author">Ludwig Geistlinger</h4>
+      Roswell Park Comprehensive Cancer Center, Buffalo,
+NY<br><h4 data-toc-skip class="author">Ludwig
+Geistlinger</h4>
             <address class="author_afil">
-      CUNY School of Public Health, New York, NY<br><h4 data-toc-skip class="author">Levi Waldron</h4>
+      CUNY School of Public Health, New York,
+NY<br><h4 data-toc-skip class="author">Levi
+Waldron</h4>
             <address class="author_afil">
-      CUNY School of Public Health, New York, NY<br><h4 data-toc-skip class="date">January 28, 2022</h4>
+      CUNY School of Public Health, New York, NY<br><h4 data-toc-skip class="date">March 07, 2022</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/waldronlab/MultiAssayWorkshop/blob/HEAD/vignettes/MultiAssayExperiment_Analysis.Rmd" class="external-link"><code>vignettes/MultiAssayExperiment_Analysis.Rmd</code></a></small>
       <div class="hidden name"><code>MultiAssayExperiment_Analysis.Rmd</code></div>
@@ -127,24 +133,31 @@
 <div class="section level2">
 <h2 id="k-m-plots-correl-pca-and-other-analyses">K-M plots, Correl, PCA, and other analyses<a class="anchor" aria-label="anchor" href="#k-m-plots-correl-pca-and-other-analyses"></a>
 </h2>
-<p>These provide exercises and solutions using the <code>miniACC</code> dataset.</p>
+<p>These provide exercises and solutions using the <code>miniACC</code>
+dataset.</p>
 <div class="section level3">
-<h3 id="how-many-miniacc-samples-have-data-for-each-combination-of-assays">How many <code>miniACC</code> samples have data for each combination of assays?<a class="anchor" aria-label="anchor" href="#how-many-miniacc-samples-have-data-for-each-combination-of-assays"></a>
+<h3 id="how-many-miniacc-samples-have-data-for-each-combination-of-assays">How many <code>miniACC</code> samples have data for each combination
+of assays?<a class="anchor" aria-label="anchor" href="#how-many-miniacc-samples-have-data-for-each-combination-of-assays"></a>
 </h3>
 <p><strong>Solution</strong></p>
-<p>The built-in <code>upsetSamples</code> creates an “upset” Venn diagram to answer this question:</p>
+<p>The built-in <code>upsetSamples</code> creates an “upset” Venn
+diagram to answer this question:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"miniACC"</span><span class="op">)</span>
 <span class="fu"><a href="http://waldronlab.io/MultiAssayExperiment/reference/upsetSamples.html" class="external-link">upsetSamples</a></span><span class="op">(</span><span class="va">miniACC</span><span class="op">)</span></code></pre></div>
 <p><img src="MultiAssayExperiment_Analysis_files/figure-html/unnamed-chunk-2-1.png" width="700"></p>
-<p>In this dataset only 43 samples have all 5 assays, 32 are missing reverse-phase protein (RPPAArray), 12 have only mutations and gistict, 2 are missing Mutations, 1 is missing gistict, etc.</p>
+<p>In this dataset only 43 samples have all 5 assays, 32 are missing
+reverse-phase protein (RPPAArray), 12 have only mutations and gistict, 2
+are missing Mutations, 1 is missing gistict, etc.</p>
 </div>
 <div class="section level3">
 <h3 id="kaplan-meier-plot-stratified-by-pathology_n_stage">Kaplan-meier plot stratified by pathology_N_stage<a class="anchor" aria-label="anchor" href="#kaplan-meier-plot-stratified-by-pathology_n_stage"></a>
 </h3>
-<p>Create a Kaplan-meier plot, using pathology_N_stage as a stratifying variable.</p>
+<p>Create a Kaplan-meier plot, using pathology_N_stage as a stratifying
+variable.</p>
 <p><strong>Solution</strong></p>
-<p>The colData provides clinical data for things like a Kaplan-Meier plot for overall survival stratified by nodal stage.</p>
+<p>The colData provides clinical data for things like a Kaplan-Meier
+plot for overall survival stratified by nodal stage.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/survival/man/Surv.html" class="external-link">Surv</a></span><span class="op">(</span><span class="va">miniACC</span><span class="op">$</span><span class="va">days_to_death</span>, <span class="va">miniACC</span><span class="op">$</span><span class="va">vital_status</span><span class="op">)</span></code></pre></div>
 <pre><code><span class="co">##  [1] 1355  1677    NA+  423   365    NA+  490   579    NA+  922   551  1750 </span>
@@ -185,9 +198,11 @@
 <p><img src="MultiAssayExperiment_Analysis_files/figure-html/unnamed-chunk-5-1.png" width="700"></p>
 </div>
 <div class="section level3">
-<h3 id="multivariate-cox-regression-including-rna-seq-copy-number-and-pathology">Multivariate Cox regression including RNA-seq, copy number, and pathology<a class="anchor" aria-label="anchor" href="#multivariate-cox-regression-including-rna-seq-copy-number-and-pathology"></a>
+<h3 id="multivariate-cox-regression-including-rna-seq-copy-number-and-pathology">Multivariate Cox regression including RNA-seq, copy number, and
+pathology<a class="anchor" aria-label="anchor" href="#multivariate-cox-regression-including-rna-seq-copy-number-and-pathology"></a>
 </h3>
-<p>Choose the <em>EZH2</em> gene for demonstration. This subsetting will drop assays with no row named EZH2:</p>
+<p>Choose the <em>EZH2</em> gene for demonstration. This subsetting will
+drop assays with no row named EZH2:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">wideacc</span> <span class="op">=</span> <span class="fu"><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html" class="external-link">wideFormat</a></span><span class="op">(</span><span class="va">miniACC</span><span class="op">[</span><span class="st">"EZH2"</span>, , <span class="op">]</span>,
     colDataCols<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"vital_status"</span>, <span class="st">"days_to_death"</span>, <span class="st">"pathology_N_stage"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
@@ -213,7 +228,9 @@
 <span class="co">## 4                   NA           -2  423:1</span>
 <span class="co">## 5             366.3826            1  365:1</span>
 <span class="co">## 6              30.7371            1   NA:0</span></code></pre>
-<p>Perform a multivariate Cox regression with <em>EZH2</em> copy number (gistict), log2-transformed <em>EZH2</em> expression (RNASeq2GeneNorm), and nodal status (pathology_N_stage) as predictors:</p>
+<p>Perform a multivariate Cox regression with <em>EZH2</em> copy number
+(gistict), log2-transformed <em>EZH2</em> expression (RNASeq2GeneNorm),
+and nodal status (pathology_N_stage) as predictors:</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/survival/man/coxph.html" class="external-link">coxph</a></span><span class="op">(</span>
     <span class="fu"><a href="https://rdrr.io/pkg/survival/man/Surv.html" class="external-link">Surv</a></span><span class="op">(</span><span class="va">days_to_death</span>, <span class="va">vital_status</span><span class="op">)</span> <span class="op">~</span>
@@ -232,22 +249,33 @@
 <span class="co">## Likelihood ratio test=16.28  on 3 df, p=0.0009942</span>
 <span class="co">## n= 26, number of events= 26 </span>
 <span class="co">##    (66 observations deleted due to missingness)</span></code></pre>
-<p>We see that <em>EZH2</em> expression is significantly associated with overal survival (p &lt; 0.001), but <em>EZH2</em> copy number and nodal status are not. This analysis could easily be extended to the whole genome for discovery of prognostic features by repeated univariate regressions over columns, penalized multivariate regression, etc.</p>
-<p>For further detail, see the main <code>MultiAssayExperiment</code> vignette.</p>
+<p>We see that <em>EZH2</em> expression is significantly associated with
+overal survival (p &lt; 0.001), but <em>EZH2</em> copy number and nodal
+status are not. This analysis could easily be extended to the whole
+genome for discovery of prognostic features by repeated univariate
+regressions over columns, penalized multivariate regression, etc.</p>
+<p>For further detail, see the main <code>MultiAssayExperiment</code>
+vignette.</p>
 </div>
 <div class="section level3">
 <h3 id="correlation-between-rna-seq-and-copy-number">Correlation between RNA-seq and copy number<a class="anchor" aria-label="anchor" href="#correlation-between-rna-seq-and-copy-number"></a>
 </h3>
 <p><strong>Part 1</strong></p>
-<p>For all genes where there is both recurrent copy number (gistict assay) and RNA-seq, calculate the correlation between log2(RNAseq + 1) and copy number. Create a histogram of these correlations. Compare this with the histogram of correlations between all <em>unmatched</em> gene - copy number pairs.</p>
+<p>For all genes where there is both recurrent copy number (gistict
+assay) and RNA-seq, calculate the correlation between log2(RNAseq + 1)
+and copy number. Create a histogram of these correlations. Compare this
+with the histogram of correlations between all <em>unmatched</em> gene -
+copy number pairs.</p>
 <p><strong>Solution</strong></p>
-<p>First, narrow down <code>miniACC</code> to only the assays needed:</p>
+<p>First, narrow down <code>miniACC</code> to only the assays
+needed:</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">subacc</span> <span class="op">&lt;-</span> <span class="va">miniACC</span><span class="op">[</span>, , <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"RNASeq2GeneNorm"</span>, <span class="st">"gistict"</span><span class="op">)</span><span class="op">]</span></code></pre></div>
 <pre><code><span class="co">## Warning: 'experiments' dropped; see 'metadata'</span></code></pre>
 <pre><code><span class="co">## harmonizing input:</span>
 <span class="co">##   removing 216 sampleMap rows not in names(experiments)</span></code></pre>
-<p>Align the rows and columns, keeping only samples with both assays available:</p>
+<p>Align the rows and columns, keeping only samples with both assays
+available:</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">subacc</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html" class="external-link">intersectColumns</a></span><span class="op">(</span><span class="va">subacc</span><span class="op">)</span>
 <span class="va">subacc</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html" class="external-link">intersectRows</a></span><span class="op">(</span><span class="va">subacc</span><span class="op">)</span></code></pre></div>
@@ -260,7 +288,8 @@
 <p>Transpose both, so genes are in columns:</p>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">subacc.list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">subacc.list</span>, <span class="va">t</span><span class="op">)</span></code></pre></div>
-<p>Calculate the correlation between columns in the first matrix and columns in the second matrix:</p>
+<p>Calculate the correlation between columns in the first matrix and
+columns in the second matrix:</p>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">corres</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/cor.html" class="external-link">cor</a></span><span class="op">(</span><span class="va">subacc.list</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>, <span class="va">subacc.list</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></code></pre></div>
 <p>And finally, create the histograms:</p>
@@ -271,14 +300,19 @@
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html" class="external-link">hist</a></span><span class="op">(</span><span class="va">corres</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/lower.tri.html" class="external-link">upper.tri</a></span><span class="op">(</span><span class="va">corres</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></code></pre></div>
 <p><img src="MultiAssayExperiment_Analysis_files/figure-html/unnamed-chunk-14-2.png" width="700"></p>
 <p><strong>Part 2</strong></p>
-<p>For the gene with highest correlation to copy number, make a box plot of log2 expression against copy number.</p>
+<p>For the gene with highest correlation to copy number, make a box plot
+of log2 expression against copy number.</p>
 <p><strong>Solution</strong></p>
-<p>First, identify the gene with highest correlation between expression and copy number:</p>
+<p>First, identify the gene with highest correlation between expression
+and copy number:</p>
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/which.min.html" class="external-link">which.max</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/diag.html" class="external-link">diag</a></span><span class="op">(</span><span class="va">corres</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code><span class="co">## EIF4E </span>
 <span class="co">##    91</span></code></pre>
-<p>You could now make the plot by taking the EIF4E columns from each element of the list subacc.list <em>list</em> that was extracted from the subacc <em>MultiAssayExperiment</em>, but let’s do it by subsetting and extracting from the <em>MultiAssayExperiment</em>:</p>
+<p>You could now make the plot by taking the EIF4E columns from each
+element of the list subacc.list <em>list</em> that was extracted from
+the subacc <em>MultiAssayExperiment</em>, but let’s do it by subsetting
+and extracting from the <em>MultiAssayExperiment</em>:</p>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html" class="external-link">wideFormat</a></span><span class="op">(</span><span class="va">subacc</span><span class="op">[</span><span class="st">"EIF4E"</span>, , <span class="op">]</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></code></pre></div>
@@ -301,7 +335,11 @@
 <div class="section level3">
 <h3 id="identifying-correlated-principal-components">Identifying correlated principal components<a class="anchor" aria-label="anchor" href="#identifying-correlated-principal-components"></a>
 </h3>
-<p>Perform Principal Components Analysis of each of the five assays, using samples available on each assay, log-transforming RNA-seq data first. Using the first 10 components, calculate Pearson correlation between all scores and plot these correlations as a heatmap to identify correlated components across assays.</p>
+<p>Perform Principal Components Analysis of each of the five assays,
+using samples available on each assay, log-transforming RNA-seq data
+first. Using the first 10 components, calculate Pearson correlation
+between all scores and plot these correlations as a heatmap to identify
+correlated components across assays.</p>
 <p><strong>Solution</strong></p>
 <p>Here’s a function to simplify doing the PCAs:</p>
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
@@ -312,7 +350,13 @@
         <span class="va">pc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/prcomp.html" class="external-link">prcomp</a></span><span class="op">(</span><span class="va">x</span>, center<span class="op">=</span><span class="va">center</span>, scale.<span class="op">=</span><span class="va">scale.</span><span class="op">)</span>
         <span class="fu"><a href="https://rdrr.io/r/base/t.html" class="external-link">t</a></span><span class="op">(</span><span class="va">pc</span><span class="op">$</span><span class="va">rotation</span><span class="op">[</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span><span class="op">)</span>
     <span class="op">}</span></code></pre></div>
-<p>Although it would be possible to do the following with a loop, the different data types do require different options for PCA (e.g. mutations are a 0/1 matrix with 1 meaning there is a somatic mutation, and gistict varies between -2 for homozygous loss and 2 for a genome doubling, so neither make sense to scale and center). So it is just as well to do the following one by one, concatenating each PCA results to the MultiAssayExperiment:</p>
+<p>Although it would be possible to do the following with a loop, the
+different data types do require different options for PCA
+(e.g. mutations are a 0/1 matrix with 1 meaning there is a somatic
+mutation, and gistict varies between -2 for homozygous loss and 2 for a
+genome doubling, so neither make sense to scale and center). So it is
+just as well to do the following one by one, concatenating each PCA
+results to the MultiAssayExperiment:</p>
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">miniACC2</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html" class="external-link">intersectColumns</a></span><span class="op">(</span><span class="va">miniACC</span><span class="op">)</span>
 <span class="va">miniACC2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">miniACC2</span>,
@@ -343,27 +387,36 @@
 <span class="co">##  [3] proteinPCA: matrix with 10 rows and 43 columns</span>
 <span class="co">##  [4] mutationsPCA: matrix with 10 rows and 43 columns</span>
 <span class="co">##  [5] miRNAPCA: matrix with 10 rows and 43 columns</span></code></pre>
-<p>Note, it would be equally easy (and maybe better) to do PCA on all samples available for each assay, then do intersectColumns at this point instead.</p>
-<p>Now, steps for calculating the correlations and plotting a heatmap:</p>
+<p>Note, it would be equally easy (and maybe better) to do PCA on all
+samples available for each assay, then do intersectColumns at this point
+instead.</p>
+<p>Now, steps for calculating the correlations and plotting a
+heatmap:</p>
 <ul>
-<li>Use <em>wideFormat</em> to paste these together, which has the nice property of adding assay names to the column names.</li>
-<li>The first column always contains the sample identifier, so remove it.</li>
+<li>Use <em>wideFormat</em> to paste these together, which has the nice
+property of adding assay names to the column names.</li>
+<li>The first column always contains the sample identifier, so remove
+it.</li>
 <li>Coerce to a matrix</li>
-<li>Calculate the correlations, and take the absolute value (since signs of principal components are arbitrary)</li>
-<li>Set the diagonals to NA (each variable has a correlation of 1 to itself).</li>
+<li>Calculate the correlations, and take the absolute value (since signs
+of principal components are arbitrary)</li>
+<li>Set the diagonals to NA (each variable has a correlation of 1 to
+itself).</li>
 </ul>
 <div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html" class="external-link">wideFormat</a></span><span class="op">(</span><span class="va">miniACC2</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fl">1</span><span class="op">]</span>
 <span class="va">mycors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/cor.html" class="external-link">cor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">as.matrix</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span><span class="op">)</span>
 <span class="va">mycors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">abs</a></span><span class="op">(</span><span class="va">mycors</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/diag.html" class="external-link">diag</a></span><span class="op">(</span><span class="va">mycors</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="cn">NA</span></code></pre></div>
-<p>To simplify the heatmap, show only components that have at least one correlation greater than 0.5.</p>
+<p>To simplify the heatmap, show only components that have at least one
+correlation greater than 0.5.</p>
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">has.high.cor</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/apply.html" class="external-link">apply</a></span><span class="op">(</span><span class="va">mycors</span>, <span class="fl">2</span>, <span class="va">max</span>, na.rm<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">0.5</span>
 <span class="va">mycors</span> <span class="op">&lt;-</span> <span class="va">mycors</span><span class="op">[</span><span class="va">has.high.cor</span>, <span class="va">has.high.cor</span><span class="op">]</span>
 <span class="fu"><a href="https://rdrr.io/pkg/pheatmap/man/pheatmap.html" class="external-link">pheatmap</a></span><span class="op">(</span><span class="va">mycors</span><span class="op">)</span></code></pre></div>
 <p><img src="MultiAssayExperiment_Analysis_files/figure-html/unnamed-chunk-22-1.png" width="700"></p>
-<p>The highest correlation present is between PC2 of the RNA-seq assay, and PC1 of the protein assay.</p>
+<p>The highest correlation present is between PC2 of the RNA-seq assay,
+and PC1 of the protein assay.</p>
 </div>
 </div>
   </div>
@@ -385,7 +438,8 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a>
+2.0.2.</p>
 </div>
 
       </footer>

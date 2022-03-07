@@ -43,7 +43,7 @@
   <a href="../articles/Ramos_MultiAssayExperiment.html">Workshop</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Tutorial
      
     <span class="caret"></span>
@@ -58,7 +58,7 @@
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Reference
      
     <span class="caret"></span>
@@ -96,14 +96,20 @@
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1 data-toc-skip>MultiAssayExperiment: Integrative workflow for public multi-omics data</h1>
-                        <h4 data-toc-skip class="author">Marcel Ramos</h4>
+      <h1 data-toc-skip>MultiAssayExperiment: Integrative workflow for
+public multi-omics data</h1>
+                        <h4 data-toc-skip class="author">Marcel
+Ramos</h4>
             <address class="author_afil">
-      Roswell Park Comprehensive Cancer Center, Buffalo, NY<br><h4 data-toc-skip class="author">Ludwig Geistlinger</h4>
+      Roswell Park Comprehensive Cancer Center, Buffalo,
+NY<br><h4 data-toc-skip class="author">Ludwig
+Geistlinger</h4>
             <address class="author_afil">
-      CUNY School of Public Health, New York, NY<br><h4 data-toc-skip class="author">Levi Waldron</h4>
+      CUNY School of Public Health, New York,
+NY<br><h4 data-toc-skip class="author">Levi
+Waldron</h4>
             <address class="author_afil">
-      CUNY School of Public Health, New York, NY<br><h4 data-toc-skip class="date">January 28, 2022</h4>
+      CUNY School of Public Health, New York, NY<br><h4 data-toc-skip class="date">March 07, 2022</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/waldronlab/MultiAssayWorkshop/blob/HEAD/vignettes/Ramos_MultiAssayExperiment.Rmd" class="external-link"><code>vignettes/Ramos_MultiAssayExperiment.Rmd</code></a></small>
       <div class="hidden name"><code>Ramos_MultiAssayExperiment.Rmd</code></div>
@@ -130,7 +136,8 @@
 }
 </style>
 <div class="section level2">
-<h2 id="multi-omic-integration-and-analysis-of-cbioportal-and-tcga-data-with-multiassayexperiment">Multi-omic Integration and Analysis of cBioPortal and TCGA data with MultiAssayExperiment<a class="anchor" aria-label="anchor" href="#multi-omic-integration-and-analysis-of-cbioportal-and-tcga-data-with-multiassayexperiment"></a>
+<h2 id="multi-omic-integration-and-analysis-of-cbioportal-and-tcga-data-with-multiassayexperiment">Multi-omic Integration and Analysis of cBioPortal and TCGA data with
+MultiAssayExperiment<a class="anchor" aria-label="anchor" href="#multi-omic-integration-and-analysis-of-cbioportal-and-tcga-data-with-multiassayexperiment"></a>
 </h2>
 <div class="section level3">
 <h3 id="workshop-participation">Workshop participation<a class="anchor" aria-label="anchor" href="#workshop-participation"></a>
@@ -138,7 +145,8 @@
 <ul>
 <li>See the instruction <a href="https://tinyurl.com/MultiAssayWorkshop" class="external-link">Google slides</a>
 </li>
-<li>Go to the conference instance registration webpage and use these credentials:
+<li>Go to the conference instance registration webpage and use these
+credentials:
 <ul>
 <li>username: <code>rstudio</code>
 </li>
@@ -146,7 +154,8 @@
 </li>
 </ul>
 </li>
-<li>Browse to the <a href="https://waldronlab.io/MultiAssayWorkshop/">workshop website</a>
+<li>Browse to the <a href="https://waldronlab.io/MultiAssayWorkshop/">workshop
+website</a>
 </li>
 <li>(Alternatively) Docker users can run this workshop locally via:</li>
 </ul>
@@ -155,7 +164,10 @@
 <div class="section level3">
 <h3 id="requirements-rbioconductor-packages">Requirements: R/Bioconductor packages<a class="anchor" aria-label="anchor" href="#requirements-rbioconductor-packages"></a>
 </h3>
-<p>The workshop uses a Docker container with Bioconductor devel version <code>3.14</code>. If you would like to install Bioconductor on your computer <strong>at a later date</strong>, see the <a href="https://www.bioconductor.org/install" class="external-link">Bioconductor installation</a> instructions.</p>
+<p>The workshop uses a Docker container with Bioconductor devel version
+<code>3.14</code>. If you would like to install Bioconductor on your
+computer <strong>at a later date</strong>, see the <a href="https://www.bioconductor.org/install" class="external-link">Bioconductor
+installation</a> instructions.</p>
 <p>Here is a list of packages that we will be using:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://waldronlab.io/MultiAssayExperiment/" class="external-link">MultiAssayExperiment</a></span><span class="op">)</span>
@@ -168,7 +180,11 @@
 <div class="section level4">
 <h4 id="citing-multiassayexperiment">Citing MultiAssayExperiment<a class="anchor" aria-label="anchor" href="#citing-multiassayexperiment"></a>
 </h4>
-<p>Please use these citations <span class="citation">(Ramos et al. 2017)</span> and <span class="citation">(Ramos et al. 2020)</span> when using <code>MultiAssayExperiment</code>, <code>curatedTCGAData</code>, or <code>cBioPortalData</code>. Your citations are very much appreciated!</p>
+<p>Please use these citations <span class="citation">(Ramos et al.
+2017)</span> and <span class="citation">(Ramos et al. 2020)</span> when
+using <code>MultiAssayExperiment</code>, <code>curatedTCGAData</code>,
+or <code>cBioPortalData</code>. Your citations are very much
+appreciated!</p>
 </div>
 <div class="section level4">
 <h4 id="overview-of-packages">Overview of Packages<a class="anchor" aria-label="anchor" href="#overview-of-packages"></a>
@@ -189,7 +205,8 @@
 </tr>
 <tr class="even">
 <td>curatedTCGAData</td>
-<td>Downloads TCGA data from ExperimentHub in MultiAssayExperiment form</td>
+<td>Downloads TCGA data from ExperimentHub in MultiAssayExperiment
+form</td>
 </tr>
 <tr class="odd">
 <td>cBioPortalData</td>
@@ -215,8 +232,11 @@
 </h5>
 <ul>
 <li>provides an integrative representation for multi-omics data</li>
-<li>modelled after the <code>SummarizedExperiment</code> representation for expression data</li>
-<li>easy-to-use operations for manipulating multiple sets of data such as copy number alterations, mutations, proteomics, methylation, and more</li>
+<li>modelled after the <code>SummarizedExperiment</code> representation
+for expression data</li>
+<li>easy-to-use operations for manipulating multiple sets of data such
+as copy number alterations, mutations, proteomics, methylation, and
+more</li>
 </ul>
 <div class="figure">
 <img src="MultiAssayExperiment.png" alt="MultiAssayExperiment object schematic" width="\maxwidth"><p class="caption">
@@ -233,7 +253,8 @@ MultiAssayExperiment object schematic
 <li>makes use of the revamped API with caching</li>
 <li>queries are handled for the user <em>in the background</em>
 </li>
-<li>easy-to-use interface (no knowledge of the cBioPortal data model required)</li>
+<li>easy-to-use interface (no knowledge of the cBioPortal data model
+required)</li>
 <li>see <code><a href="https://rdrr.io/pkg/cBioPortalData/man/cBioPortal.html" class="external-link">getStudies()</a></code> for a list of available studies</li>
 </ul>
 </div>
@@ -242,9 +263,14 @@ MultiAssayExperiment object schematic
 <code>curatedTCGAData</code><a class="anchor" aria-label="anchor" href="#curatedtcgadata"></a>
 </h5>
 <ul>
-<li>Many tools exist for accessing and downloading <a href="https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga" class="external-link">The Cancer Genome Atlas</a> data: <code>RTCGAToolbox</code>, <code>GenomicDataCommons</code>, <code>TCGAbiolinks</code>, <code>cBioPortal</code> website, Broad GDAC Firehose, and more</li>
-<li>makes it easy to obtain user-friendly and integrative data at very little cognitive overhead</li>
-<li>conveniently places data in the analysis platform of choice, R/Bioconductor</li>
+<li>Many tools exist for accessing and downloading <a href="https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga" class="external-link">The
+Cancer Genome Atlas</a> data: <code>RTCGAToolbox</code>,
+<code>GenomicDataCommons</code>, <code>TCGAbiolinks</code>,
+<code>cBioPortal</code> website, Broad GDAC Firehose, and more</li>
+<li>makes it easy to obtain user-friendly and integrative data at very
+little cognitive overhead</li>
+<li>conveniently places data in the analysis platform of choice,
+R/Bioconductor</li>
 <li>provides 33 different cancer types from the <a href="https://gdac.broadinstitute.org" class="external-link">Broad GDAC Firehose</a>
 <ul>
 <li>On-the-fly construction from ‘flat’ files</li>
@@ -255,10 +281,15 @@ MultiAssayExperiment object schematic
 </ul>
 </li>
 </ul>
-<p><a href="articles/curatedTCGAData_ref.html">Reference vignettes</a>:</p>
+<p><a href="articles/curatedTCGAData_ref.html">Reference
+vignettes</a>:</p>
 <ul>
-<li><p><code>Available Studies</code> – (curatedTCGAData section) A list of available cancer studies from <code><a href="https://rdrr.io/pkg/TCGAutils/man/diseaseCodes.html" class="external-link">TCGAutils::diseaseCodes</a></code>.</p></li>
-<li><p><code>OmicsTypes</code> – A descriptive table of ’omics types in <code>curatedTCGAData</code> (thanks to Ludwig G. <code>@lgeistlinger</code>)</p></li>
+<li><p><code>Available Studies</code> – (curatedTCGAData section) A list
+of available cancer studies from
+<code><a href="https://rdrr.io/pkg/TCGAutils/man/diseaseCodes.html" class="external-link">TCGAutils::diseaseCodes</a></code>.</p></li>
+<li><p><code>OmicsTypes</code> – A descriptive table of ’omics types in
+<code>curatedTCGAData</code> (thanks to Ludwig G.
+<code>@lgeistlinger</code>)</p></li>
 </ul>
 </div>
 <div class="section level5">
@@ -266,8 +297,12 @@ MultiAssayExperiment object schematic
 <code>SingleCellMultiModal</code><a class="anchor" aria-label="anchor" href="#singlecellmultimodal"></a>
 </h5>
 <ul>
-<li>Serves multi-modal datasets from GEO and other sources as <code>MultiAssayExperiment</code> data representations. Some representations are out of memory using the <code>HDF5</code> format as well as the <code>MTX</code> format.</li>
-<li>Available technologies are scNMT, 10X Multiome, seqFISH, (EC)CITEseq, SCoPE2 and others.</li>
+<li>Serves multi-modal datasets from GEO and other sources as
+<code>MultiAssayExperiment</code> data representations. Some
+representations are out of memory using the <code>HDF5</code> format as
+well as the <code>MTX</code> format.</li>
+<li>Available technologies are scNMT, 10X Multiome, seqFISH,
+(EC)CITEseq, SCoPE2 and others.</li>
 </ul>
 </div>
 <div class="section level5">
@@ -275,9 +310,12 @@ MultiAssayExperiment object schematic
 <code>TCGAutils</code><a class="anchor" aria-label="anchor" href="#tcgautils"></a>
 </h5>
 <ul>
-<li>allows additional exploration, and manipulation of samples and metadata</li>
-<li>User-friendly operations for subsetting, separating, converting, and reshaping of sample and feature TCGA data</li>
-<li>developed specifically for TCGA data and <code>curatedTCGAData</code> outputs</li>
+<li>allows additional exploration, and manipulation of samples and
+metadata</li>
+<li>User-friendly operations for subsetting, separating, converting, and
+reshaping of sample and feature TCGA data</li>
+<li>developed specifically for TCGA data and
+<code>curatedTCGAData</code> outputs</li>
 </ul>
 <p>It provides convenience / helper functions in three major areas:</p>
 <ol style="list-style-type: decimal">
@@ -286,7 +324,8 @@ MultiAssayExperiment object schematic
 <li>translation and interpretation of TCGA identifiers</li>
 </ol>
 <p>For the cheatsheet reference table, see the <a href="articles/TCGAutilsCheatsheet.html">TCGAutils Cheatsheet</a>.</p>
-<p>To better understand how it all fits together, this schematic shows the relationship among all as part of the curatedTCGAData pipeline.</p>
+<p>To better understand how it all fits together, this schematic shows
+the relationship among all as part of the curatedTCGAData pipeline.</p>
 <div class="figure">
 <img src="TCGAMAEPipeline20190204.png" alt="Schematic of curatedTCGAData Pipeline" width="100%"><p class="caption">
 Schematic of curatedTCGAData Pipeline
@@ -297,29 +336,40 @@ Schematic of curatedTCGAData Pipeline
 <div class="section level4">
 <h4 id="data-classes">Data Classes<a class="anchor" aria-label="anchor" href="#data-classes"></a>
 </h4>
-<p>This section summarizes three fundamental data classes for the representation of multi-omics experiments.</p>
+<p>This section summarizes three fundamental data classes for the
+representation of multi-omics experiments.</p>
 <div class="section level5">
 <h5 id="rangedsummarizedexperiment">
 <code>(Ranged)SummarizedExperiment</code><a class="anchor" aria-label="anchor" href="#rangedsummarizedexperiment"></a>
 </h5>
 <div class="figure">
 <img src="SummarizedExperiment.png" alt="A matrix-like container where rows represent features of interest and columns represent samples. The objects contain one or more assays, each represented by a matrix-like object of numeric or other mode." width="100%"><p class="caption">
-A matrix-like container where rows represent features of interest and columns represent samples. The objects contain one or more assays, each represented by a matrix-like object of numeric or other mode.
+A matrix-like container where rows represent features of interest and
+columns represent samples. The objects contain one or more assays, each
+represented by a matrix-like object of numeric or other mode.
 </p>
 </div>
 <ul>
-<li>matrix-like representation of experimental data including RNA sequencing and microarray experiments.</li>
-<li>stores multiple experimental data matrices of identical dimensions, with associated metadata on:
+<li>matrix-like representation of experimental data including RNA
+sequencing and microarray experiments.</li>
+<li>stores multiple experimental data matrices of identical dimensions,
+with associated metadata on:
 <ul>
-<li>the rows/genes/transcripts/other measurements (<code>rowData</code>)</li>
+<li>the rows/genes/transcripts/other measurements
+(<code>rowData</code>)</li>
 <li>column/sample phenotype or clinical data (<code>colData</code>)</li>
 <li>overall experiment (<code>metadata</code>).</li>
 </ul>
 </li>
 <li>
-<code>RangedSummarizedExperiment</code> associates a <code>GRanges</code> or <code>GRangesList</code> vector with the rows</li>
+<code>RangedSummarizedExperiment</code> associates a
+<code>GRanges</code> or <code>GRangesList</code> vector with the
+rows</li>
 </ul>
-<p><em>Note</em>. Many other classes for experimental data are actually derived from <code>SummarizedExperiment</code> (e.g., <code>SingleCellExperiment</code> for single-cell RNA sequencing experiments)</p>
+<p><em>Note</em>. Many other classes for experimental data are actually
+derived from <code>SummarizedExperiment</code> (e.g.,
+<code>SingleCellExperiment</code> for single-cell RNA sequencing
+experiments)</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">SingleCellExperiment</span><span class="op">)</span>
 <span class="fu">extends</span><span class="op">(</span><span class="st">"SingleCellExperiment"</span><span class="op">)</span></code></pre></div>
@@ -333,10 +383,14 @@ A matrix-like container where rows represent features of interest and columns re
 <code>RaggedExperiment</code><a class="anchor" aria-label="anchor" href="#raggedexperiment"></a>
 </h5>
 <ul>
-<li>flexible representation for segmented copy number, somatic mutations such as represented in <code>.vcf</code> files, and other ragged array schema for genomic location data.</li>
-<li>similar to the <code>GRangesList</code> class in <code>GenomicRanges</code>
+<li>flexible representation for segmented copy number, somatic mutations
+such as represented in <code>.vcf</code> files, and other ragged array
+schema for genomic location data.</li>
+<li>similar to the <code>GRangesList</code> class in
+<code>GenomicRanges</code>
 </li>
-<li>used to represent <em>differing</em> genomic ranges on each of a set of samples</li>
+<li>used to represent <em>differing</em> genomic ranges on each of a set
+of samples</li>
 </ul>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">showClass</span><span class="op">(</span><span class="st">"RaggedExperiment"</span><span class="op">)</span></code></pre></div>
@@ -348,10 +402,14 @@ A matrix-like container where rows represent features of interest and columns re
 <span class="co">## Class: GRangesList     integer     integer        list</span>
 <span class="co">## </span>
 <span class="co">## Extends: "Annotated"</span></code></pre>
-<p><code>RaggedExperiment</code> provides a flexible set of _*Assay_ methods to support transformation of ranged list data to matrix format.</p>
+<p><code>RaggedExperiment</code> provides a flexible set of _*Assay_
+methods to support transformation of ranged list data to matrix
+format.</p>
 <div class="figure">
 <img src="RaggedExperiment_Schematic.png" alt="RaggedExperiment object schematic. Rows and columns represent genomic ranges and samples, respectively. Assay operations can be performed with (from left to right) compactAssay, qreduceAssay, and sparseAssay." width="\maxwidth"><p class="caption">
-RaggedExperiment object schematic. Rows and columns represent genomic ranges and samples, respectively. Assay operations can be performed with (from left to right) compactAssay, qreduceAssay, and sparseAssay.
+RaggedExperiment object schematic. Rows and columns represent genomic
+ranges and samples, respectively. Assay operations can be performed with
+(from left to right) compactAssay, qreduceAssay, and sparseAssay.
 </p>
 </div>
 </div>
@@ -362,7 +420,17 @@ RaggedExperiment object schematic. Rows and columns represent genomic ranges and
 </h3>
 <div class="figure">
 <img src="MultiAssayExperiment.png" alt="MultiAssayExperiment object schematic. colData provides data about the patients, cell lines, or other biological units, with one row per unit and one column per variable. The experiments are a list of assay datasets of arbitrary class.  The sampleMap relates each column (observation) in ExperimentList to exactly one row (biological unit) in colData; however, one row of colData may map to zero, one, or more columns per assay, allowing for missing and replicate assays. sampleMap allows for per-assay sample naming conventions. Metadata can be used to store information in arbitrary format about the MultiAssayExperiment. Green stripes indicate a mapping of one subject to multiple observations across experiments." width="\maxwidth"><p class="caption">
-MultiAssayExperiment object schematic. colData provides data about the patients, cell lines, or other biological units, with one row per unit and one column per variable. The experiments are a list of assay datasets of arbitrary class. The sampleMap relates each column (observation) in ExperimentList to exactly one row (biological unit) in colData; however, one row of colData may map to zero, one, or more columns per assay, allowing for missing and replicate assays. sampleMap allows for per-assay sample naming conventions. Metadata can be used to store information in arbitrary format about the MultiAssayExperiment. Green stripes indicate a mapping of one subject to multiple observations across experiments.
+MultiAssayExperiment object schematic. colData provides data about the
+patients, cell lines, or other biological units, with one row per unit
+and one column per variable. The experiments are a list of assay
+datasets of arbitrary class. The sampleMap relates each column
+(observation) in ExperimentList to exactly one row (biological unit) in
+colData; however, one row of colData may map to zero, one, or more
+columns per assay, allowing for missing and replicate assays. sampleMap
+allows for per-assay sample naming conventions. Metadata can be used to
+store information in arbitrary format about the MultiAssayExperiment.
+Green stripes indicate a mapping of one subject to multiple observations
+across experiments.
 </p>
 </div>
 <div class="section level4">
@@ -370,29 +438,51 @@ MultiAssayExperiment object schematic. colData provides data about the patients,
 <code>MultiAssayExperiment</code><a class="anchor" aria-label="anchor" href="#multiassayexperiment-1"></a>
 </h4>
 <ul>
-<li>coordinates multi-omics experiment data on a set of biological specimens</li>
-<li>can contain any number of assays with different representations and <em>dimensions</em>
+<li>coordinates multi-omics experiment data on a set of biological
+specimens</li>
+<li>can contain any number of assays with different representations and
+<em>dimensions</em>
 </li>
-<li>assays can be <em>ID-based</em>, where measurements are indexed identifiers of genes, microRNA, proteins, microbes, etc.</li>
-<li>assays may be <em>range-based</em>, where measurements correspond to genomic ranges that can be represented as <code>GRanges</code> objects, such as gene expression or copy number.</li>
+<li>assays can be <em>ID-based</em>, where measurements are indexed
+identifiers of genes, microRNA, proteins, microbes, etc.</li>
+<li>assays may be <em>range-based</em>, where measurements correspond to
+genomic ranges that can be represented as <code>GRanges</code> objects,
+such as gene expression or copy number.</li>
 </ul>
-<details><summary><strong>Click</strong> on the fold to see what data classes are supported!
+<details><summary><strong>Click</strong> on the fold to see what data classes are
+supported!
 </summary><ol style="list-style-type: decimal">
 <li>
-<code>matrix</code>: the most basic class for ID-based datasets, could be used for example for gene expression summarized per-gene, microRNA, metabolomics, or microbiome data.</li>
+<code>matrix</code>: the most basic class for ID-based datasets,
+could be used for example for gene expression summarized per-gene,
+microRNA, metabolomics, or microbiome data.</li>
 <li>
-<code>SummarizedExperiment</code> and derived methods: described above, could be used for miRNA, gene expression, proteomics, or any matrix-like data where measurements are represented by IDs.</li>
+<code>SummarizedExperiment</code> and derived methods: described
+above, could be used for miRNA, gene expression, proteomics, or any
+matrix-like data where measurements are represented by IDs.</li>
 <li>
-<code>RangedSummarizedExperiment</code>: described above, could be used for gene expression, methylation, or other data types referring to genomic positions.</li>
+<code>RangedSummarizedExperiment</code>: described above, could be
+used for gene expression, methylation, or other data types referring to
+genomic positions.</li>
 <li>
-<code>ExpressionSet</code>: Another rich representation for ID-based datasets, supported only for legacy reasons</li>
+<code>ExpressionSet</code>: Another rich representation for ID-based
+datasets, supported only for legacy reasons</li>
 <li>
-<code>RaggedExperiment</code>: described above, for non-rectangular (ragged) ranged-based datasets such as segmented copy number, where segmentation of copy number alterations occurs and different genomic locations in each sample.</li>
+<code>RaggedExperiment</code>: described above, for non-rectangular
+(ragged) ranged-based datasets such as segmented copy number, where
+segmentation of copy number alterations occurs and different genomic
+locations in each sample.</li>
 <li>
-<code>RangedVcfStack</code>: For VCF archives broken up by chromosome (see <code>VcfStack</code> class defined in the <code>GenomicFiles</code> package)</li>
+<code>RangedVcfStack</code>: For VCF archives broken up by
+chromosome (see <code>VcfStack</code> class defined in the
+<code>GenomicFiles</code> package)</li>
 <li>
-<code>DelayedMatrix</code>: An on-disk representation of matrix-like objects for large datasets. It reduces memory usage and optimizes performance with delayed operations. This class is part of the <code>DelayedArray</code> package.</li>
-</ol></details><p><em>Note</em>. Data classes that support row and column naming and subsetting may be used in a <code>MultiAssayExperiment</code>.</p>
+<code>DelayedMatrix</code>: An on-disk representation of matrix-like
+objects for large datasets. It reduces memory usage and optimizes
+performance with delayed operations. This class is part of the
+<code>DelayedArray</code> package.</li>
+</ol></details><p><em>Note</em>. Data classes that support row and column naming and
+subsetting may be used in a <code>MultiAssayExperiment</code>.</p>
 </div>
 <div class="section level4">
 <h4 id="matchedassayexperiment">
@@ -409,14 +499,19 @@ MultiAssayExperiment object schematic. colData provides data about the patients,
 
 <span class="co"># construction from MAE</span>
 <span class="fu"><a href="http://waldronlab.io/MultiAssayExperiment/reference/MatchedAssayExperiment-class.html" class="external-link">MatchedAssayExperiment</a></span><span class="op">(</span><span class="va">mae</span><span class="op">)</span></code></pre></div>
-<p><em>Note</em>. The <code>MultiAssayExperiment</code> package provides functionality to merge replicate profiles for a single patient (<code><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html" class="external-link">mergeReplicates()</a></code>).</p>
+<p><em>Note</em>. The <code>MultiAssayExperiment</code> package provides
+functionality to merge replicate profiles for a single patient
+(<code><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html" class="external-link">mergeReplicates()</a></code>).</p>
 <div class="infobox">
 <p><strong>Key points</strong></p>
 <ul>
 <li>
-<code>MultiAssayExperiment</code> coordinates different Bioconductor classes into one unified object</li>
+<code>MultiAssayExperiment</code> coordinates different Bioconductor
+classes into one unified object</li>
 <li>
-<code>MultiAssayExperiment</code> is an infrastructure package while <code>curatedTCGAData</code> and <code>cBioPortalData</code> provide data on cancer studies including TCGA</li>
+<code>MultiAssayExperiment</code> is an infrastructure package while
+<code>curatedTCGAData</code> and <code>cBioPortalData</code> provide
+data on cancer studies including TCGA</li>
 </ul>
 </div>
 </div>
@@ -428,18 +523,25 @@ MultiAssayExperiment object schematic. colData provides data about the patients,
 <h4 id="miniacc-demo">
 <code>miniACC</code> Demo<a class="anchor" aria-label="anchor" href="#miniacc-demo"></a>
 </h4>
-<p>Get started by trying out <code>MultiAssayExperiment</code> using a subset of the TCGA adrenocortical carcinoma (ACC) dataset provided with the package. This dataset provides five assays on 92 patients, although all five assays were not performed for every patient:</p>
+<p>Get started by trying out <code>MultiAssayExperiment</code> using a
+subset of the TCGA adrenocortical carcinoma (ACC) dataset provided with
+the package. This dataset provides five assays on 92 patients, although
+all five assays were not performed for every patient:</p>
 <ol style="list-style-type: decimal">
 <li>
-<strong>RNASeq2GeneNorm</strong>: gene mRNA abundance by RNA-seq</li>
+<strong>RNASeq2GeneNorm</strong>: gene mRNA abundance by
+RNA-seq</li>
 <li>
 <strong>gistict</strong>: GISTIC genomic copy number by gene</li>
 <li>
-<strong>RPPAArray</strong>: protein abundance by Reverse Phase Protein Array</li>
+<strong>RPPAArray</strong>: protein abundance by Reverse Phase
+Protein Array</li>
 <li>
-<strong>Mutations</strong>: non-silent somatic mutations by gene</li>
+<strong>Mutations</strong>: non-silent somatic mutations by
+gene</li>
 <li>
-<strong>miRNASeqGene</strong>: microRNA abundance by microRNA-seq.</li>
+<strong>miRNASeqGene</strong>: microRNA abundance by
+microRNA-seq.</li>
 </ol>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"miniACC"</span><span class="op">)</span>
@@ -465,12 +567,16 @@ MultiAssayExperiment object schematic. colData provides data about the patients,
 <h4 id="shiny-demo">
 <code>shiny</code> Demo<a class="anchor" aria-label="anchor" href="#shiny-demo"></a>
 </h4>
-<p><a href="../tutorials/Exercise_MultiAssay.html">Click Here</a> to open the <code>shiny</code> tutorial.</p>
+<p><a href="../tutorials/Exercise_MultiAssay.html">Click Here</a> to
+open the <code>shiny</code> tutorial.</p>
 <div class="infobox">
 <p><strong>Key points</strong></p>
 <ul>
-<li>Extractor functions allow users to take components from the <code>MultiAssayExperiment</code> object</li>
-<li>They’re usually the same name as the component except for <code>experiments</code> which extracts the <code>ExperimentList</code>
+<li>Extractor functions allow users to take components from the
+<code>MultiAssayExperiment</code> object</li>
+<li>They’re usually the same name as the component except for
+<code>experiments</code> which extracts the
+<code>ExperimentList</code>
 </li>
 </ul>
 </div>
@@ -484,7 +590,9 @@ MultiAssayExperiment object schematic. colData provides data about the patients,
 </h4>
 <div class="figure">
 <img src="MultiAssayExperiment_cheatsheet.png" alt="The MultiAssayExperiment API for construction, access, subsetting, management, and reshaping to formats for application of R/Bioconductor graphics and analysis packages." width="\maxwidth"><p class="caption">
-The MultiAssayExperiment API for construction, access, subsetting, management, and reshaping to formats for application of R/Bioconductor graphics and analysis packages.
+The MultiAssayExperiment API for construction, access, subsetting,
+management, and reshaping to formats for application of R/Bioconductor
+graphics and analysis packages.
 </p>
 </div>
 </div>
@@ -494,14 +602,19 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <div class="section level5">
 <h5 id="constructor-function">constructor function<a class="anchor" aria-label="anchor" href="#constructor-function"></a>
 </h5>
-<p>The <code>MultiAssayExperiment</code> constructor function accepts three arguments:</p>
+<p>The <code>MultiAssayExperiment</code> constructor function accepts
+three arguments:</p>
 <ol style="list-style-type: decimal">
 <li>
-<code>experiments</code> - An <code>ExperimentList</code> or <code>list</code> of rectangular data</li>
+<code>experiments</code> - An <code>ExperimentList</code> or
+<code>list</code> of rectangular data</li>
 <li>
-<code>colData</code> - A <code>DataFrame</code> describing the patients (or cell lines, or other biological units)</li>
+<code>colData</code> - A <code>DataFrame</code> describing the
+patients (or cell lines, or other biological units)</li>
 <li>
-<code>sampleMap</code> - A <code>DataFrame</code> of <code>assay</code>, <code>primary</code>, and <code>colname</code> identifiers</li>
+<code>sampleMap</code> - A <code>DataFrame</code> of
+<code>assay</code>, <code>primary</code>, and <code>colname</code>
+identifiers</li>
 </ol>
 <p>The miniACC object can be reconstructed as follows:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
@@ -531,12 +644,24 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <div class="section level5">
 <h5 id="getting-help-with-prepmultiassay">Getting help with <code>prepMultiAssay</code><a class="anchor" aria-label="anchor" href="#getting-help-with-prepmultiassay"></a>
 </h5>
-<p>The <code>prepMultiAssay</code> function allows the user to diagnose typical problems when creating a <code>MultiAssayExperiment</code> object. See <code><a href="http://waldronlab.io/MultiAssayExperiment/reference/prepMultiAssay.html" class="external-link">?prepMultiAssay</a></code> for more details.</p>
+<p>The <code>prepMultiAssay</code> function allows the user to diagnose
+typical problems when creating a <code>MultiAssayExperiment</code>
+object. See <code><a href="http://waldronlab.io/MultiAssayExperiment/reference/prepMultiAssay.html" class="external-link">?prepMultiAssay</a></code> for more details.</p>
 </div>
 <div class="section level5">
-<h5 id="combining-multiassayexperiment-object-with-the-c-function">Combining MultiAssayExperiment object with the <code>c</code> function<a class="anchor" aria-label="anchor" href="#combining-multiassayexperiment-object-with-the-c-function"></a>
+<h5 id="combining-multiassayexperiment-object-with-the-c-function">Combining MultiAssayExperiment object with the <code>c</code>
+function<a class="anchor" aria-label="anchor" href="#combining-multiassayexperiment-object-with-the-c-function"></a>
 </h5>
-<p>The <code>c</code> function allows the user to concatenate an additional experiment to an existing <code>MultiAssayExperiment</code>. The optional <code>sampleMap</code> argument allows concatenating an assay whose column names do not match the row names of <code>colData</code>. For convenience, the <em>mapFrom</em> argument allows the user to map from a particular experiment <strong>provided</strong> that the <strong>order</strong> of the colnames is in the <strong>same</strong>. A <code>warning</code> will be issued to make the user aware of this assumption. For example, to concatenate a matrix of log2-transformed RNA-seq results:</p>
+<p>The <code>c</code> function allows the user to concatenate an
+additional experiment to an existing <code>MultiAssayExperiment</code>.
+The optional <code>sampleMap</code> argument allows concatenating an
+assay whose column names do not match the row names of
+<code>colData</code>. For convenience, the <em>mapFrom</em> argument
+allows the user to map from a particular experiment
+<strong>provided</strong> that the <strong>order</strong> of the
+colnames is in the <strong>same</strong>. A <code>warning</code> will be
+issued to make the user aware of this assumption. For example, to
+concatenate a matrix of log2-transformed RNA-seq results:</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">miniACC2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>
     <span class="va">miniACC</span>,
@@ -559,7 +684,13 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <div class="section level4">
 <h4 id="coldata---information-biological-units">colData - information biological units<a class="anchor" aria-label="anchor" href="#coldata---information-biological-units"></a>
 </h4>
-<p>This slot is a <code>DataFrame</code> describing the characteristics of biological units, for example clinical data for patients. In the prepared datasets from <a href="https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga" class="external-link">The Cancer Genome Atlas</a>, each row is one patient and each column is a clinical, pathological, subtype, or other variable. The <code>$</code> function provides a shortcut for accessing or setting <code>colData</code> columns.</p>
+<p>This slot is a <code>DataFrame</code> describing the characteristics
+of biological units, for example clinical data for patients. In the
+prepared datasets from <a href="https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga" class="external-link">The
+Cancer Genome Atlas</a>, each row is one patient and each column is a
+clinical, pathological, subtype, or other variable. The <code>$</code>
+function provides a shortcut for accessing or setting
+<code>colData</code> columns.</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/SummarizedExperiment/man/SummarizedExperiment-class.html" class="external-link">colData</a></span><span class="op">(</span><span class="va">miniACC</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span></code></pre></div>
 <pre><code><span class="co">## DataFrame with 4 rows and 4 columns</span>
@@ -574,8 +705,15 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <pre><code><span class="co">## </span>
 <span class="co">##                     asian black or african american                     white </span>
 <span class="co">##                         2                         1                        78</span></code></pre>
-<p>Note. <code>MultiAssayExperiment</code> supports both missing observations and replicate observations, i.e., one row of <code>colData</code> can map to 0, 1, or more columns of any of the experimental data matrices. One could therefore treat replicate observations as one or multiple rows of <code>colData</code>. This can result in different subsetting, <code><a href="https://rdrr.io/r/base/duplicated.html" class="external-link">duplicated()</a></code>, and <code><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html" class="external-link">wideFormat()</a></code> behaviors.</p>
-<p>Note. Multiple time points, or distinct biological replicates, can be separate rows of the <code>colData</code>.</p>
+<p>Note. <code>MultiAssayExperiment</code> supports both missing
+observations and replicate observations, i.e., one row of
+<code>colData</code> can map to 0, 1, or more columns of any of the
+experimental data matrices. One could therefore treat replicate
+observations as one or multiple rows of <code>colData</code>. This can
+result in different subsetting, <code><a href="https://rdrr.io/r/base/duplicated.html" class="external-link">duplicated()</a></code>, and
+<code><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html" class="external-link">wideFormat()</a></code> behaviors.</p>
+<p>Note. Multiple time points, or distinct biological replicates, can be
+separate rows of the <code>colData</code>.</p>
 <div class="infobox">
 <p><strong>Key points</strong></p>
 <ul>
@@ -587,7 +725,10 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <div class="section level4">
 <h4 id="experimentlist---experiment-data">ExperimentList - experiment data<a class="anchor" aria-label="anchor" href="#experimentlist---experiment-data"></a>
 </h4>
-<p>Experimental datasets can be input as either a base <code>list</code> or <code>ExperimentList</code> object for the set of samples collected. To see the experiments use the <code>experiments</code> getter function.</p>
+<p>Experimental datasets can be input as either a base <code>list</code>
+or <code>ExperimentList</code> object for the set of samples collected.
+To see the experiments use the <code>experiments</code> getter
+function.</p>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-methods.html" class="external-link">experiments</a></span><span class="op">(</span><span class="va">miniACC</span><span class="op">)</span></code></pre></div>
 <pre><code><span class="co">## ExperimentList class object of length 5:</span>
@@ -596,32 +737,53 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <span class="co">##  [3] RPPAArray: SummarizedExperiment with 33 rows and 46 columns</span>
 <span class="co">##  [4] Mutations: matrix with 97 rows and 90 columns</span>
 <span class="co">##  [5] miRNASeqGene: SummarizedExperiment with 471 rows and 80 columns</span></code></pre>
-<p>Note. Each matrix column must correspond to exactly one row in <code>colData</code>. In other words, each patient or cell line must be traceable. However, multiple columns can come from the same patient, or there can be no data for that patient.</p>
+<p>Note. Each matrix column must correspond to exactly one row in
+<code>colData</code>. In other words, each patient or cell line must be
+traceable. However, multiple columns can come from the same patient, or
+there can be no data for that patient.</p>
 <div class="infobox">
 <p><em>Key points:</em></p>
 <ul>
 <li>One rectangular dataset per list element</li>
 <li>One column per assayed specimen.</li>
-<li>Matrix rows correspond to variables, e.g. genes or genomic ranges</li>
+<li>Matrix rows correspond to variables, e.g. genes or genomic
+ranges</li>
 <li>
-<code>ExperimentList</code> elements can be genomic range-based (e.g. <code>SummarizedExperiment</code> or <code>RaggedExperiment</code>) or ID-based data</li>
+<code>ExperimentList</code> elements can be genomic range-based
+(e.g. <code>SummarizedExperiment</code> or
+<code>RaggedExperiment</code>) or ID-based data</li>
 <li>Most rectangular-type data classes are supported</li>
 </ul>
 </div>
-<p>Note. Any data class can be included in the <code>ExperimentList</code>, as long as it supports: single-bracket subsetting (<code>[</code>), <code>dimnames</code>, and <code>dim</code>. Most data classes defined in Bioconductor meet these requirements.</p>
+<p>Note. Any data class can be included in the
+<code>ExperimentList</code>, as long as it supports: single-bracket
+subsetting (<code>[</code>), <code>dimnames</code>, and
+<code>dim</code>. Most data classes defined in Bioconductor meet these
+requirements.</p>
 </div>
 <div class="section level4">
 <h4 id="samplemap---relationship-graph">sampleMap - relationship graph<a class="anchor" aria-label="anchor" href="#samplemap---relationship-graph"></a>
 </h4>
-<p><code>sampleMap</code> is a graph representation of the relationship between biological units and experimental results. In simple cases where the column names of <code>ExperimentList</code> data matrices match the row names of <code>colData</code>, the user won’t need to specify or think about a sample map, it can be created automatically by the <code>MultiAssayExperiment</code> constructor. <code>sampleMap</code> is a simple three-column <code>DataFrame</code>:</p>
+<p><code>sampleMap</code> is a graph representation of the relationship
+between biological units and experimental results. In simple cases where
+the column names of <code>ExperimentList</code> data matrices match the
+row names of <code>colData</code>, the user won’t need to specify or
+think about a sample map, it can be created automatically by the
+<code>MultiAssayExperiment</code> constructor. <code>sampleMap</code> is
+a simple three-column <code>DataFrame</code>:</p>
 <ol style="list-style-type: decimal">
 <li>
-<code>assay</code> column: the name of the assay, and found in the names of <code>ExperimentList</code> list names</li>
+<code>assay</code> column: the name of the assay, and found in the
+names of <code>ExperimentList</code> list names</li>
 <li>
-<code>primary</code> column: identifiers of patients or biological units, and found in the row names of <code>colData</code>
+<code>primary</code> column: identifiers of patients or biological
+units, and found in the row names of <code>colData</code>
 </li>
 <li>
-<code>colname</code> column: identifiers of assay results, and found in the column names of <code>ExperimentList</code> elements Helper functions are available for creating a map from a list. See <code><a href="http://waldronlab.io/MultiAssayExperiment/reference/mapToList.html" class="external-link">?listToMap</a></code>
+<code>colname</code> column: identifiers of assay results, and found
+in the column names of <code>ExperimentList</code> elements Helper
+functions are available for creating a map from a list. See
+<code><a href="http://waldronlab.io/MultiAssayExperiment/reference/mapToList.html" class="external-link">?listToMap</a></code>
 </li>
 </ol>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
@@ -643,9 +805,11 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <div class="infobox">
 <p><em>Key points:</em></p>
 <ul>
-<li>relates experimental observations (<code>colnames</code>) to <code>colData</code>
+<li>relates experimental observations (<code>colnames</code>) to
+<code>colData</code>
 </li>
-<li>permits experiment-specific sample naming, missing, and replicate observations</li>
+<li>permits experiment-specific sample naming, missing, and replicate
+observations</li>
 </ul>
 </div>
 <p style="text-align: right;">
@@ -655,7 +819,11 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <div class="section level4">
 <h4 id="metadata">metadata<a class="anchor" aria-label="anchor" href="#metadata"></a>
 </h4>
-<p>Metadata can be used to keep additional information about patients, assays performed on individuals or on the entire cohort, or features such as genes, proteins, and genomic ranges. There are many options available for storing metadata. First, <code>MultiAssayExperiment</code> has its own metadata for describing the entire experiment:</p>
+<p>Metadata can be used to keep additional information about patients,
+assays performed on individuals or on the entire cohort, or features
+such as genes, proteins, and genomic ranges. There are many options
+available for storing metadata. First, <code>MultiAssayExperiment</code>
+has its own metadata for describing the entire experiment:</p>
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">metadata</span><span class="op">(</span><span class="va">miniACC</span><span class="op">)</span></code></pre></div>
 <pre><code><span class="co">## $title</span>
@@ -672,14 +840,24 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <span class="co">## </span>
 <span class="co">## $colDataExtrasURL</span>
 <span class="co">## [1] "http://www.cell.com/cms/attachment/2062093088/2063584534/mmc3.xlsx"</span></code></pre>
-<p>Additionally, the <code>DataFrame</code> class used by <code>sampleMap</code> and <code>colData</code>, as well as the <code>ExperimentList</code> class, similarly support metadata. Finally, many experimental data objects that can be used in the <code>ExperimentList</code> support metadata. These provide flexible options to users and to developers of derived classes.</p>
+<p>Additionally, the <code>DataFrame</code> class used by
+<code>sampleMap</code> and <code>colData</code>, as well as the
+<code>ExperimentList</code> class, similarly support metadata. Finally,
+many experimental data objects that can be used in the
+<code>ExperimentList</code> support metadata. These provide flexible
+options to users and to developers of derived classes.</p>
 </div>
 </div>
 <div class="section level3">
-<h3 id="the-cancer-genome-atlas-tcga-data-from-curatedtcgadata">The Cancer Genome Atlas (TCGA) Data from <code>curatedTCGAData</code><a class="anchor" aria-label="anchor" href="#the-cancer-genome-atlas-tcga-data-from-curatedtcgadata"></a>
+<h3 id="the-cancer-genome-atlas-tcga-data-from-curatedtcgadata">The Cancer Genome Atlas (TCGA) Data from
+<code>curatedTCGAData</code><a class="anchor" aria-label="anchor" href="#the-cancer-genome-atlas-tcga-data-from-curatedtcgadata"></a>
 </h3>
-<p>Most unrestricted TCGA data (from 33 cancer types) are available as <code>MultiAssayExperiment</code> objects from the <code>curatedTCGAData</code> package. This represents a lot of harmonization!</p>
-<p>Here we list the available data for the Adrenocortical Carcinoma (<code>"ACC"</code>) cancer type:</p>
+<p>Most unrestricted TCGA data (from 33 cancer types) are available as
+<code>MultiAssayExperiment</code> objects from the
+<code>curatedTCGAData</code> package. This represents a lot of
+harmonization!</p>
+<p>Here we list the available data for the Adrenocortical Carcinoma
+(<code>"ACC"</code>) cancer type:</p>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">curatedTCGAData</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/curatedTCGAData/man/curatedTCGAData.html" class="external-link">curatedTCGAData</a></span><span class="op">(</span><span class="st">"ACC"</span>, version <span class="op">=</span> <span class="st">"2.0.1"</span>, dry.run <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
@@ -709,7 +887,8 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <span class="co">## 10       SummarizedExperiment     2021-01-27             &lt;NA&gt;</span>
 <span class="co">## 11                     DFrame     2021-01-27             &lt;NA&gt;</span>
 <span class="co">## 12       SummarizedExperiment     2021-01-27             &lt;NA&gt;</span></code></pre>
-<p>We then download the data with <code>dry.run</code> set to <code>FALSE</code>.</p>
+<p>We then download the data with <code>dry.run</code> set to
+<code>FALSE</code>.</p>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">acc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/curatedTCGAData/man/curatedTCGAData.html" class="external-link">curatedTCGAData</a></span><span class="op">(</span>
     diseaseCode <span class="op">=</span> <span class="st">"ACC"</span>,
@@ -736,7 +915,9 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <span class="co">##  *Format() - convert into a long or wide DataFrame</span>
 <span class="co">##  assays() - convert ExperimentList to a SimpleList of matrices</span>
 <span class="co">##  exportClass() - save data to flat files</span></code></pre>
-<p>These objects contain most unrestricted TCGA assay and clinical / pathological data, as well as some curated data from the supplements of published TCGA primary papers at the end of the colData columns:</p>
+<p>These objects contain most unrestricted TCGA assay and clinical /
+pathological data, as well as some curated data from the supplements of
+published TCGA primary papers at the end of the colData columns:</p>
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/SummarizedExperiment/man/SummarizedExperiment-class.html" class="external-link">colData</a></span><span class="op">(</span><span class="va">acc</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code><span class="co">## [1]  92 822</span></code></pre>
@@ -750,11 +931,14 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <h3 id="cbioportaldata-1">
 <code>cBioPortalData</code><a class="anchor" aria-label="anchor" href="#cbioportaldata-1"></a>
 </h3>
-<p>To date, the <a href="https://www.cbioportal.org/" class="external-link">cBio Genomics Portal</a> provides access to more than 300 datasets collected and curated from different instutions.</p>
+<p>To date, the <a href="https://www.cbioportal.org/" class="external-link">cBio Genomics
+Portal</a> provides access to more than 300 datasets collected and
+curated from different instutions.</p>
 <p>There are two main ways of accessing this data:</p>
 <ol style="list-style-type: decimal">
 <li>
-<code>cBioDataPack</code> - tarball (<code>.tar.gz</code>) data files</li>
+<code>cBioDataPack</code> - tarball (<code>.tar.gz</code>) data
+files</li>
 <li>
 <code>cBioPortalData</code> - data from the API</li>
 </ol>
@@ -762,46 +946,52 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <div class="section level4">
 <h4 id="listing-the-studies-available">Listing the studies available<a class="anchor" aria-label="anchor" href="#listing-the-studies-available"></a>
 </h4>
-<p>First, we create an API object using the <code>cBioPortal</code> function. This will allow us to subsequently generate queries for the service.</p>
+<p>First, we create an API object using the <code>cBioPortal</code>
+function. This will allow us to subsequently generate queries for the
+service.</p>
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">cbio</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/cBioPortalData/man/cBioPortal.html" class="external-link">cBioPortal</a></span><span class="op">(</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/cBioPortalData/man/cBioPortal.html" class="external-link">getStudies</a></span><span class="op">(</span><span class="va">cbio</span><span class="op">)</span></code></pre></div>
-<pre><code><span class="co">## <span style="color: #949494;"># A tibble: 337 × 13</span></span>
+<pre><code><span class="co">## <span style="color: #949494;"># A tibble: 340 × 13</span></span>
 <span class="co">##    name          description publicStudy pmid  citation groups status importDate</span>
 <span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span>
 <span class="co">## <span style="color: #BCBCBC;"> 1</span> Prostate Ade… <span style="color: #949494;">"</span>Genome-wi… TRUE        2502… Hierony… <span style="color: #949494;">"</span>PUBL…      0 2021-04-2…</span>
 <span class="co">## <span style="color: #BCBCBC;"> 2</span> China Pan-ca… <span style="color: #949494;">"</span>Landscape… TRUE        <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>       <span style="color: #949494;">""</span>          0 2021-09-2…</span>
-<span class="co">## <span style="color: #BCBCBC;"> 3</span> Skin Cutaneo… <span style="color: #949494;">"</span>Skin Cuta… TRUE        2962… TCGA, C… <span style="color: #949494;">"</span>PUBL…      0 2021-10-2…</span>
-<span class="co">## <span style="color: #BCBCBC;"> 4</span> Disparities … <span style="color: #949494;">"</span>Targeted … TRUE        <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>       <span style="color: #949494;">""</span>          0 2021-10-2…</span>
-<span class="co">## <span style="color: #BCBCBC;"> 5</span> Adrenocortic… <span style="color: #949494;">"</span>TCGA Adre… TRUE        <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>       <span style="color: #949494;">"</span>PUBL…      0 2021-10-2…</span>
-<span class="co">## <span style="color: #BCBCBC;"> 6</span> Adenoid Cyst… <span style="color: #949494;">"</span>Whole exo… TRUE        2377… Stephen… <span style="color: #949494;">"</span>ACYC…      0 2021-10-2…</span>
-<span class="co">## <span style="color: #BCBCBC;"> 7</span> Acute Lympho… <span style="color: #949494;">"</span>Whole-gen… TRUE        2777… Zhang e… <span style="color: #949494;">"</span>PUBL…      0 2021-10-2…</span>
-<span class="co">## <span style="color: #BCBCBC;"> 8</span> Pediatric Ac… <span style="color: #949494;">"</span>Whole gen… TRUE        <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>       <span style="color: #949494;">"</span>NCI-…      0 2021-10-2…</span>
-<span class="co">## <span style="color: #BCBCBC;"> 9</span> Acute Lympho… <span style="color: #949494;">"</span>Comprehen… TRUE        2573… Anderss… <span style="color: #949494;">"</span>PUBL…      0 2021-11-0…</span>
-<span class="co">## <span style="color: #BCBCBC;">10</span> Adenoid Cyst… <span style="color: #949494;">"</span>Whole exo… TRUE        2609… Martelo… <span style="color: #949494;">"</span>ACYC…      0 2021-11-0…</span>
-<span class="co">## <span style="color: #949494;"># … with 327 more rows, and 5 more variables: allSampleCount &lt;int&gt;,</span></span>
+<span class="co">## <span style="color: #BCBCBC;"> 3</span> Disparities … <span style="color: #949494;">"</span>Targeted … TRUE        <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>       <span style="color: #949494;">""</span>          0 2021-10-2…</span>
+<span class="co">## <span style="color: #BCBCBC;"> 4</span> Adrenocortic… <span style="color: #949494;">"</span>TCGA Adre… TRUE        <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>       <span style="color: #949494;">"</span>PUBL…      0 2021-10-2…</span>
+<span class="co">## <span style="color: #BCBCBC;"> 5</span> Adenoid Cyst… <span style="color: #949494;">"</span>Whole exo… TRUE        2377… Stephen… <span style="color: #949494;">"</span>ACYC…      0 2021-10-2…</span>
+<span class="co">## <span style="color: #BCBCBC;"> 6</span> Acute Lympho… <span style="color: #949494;">"</span>Whole-gen… TRUE        2777… Zhang e… <span style="color: #949494;">"</span>PUBL…      0 2021-10-2…</span>
+<span class="co">## <span style="color: #BCBCBC;"> 7</span> Pediatric Ac… <span style="color: #949494;">"</span>Whole gen… TRUE        <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>       <span style="color: #949494;">"</span>NCI-…      0 2021-10-2…</span>
+<span class="co">## <span style="color: #BCBCBC;"> 8</span> Acute Lympho… <span style="color: #949494;">"</span>Comprehen… TRUE        2573… Anderss… <span style="color: #949494;">"</span>PUBL…      0 2021-11-0…</span>
+<span class="co">## <span style="color: #BCBCBC;"> 9</span> Adenoid Cyst… <span style="color: #949494;">"</span>Whole exo… TRUE        2609… Martelo… <span style="color: #949494;">"</span>ACYC…      0 2021-11-0…</span>
+<span class="co">## <span style="color: #BCBCBC;">10</span> Adenoid Cyst… <span style="color: #949494;">"</span>Whole-gen… TRUE        2686… Rettig … <span style="color: #949494;">"</span>ACYC…      0 2021-11-0…</span>
+<span class="co">## <span style="color: #949494;"># … with 330 more rows, and 5 more variables: allSampleCount &lt;int&gt;,</span></span>
 <span class="co">## <span style="color: #949494;">#   readPermission &lt;lgl&gt;, studyId &lt;chr&gt;, cancerTypeId &lt;chr&gt;,</span></span>
 <span class="co">## <span style="color: #949494;">#   referenceGenome &lt;chr&gt;</span></span></code></pre>
-<p>We can also see the build status of the datasets using the <code>buildReport</code> argument.</p>
+<p>We can also see the build status of the datasets using the
+<code>buildReport</code> argument.</p>
 <div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/cBioPortalData/man/cBioPortal.html" class="external-link">getStudies</a></span><span class="op">(</span><span class="va">cbio</span>, buildReport <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
-<pre><code><span class="co">## <span style="color: #949494;"># A tibble: 337 × 15</span></span>
+<pre><code><span class="co">## <span style="color: #949494;"># A tibble: 340 × 15</span></span>
 <span class="co">##    name          description publicStudy pmid  citation groups status importDate</span>
 <span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span>
 <span class="co">## <span style="color: #BCBCBC;"> 1</span> Prostate Ade… <span style="color: #949494;">"</span>Genome-wi… TRUE        2502… Hierony… <span style="color: #949494;">"</span>PUBL…      0 2021-04-2…</span>
 <span class="co">## <span style="color: #BCBCBC;"> 2</span> China Pan-ca… <span style="color: #949494;">"</span>Landscape… TRUE        <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>       <span style="color: #949494;">""</span>          0 2021-09-2…</span>
-<span class="co">## <span style="color: #BCBCBC;"> 3</span> Skin Cutaneo… <span style="color: #949494;">"</span>Skin Cuta… TRUE        2962… TCGA, C… <span style="color: #949494;">"</span>PUBL…      0 2021-10-2…</span>
-<span class="co">## <span style="color: #BCBCBC;"> 4</span> Disparities … <span style="color: #949494;">"</span>Targeted … TRUE        <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>       <span style="color: #949494;">""</span>          0 2021-10-2…</span>
-<span class="co">## <span style="color: #BCBCBC;"> 5</span> Adrenocortic… <span style="color: #949494;">"</span>TCGA Adre… TRUE        <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>       <span style="color: #949494;">"</span>PUBL…      0 2021-10-2…</span>
-<span class="co">## <span style="color: #BCBCBC;"> 6</span> Adenoid Cyst… <span style="color: #949494;">"</span>Whole exo… TRUE        2377… Stephen… <span style="color: #949494;">"</span>ACYC…      0 2021-10-2…</span>
-<span class="co">## <span style="color: #BCBCBC;"> 7</span> Acute Lympho… <span style="color: #949494;">"</span>Whole-gen… TRUE        2777… Zhang e… <span style="color: #949494;">"</span>PUBL…      0 2021-10-2…</span>
-<span class="co">## <span style="color: #BCBCBC;"> 8</span> Pediatric Ac… <span style="color: #949494;">"</span>Whole gen… TRUE        <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>       <span style="color: #949494;">"</span>NCI-…      0 2021-10-2…</span>
-<span class="co">## <span style="color: #BCBCBC;"> 9</span> Acute Lympho… <span style="color: #949494;">"</span>Comprehen… TRUE        2573… Anderss… <span style="color: #949494;">"</span>PUBL…      0 2021-11-0…</span>
-<span class="co">## <span style="color: #BCBCBC;">10</span> Adenoid Cyst… <span style="color: #949494;">"</span>Whole exo… TRUE        2609… Martelo… <span style="color: #949494;">"</span>ACYC…      0 2021-11-0…</span>
-<span class="co">## <span style="color: #949494;"># … with 327 more rows, and 7 more variables: allSampleCount &lt;int&gt;,</span></span>
+<span class="co">## <span style="color: #BCBCBC;"> 3</span> Disparities … <span style="color: #949494;">"</span>Targeted … TRUE        <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>       <span style="color: #949494;">""</span>          0 2021-10-2…</span>
+<span class="co">## <span style="color: #BCBCBC;"> 4</span> Adrenocortic… <span style="color: #949494;">"</span>TCGA Adre… TRUE        <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>       <span style="color: #949494;">"</span>PUBL…      0 2021-10-2…</span>
+<span class="co">## <span style="color: #BCBCBC;"> 5</span> Adenoid Cyst… <span style="color: #949494;">"</span>Whole exo… TRUE        2377… Stephen… <span style="color: #949494;">"</span>ACYC…      0 2021-10-2…</span>
+<span class="co">## <span style="color: #BCBCBC;"> 6</span> Acute Lympho… <span style="color: #949494;">"</span>Whole-gen… TRUE        2777… Zhang e… <span style="color: #949494;">"</span>PUBL…      0 2021-10-2…</span>
+<span class="co">## <span style="color: #BCBCBC;"> 7</span> Pediatric Ac… <span style="color: #949494;">"</span>Whole gen… TRUE        <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>       <span style="color: #949494;">"</span>NCI-…      0 2021-10-2…</span>
+<span class="co">## <span style="color: #BCBCBC;"> 8</span> Acute Lympho… <span style="color: #949494;">"</span>Comprehen… TRUE        2573… Anderss… <span style="color: #949494;">"</span>PUBL…      0 2021-11-0…</span>
+<span class="co">## <span style="color: #BCBCBC;"> 9</span> Adenoid Cyst… <span style="color: #949494;">"</span>Whole exo… TRUE        2609… Martelo… <span style="color: #949494;">"</span>ACYC…      0 2021-11-0…</span>
+<span class="co">## <span style="color: #BCBCBC;">10</span> Adenoid Cyst… <span style="color: #949494;">"</span>Whole-gen… TRUE        2686… Rettig … <span style="color: #949494;">"</span>ACYC…      0 2021-11-0…</span>
+<span class="co">## <span style="color: #949494;"># … with 330 more rows, and 7 more variables: allSampleCount &lt;int&gt;,</span></span>
 <span class="co">## <span style="color: #949494;">#   readPermission &lt;lgl&gt;, studyId &lt;chr&gt;, cancerTypeId &lt;chr&gt;,</span></span>
 <span class="co">## <span style="color: #949494;">#   referenceGenome &lt;chr&gt;, api_build &lt;lgl&gt;, pack_build &lt;lgl&gt;</span></span></code></pre>
-<p>This adds two additional columns to the end of the dataset reporting the status of the builds. Not all studies can be converted to <code>MultiAssayExperiment</code>. Some studies require additonal cleaning to be represented with <code>MultiAssayExperiment</code>.</p>
+<p>This adds two additional columns to the end of the dataset reporting
+the status of the builds. Not all studies can be converted to
+<code>MultiAssayExperiment</code>. Some studies require additonal
+cleaning to be represented with <code>MultiAssayExperiment</code>.</p>
 </div>
 <div class="section level4">
 <h4 id="cbiodatapack">cBioDataPack<a class="anchor" aria-label="anchor" href="#cbiodatapack"></a>
@@ -857,9 +1047,12 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <p><strong>Key points</strong></p>
 <ul>
 <li>
-<code>curatedTCGAData</code> provides TCGA data with some curation including tumor subtype information</li>
+<code>curatedTCGAData</code> provides TCGA data with some curation
+including tumor subtype information</li>
 <li>
-<code>cBioPortalData</code> has two main functions, one for downloading pre-packaged data and another for sending queries through the cBioPortal API</li>
+<code>cBioPortalData</code> has two main functions, one for
+downloading pre-packaged data and another for sending queries through
+the cBioPortal API</li>
 </ul>
 </div>
 </div>
@@ -867,33 +1060,49 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <div class="section level3">
 <h3 id="utilities-for-tcga">Utilities for TCGA<a class="anchor" aria-label="anchor" href="#utilities-for-tcga"></a>
 </h3>
-<p>Aside from the available reshaping functions already included in the <code>MultiAssayExperiment</code> package, the <code>TCGAutils</code> package provides additional helper functions for working with TCGA data.</p>
-<p>A number of helper functions are available for managing datasets from <code>curatedTCGAData</code>. These include:</p>
+<p>Aside from the available reshaping functions already included in the
+<code>MultiAssayExperiment</code> package, the <code>TCGAutils</code>
+package provides additional helper functions for working with TCGA
+data.</p>
+<p>A number of helper functions are available for managing datasets from
+<code>curatedTCGAData</code>. These include:</p>
 <ul>
-<li>Conversions of <code>SummarizedExperiment</code> to <code>RangedSummarizedExperiment</code> based on <code>TxDb.Hsapiens.UCSC.hg19.knownGene</code> for:
+<li>Conversions of <code>SummarizedExperiment</code> to
+<code>RangedSummarizedExperiment</code> based on
+<code>TxDb.Hsapiens.UCSC.hg19.knownGene</code> for:
 <ul>
 <li>
 <code><a href="https://rdrr.io/pkg/TCGAutils/man/simplifyTCGA.html" class="external-link">mirToRanges()</a></code>: microRNA</li>
 <li>
 <code><a href="https://rdrr.io/pkg/TCGAutils/man/simplifyTCGA.html" class="external-link">symbolsToRanges()</a></code>: gene symbols</li>
 <li>
-<code><a href="https://rdrr.io/pkg/TCGAutils/man/simplifyTCGA.html" class="external-link">qreduceTCGA()</a></code>: convert <code>RaggedExperiment</code> objects to <code>RangedSummarizedExperiment</code> with one row per gene symbol, for:
+<code><a href="https://rdrr.io/pkg/TCGAutils/man/simplifyTCGA.html" class="external-link">qreduceTCGA()</a></code>: convert <code>RaggedExperiment</code>
+objects to <code>RangedSummarizedExperiment</code> with one row per gene
+symbol, for:
 <ul>
 <li>segmented copy number datasets (“CNVSNP” and “CNASNP”)</li>
-<li>somatic mutation datasets (“Mutation”), with a value of 1 for any non-silent mutation and a value of 0 for no mutation or silent mutation</li>
+<li>somatic mutation datasets (“Mutation”), with a value of 1 for any
+non-silent mutation and a value of 0 for no mutation or silent
+mutation</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 <div class="section level4">
-<h4 id="conversion-of-row-metadata-for-curatedtcgadata-objects">(1) Conversion of row metadata for <code>curatedTCGAData</code> objects<a class="anchor" aria-label="anchor" href="#conversion-of-row-metadata-for-curatedtcgadata-objects"></a>
+<h4 id="conversion-of-row-metadata-for-curatedtcgadata-objects">(1) Conversion of row metadata for <code>curatedTCGAData</code>
+objects<a class="anchor" aria-label="anchor" href="#conversion-of-row-metadata-for-curatedtcgadata-objects"></a>
 </h4>
 <div class="section level5">
 <h5 id="mirtoranges">
 <code>mirToRanges</code><a class="anchor" aria-label="anchor" href="#mirtoranges"></a>
 </h5>
-<p>microRNA assays obtained from <code>curatedTCGAData</code> have annotated sequences that can be converted to genomic ranges using the <code>mirbase.db</code> package. The function looks up all sequences and converts them to (‘hg19’) ranges. For those rows that cannot be found, an ‘unranged’ assay is introduced in the resulting MultiAssayExperiment object.</p>
+<p>microRNA assays obtained from <code>curatedTCGAData</code> have
+annotated sequences that can be converted to genomic ranges using the
+<code>mirbase.db</code> package. The function looks up all sequences and
+converts them to (‘hg19’) ranges. For those rows that cannot be found,
+an ‘unranged’ assay is introduced in the resulting MultiAssayExperiment
+object.</p>
 <div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/simplifyTCGA.html" class="external-link">mirToRanges</a></span><span class="op">(</span><span class="va">acc</span><span class="op">)</span></code></pre></div>
 <pre><code><span class="co">## Warning in (function (seqlevels, genome, new_style) : cannot switch some of</span>
@@ -923,7 +1132,13 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <h5 id="qreducetcga">
 <code>qreduceTCGA</code><a class="anchor" aria-label="anchor" href="#qreducetcga"></a>
 </h5>
-<p>The <code>qreduceTCGA</code> function converts <code>RaggedExperiment</code> mutation data objects to <code>RangedSummarizedExperiment</code> using <code>org.Hs.eg.db</code> and the <code>qreduceTCGA</code> utility function from <code>RaggedExperiment</code> to summarize ‘silent’ and ‘non-silent’ mutations based on a ‘Variant_Classification’ metadata column in the original object.</p>
+<p>The <code>qreduceTCGA</code> function converts
+<code>RaggedExperiment</code> mutation data objects to
+<code>RangedSummarizedExperiment</code> using <code>org.Hs.eg.db</code>
+and the <code>qreduceTCGA</code> utility function from
+<code>RaggedExperiment</code> to summarize ‘silent’ and ‘non-silent’
+mutations based on a ‘Variant_Classification’ metadata column in the
+original object.</p>
 <div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## Update build metadata to "hg19"</span>
 <span class="fu">genome</span><span class="op">(</span><span class="va">acc</span><span class="op">[[</span><span class="st">"ACC_Mutation-20160128"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="st">"NCBI37"</span>
@@ -972,7 +1187,11 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <h5 id="symbolstoranges">
 <code>symbolsToRanges</code><a class="anchor" aria-label="anchor" href="#symbolstoranges"></a>
 </h5>
-<p>In the cases where row annotations indicate gene symbols, the <code>symbolsToRanges</code> utility function converts genes to genomic ranges and replaces existing assays with <code>RangedSummarizedExperiment</code> objects. Gene annotations are given as ‘hg19’ genomic regions.</p>
+<p>In the cases where row annotations indicate gene symbols, the
+<code>symbolsToRanges</code> utility function converts genes to genomic
+ranges and replaces existing assays with
+<code>RangedSummarizedExperiment</code> objects. Gene annotations are
+given as ‘hg19’ genomic regions.</p>
 <div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/simplifyTCGA.html" class="external-link">symbolsToRanges</a></span><span class="op">(</span><span class="va">acc</span><span class="op">)</span></code></pre></div>
 <pre><code><span class="co">##   403 genes were dropped because they have exons located on both strands</span>
@@ -1008,7 +1227,10 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <h5 id="simplifytcga">
 <code>simplifyTCGA</code><a class="anchor" aria-label="anchor" href="#simplifytcga"></a>
 </h5>
-<p>The <code>simplifyTCGA</code> function combines all of the above operations to create a more managable <code>MultiAssayExperiment</code> object and using <code>RangedSummarizedExperiment</code> assays where possible.</p>
+<p>The <code>simplifyTCGA</code> function combines all of the above
+operations to create a more managable <code>MultiAssayExperiment</code>
+object and using <code>RangedSummarizedExperiment</code> assays where
+possible.</p>
 <div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">TCGAutils</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/simplifyTCGA.html" class="external-link">simplifyTCGA</a></span><span class="op">(</span><span class="va">acc</span><span class="op">)</span></code></pre></div>
 <pre><code><span class="co">##   403 genes were dropped because they have exons located on both strands</span>
@@ -1073,7 +1295,8 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <h4 id="what-types-of-samples-are-in-the-data">What types of samples are in the data?<a class="anchor" aria-label="anchor" href="#what-types-of-samples-are-in-the-data"></a>
 </h4>
 <p><strong>Solution</strong></p>
-<p>The <code>sampleTables</code> function gives you an overview of samples in each assay:</p>
+<p>The <code>sampleTables</code> function gives you an overview of
+samples in each assay:</p>
 <div class="sourceCode" id="cb77"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/curatedTCGAData-helpers.html" class="external-link">sampleTables</a></span><span class="op">(</span><span class="va">acc</span><span class="op">)</span></code></pre></div>
 <pre><code><span class="co">## $`ACC_CNVSNP-20160128`</span>
@@ -1114,9 +1337,21 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 </div>
 <div class="section level4">
 <h4 id="splitassays-separate-the-data-from-different-tissue-types">
-<code>splitAssays</code>: separate the data from different tissue types<a class="anchor" aria-label="anchor" href="#splitassays-separate-the-data-from-different-tissue-types"></a>
+<code>splitAssays</code>: separate the data from different tissue
+types<a class="anchor" aria-label="anchor" href="#splitassays-separate-the-data-from-different-tissue-types"></a>
 </h4>
-<p>TCGA datasets include multiple -omics for solid tumors, adjacent normal tissues, blood-derived cancers and normals, and other tissue types, which may be mixed together in a single dataset. The <code>MultiAssayExperiment</code> object generated here has one patient per row of its <code>colData</code>, but each patient may have two or more -omics profiles by any assay, whether due to assaying of different types of tissues or to technical replication. <code>splitAssays</code> separates profiles from different tissue types (such as tumor and adjacent normal) into different assays of the <code>MultiAssayExperiment</code> by taking a vector of sample codes, and partitioning the current assays into assays with an appended sample code:</p>
+<p>TCGA datasets include multiple -omics for solid tumors, adjacent
+normal tissues, blood-derived cancers and normals, and other tissue
+types, which may be mixed together in a single dataset. The
+<code>MultiAssayExperiment</code> object generated here has one patient
+per row of its <code>colData</code>, but each patient may have two or
+more -omics profiles by any assay, whether due to assaying of different
+types of tissues or to technical replication. <code>splitAssays</code>
+separates profiles from different tissue types (such as tumor and
+adjacent normal) into different assays of the
+<code>MultiAssayExperiment</code> by taking a vector of sample codes,
+and partitioning the current assays into assays with an appended sample
+code:</p>
 <div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">split_acc</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html" class="external-link">splitAssays</a></span><span class="op">(</span><span class="va">acc</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"01"</span>, <span class="st">"11"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code><span class="co">## Warning: 'splitAssays' is deprecated.</span>
@@ -1129,9 +1364,14 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <div class="section level4">
 <h4 id="curated-molecular-subtypes">Curated molecular subtypes<a class="anchor" aria-label="anchor" href="#curated-molecular-subtypes"></a>
 </h4>
-<p>Is there subtype data available in the <code>MultiAssayExperiment</code> obtained from <code>curatedTCGAData</code>?</p>
+<p>Is there subtype data available in the
+<code>MultiAssayExperiment</code> obtained from
+<code>curatedTCGAData</code>?</p>
 <p><strong>Solution</strong></p>
-<p>The <code>getSubtypeMap</code> function will show actual variable names found in <code>colData</code> that contain subtype information. This can only be obtained from <code>MultiAssayExperiment</code> objects provided by <code>curatedTCGAData</code>.</p>
+<p>The <code>getSubtypeMap</code> function will show actual variable
+names found in <code>colData</code> that contain subtype information.
+This can only be obtained from <code>MultiAssayExperiment</code> objects
+provided by <code>curatedTCGAData</code>.</p>
 <div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/curatedTCGAData-helpers.html" class="external-link">getSubtypeMap</a></span><span class="op">(</span><span class="va">acc</span><span class="op">)</span></code></pre></div>
 <pre><code><span class="co">##          ACC_annotations     ACC_subtype</span>
@@ -1153,17 +1393,24 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <div class="section level4">
 <h4 id="translation-and-interpretation-of-tcga-identifiers">(3) Translation and Interpretation of TCGA identifiers<a class="anchor" aria-label="anchor" href="#translation-and-interpretation-of-tcga-identifiers"></a>
 </h4>
-<p><code>TCGAutils</code> provides a number of ID translation functions. These allow the user to translate from either file or case UUIDs to TCGA barcodes and back. These functions work by querying the Genomic Data Commons API via the <code>GenomicDataCommons</code> package (thanks to Sean Davis). These include:</p>
+<p><code>TCGAutils</code> provides a number of ID translation functions.
+These allow the user to translate from either file or case UUIDs to TCGA
+barcodes and back. These functions work by querying the Genomic Data
+Commons API via the <code>GenomicDataCommons</code> package (thanks to
+Sean Davis). These include:</p>
 <div class="section level5">
 <h5 id="uuidtobarcode---uuid-to-tcga-barcode">
 <code>UUIDtoBarcode()</code> - UUID to TCGA barcode<a class="anchor" aria-label="anchor" href="#uuidtobarcode---uuid-to-tcga-barcode"></a>
 </h5>
-<p>Here we have a known case UUID that we want to translate into a TCGA barcode.</p>
+<p>Here we have a known case UUID that we want to translate into a TCGA
+barcode.</p>
 <div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/ID-translation.html" class="external-link">UUIDtoBarcode</a></span><span class="op">(</span><span class="st">"ae55b2d3-62a1-419e-9f9a-5ddfac356db4"</span>, from_type <span class="op">=</span> <span class="st">"case_id"</span><span class="op">)</span></code></pre></div>
 <pre><code><span class="co">##                                case_id submitter_id</span>
 <span class="co">## 1 ae55b2d3-62a1-419e-9f9a-5ddfac356db4 TCGA-B0-5117</span></code></pre>
-<p>In cases where we want to translate a known file UUID to the associated TCGA patient barcode, we can use <code>UUIDtoBarcode</code>.</p>
+<p>In cases where we want to translate a known file UUID to the
+associated TCGA patient barcode, we can use
+<code>UUIDtoBarcode</code>.</p>
 <div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/ID-translation.html" class="external-link">UUIDtoBarcode</a></span><span class="op">(</span><span class="st">"0001801b-54b0-4551-8d7a-d66fb59429bf"</span>, from_type <span class="op">=</span> <span class="st">"file_id"</span><span class="op">)</span></code></pre></div>
 <pre><code><span class="co">##                                file_id associated_entities.entity_submitter_id</span>
@@ -1173,7 +1420,8 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <h5 id="barcodetouuid---tcga-barcode-to-uuid">
 <code>barcodeToUUID()</code> - TCGA barcode to UUID<a class="anchor" aria-label="anchor" href="#barcodetouuid---tcga-barcode-to-uuid"></a>
 </h5>
-<p>Here we translate the first two TCGA barcodes of the previous copy-number alterations dataset to UUID:</p>
+<p>Here we translate the first two TCGA barcodes of the previous
+copy-number alterations dataset to UUID:</p>
 <div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="op">(</span><span class="va">xbarcode</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">acc</span><span class="op">)</span><span class="op">[[</span><span class="st">"ACC_CNVSNP-20160128"</span><span class="op">]</span><span class="op">]</span>, <span class="fl">4L</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code><span class="co">## [1] "TCGA-OR-A5J1-01A-11D-A29H-01" "TCGA-OR-A5J1-10A-01D-A29K-01"</span>
@@ -1190,7 +1438,12 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <h5 id="uuidtouuid---file-and-case-ids">
 <code>UUIDtoUUID()</code> - file and case IDs<a class="anchor" aria-label="anchor" href="#uuidtouuid---file-and-case-ids"></a>
 </h5>
-<p>We can also translate from file UUIDs to case UUIDs and vice versa as long as we know the input type. We can use the case UUID from the previous example to get the associated file UUIDs using <code>UUIDtoUUID</code>. Note that this translation is a one to many relationship, thus yielding a <code>data.frame</code> of file UUIDs for a single case UUID.</p>
+<p>We can also translate from file UUIDs to case UUIDs and vice versa as
+long as we know the input type. We can use the case UUID from the
+previous example to get the associated file UUIDs using
+<code>UUIDtoUUID</code>. Note that this translation is a one to many
+relationship, thus yielding a <code>data.frame</code> of file UUIDs for
+a single case UUID.</p>
 <div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/ID-translation.html" class="external-link">UUIDtoUUID</a></span><span class="op">(</span><span class="st">"ae55b2d3-62a1-419e-9f9a-5ddfac356db4"</span>, to_type <span class="op">=</span> <span class="st">"file_id"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code><span class="co">##                                case_id                        files.file_id</span>
@@ -1200,7 +1453,10 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <span class="co">## 4 ae55b2d3-62a1-419e-9f9a-5ddfac356db4 836a6321-9a77-47c5-b694-cb071a22a852</span>
 <span class="co">## 5 ae55b2d3-62a1-419e-9f9a-5ddfac356db4 e20b7e0e-fa86-43d8-af3c-6cefdec05ae2</span>
 <span class="co">## 6 ae55b2d3-62a1-419e-9f9a-5ddfac356db4 4504e5d1-1351-4c28-95b7-ab72833e9881</span></code></pre>
-<p>One possible way to verify that file IDs are matching case UUIDS is to browse to the Genomic Data Commons webpage with the specific file UUID. Here we look at the first file UUID entry in the output <code>data.frame</code>:</p>
+<p>One possible way to verify that file IDs are matching case UUIDS is
+to browse to the Genomic Data Commons webpage with the specific file
+UUID. Here we look at the first file UUID entry in the output
+<code>data.frame</code>:</p>
 <p><a href="https://portal.gdc.cancer.gov/files/0b4acc9e-3933-4d74-916a-a53c4a0665e6" class="external-link uri">https://portal.gdc.cancer.gov/files/0b4acc9e-3933-4d74-916a-a53c4a0665e6</a></p>
 <p>In the page we check that the case UUID matches the input.</p>
 </div>
@@ -1236,8 +1492,10 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <p><strong>Key points</strong></p>
 <ul>
 <li>
-<code>TCGAutils</code> provides users additional tools for modifying row and column metadata</li>
-<li>The package works mainly with TCGA data including barcode identifiers</li>
+<code>TCGAutils</code> provides users additional tools for modifying
+row and column metadata</li>
+<li>The package works mainly with TCGA data including barcode
+identifiers</li>
 </ul>
 </div>
 </div>
@@ -1249,25 +1507,32 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <div class="section level4">
 <h4 id="single-bracket-subsetting">Single bracket <code>[</code> subsetting<a class="anchor" aria-label="anchor" href="#single-bracket-subsetting"></a>
 </h4>
-<p>In the pseudo code below, the subsetting operations work on the rows of the following indices:</p>
+<p>In the pseudo code below, the subsetting operations work on the rows
+of the following indices:</p>
 <ol style="list-style-type: decimal">
 <li>
 <em>i</em> experimental data rows</li>
 <li>
-<em>j</em> the primary names (vector input) or the column names (<code>list</code> or <code>List</code> inputs)</li>
+<em>j</em> the primary names (vector input) or the column names
+(<code>list</code> or <code>List</code> inputs)</li>
 <li>
 <em>k</em> assay</li>
 </ol>
 <pre><code>multiassayexperiment[i = rownames, j = primary or colnames, k = assay]</code></pre>
-<p>Subsetting operations always return another <code>MultiAssayExperiment</code>. For example, the following will return any rows named “MAPK14” or “IGFBP2,” and remove any assays where no rows match:</p>
+<p>Subsetting operations always return another
+<code>MultiAssayExperiment</code>. For example, the following will
+return any rows named “MAPK14” or “IGFBP2”, and remove any assays where
+no rows match:</p>
 <div class="sourceCode" id="cb102"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">miniACC</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"MAPK14"</span>, <span class="st">"IGFBP2"</span><span class="op">)</span>, , <span class="op">]</span></code></pre></div>
-<p>The following will keep only patients of pathological stage IV, and all their associated assays:</p>
+<p>The following will keep only patients of pathological stage IV, and
+all their associated assays:</p>
 <div class="sourceCode" id="cb103"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">stg4</span> <span class="op">&lt;-</span> <span class="va">miniACC</span><span class="op">$</span><span class="va">pathologic_stage</span> <span class="op">==</span> <span class="st">"stage iv"</span>
 <span class="co"># remove NA values from vector</span>
 <span class="va">miniACC</span><span class="op">[</span>, <span class="va">stg4</span> <span class="op">&amp;</span> <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">stg4</span><span class="op">)</span>, <span class="op">]</span></code></pre></div>
-<p>And the following will keep only the RNA-seq dataset, and only patients for which this assay is available:</p>
+<p>And the following will keep only the RNA-seq dataset, and only
+patients for which this assay is available:</p>
 <div class="sourceCode" id="cb104"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">miniACC</span><span class="op">[</span>, , <span class="st">"RNASeq2GeneNorm"</span><span class="op">]</span></code></pre></div>
 <pre><code><span class="co">## Warning: 'experiments' dropped; see 'metadata'</span></code></pre>
@@ -1278,12 +1543,22 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <div class="section level4">
 <h4 id="subsetting-by-genomic-ranges">Subsetting by genomic ranges<a class="anchor" aria-label="anchor" href="#subsetting-by-genomic-ranges"></a>
 </h4>
-<p>If any ExperimentList objects have features represented by genomic ranges (e.g. <code>RangedSummarizedExperiment</code>, <code>RaggedExperiment</code>), then a <code>GRanges</code> object in the first subsetting position will subset these objects as in <code><a href="https://rdrr.io/pkg/GenomicRanges/man/findOverlaps-methods.html" class="external-link">GenomicRanges::findOverlaps()</a></code>. Any non-ranged <code>ExperimentList</code> element will be subset to zero rows.</p>
+<p>If any ExperimentList objects have features represented by genomic
+ranges (e.g. <code>RangedSummarizedExperiment</code>,
+<code>RaggedExperiment</code>), then a <code>GRanges</code> object in
+the first subsetting position will subset these objects as in
+<code><a href="https://rdrr.io/pkg/GenomicRanges/man/findOverlaps-methods.html" class="external-link">GenomicRanges::findOverlaps()</a></code>. Any non-ranged
+<code>ExperimentList</code> element will be subset to zero rows.</p>
 </div>
 <div class="section level4">
 <h4 id="double-bracket-subsetting">Double bracket <code>[[</code> subsetting<a class="anchor" aria-label="anchor" href="#double-bracket-subsetting"></a>
 </h4>
-<p>The “double bracket” method (<code>[[</code>) is a convenience function for extracting a single element of the <code>MultiAssayExperiment</code> <code>ExperimentList</code>. It avoids the use of <code>experiments(mae)[[1L]]</code>. For example, both of the following extract the <code>ExpressionSet</code> object containing RNA-seq data:</p>
+<p>The “double bracket” method (<code>[[</code>) is a convenience
+function for extracting a single element of the
+<code>MultiAssayExperiment</code> <code>ExperimentList</code>. It avoids
+the use of <code>experiments(mae)[[1L]]</code>. For example, both of the
+following extract the <code>ExpressionSet</code> object containing
+RNA-seq data:</p>
 <div class="sourceCode" id="cb107"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">miniACC</span><span class="op">[[</span><span class="fl">1L</span><span class="op">]</span><span class="op">]</span></code></pre></div>
 <pre><code><span class="co">## class: SummarizedExperiment </span>
@@ -1307,20 +1582,31 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <span class="co">## colnames(79): TCGA-OR-A5J1-01A-11R-A29S-07 TCGA-OR-A5J2-01A-11R-A29S-07</span>
 <span class="co">##   ... TCGA-PK-A5HA-01A-11R-A29S-07 TCGA-PK-A5HB-01A-11R-A29S-07</span>
 <span class="co">## colData names(0):</span></code></pre>
-<p>To preserve the <code>colData</code> during the extraction, see <code><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html" class="external-link">?getWithColData</a></code>.</p>
+<p>To preserve the <code>colData</code> during the extraction, see
+<code><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html" class="external-link">?getWithColData</a></code>.</p>
 </div>
 <div class="section level4">
 <h4 id="complete-cases">Complete cases<a class="anchor" aria-label="anchor" href="#complete-cases"></a>
 </h4>
-<p><code><a href="https://rdrr.io/r/stats/complete.cases.html" class="external-link">complete.cases()</a></code> shows which patients have complete data for all assays:</p>
+<p><code><a href="https://rdrr.io/r/stats/complete.cases.html" class="external-link">complete.cases()</a></code> shows which patients have complete data
+for all assays:</p>
 <div class="sourceCode" id="cb111"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/complete.cases.html" class="external-link">complete.cases</a></span><span class="op">(</span><span class="va">miniACC</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code><span class="co">##    Mode   FALSE    TRUE </span>
 <span class="co">## logical      49      43</span></code></pre>
-<p>The above logical vector could be used for patient subsetting. More simply, <code><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html" class="external-link">intersectColumns()</a></code> will select complete cases and rearrange each <code>ExperimentList</code> element so its columns correspond exactly to rows of <code>colData</code> in the same order:</p>
+<p>The above logical vector could be used for patient subsetting. More
+simply, <code><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html" class="external-link">intersectColumns()</a></code> will select complete cases and
+rearrange each <code>ExperimentList</code> element so its columns
+correspond exactly to rows of <code>colData</code> in the same
+order:</p>
 <div class="sourceCode" id="cb113"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">accmatched</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html" class="external-link">intersectColumns</a></span><span class="op">(</span><span class="va">miniACC</span><span class="op">)</span></code></pre></div>
-<p>Note, the column names of the assays in <code>accmatched</code> are not the same because of assay-specific identifiers, but they have been automatically re-arranged to correspond to the same patients. In these TCGA assays, the first three <code>-</code> delimited positions correspond to patient, ie the first patient is <em>TCGA-OR-A5J2</em>:</p>
+<p>Note, the column names of the assays in <code>accmatched</code> are
+not the same because of assay-specific identifiers, but they have been
+automatically re-arranged to correspond to the same patients. In these
+TCGA assays, the first three <code>-</code> delimited positions
+correspond to patient, ie the first patient is
+<em>TCGA-OR-A5J2</em>:</p>
 <div class="sourceCode" id="cb114"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">accmatched</span><span class="op">)</span></code></pre></div>
 <pre><code><span class="co">## CharacterList of length 5</span>
@@ -1333,7 +1619,10 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <div class="section level4">
 <h4 id="row-names-that-are-common-across-assays">Row names that are common across assays<a class="anchor" aria-label="anchor" href="#row-names-that-are-common-across-assays"></a>
 </h4>
-<p><code><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html" class="external-link">intersectRows()</a></code> keeps only rows that are common to each assay, and aligns them in identical order. For example, to keep only genes where data are available for RNA-seq, GISTIC copy number, and somatic mutations:</p>
+<p><code><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html" class="external-link">intersectRows()</a></code> keeps only rows that are common to each
+assay, and aligns them in identical order. For example, to keep only
+genes where data are available for RNA-seq, GISTIC copy number, and
+somatic mutations:</p>
 <div class="sourceCode" id="cb116"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">accmatched2</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html" class="external-link">intersectRows</a></span><span class="op">(</span><span class="va">miniACC</span><span class="op">[</span>, ,
     <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"RNASeq2GeneNorm"</span>, <span class="st">"gistict"</span>, <span class="st">"Mutations"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></code></pre></div>
@@ -1357,11 +1646,16 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <div class="section level4">
 <h4 id="assay-and-assays">assay and assays<a class="anchor" aria-label="anchor" href="#assay-and-assays"></a>
 </h4>
-<p>The <code>assay</code> and <code>assays</code> methods follow <code>SummarizedExperiment</code> convention. The <code>assay</code> (singular) method will extract the first element of the <code>ExperimentList</code> and will return a <code>matrix</code>.</p>
+<p>The <code>assay</code> and <code>assays</code> methods follow
+<code>SummarizedExperiment</code> convention. The <code>assay</code>
+(singular) method will extract the first element of the
+<code>ExperimentList</code> and will return a <code>matrix</code>.</p>
 <div class="sourceCode" id="cb121"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/SummarizedExperiment/man/SummarizedExperiment-class.html" class="external-link">assay</a></span><span class="op">(</span><span class="va">miniACC</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code><span class="co">## [1] "matrix" "array"</span></code></pre>
-<p>The <code>assays</code> (plural) method will return a <code>SimpleList</code> of the data with each element being a <code>matrix</code>.</p>
+<p>The <code>assays</code> (plural) method will return a
+<code>SimpleList</code> of the data with each element being a
+<code>matrix</code>.</p>
 <div class="sourceCode" id="cb123"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/SummarizedExperiment/man/SummarizedExperiment-class.html" class="external-link">assays</a></span><span class="op">(</span><span class="va">miniACC</span><span class="op">)</span></code></pre></div>
 <pre><code><span class="co">## List of length 5</span>
@@ -1369,7 +1663,9 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <div class="infobox">
 <p><em>Key point:</em></p>
 <ul>
-<li>Whereas the <code>[[</code> returned an experiment in its original class, <code><a href="https://rdrr.io/pkg/SummarizedExperiment/man/SummarizedExperiment-class.html" class="external-link">assay()</a></code> and <code><a href="https://rdrr.io/pkg/SummarizedExperiment/man/SummarizedExperiment-class.html" class="external-link">assays()</a></code> convert the assay data to matrix format.</li>
+<li>Whereas the <code>[[</code> returned an experiment in its original
+class, <code><a href="https://rdrr.io/pkg/SummarizedExperiment/man/SummarizedExperiment-class.html" class="external-link">assay()</a></code> and <code><a href="https://rdrr.io/pkg/SummarizedExperiment/man/SummarizedExperiment-class.html" class="external-link">assays()</a></code> convert the assay
+data to matrix format.</li>
 </ul>
 </div>
 <p style="text-align: right;">
@@ -1379,7 +1675,8 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <div class="section level4">
 <h4 id="summary-of-slots-and-accessors">Summary of slots and accessors<a class="anchor" aria-label="anchor" href="#summary-of-slots-and-accessors"></a>
 </h4>
-<p>Slot in the <code>MultiAssayExperiment</code> can be accessed or set using the respective accessor functions:</p>
+<p>Slot in the <code>MultiAssayExperiment</code> can be accessed or set
+using the respective accessor functions:</p>
 <table class="table">
 <thead><tr class="header">
 <th>Slot</th>
@@ -1405,17 +1702,32 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 </tr>
 </tbody>
 </table>
-<p>__*__ The <code>$</code> operator on a <code>MultiAssayExperiment</code> returns a single column of the <code>colData</code>.</p>
+<p>__*__ The <code>$</code> operator on a
+<code>MultiAssayExperiment</code> returns a single column of the
+<code>colData</code>.</p>
 </div>
 <div class="section level4">
 <h4 id="transformation-reshaping">Transformation / reshaping<a class="anchor" aria-label="anchor" href="#transformation-reshaping"></a>
 </h4>
-<p>The <code>longFormat</code> or <code>wideFormat</code> functions will “reshape” and combine experiments with each other and with <code>colData</code> into one <code>DataFrame</code>. These functions provide compatibility with most of the common R/Bioconductor functions for regression, machine learning, and visualization.</p>
+<p>The <code>longFormat</code> or <code>wideFormat</code> functions will
+“reshape” and combine experiments with each other and with
+<code>colData</code> into one <code>DataFrame</code>. These functions
+provide compatibility with most of the common R/Bioconductor functions
+for regression, machine learning, and visualization.</p>
 <div class="section level5">
 <h5 id="longformat">
 <code>longFormat</code><a class="anchor" aria-label="anchor" href="#longformat"></a>
 </h5>
-<p>In <em>long</em> format a single column provides all assay results, with additional optional <code>colData</code> columns whose values are repeated as necessary. Here <em>assay</em> is the name of the ExperimentList element, <em>primary</em> is the patient identifier (rowname of colData), <em>rowname</em> is the assay rowname (in this case genes), <em>colname</em> is the assay-specific identifier (column name), <em>value</em> is the numeric measurement (gene expression, copy number, presence of a non-silent mutation, etc), and following these are the <em>vital_status</em> and <em>days_to_death</em> colData columns that have been added:</p>
+<p>In <em>long</em> format a single column provides all assay results,
+with additional optional <code>colData</code> columns whose values are
+repeated as necessary. Here <em>assay</em> is the name of the
+ExperimentList element, <em>primary</em> is the patient identifier
+(rowname of colData), <em>rowname</em> is the assay rowname (in this
+case genes), <em>colname</em> is the assay-specific identifier (column
+name), <em>value</em> is the numeric measurement (gene expression, copy
+number, presence of a non-silent mutation, etc), and following these are
+the <em>vital_status</em> and <em>days_to_death</em> colData columns
+that have been added:</p>
 <div class="sourceCode" id="cb125"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html" class="external-link">longFormat</a></span><span class="op">(</span><span class="va">miniACC</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"TP53"</span>, <span class="st">"CTNNB1"</span><span class="op">)</span>, , <span class="op">]</span>,
     colDataCols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"vital_status"</span>, <span class="st">"days_to_death"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
@@ -1453,7 +1765,9 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <h5 id="wideformat">
 <code>wideFormat</code><a class="anchor" aria-label="anchor" href="#wideformat"></a>
 </h5>
-<p>In <em>wide</em> format, each feature from each assay goes in a separate column, with one row per primary identifier (patient). Here, each variable becomes a new column:</p>
+<p>In <em>wide</em> format, each feature from each assay goes in a
+separate column, with one row per primary identifier (patient). Here,
+each variable becomes a new column:</p>
 <div class="sourceCode" id="cb128"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html" class="external-link">wideFormat</a></span><span class="op">(</span><span class="va">miniACC</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"TP53"</span>, <span class="st">"CTNNB1"</span><span class="op">)</span>, , <span class="op">]</span>,
     colDataCols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"vital_status"</span>, <span class="st">"days_to_death"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
@@ -1505,8 +1819,12 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <div class="infobox">
 <p><strong>Key points</strong></p>
 <ul>
-<li>Knowing how to subset a <code>MultiAssayExperiment</code> object is important to be able to restrict observations and measurements to particular phenotypes or sample types</li>
-<li>Functions such as <code>longFormat</code> and <code>wideFormat</code> are helpful for downstream analysis functions that require a certain type of input format</li>
+<li>Knowing how to subset a <code>MultiAssayExperiment</code> object is
+important to be able to restrict observations and measurements to
+particular phenotypes or sample types</li>
+<li>Functions such as <code>longFormat</code> and
+<code>wideFormat</code> are helpful for downstream analysis functions
+that require a certain type of input format</li>
 </ul>
 </div>
 </div>
@@ -1515,8 +1833,15 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <div class="section level3">
 <h3 id="singlecellmultimodal-1">SingleCellMultiModal<a class="anchor" aria-label="anchor" href="#singlecellmultimodal-1"></a>
 </h3>
-<p><code>SingleCellMultiModal</code> is an <code>ExperimentHub</code> package that serves multiple datasets obtained from GEO and other sources and represents them as <code>MultiAssayExperiment</code> objects. We provide several multi-modal datasets including scNMT, 10X Multiome, seqFISH, CITEseq, SCoPE2, and others. The scope of the package is is to provide data for benchmarking and analysis.</p>
-<p>Users can access the data for a particular technology with the appropriate function. For example, to obtain a small data.frame of what data is available for <code>scNMT</code>, the user would enter:</p>
+<p><code>SingleCellMultiModal</code> is an <code>ExperimentHub</code>
+package that serves multiple datasets obtained from GEO and other
+sources and represents them as <code>MultiAssayExperiment</code>
+objects. We provide several multi-modal datasets including scNMT, 10X
+Multiome, seqFISH, CITEseq, SCoPE2, and others. The scope of the package
+is is to provide data for benchmarking and analysis.</p>
+<p>Users can access the data for a particular technology with the
+appropriate function. For example, to obtain a small data.frame of what
+data is available for <code>scNMT</code>, the user would enter:</p>
 <div class="sourceCode" id="cb131"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/SingleCellMultiModal/man/scNMT.html" class="external-link">scNMT</a></span><span class="op">(</span><span class="st">"mouse_gastrulation"</span>, dry.run <span class="op">=</span> <span class="cn">TRUE</span>, version <span class="op">=</span> <span class="st">'2.0.0'</span><span class="op">)</span></code></pre></div>
 <pre><code><span class="co">## snapshotDate(): 2021-10-19</span></code></pre>
@@ -1535,7 +1860,8 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 <span class="co">## 12 EH3765 met_promoter   18.7 Mb     matrix     2020-09-03             &lt;NA&gt;</span>
 <span class="co">## 13 EH3766          rna   43.5 Mb     matrix     2020-09-03             &lt;NA&gt;</span></code></pre>
 <p>We can see that there are a few assays for each modality.</p>
-<p>The user can also use the help function to get a list of all the functions available in the package:</p>
+<p>The user can also use the help function to get a list of all the
+functions available in the package:</p>
 <div class="sourceCode" id="cb134"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/help.html" class="external-link">help</a></span><span class="op">(</span>package <span class="op">=</span> <span class="st">"SingleCellMultiModal"</span>, help_type <span class="op">=</span> <span class="st">"html"</span><span class="op">)</span></code></pre></div>
 </div>
@@ -1544,10 +1870,16 @@ The MultiAssayExperiment API for construction, access, subsetting, management, a
 </h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-Ramos2020-ya" class="csl-entry">
-Ramos, Marcel, Ludwig Geistlinger, Sehyun Oh, Lucas Schiffer, Rimsha Azhar, Hanish Kodali, Ino de Bruijn, et al. 2020. <span>“Multiomic Integration of Public Oncology Databases in Bioconductor.”</span> <em>JCO Clin Cancer Inform</em> 4 (October): 958–71.
+Ramos, Marcel, Ludwig Geistlinger, Sehyun Oh, Lucas Schiffer, Rimsha
+Azhar, Hanish Kodali, Ino de Bruijn, et al. 2020. <span>“Multiomic
+Integration of Public Oncology Databases in Bioconductor.”</span>
+<em>JCO Clin Cancer Inform</em> 4 (October): 958–71.
 </div>
 <div id="ref-Ramos2017-er" class="csl-entry">
-Ramos, Marcel, Lucas Schiffer, Angela Re, Rimsha Azhar, Azfar Basunia, Carmen Rodriguez, Tiffany Chan, et al. 2017. <span>“Software for the Integration of Multiomics Experiments in Bioconductor.”</span> <em>Cancer Res.</em> 77 (21): e39–42.
+Ramos, Marcel, Lucas Schiffer, Angela Re, Rimsha Azhar, Azfar Basunia,
+Carmen Rodriguez, Tiffany Chan, et al. 2017. <span>“Software for the
+Integration of Multiomics Experiments in Bioconductor.”</span>
+<em>Cancer Res.</em> 77 (21): e39–42.
 </div>
 </div>
 </div>
@@ -1571,7 +1903,8 @@ Ramos, Marcel, Lucas Schiffer, Angela Re, Rimsha Azhar, Azfar Basunia, Carmen Ro
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a>
+2.0.2.</p>
 </div>
 
       </footer>
