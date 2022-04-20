@@ -4,12 +4,11 @@ on: push
 
 env:
   cache-version: v2
-  repo-name: mr148/multiassayworkshop
 
 jobs:
   checkdeploy:
     runs-on: ubuntu-20.04
-    container: bioconductor/bioconductor_docker:RELEASE_3_14
+    container: bioconductor/bioconductor_docker:devel
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
@@ -62,9 +61,9 @@ jobs:
         if: ${{ success() }}
         uses: docker/build-push-action@v1
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-          repository: ${{ env.repo-name }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          repository: ${{ secrets.DOCKERHUB_USERNAME }}/multiassayworkshop
           tag_with_ref: true
           tag_with_sha: true
           tags: latest
