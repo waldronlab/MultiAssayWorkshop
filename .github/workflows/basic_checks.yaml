@@ -9,14 +9,18 @@ jobs:
   checkdeploy:
     runs-on: ubuntu-20.04
     container: bioconductor/bioconductor_docker:devel
+
+    env:
+      R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
       - name: Query dependencies
         run: |
-          install.packages("remotes")
-          remotes::install_github("Bioconductor/BiocManager")
+          BiocManager::install(c("remotes", "Bioconductor/BiocManager"))
           saveRDS(remotes::dev_package_deps(dependencies = TRUE), ".github/depends.Rds", version = 2)
         shell: Rscript {0}
 
