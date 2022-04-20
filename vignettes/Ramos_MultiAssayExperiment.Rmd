@@ -781,7 +781,7 @@ In the page we check that the case UUID matches the input.
 #### `filenameToBarcode()` - Using file names as input
 
 ```{r}
-fquery <- files() %>%
+fquery <- files() |>
     GenomicDataCommons::filter(~ cases.project.project_id == "TCGA-ACC" &
         data_category == "Copy Number Variation" &
         data_type == "Copy Number Segment")
