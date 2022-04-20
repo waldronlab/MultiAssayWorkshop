@@ -15,10 +15,10 @@ jobs:
 
       - name: Query dependencies
         run: |
-          BiocManager::install(c("remotes", "AnVIL"))
+          BiocManager::install(c("remotes", "Bioconductor/BiocManager"))
           saveRDS(remotes::dev_package_deps(dependencies = TRUE), ".github/depends.Rds", version = 2)
         shell: Rscript {0}
-        
+
       - name: Cache R packages
         if: runner.os != 'Windows'
         uses: actions/cache@v1
@@ -30,7 +30,7 @@ jobs:
       - name: Install Package Dependencies
         run: |
           options(repos = c(CRAN = "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"))
-          remotes::install_local(dependencies = TRUE, repos = AnVIL::repositories(), build_vignettes = TRUE, upgrade = TRUE)
+          remotes::install_local(dependencies = TRUE, repos = BiocManager::repositories(), build_vignettes = TRUE, upgrade = TRUE)
           BiocManager::install("rcmdcheck", update = TRUE, ask = FALSE)
         shell: Rscript {0}
 
