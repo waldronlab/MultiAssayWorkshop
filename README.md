@@ -58,6 +58,7 @@ the `curatedTCGAData` and `cBioPortalData` packages.
 * [RaggedExperiment](https://bioconductor.org/packages/RaggedExperiment)
 * [curatedTCGAData](https://bioconductor.org/packages/curatedTCGAData)
 * [cBioPortalData](https://bioconductor.org/packages/cBioPortalData)
+* [terraTCGAdata](https://bioconductor.org/packages/terraTCGAdata)
 * [TCGAutils](https://bioconductor.org/packages/TCGAutils)
 * [UpSetR](https://bioconductor.org/packages/UpSetR)
 
