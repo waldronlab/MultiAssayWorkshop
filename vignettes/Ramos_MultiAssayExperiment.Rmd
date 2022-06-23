@@ -46,11 +46,15 @@ opts_chunk$set(out.width="100%", cache=TRUE)
 ## Workshop participation
 
 * See the instruction [Google slides](https://tinyurl.com/MultiAssayWorkshop)
-* Go to the conference instance registration webpage and use these credentials:
-    * username: `rstudio`
-    * password: `rstudio`
-* Browse to the [workshop website](https://waldronlab.io/MultiAssayWorkshop/)
-* (Alternatively) Docker users can run this workshop locally via:
+* Browse to the [workshop website](https://waldronlab.io/MultiAssayWorkshop/). This page includes:
+    - [A built version of this workshop](https://waldronlab.io/MultiAssayWorkshop/articles/Ramos_MultiAssayExperiment.html)
+    - [List of available cBioPortal studies](https://waldronlab.io/MultiAssayWorkshop/articles/cBioPortal_Studies.html)
+    - [TCGA terminology quick-reference](https://waldronlab.io/MultiAssayWorkshop/articles/curatedTCGAData_ref.html)
+    - [TCGAutils package cheat-sheet](https://waldronlab.io/MultiAssayWorkshop/articles/TCGAutilsCheatsheet.html)
+    - [Build your first MultiAssayExperiment interactive tutorial](https://waldronlab.io/MultiAssayWorkshop/tutorials/Exercise_MultiAssay.html)
+    - [Download and use cBioPortal data interactive tutorial](https://waldronlab.io/MultiAssayWorkshop/tutorials/cBioPortalData_Intro.html)
+* Run this workshop on the [free Orchestra Cloud platform](http://app.orchestra.cancerdatasci.org/) (search for title: "Multi-omic Integration of cBioPortal and TCGA data with MultiAssayExperiment")
+* Docker users can run this workshop locally via:
 
 ```
 docker run -e PASSWORD=bioc -p 8787:8787 mr148/multiassayworkshop:latest
