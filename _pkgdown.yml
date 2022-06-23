@@ -33,7 +33,7 @@ navbar:
 tutorials:
 - name: Exercise_MultiAssay
   title: Build Your First MAE
-  url: https://mramos.shinyapps.io/Exercises_MultiAssayWorkshop/
+  url: https://shiny.sph.cuny.edu/MultiAssayWorkshop/tutorials/MultiAssayExperiment/
 - name: cBioPortalData_Intro
   title: Download and Use cBioPortal Data
-  url: https://mramos.shinyapps.io/cBioPortalData_Tutorial/
+  url: https://shiny.sph.cuny.edu/MultiAssayWorkshop/tutorials/cBioPortalData/
