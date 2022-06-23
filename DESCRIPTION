@@ -1,16 +1,18 @@
 Package: MultiAssayWorkshop
 Title: Multi-omic Integration and Analysis of cBioPortal and TCGA data with MultiAssayExperiment
-Version: 3.16.0
+Version: 3.16.1
 Authors@R: c(person("Marcel", "Ramos", email = "marcel.ramos@roswellpark.org",
     role = c("aut", "cre")),
     person("Ludwig", "Geistlinger", email = "Ludwig.Geistlinger@sph.cuny.edu",
     role = "ctb"),
     person("Levi", "Waldron", email = "lwaldron.research@gmail.com",
     role = "aut"))
-Description: This is a workshop on acquiring and analyzing data through the
-  curatedTCGAData and cBioPortalData packages as MultiAssayExperiment objects.
-  It built using GitHub actions and pkgdown. Some knowledge of R and basic 
-  Bioconductor structures such as SummarizedExperiment is assumed. 
+Description: In this workshop, attendees will learn to access and analyze data
+  through the curatedTCGAData and cBioPortalData R/Bioconductor packages.
+  Workshop attendees will learn how to create and work with a
+  MultiAssayExperiment data container to manage multiple genomic experiments.
+  Some knowledge of R and basic Bioconductor structures, such as
+  SummarizedExperiment, is required.
 Depends: R (>= 4.2.0)
 Imports:
   MultiAssayExperiment,
@@ -49,6 +51,6 @@ License: Artistic-2.0
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 URL: https://waldronlab.github.io/MultiAssayWorkshop/
-BugReports: https://github.com/waldronlab/MultiAssayWorkshop/issues/new/choose
+BugReports: https://github.com/waldronlab/MultiAssayWorkshop/issues/new
 VignetteBuilder: knitr
-DockerImage: mr148/multiassayworkshop:latest
+DockerImage: docker.io/mr148/multiassayworkshop:latest
