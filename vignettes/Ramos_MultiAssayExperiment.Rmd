@@ -74,6 +74,7 @@ library(MultiAssayExperiment)
 library(curatedTCGAData)
 library(cBioPortalData)
 library(TCGAutils)
+library(terraTCGAdata)
 library(SingleCellMultiModal)
 library(UpSetR)
 library(GenomicDataCommons)
@@ -91,6 +92,7 @@ Your citations are very much appreciated!
 |----------------------|----------------------------------------------------|
 | MultiAssayExperiment | Infrastructure package to represent multi-omics data|
 | curatedTCGAData      | Downloads TCGA data from ExperimentHub in MultiAssayExperiment form |
+| terraTCGAdata        | Obtains TCGA data within Terra cloud service as MultiAssayExperiment |
 | cBioPortalData       | Access over 300 study datasets from the cBio Genomics Portal |
 | TCGAutils            | Make use of utility functions for working with TCGA data |
 | SingleCellMultiModal | Obtain single cell data from various multi-modality studies |
@@ -136,6 +138,17 @@ studies from `TCGAutils::diseaseCodes`.
 
 * `OmicsTypes` -- A descriptive table of 'omics types in `curatedTCGAData`
 (thanks to Ludwig G. `@lgeistlinger`)
+
+#### `terraTCGAdata`
+
+* Tool for making use of TCGA data within the Terra platform. 
+* Go to https://app.terra.bio and sign in with your Google account (credit card
+required)
+* Select the latest RStudio / Bioconductor instance and install the package.
+* Make sure to authenticate Google Cloud and check `AnVIL::gcloud_exists()`
+* `findTCGAworkspaces` to list all the available workspaces with TCGA data
+* `terraTCGAworkspace` to set the TCGA dataset to download
+* `terraTCGAdata` - main function to download data
 
 #### `SingleCellMultiModal`
 
