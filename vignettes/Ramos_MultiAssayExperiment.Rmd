@@ -74,7 +74,6 @@ library(MultiAssayExperiment)
 library(curatedTCGAData)
 library(cBioPortalData)
 library(TCGAutils)
-library(terraTCGAdata)
 library(SingleCellMultiModal)
 library(UpSetR)
 library(GenomicDataCommons)
@@ -141,7 +140,7 @@ studies from `TCGAutils::diseaseCodes`.
 
 #### `terraTCGAdata`
 
-* Tool for making use of TCGA data within the Terra platform. 
+* Tool for making use of TCGA data within the Terra platform.
 * Go to https://app.terra.bio and sign in with your Google account (credit card
 required)
 * Select the latest RStudio / Bioconductor instance and install the package.
