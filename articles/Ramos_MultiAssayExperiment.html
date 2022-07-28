@@ -517,6 +517,9 @@ chromosome (see <code>VcfStack</code> class defined in the
 objects for large datasets. It reduces memory usage and optimizes
 performance with delayed operations. This class is part of the
 <code>DelayedArray</code> package.</li>
+<li>
+<code>SingleCellExperiment</code>, <code>SpatialExperiment</code>,
+etc.</li>
 </ol></details><p><em>Note</em>. Data classes that support row and column naming and
 subsetting may be used in a <code>MultiAssayExperiment</code>.</p>
 </div>
@@ -1765,6 +1768,9 @@ using the respective accessor functions:</p>
 <code>colData</code> into one <code>DataFrame</code>. These functions
 provide compatibility with most of the common R/Bioconductor functions
 for regression, machine learning, and visualization.</p>
+<p><em>Note</em>. It is best to remove technical replicates before
+performing these operations to minimize the number of <code>NA</code>
+values, esp. to <code>wideFormat</code>.</p>
 <div class="section level5">
 <h5 id="longformat">
 <code>longFormat</code><a class="anchor" aria-label="anchor" href="#longformat"></a>
