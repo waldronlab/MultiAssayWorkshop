@@ -270,6 +270,7 @@ class defined in the `GenomicFiles` package)
 7. `DelayedMatrix`: An on-disk representation of matrix-like objects for large
 datasets. It reduces memory usage and optimizes performance with delayed
 operations. This class is part of the `DelayedArray` package.
+8. `SingleCellExperiment`, `SpatialExperiment`, etc.
 
 </details>
 
@@ -975,6 +976,9 @@ The `longFormat` or `wideFormat` functions will "reshape" and combine
 experiments with each other and with `colData` into one `DataFrame`. These
 functions provide compatibility with most of the common R/Bioconductor functions
 for regression, machine learning, and visualization.
+
+_Note_. It is best to remove technical replicates before performing these operations
+to minimize the number of `NA` values, esp. to `wideFormat`.
 
 #### `longFormat`
 
