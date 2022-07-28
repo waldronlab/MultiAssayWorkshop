@@ -109,7 +109,7 @@ Geistlinger</h4>
 NY<br><h4 data-toc-skip class="author">Levi
 Waldron</h4>
             <address class="author_afil">
-      CUNY School of Public Health, New York, NY<br><h4 data-toc-skip class="date">July 26, 2022</h4>
+      CUNY School of Public Health, New York, NY<br><h4 data-toc-skip class="date">July 28, 2022</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/waldronlab/MultiAssayWorkshop/blob/HEAD/vignettes/Ramos_MultiAssayExperiment.Rmd" class="external-link"><code>vignettes/Ramos_MultiAssayExperiment.Rmd</code></a></small>
       <div class="hidden name"><code>Ramos_MultiAssayExperiment.Rmd</code></div>
@@ -217,14 +217,19 @@ appreciated!</p>
 form</td>
 </tr>
 <tr class="odd">
+<td>terraTCGAdata</td>
+<td>Obtains TCGA data within Terra cloud service as
+MultiAssayExperiment</td>
+</tr>
+<tr class="even">
 <td>cBioPortalData</td>
 <td>Access over 300 study datasets from the cBio Genomics Portal</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>TCGAutils</td>
 <td>Make use of utility functions for working with TCGA data</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>SingleCellMultiModal</td>
 <td>Obtain single cell data from various multi-modality studies</td>
 </tr>
@@ -298,6 +303,29 @@ of available cancer studies from
 <li><p><code>OmicsTypes</code> – A descriptive table of ’omics types in
 <code>curatedTCGAData</code> (thanks to Ludwig G.
 <code>@lgeistlinger</code>)</p></li>
+</ul>
+</div>
+<div class="section level5">
+<h5 id="terratcgadata">
+<code>terraTCGAdata</code><a class="anchor" aria-label="anchor" href="#terratcgadata"></a>
+</h5>
+<ul>
+<li>Tool for making use of TCGA data within the Terra platform.</li>
+<li>Go to <a href="https://app.terra.bio" class="external-link uri">https://app.terra.bio</a> and sign in with your Google
+account (credit card required)</li>
+<li>Select the latest RStudio / Bioconductor instance and install the
+package.</li>
+<li>Make sure to authenticate Google Cloud and check
+<code><a href="https://rdrr.io/pkg/AnVIL/man/gcloud.html" class="external-link">AnVIL::gcloud_exists()</a></code>
+</li>
+<li>
+<code>findTCGAworkspaces</code> to list all the available workspaces
+with TCGA data</li>
+<li>
+<code>terraTCGAworkspace</code> to set the TCGA dataset to
+download</li>
+<li>
+<code>terraTCGAdata</code> - main function to download data</li>
 </ul>
 </div>
 <div class="section level5">
@@ -965,7 +993,7 @@ service.</p>
 <span><span class="co">##     expected md5sum: 1615443badbeaada68463859c34f15f8</span></span></code></pre>
 <div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/cBioPortalData/man/cBioPortal.html" class="external-link">getStudies</a></span><span class="op">(</span><span class="va">cbio</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 347 × 13</span></span></span>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 348 × 13</span></span></span>
 <span><span class="co">##    name    descr…¹ publi…² groups status impor…³ allSa…⁴ readP…⁵ studyId cance…⁶</span></span>
 <span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Adreno… <span style="color: #949494;">"</span>TCGA … TRUE    <span style="color: #949494;">"</span>PUBL…      0 2022-0…      92 TRUE    acc_tc… acc    </span></span>
@@ -978,7 +1006,7 @@ service.</p>
 <span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Bladde… <span style="color: #949494;">"</span>Whole… TRUE    <span style="color: #949494;">"</span>PUBL…      0 2022-0…      99 TRUE    blca_b… blca   </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Bladde… <span style="color: #949494;">"</span>Genom… TRUE    <span style="color: #949494;">"</span>PUBL…      0 2022-0…     109 TRUE    blca_m… blca   </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;">10</span> Hypodi… <span style="color: #949494;">"</span>Whole… TRUE    <span style="color: #949494;">""</span>          0 2022-0…      44 TRUE    all_st… myeloid</span></span>
-<span><span class="co">## <span style="color: #949494;"># … with 337 more rows, 3 more variables: referenceGenome &lt;chr&gt;, pmid &lt;chr&gt;,</span></span></span>
+<span><span class="co">## <span style="color: #949494;"># … with 338 more rows, 3 more variables: referenceGenome &lt;chr&gt;, pmid &lt;chr&gt;,</span></span></span>
 <span><span class="co">## <span style="color: #949494;">#   citation &lt;chr&gt;, and abbreviated variable names ¹​description, ²​publicStudy,</span></span></span>
 <span><span class="co">## <span style="color: #949494;">#   ³​importDate, ⁴​allSampleCount, ⁵​readPermission, ⁶​cancerTypeId</span></span></span>
 <span><span class="co">## <span style="color: #949494;"># ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</span></span></span></code></pre>
@@ -986,7 +1014,7 @@ service.</p>
 <code>buildReport</code> argument.</p>
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/cBioPortalData/man/cBioPortal.html" class="external-link">getStudies</a></span><span class="op">(</span><span class="va">cbio</span>, buildReport <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 347 × 15</span></span></span>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 348 × 15</span></span></span>
 <span><span class="co">##    name    descr…¹ publi…² groups status impor…³ allSa…⁴ readP…⁵ studyId cance…⁶</span></span>
 <span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Adreno… <span style="color: #949494;">"</span>TCGA … TRUE    <span style="color: #949494;">"</span>PUBL…      0 2022-0…      92 TRUE    acc_tc… acc    </span></span>
@@ -999,7 +1027,7 @@ service.</p>
 <span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Bladde… <span style="color: #949494;">"</span>Whole… TRUE    <span style="color: #949494;">"</span>PUBL…      0 2022-0…      99 TRUE    blca_b… blca   </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Bladde… <span style="color: #949494;">"</span>Genom… TRUE    <span style="color: #949494;">"</span>PUBL…      0 2022-0…     109 TRUE    blca_m… blca   </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;">10</span> Hypodi… <span style="color: #949494;">"</span>Whole… TRUE    <span style="color: #949494;">""</span>          0 2022-0…      44 TRUE    all_st… myeloid</span></span>
-<span><span class="co">## <span style="color: #949494;"># … with 337 more rows, 5 more variables: referenceGenome &lt;chr&gt;, pmid &lt;chr&gt;,</span></span></span>
+<span><span class="co">## <span style="color: #949494;"># … with 338 more rows, 5 more variables: referenceGenome &lt;chr&gt;, pmid &lt;chr&gt;,</span></span></span>
 <span><span class="co">## <span style="color: #949494;">#   citation &lt;chr&gt;, api_build &lt;lgl&gt;, pack_build &lt;lgl&gt;, and abbreviated variable</span></span></span>
 <span><span class="co">## <span style="color: #949494;">#   names ¹​description, ²​publicStudy, ³​importDate, ⁴​allSampleCount,</span></span></span>
 <span><span class="co">## <span style="color: #949494;">#   ⁵​readPermission, ⁶​cancerTypeId</span></span></span>
@@ -1489,27 +1517,27 @@ UUID. Here we look at the first file UUID entry in the output
 <span><span class="va">fnames</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/GenomicDataCommons/man/results.html" class="external-link">results</a></span><span class="op">(</span><span class="va">fquery</span><span class="op">)</span><span class="op">$</span><span class="va">file_name</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/ID-translation.html" class="external-link">filenameToBarcode</a></span><span class="op">(</span><span class="va">fnames</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">##                                                                      file_name</span></span>
-<span><span class="co">## 1      BLAIN_p_TCGA_282_304_b2_N_GenomeWideSNP_6_D07_1348598.grch38.seg.v2.txt</span></span>
-<span><span class="co">## 2      BLAIN_p_TCGA_282_304_b2_N_GenomeWideSNP_6_D01_1348590.grch38.seg.v2.txt</span></span>
-<span><span class="co">## 3      BLAIN_p_TCGA_282_304_b2_N_GenomeWideSNP_6_F11_1348558.grch38.seg.v2.txt</span></span>
-<span><span class="co">## 4 GAMED_p_TCGA_B_312_313_314_NSP_GenomeWideSNP_6_D11_1361642.grch38.seg.v2.txt</span></span>
-<span><span class="co">## 5      AQUAE_p_TCGA_112_304_b2_N_GenomeWideSNP_6_F05_1348420.grch38.seg.v2.txt</span></span>
-<span><span class="co">## 6      BLAIN_p_TCGA_282_304_b2_N_GenomeWideSNP_6_A11_1348562.grch38.seg.v2.txt</span></span>
+<pre><code><span><span class="co">##                                                                 file_name</span></span>
+<span><span class="co">## 1 BLAIN_p_TCGA_282_304_b2_N_GenomeWideSNP_6_G08_1348614.grch38.seg.v2.txt</span></span>
+<span><span class="co">## 2 BLAIN_p_TCGA_282_304_b2_N_GenomeWideSNP_6_C10_1348540.grch38.seg.v2.txt</span></span>
+<span><span class="co">## 3 AQUAE_p_TCGA_112_304_b2_N_GenomeWideSNP_6_F01_1348254.grch38.seg.v2.txt</span></span>
+<span><span class="co">## 4 AQUAE_p_TCGA_112_304_b2_N_GenomeWideSNP_6_F04_1348258.grch38.seg.v2.txt</span></span>
+<span><span class="co">## 5 BLAIN_p_TCGA_282_304_b2_N_GenomeWideSNP_6_G07_1348514.grch38.seg.v2.txt</span></span>
+<span><span class="co">## 6 BLAIN_p_TCGA_282_304_b2_N_GenomeWideSNP_6_E01_1348560.grch38.seg.v2.txt</span></span>
 <span><span class="co">##                                file_id</span></span>
-<span><span class="co">## 1 c3c194cf-9f00-4b46-8e17-1b5671e9fa5e</span></span>
-<span><span class="co">## 2 45aabf4e-8601-41f1-9ea0-bd5b34e582ef</span></span>
-<span><span class="co">## 3 8d8a7df6-7dfa-441b-b298-e038b6919fd5</span></span>
-<span><span class="co">## 4 766dcd23-c2ad-495c-bc0e-60f9c2a1f11b</span></span>
-<span><span class="co">## 5 4418dca4-9d93-41db-9d7e-26019ceb9911</span></span>
-<span><span class="co">## 6 e80d0cc7-535b-44a4-958f-bacf35fe88a7</span></span>
+<span><span class="co">## 1 48d05650-971e-4407-9cf1-7e9d71b1ff20</span></span>
+<span><span class="co">## 2 a05f48a2-2a20-4e21-b4dc-161c71530eec</span></span>
+<span><span class="co">## 3 96d70d05-c0bc-46cd-b0e5-7ad71cdf8de8</span></span>
+<span><span class="co">## 4 3940e1fc-770d-4fb1-871c-a6f6fc07cc7a</span></span>
+<span><span class="co">## 5 b3e3f822-fa96-4b70-b857-ccad4d02c8be</span></span>
+<span><span class="co">## 6 d20f8ac8-0af1-4ca2-848c-e4aaf72b5836</span></span>
 <span><span class="co">##   cases.samples.portions.analytes.aliquots.submitter_id</span></span>
-<span><span class="co">## 1                          TCGA-OR-A5J7-01A-11D-A29H-01</span></span>
-<span><span class="co">## 2                          TCGA-OR-A5J7-10A-01D-A29K-01</span></span>
-<span><span class="co">## 3                          TCGA-OR-A5K6-01A-11D-A29H-01</span></span>
-<span><span class="co">## 4                          TCGA-OR-A5KB-01A-11D-A309-01</span></span>
-<span><span class="co">## 5                          TCGA-OR-A5L5-01A-11D-A29H-01</span></span>
-<span><span class="co">## 6                          TCGA-OR-A5JP-10A-01D-A29K-01</span></span></code></pre>
+<span><span class="co">## 1                          TCGA-OR-A5JL-01A-11D-A29H-01</span></span>
+<span><span class="co">## 2                          TCGA-OR-A5JL-10A-01D-A29K-01</span></span>
+<span><span class="co">## 3                          TCGA-OR-A5LL-01A-11D-A29H-01</span></span>
+<span><span class="co">## 4                          TCGA-OR-A5KV-01A-11D-A29H-01</span></span>
+<span><span class="co">## 5                          TCGA-OR-A5JD-01A-11D-A29H-01</span></span>
+<span><span class="co">## 6                          TCGA-OR-A5J8-01A-11D-A29H-01</span></span></code></pre>
 <p>See the <code>TCGAutils</code> vignette page for more details.</p>
 <div class="infobox">
 <p><strong>Key points</strong></p>
