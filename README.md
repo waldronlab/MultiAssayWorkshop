@@ -1,4 +1,4 @@
-![MAEWorkshopCheck](https://github.com/waldronlab/MultiAssayWorkshop/workflows/MAEWorkshopCheck/badge.svg)
+[![MAE Workshop Check](https://github.com/waldronlab/MultiAssayWorkshop/actions/workflows/basic_checks.yaml/badge.svg?branch=devel)](https://github.com/waldronlab/MultiAssayWorkshop/actions/workflows/basic_checks.yaml)
 
 # Multi-omic Integration of cBioPortal and TCGA data with MultiAssayExperiment
 
