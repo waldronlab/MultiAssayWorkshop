@@ -1,5 +1,7 @@
 #!/bin/bash
 
+## https://github.com/eddelbuettel/r2u/blob/master/inst/scripts/add_cranapt_jammy.sh
+
 ## See README.md for details on these steps
 ##
 ## This script has been tested on a plain ubuntu:22.04 system having R

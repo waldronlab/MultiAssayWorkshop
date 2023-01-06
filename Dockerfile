@@ -11,6 +11,4 @@ COPY inst/scripts /home/rstudio/scripts
 
 RUN bash ./scripts/add_cranapt_jammy.sh
 
-RUN Rscript -e "BiocManager::install(update = TRUE, ask=FALSE)"
-RUN Rscript -e "remotes::install_local(dependencies = TRUE, repos = BiocManager::repositories(), build_vignettes = TRUE)"
-
+RUN R -f ./scripts/install_deps.R
