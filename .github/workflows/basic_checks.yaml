@@ -7,12 +7,13 @@ env:
 
 jobs:
   checkdeploy:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     container: bioconductor/bioconductor_docker:devel
 
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      CRAN: https://packagemanager.rstudio.com/cran/__linux__/jammy/latest
 
     steps:
       - name: Checkout Repository
@@ -20,7 +21,7 @@ jobs:
 
       - name: Query dependencies
         run: |
-          BiocManager::install(c("remotes", "Bioconductor/BiocManager"))
+          BiocManager::install(c("remotes", "rcmdcheck"))
           saveRDS(remotes::dev_package_deps(dependencies = TRUE), ".github/depends.Rds", version = 2)
         shell: Rscript {0}
 
@@ -34,15 +35,14 @@ jobs:
 
       - name: Install Package Dependencies
         run: |
-          options(repos = c(CRAN = "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"))
           remotes::install_local(dependencies = TRUE, repos = BiocManager::repositories(), build_vignettes = TRUE, upgrade = TRUE)
-          BiocManager::install("rcmdcheck", update = TRUE, ask = FALSE)
+          BiocManager::install(update = TRUE, ask = FALSE)
         shell: Rscript {0}
 
       - name: Check Package
         env:
           _R_CHECK_CRAN_INCOMING_REMOTE_: false
-        run: rcmdcheck::rcmdcheck(args = c("--no-manual"), error_on = "error", check_dir = "check")
+        run: rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error", check_dir = "check")
         shell: Rscript {0}
 
       - name: Build pkgdown
@@ -62,14 +62,24 @@ jobs:
           BRANCH: gh-pages # The branch the action should deploy to.
           FOLDER: docs # The folder the action should deploy.
 
-      - name: Build and Push Docker container
-        if: ${{ success() }}
-        uses: docker/build-push-action@v1
+  dock: 
+    runs-on: ubuntu-22.04
+    needs: checkdeploy
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-          repository: ${{ secrets.DOCKERHUB_USERNAME }}/multiassayworkshop
-          tag_with_ref: true
-          tag_with_sha: true
-          tags: latest
 
+      - name: Build and Push Docker
+        if: ${{ success() }}
+        uses: docker/build-push-action@v3
+        with:
+          push: true
+          tags: >
+            ${{ secrets.DOCKERHUB_USERNAME }}/cbioportaldata:latest,
+            ${{ secrets.DOCKERHUB_USERNAME }}/cbioportaldata:devel
