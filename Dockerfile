@@ -11,4 +11,4 @@ COPY inst/scripts /home/rstudio/scripts
 
 RUN bash ./scripts/add_cranapt_jammy.sh
 
-RUN R -f ./scripts/install_deps.R
+RUN sudo R -f ./scripts/install_deps.R
