@@ -1,6 +1,6 @@
 Package: MultiAssayWorkshop
 Title: Multi-omic Integration and Analysis of cBioPortal and TCGA data with MultiAssayExperiment
-Version: 3.16.3
+Version: 3.17.0
 Authors@R: c(person("Marcel", "Ramos", email = "marcel.ramos@roswellpark.org",
     role = c("aut", "cre")),
     person("Ludwig", "Geistlinger", email = "Ludwig.Geistlinger@sph.cuny.edu",
