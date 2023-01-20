@@ -1,3 +1,5 @@
+options(error = traceback)
+
 BiocManager::install(
     c(
         'learnr', 'UpSetR', 'TxDb.Hsapiens.UCSC.hg19.knownGene',
