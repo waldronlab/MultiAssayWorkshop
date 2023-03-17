@@ -26,16 +26,17 @@ New York, NY 10027
 
 This workshop demonstrates how to leverage public multi-omics databases, such
 as the cBioPortal and The Cancer Genome Atlas (TCGA). Workshop participants
-are given an overview of the `cBioPortalData`, `curatedTCGAData`, and
-`terraTCGAdata` (experimental) data packages. It introduces users to minimal
-data management with `MultiAssayExperiment` and `TCGAutils`, packages that
-organize and manage multi-omics datasets. The workshop will provide
+are given an overview of the `cBioPortalData`, `curatedTCGAData`,
+`terraTCGAdata`, and `SingleCellMultiModal`, data packages. It introduces users
+to minimal data management with `MultiAssayExperiment` and `TCGAutils`, packages
+that organize and manage multi-omics datasets. The workshop will provide
 participants with ways to improve the ease-of-use of TCGA data, and introduce
 them to common Bioconductor data classes including `SummarizedExperiment`,
 `MultiAssayExperiment`, and `RaggedExperiment`. The workshop will also
 demonstrate the experimental `terraTCGAdata` package for working with TCGA data
 on the AnVIL Terra platform, as well as, a review of updates to existing
-functionality in `cBioPortalData`, `MultiAssayExperiment`, and `TCGAutils`.
+functionality in `cBioPortalData`, `MultiAssayExperiment`, `TCGAutils`,
+`TENxIO`, and `SingleCellMultiModal`.
 
 **Keywords**: Data Representation, Infrastructure, cBioPortal, MultiOmic
 Integration
@@ -59,7 +60,9 @@ the `curatedTCGAData` and `cBioPortalData` packages.
 * [curatedTCGAData](https://bioconductor.org/packages/curatedTCGAData)
 * [cBioPortalData](https://bioconductor.org/packages/cBioPortalData)
 * [terraTCGAdata](https://bioconductor.org/packages/terraTCGAdata)
+* [SingleCellMultiModal](https://bioconductor.org/packages/SingleCellMultiModal)
 * [TCGAutils](https://bioconductor.org/packages/TCGAutils)
+* [TENxIO](https://bioconductor.org/packages/TENxIO)
 * [UpSetR](https://bioconductor.org/packages/UpSetR)
 
 ## Time outline
@@ -91,7 +94,7 @@ platform
 
 * use `curatedTCGAData`, `cBioPortalData`, and `terraTCGAdata` to create
 on-the-fly multi-omics data objects
-* apply knowlege of `MultiAssayExperiment` to represent other multi-omics data
+* apply knowledge of `MultiAssayExperiment` to represent other multi-omics data
 * learn about data management techniques such as subsetting, reshaping,
 growing, and extraction using MultAssayExperiment
 

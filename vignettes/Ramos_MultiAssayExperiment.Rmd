@@ -71,6 +71,7 @@ Here is a list of packages that we will be using:
 
 ```{r,include=TRUE,results="hide",message=FALSE,warning=FALSE}
 library(MultiAssayExperiment)
+library(RaggedExperiment)
 library(curatedTCGAData)
 library(cBioPortalData)
 library(TCGAutils)
@@ -95,6 +96,7 @@ Your citations are very much appreciated!
 | cBioPortalData       | Access over 300 study datasets from the cBio Genomics Portal |
 | TCGAutils            | Make use of utility functions for working with TCGA data |
 | SingleCellMultiModal | Obtain single cell data from various multi-modality studies |
+| TENxIO               | Import 10X files as Bioconductor data classes |
 
 ### Key Packages
 
@@ -156,6 +158,13 @@ required)
 memory using the `HDF5` format as well as the `MTX` format.
 * Available technologies are scNMT, 10X Multiome, seqFISH, (EC)CITEseq,
 SCoPE2 and others.
+
+#### `TENxIO`
+
+* Allows import of 10X files as Bioconductor objects, e.g., `TENxH5` will
+produce a `SingleCellExperiment` from an `.h5` file.
+* Available for a number of formats such as `MTX`, `TSV`, peaks, fragments, and
+`.tar.gz` files.
 
 #### `TCGAutils`
 

@@ -35,6 +35,7 @@ Imports:
   shiny,
   survival,
   survminer,
+  TENxIO,
   pheatmap
 Suggests:
   kableExtra,
