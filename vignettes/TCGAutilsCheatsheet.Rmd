@@ -22,7 +22,7 @@ NA, NA, NA, "Reference data", NA, NA, NA, NA, "Miscellaneous", NA),
 
 `Category and Function` = c(NA, "generateMap", "imputeAssay", "mergeColData",
 "qreduceTCGA", "symbolsToRanges", "mirToRanges", "simplifyTCGA", NA,
-"getSubtypeMap", "getClinicalNames", "splitAssays", "sampleTables",
+"getSubtypeMap", "getClinicalNames", "TCGAsplitAssays", "sampleTables",
 "TCGAprimaryTumors", "oncoPrintTCGA", NA, "TCGAbarcode", "TCGAbiospec",
 "TCGAsampleSelect", "UUIDtoBarcode", "UUIDtoUUID", "barcodeToUUID",
 "filenameToBarcode", NA, "makeGRangesListFromCopyNumber",

@@ -717,21 +717,21 @@ head(sampleTypes)
 ```
 
 
-### `splitAssays`: separate the data from different tissue types
+### `TCGAsplitAssays`: separate the data from different tissue types
 
 TCGA datasets include multiple -omics for solid tumors, adjacent normal
 tissues, blood-derived cancers and normals, and other tissue types, which may
 be mixed together in a single dataset. The `MultiAssayExperiment` object
 generated here has one patient per row of its `colData`, but each patient may
 have two or more -omics profiles by any assay, whether due to assaying of
-different types of tissues or to technical replication. `splitAssays` separates
-profiles from different tissue types (such as tumor and adjacent normal) into
-different assays of the `MultiAssayExperiment` by taking a vector of sample
-codes, and partitioning the current assays into assays with an appended sample
-code:
+different types of tissues or to technical replication. `TCGAsplitAssays`
+separates profiles from different tissue types (such as tumor and adjacent
+normal) into different assays of the `MultiAssayExperiment` by taking a vector
+of sample codes, and partitioning the current assays into assays with an
+appended sample code:
 
 ```{r}
-split_acc <- splitAssays(acc, c("01", "11"))
+split_acc <- TCGAsplitAssays(acc, c("01", "11"))
 ```
 
 Only about 43 participants have data across all experiments.
