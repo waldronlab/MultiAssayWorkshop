@@ -109,7 +109,7 @@ Geistlinger</h4>
 NY<br><h4 data-toc-skip class="author">Levi
 Waldron</h4>
             <address class="author_afil">
-      CUNY School of Public Health, New York, NY<br><h4 data-toc-skip class="date">July 28, 2023</h4>
+      CUNY School of Public Health, New York, NY<br><h4 data-toc-skip class="date">August 03, 2023</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/waldronlab/MultiAssayWorkshop/blob/HEAD/vignettes/Ramos_MultiAssayExperiment.Rmd" class="external-link"><code>vignettes/Ramos_MultiAssayExperiment.Rmd</code></a></small>
       <div class="hidden name"><code>Ramos_MultiAssayExperiment.Rmd</code></div>
@@ -1013,7 +1013,7 @@ service.</p>
 <span><span class="co">##     expected md5sum: 008be96361f24a5c8d1cfb7f10ae9c97</span></span></code></pre>
 <div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/cBioPortalData/man/cBioPortal.html" class="external-link">getStudies</a></span><span class="op">(</span><span class="va">cbio</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 382 × 13</span></span></span>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 385 × 13</span></span></span>
 <span><span class="co">##    name          description publicStudy groups status importDate allSampleCount</span></span>
 <span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Adrenocortic… <span style="color: #949494;">"</span>TCGA Adre… TRUE        PUBLIC      0 2023-06-1…             92</span></span>
@@ -1026,14 +1026,14 @@ service.</p>
 <span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Kidney Chrom… <span style="color: #949494;">"</span>TCGA Kidn… TRUE        PUBLIC      0 2023-06-1…            113</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Colorectal A… <span style="color: #949494;">"</span>TCGA Colo… TRUE        PUBLIC      0 2023-06-1…            640</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;">10</span> Lymphoid Neo… <span style="color: #949494;">"</span>TCGA Lymp… TRUE        PUBLIC      0 2023-06-1…             48</span></span>
-<span><span class="co">## <span style="color: #949494;"># ℹ 372 more rows</span></span></span>
+<span><span class="co">## <span style="color: #949494;"># ℹ 375 more rows</span></span></span>
 <span><span class="co">## <span style="color: #949494;"># ℹ 6 more variables: readPermission &lt;lgl&gt;, studyId &lt;chr&gt;, cancerTypeId &lt;chr&gt;,</span></span></span>
 <span><span class="co">## <span style="color: #949494;">#   referenceGenome &lt;chr&gt;, pmid &lt;chr&gt;, citation &lt;chr&gt;</span></span></span></code></pre>
 <p>We can also see the build status of the datasets using the
 <code>buildReport</code> argument.</p>
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/cBioPortalData/man/cBioPortal.html" class="external-link">getStudies</a></span><span class="op">(</span><span class="va">cbio</span>, buildReport <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 382 × 15</span></span></span>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 385 × 15</span></span></span>
 <span><span class="co">##    name          description publicStudy groups status importDate allSampleCount</span></span>
 <span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Adrenocortic… <span style="color: #949494;">"</span>TCGA Adre… TRUE        PUBLIC      0 2023-06-1…             92</span></span>
@@ -1046,7 +1046,7 @@ service.</p>
 <span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Kidney Chrom… <span style="color: #949494;">"</span>TCGA Kidn… TRUE        PUBLIC      0 2023-06-1…            113</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Colorectal A… <span style="color: #949494;">"</span>TCGA Colo… TRUE        PUBLIC      0 2023-06-1…            640</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;">10</span> Lymphoid Neo… <span style="color: #949494;">"</span>TCGA Lymp… TRUE        PUBLIC      0 2023-06-1…             48</span></span>
-<span><span class="co">## <span style="color: #949494;"># ℹ 372 more rows</span></span></span>
+<span><span class="co">## <span style="color: #949494;"># ℹ 375 more rows</span></span></span>
 <span><span class="co">## <span style="color: #949494;"># ℹ 8 more variables: readPermission &lt;lgl&gt;, studyId &lt;chr&gt;, cancerTypeId &lt;chr&gt;,</span></span></span>
 <span><span class="co">## <span style="color: #949494;">#   referenceGenome &lt;chr&gt;, pmid &lt;chr&gt;, citation &lt;chr&gt;, api_build &lt;lgl&gt;,</span></span></span>
 <span><span class="co">## <span style="color: #949494;">#   pack_build &lt;lgl&gt;</span></span></span></code></pre>
