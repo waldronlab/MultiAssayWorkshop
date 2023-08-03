@@ -82,9 +82,9 @@ library(GenomicDataCommons)
 
 ### Citing MultiAssayExperiment
 
-Please use these citations [@Ramos2017-er] and [@Ramos2020-ya] when using
-`MultiAssayExperiment`, `curatedTCGAData`, or `cBioPortalData`.
-Your citations are very much appreciated!
+Please use these citations [@Ramos2017-er], [@Ramos2020-ya], and [@Ramos2023-vs]
+when using `MultiAssayExperiment`, `curatedTCGAData`, `cBioPortalData`, or
+`RaggedExperiment`. Your citations are very much appreciated!
 
 ### Overview of Packages
 
