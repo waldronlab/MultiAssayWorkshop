@@ -13,7 +13,7 @@ Description: In this workshop, attendees will learn to access and analyze data
   MultiAssayExperiment data container to manage multiple genomic experiments.
   Some knowledge of R and basic Bioconductor structures, such as
   SummarizedExperiment, is required.
-Depends: R (>= 4.2.0)
+Depends: R (>= 4.3.0)
 Imports:
   MultiAssayExperiment,
   GenomicRanges,
