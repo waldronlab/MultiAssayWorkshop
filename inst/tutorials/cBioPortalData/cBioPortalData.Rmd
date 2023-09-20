@@ -43,6 +43,7 @@ getStudies(buildReport = TRUE)
 ```
 
 ```{r getstudies-solution}
+cbio <- cBioPortal()
 getStudies(api = cbio, buildReport = TRUE)
 ```
 
@@ -115,6 +116,7 @@ Use the `genePanels` function to see what gene panels are available (if
 desired).
 
 ```{r genepanel, exercise = TRUE, exercise.eval = FALSE}
+cbio <- cBioPortal()
 genePanels(cbio)
 ```
 
@@ -123,6 +125,7 @@ genePanels(cbio)
 We can have a look at a table of genes with the `geneTable` function.
 
 ```{r genetable, exercise = TRUE, exercise.eval = FALSE}
+cbio <- cBioPortal()
 geneTable(cbio)
 ```
 
@@ -141,10 +144,12 @@ identifier. We are particularly interested in the `molecularProfileId` column
 in the output table.
 
 ```{r molprofs, exercise = TRUE, exercise.eval = FALSE}
+cbio <- cBioPortal()
 molecularProfiles()
 ```
 
 ```{r molprofs-solution}
+cbio <- cBioPortal()
 molecularProfiles(cbio, studyId = "acc_tcga")
 ```
 
@@ -158,6 +163,7 @@ along with a couple of `molecularProfileIds` say `'acc_tcga_rppa'` and
 `genePanelId` of interest. Let's put all of these in the function.
 
 ```{r querycbio, exercise = TRUE, exercise.eval = FALSE}
+cbio <- cBioPortal()
 cBioPortalData(
     cbio,
     studyId = ,
@@ -168,6 +174,7 @@ cBioPortalData(
 ```
 
 ```{r querycbio-solution}
+cbio <- cBioPortal()
 cBioPortalData(
     cbio,
     studyId = "acc_tcga",

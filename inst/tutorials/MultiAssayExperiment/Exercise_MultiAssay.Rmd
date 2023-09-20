@@ -82,10 +82,12 @@ Great! Now we can see the list of experiments that were in the
 Use the `colData` function to see the phenotype information from `miniACC`
 
 ```{r cdat1, exercise = TRUE, exercise.eval = FALSE}
+data("miniACC")
 miniACC
 ```
 
 ```{r cdat1-solution}
+data("miniACC")
 colData(miniACC)
 ```
 
@@ -94,6 +96,7 @@ colData(miniACC)
 Obtain the 'race' variable from the `colData` dataset
 
 ```{r cdat2, exercise = TRUE, exercise.eval = FALSE}
+data("miniACC")
 miniACC
 ```
 
@@ -113,12 +116,14 @@ miniACC$race
 We can also extract the list of data within the object by using the `assays` function.
 
 ```{r assay1}
+data("miniACC")
 assays(miniACC)
 ```
 
 Now use the `class` function on the output of the `assays` function.
 
 ```{r assay2, exercise = TRUE, exercise.eval = FALSE}
+data("miniACC")
 assays(miniACC)
 ```
 
@@ -145,10 +150,12 @@ convention. For example, to obtain the `sampleMap` from a `MultiAssayExperiment`
 `sampleMap` extractor function.
 
 ```{r smap1, exercise = TRUE, exercise.eval = FALSE}
+data("miniACC")
 miniACC
 ```
 
 ```{r smap1-solution}
+data("miniACC")
 sampleMap(miniACC)
 ```
 
@@ -192,6 +199,8 @@ create one function call using the constructor and the set of extractors we
 learned above.
 
 ```{r const1, exercise = TRUE, exercise.eval = FALSE}
+data("miniACC")
+
 experiments(miniACC)
 colData(miniACC)
 sampleMap(miniACC)
@@ -200,6 +209,8 @@ sampleMap(miniACC)
 **Hint:** See `?MultiAssayExperiment` for more details.
 
 ```{r const1-solution}
+data("miniACC")
+
 MultiAssayExperiment(
     experiments = experiments(miniACC),
     colData = colData(miniACC),
