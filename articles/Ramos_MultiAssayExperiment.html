@@ -109,7 +109,7 @@ Geistlinger</h4>
 NY<br><h4 data-toc-skip class="author">Levi
 Waldron</h4>
             <address class="author_afil">
-      CUNY School of Public Health, New York, NY<br><h4 data-toc-skip class="date">August 03, 2023</h4>
+      CUNY School of Public Health, New York, NY<br><h4 data-toc-skip class="date">September 20, 2023</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/waldronlab/MultiAssayWorkshop/blob/HEAD/vignettes/Ramos_MultiAssayExperiment.Rmd" class="external-link"><code>vignettes/Ramos_MultiAssayExperiment.Rmd</code></a></small>
       <div class="hidden name"><code>Ramos_MultiAssayExperiment.Rmd</code></div>
@@ -1007,14 +1007,9 @@ files</li>
 function. This will allow us to subsequently generate queries for the
 service.</p>
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">cbio</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/cBioPortalData/man/cBioPortal.html" class="external-link">cBioPortal</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## Warning in .service_validate_md5sum(api_reference_url, api_reference_md5sum, : service version differs from validated version</span></span>
-<span><span class="co">##     service url: https://www.cbioportal.org/api/v2/api-docs</span></span>
-<span><span class="co">##     observed md5sum: 7314de5c5e8056e4e07b411b3e5a0cb9</span></span>
-<span><span class="co">##     expected md5sum: 008be96361f24a5c8d1cfb7f10ae9c97</span></span></code></pre>
-<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/cBioPortalData/man/cBioPortal.html" class="external-link">getStudies</a></span><span class="op">(</span><span class="va">cbio</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 385 × 13</span></span></span>
+<code class="sourceCode R"><span><span class="va">cbio</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/cBioPortalData/man/cBioPortal.html" class="external-link">cBioPortal</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/cBioPortalData/man/cBioPortal.html" class="external-link">getStudies</a></span><span class="op">(</span><span class="va">cbio</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 391 × 13</span></span></span>
 <span><span class="co">##    name          description publicStudy groups status importDate allSampleCount</span></span>
 <span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Adrenocortic… <span style="color: #949494;">"</span>TCGA Adre… TRUE        PUBLIC      0 2023-06-1…             92</span></span>
@@ -1027,14 +1022,14 @@ service.</p>
 <span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Kidney Chrom… <span style="color: #949494;">"</span>TCGA Kidn… TRUE        PUBLIC      0 2023-06-1…            113</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Colorectal A… <span style="color: #949494;">"</span>TCGA Colo… TRUE        PUBLIC      0 2023-06-1…            640</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;">10</span> Lymphoid Neo… <span style="color: #949494;">"</span>TCGA Lymp… TRUE        PUBLIC      0 2023-06-1…             48</span></span>
-<span><span class="co">## <span style="color: #949494;"># ℹ 375 more rows</span></span></span>
+<span><span class="co">## <span style="color: #949494;"># ℹ 381 more rows</span></span></span>
 <span><span class="co">## <span style="color: #949494;"># ℹ 6 more variables: readPermission &lt;lgl&gt;, studyId &lt;chr&gt;, cancerTypeId &lt;chr&gt;,</span></span></span>
 <span><span class="co">## <span style="color: #949494;">#   referenceGenome &lt;chr&gt;, pmid &lt;chr&gt;, citation &lt;chr&gt;</span></span></span></code></pre>
 <p>We can also see the build status of the datasets using the
 <code>buildReport</code> argument.</p>
-<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/cBioPortalData/man/cBioPortal.html" class="external-link">getStudies</a></span><span class="op">(</span><span class="va">cbio</span>, buildReport <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 385 × 15</span></span></span>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 391 × 15</span></span></span>
 <span><span class="co">##    name          description publicStudy groups status importDate allSampleCount</span></span>
 <span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Adrenocortic… <span style="color: #949494;">"</span>TCGA Adre… TRUE        PUBLIC      0 2023-06-1…             92</span></span>
@@ -1047,7 +1042,7 @@ service.</p>
 <span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Kidney Chrom… <span style="color: #949494;">"</span>TCGA Kidn… TRUE        PUBLIC      0 2023-06-1…            113</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Colorectal A… <span style="color: #949494;">"</span>TCGA Colo… TRUE        PUBLIC      0 2023-06-1…            640</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;">10</span> Lymphoid Neo… <span style="color: #949494;">"</span>TCGA Lymp… TRUE        PUBLIC      0 2023-06-1…             48</span></span>
-<span><span class="co">## <span style="color: #949494;"># ℹ 375 more rows</span></span></span>
+<span><span class="co">## <span style="color: #949494;"># ℹ 381 more rows</span></span></span>
 <span><span class="co">## <span style="color: #949494;"># ℹ 8 more variables: readPermission &lt;lgl&gt;, studyId &lt;chr&gt;, cancerTypeId &lt;chr&gt;,</span></span></span>
 <span><span class="co">## <span style="color: #949494;">#   referenceGenome &lt;chr&gt;, pmid &lt;chr&gt;, citation &lt;chr&gt;, api_build &lt;lgl&gt;,</span></span></span>
 <span><span class="co">## <span style="color: #949494;">#   pack_build &lt;lgl&gt;</span></span></span></code></pre>
@@ -1059,7 +1054,7 @@ cleaning to be represented with <code>MultiAssayExperiment</code>.</p>
 <div class="section level4">
 <h4 id="cbiodatapack">cBioDataPack<a class="anchor" aria-label="anchor" href="#cbiodatapack"></a>
 </h4>
-<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">cBioPortalData</span><span class="op">)</span></span>
 <span></span>
 <span><span class="op">(</span><span class="va">uvm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/cBioPortalData/man/cBioDataPack.html" class="external-link">cBioDataPack</a></span><span class="op">(</span><span class="st">"uvm_tcga"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
@@ -1087,7 +1082,7 @@ cleaning to be represented with <code>MultiAssayExperiment</code>.</p>
 <div class="section level4">
 <h4 id="cbioportaldata-2">cBioPortalData<a class="anchor" aria-label="anchor" href="#cbioportaldata-2"></a>
 </h4>
-<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span></span>
 <span>    <span class="va">urcc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/cBioPortalData/man/cBioPortalData.html" class="external-link">cBioPortalData</a></span><span class="op">(</span></span>
 <span>        <span class="va">cbio</span>, studyId <span class="op">=</span> <span class="st">"urcc_mskcc_2016"</span>, genePanelId <span class="op">=</span> <span class="st">"IMPACT341"</span></span>
@@ -1166,11 +1161,11 @@ annotated sequences that can be converted to genomic ranges using the
 converts them to (‘hg19’) ranges. For those rows that cannot be found,
 an ‘unranged’ assay is introduced in the resulting MultiAssayExperiment
 object.</p>
-<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/simplifyTCGA.html" class="external-link">mirToRanges</a></span><span class="op">(</span><span class="va">acc</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## Warning in (function (seqlevels, genome, new_style) : cannot switch some hg19's</span></span>
 <span><span class="co">## seqlevels from UCSC to NCBI style</span></span></code></pre>
-<pre><code><span><span class="co">## Warning: 'experiments' dropped; see 'metadata'</span></span></code></pre>
+<pre><code><span><span class="co">## Warning: 'experiments' dropped; see 'drops()'</span></span></code></pre>
 <pre><code><span><span class="co">## harmonizing input:</span></span>
 <span><span class="co">##   removing 80 sampleMap rows not in names(experiments)</span></span></code></pre>
 <pre><code><span><span class="co">## A MultiAssayExperiment object of 6 listed</span></span>
@@ -1202,7 +1197,7 @@ and the <code>qreduceTCGA</code> utility function from
 <code>RaggedExperiment</code> to summarize ‘silent’ and ‘non-silent’
 mutations based on a ‘Variant_Classification’ metadata column in the
 original object.</p>
-<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## Update build metadata to "hg19"</span></span>
 <span><span class="fu">genome</span><span class="op">(</span><span class="va">acc</span><span class="op">[[</span><span class="st">"ACC_Mutation-20160128"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="st">"NCBI37"</span></span>
 <span><span class="fu">seqlevelsStyle</span><span class="op">(</span><span class="va">acc</span><span class="op">[[</span><span class="st">"ACC_Mutation-20160128"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="st">"UCSC"</span></span>
@@ -1226,7 +1221,7 @@ original object.</p>
 <span></span>
 <span><span class="co">## Warning in .normarg_seqlevelsStyle(value): cannot switch some hg19's seqlevels</span></span>
 <span><span class="co">## from UCSC to NCBI style</span></span></code></pre>
-<pre><code><span><span class="co">## Warning: 'experiments' dropped; see 'metadata'</span></span></code></pre>
+<pre><code><span><span class="co">## Warning: 'experiments' dropped; see 'drops()'</span></span></code></pre>
 <pre><code><span><span class="co">## harmonizing input:</span></span>
 <span><span class="co">##   removing 270 sampleMap rows not in names(experiments)</span></span></code></pre>
 <pre><code><span><span class="co">## A MultiAssayExperiment object of 5 listed</span></span>
@@ -1255,7 +1250,7 @@ original object.</p>
 ranges and replaces existing assays with
 <code>RangedSummarizedExperiment</code> objects. Gene annotations are
 given as ‘hg19’ genomic regions.</p>
-<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/simplifyTCGA.html" class="external-link">symbolsToRanges</a></span><span class="op">(</span><span class="va">acc</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">##   403 genes were dropped because they have exons located on both strands</span></span>
 <span><span class="co">##   of the same reference sequence or on more than one reference sequence,</span></span>
@@ -1265,7 +1260,7 @@ given as ‘hg19’ genomic regions.</p>
 <pre><code><span><span class="co">## Warning in (function (seqlevels, genome, new_style) : cannot switch some hg19's</span></span>
 <span><span class="co">## seqlevels from UCSC to NCBI style</span></span></code></pre>
 <pre><code><span><span class="co">## 'select()' returned 1:1 mapping between keys and columns</span></span></code></pre>
-<pre><code><span><span class="co">## Warning: 'experiments' dropped; see 'metadata'</span></span></code></pre>
+<pre><code><span><span class="co">## Warning: 'experiments' dropped; see 'drops()'</span></span></code></pre>
 <pre><code><span><span class="co">## harmonizing input:</span></span>
 <span><span class="co">##   removing 79 sampleMap rows not in names(experiments)</span></span></code></pre>
 <pre><code><span><span class="co">## A MultiAssayExperiment object of 6 listed</span></span>
@@ -1294,7 +1289,7 @@ given as ‘hg19’ genomic regions.</p>
 operations to create a more managable <code>MultiAssayExperiment</code>
 object and using <code>RangedSummarizedExperiment</code> assays where
 possible.</p>
-<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">TCGAutils</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/simplifyTCGA.html" class="external-link">simplifyTCGA</a></span><span class="op">(</span><span class="va">acc</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">##   403 genes were dropped because they have exons located on both strands</span></span>
 <span><span class="co">##   of the same reference sequence or on more than one reference sequence,</span></span>
@@ -1309,14 +1304,11 @@ possible.</p>
 <span></span>
 <span><span class="co">## Warning in .normarg_seqlevelsStyle(value): cannot switch some hg19's seqlevels</span></span>
 <span><span class="co">## from UCSC to NCBI style</span></span></code></pre>
-<pre><code><span><span class="co">## Warning: 'experiments' dropped; see 'metadata'</span></span></code></pre>
+<pre><code><span><span class="co">## Warning: 'experiments' dropped; see 'drops()'</span></span></code></pre>
 <pre><code><span><span class="co">## harmonizing input:</span></span>
 <span><span class="co">##   removing 270 sampleMap rows not in names(experiments)</span></span></code></pre>
 <pre><code><span><span class="co">## Warning in (function (seqlevels, genome, new_style) : cannot switch some hg19's</span></span>
-<span><span class="co">## seqlevels from UCSC to NCBI style</span></span>
-<span></span>
-<span><span class="co">## Warning in (function (seqlevels, genome, new_style) : 'experiments' dropped;</span></span>
-<span><span class="co">## see 'metadata'</span></span></code></pre>
+<span><span class="co">## seqlevels from UCSC to NCBI style</span></span></code></pre>
 <pre><code><span><span class="co">## harmonizing input:</span></span>
 <span><span class="co">##   removing 80 sampleMap rows not in names(experiments)</span></span>
 <span><span class="co">##   403 genes were dropped because they have exons located on both strands</span></span>
@@ -1327,7 +1319,6 @@ possible.</p>
 <pre><code><span><span class="co">## Warning in (function (seqlevels, genome, new_style) : cannot switch some hg19's</span></span>
 <span><span class="co">## seqlevels from UCSC to NCBI style</span></span></code></pre>
 <pre><code><span><span class="co">## 'select()' returned 1:1 mapping between keys and columns</span></span></code></pre>
-<pre><code><span><span class="co">## Warning: 'experiments' dropped; see 'metadata'</span></span></code></pre>
 <pre><code><span><span class="co">## harmonizing input:</span></span>
 <span><span class="co">##   removing 79 sampleMap rows not in names(experiments)</span></span></code></pre>
 <pre><code><span><span class="co">## A MultiAssayExperiment object of 7 listed</span></span>
@@ -1360,7 +1351,7 @@ possible.</p>
 <p><strong>Solution</strong></p>
 <p>The <code>sampleTables</code> function gives you an overview of
 samples in each assay:</p>
-<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/curatedTCGAData-helpers.html" class="external-link">sampleTables</a></span><span class="op">(</span><span class="va">acc</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## $`ACC_CNVSNP-20160128`</span></span>
 <span><span class="co">## </span></span>
@@ -1387,7 +1378,7 @@ samples in each assay:</p>
 <span><span class="co">## 01 </span></span>
 <span><span class="co">## 46</span></span></code></pre>
 <p>Interpretation of sample codes:</p>
-<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"sampleTypes"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">sampleTypes</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">##   Code                                      Definition Short.Letter.Code</span></span>
@@ -1415,7 +1406,7 @@ types (such as tumor and adjacent normal) into different assays of the
 <code>MultiAssayExperiment</code> by taking a vector of sample codes,
 and partitioning the current assays into assays with an appended sample
 code:</p>
-<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">split_acc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/curatedTCGAData-helpers.html" class="external-link">TCGAsplitAssays</a></span><span class="op">(</span><span class="va">acc</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"01"</span>, <span class="st">"11"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## Warning: Some 'sampleCodes' not found in assays</span></span></code></pre>
 <pre><code><span><span class="co">## Warning in .checkBarcodes(barcodes): Inconsistent barcode lengths: 28, 27</span></span></code></pre>
@@ -1432,7 +1423,7 @@ code:</p>
 names found in <code>colData</code> that contain subtype information.
 This can only be obtained from <code>MultiAssayExperiment</code> objects
 provided by <code>curatedTCGAData</code>.</p>
-<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/curatedTCGAData-helpers.html" class="external-link">getSubtypeMap</a></span><span class="op">(</span><span class="va">acc</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">##          ACC_annotations     ACC_subtype</span></span>
 <span><span class="co">## 1             Patient_ID       patientID</span></span>
@@ -1445,7 +1436,7 @@ provided by <code>curatedTCGAData</code>.</p>
 <span><span class="co">## 8       protein_subtypes protein cluster</span></span>
 <span><span class="co">## 9   integrative_subtypes             COC</span></span>
 <span><span class="co">## 10     mutation_subtypes        OncoSign</span></span></code></pre>
-<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/SummarizedExperiment/man/SummarizedExperiment-class.html" class="external-link">colData</a></span><span class="op">(</span><span class="va">acc</span><span class="op">)</span><span class="op">$</span><span class="va">Histology</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## [1] "Usual Type" "Usual Type" "Usual Type" "Usual Type" "Usual Type"</span></span>
 <span><span class="co">## [6] "Usual Type"</span></span></code></pre>
@@ -1464,14 +1455,14 @@ Sean Davis). These include:</p>
 </h5>
 <p>Here we have a known case UUID that we want to translate into a TCGA
 barcode.</p>
-<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/ID-translation.html" class="external-link">UUIDtoBarcode</a></span><span class="op">(</span><span class="st">"ae55b2d3-62a1-419e-9f9a-5ddfac356db4"</span>, from_type <span class="op">=</span> <span class="st">"case_id"</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">##                                case_id submitter_id</span></span>
 <span><span class="co">## 1 ae55b2d3-62a1-419e-9f9a-5ddfac356db4 TCGA-B0-5117</span></span></code></pre>
 <p>In cases where we want to translate a known file UUID to the
 associated TCGA patient barcode, we can use
 <code>UUIDtoBarcode</code>.</p>
-<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/ID-translation.html" class="external-link">UUIDtoBarcode</a></span><span class="op">(</span><span class="st">"b4bce3ff-7fdc-4849-880b-56f2b348ceac"</span>, from_type <span class="op">=</span> <span class="st">"file_id"</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">##                                file_id associated_entities.entity_submitter_id</span></span>
 <span><span class="co">## 1 b4bce3ff-7fdc-4849-880b-56f2b348ceac            TCGA-B0-5094-11A-01D-1421-08</span></span></code></pre>
@@ -1482,11 +1473,11 @@ associated TCGA patient barcode, we can use
 </h5>
 <p>Here we translate the first two TCGA barcodes of the previous
 copy-number alterations dataset to UUID:</p>
-<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">xbarcode</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">acc</span><span class="op">)</span><span class="op">[[</span><span class="st">"ACC_CNVSNP-20160128"</span><span class="op">]</span><span class="op">]</span>, <span class="fl">4L</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## [1] "TCGA-OR-A5J1-01A-11D-A29H-01" "TCGA-OR-A5J1-10A-01D-A29K-01"</span></span>
 <span><span class="co">## [3] "TCGA-OR-A5J2-01A-11D-A29H-01" "TCGA-OR-A5J2-10A-01D-A29K-01"</span></span></code></pre>
-<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/ID-translation.html" class="external-link">barcodeToUUID</a></span><span class="op">(</span><span class="va">xbarcode</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">##           submitter_aliquot_ids                          aliquot_ids</span></span>
 <span><span class="co">## 18 TCGA-OR-A5J1-01A-11D-A29H-01 1387b6c7-48fe-4961-86a7-0bdcbd3fef92</span></span>
@@ -1504,15 +1495,15 @@ previous example to get the associated file UUIDs using
 <code>UUIDtoUUID</code>. Note that this translation is a one to many
 relationship, thus yielding a <code>data.frame</code> of file UUIDs for
 a single case UUID.</p>
-<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/ID-translation.html" class="external-link">UUIDtoUUID</a></span><span class="op">(</span><span class="st">"ae55b2d3-62a1-419e-9f9a-5ddfac356db4"</span>, to_type <span class="op">=</span> <span class="st">"file_id"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">##                                case_id                        files.file_id</span></span>
-<span><span class="co">## 1 ae55b2d3-62a1-419e-9f9a-5ddfac356db4 1432ce04-3c54-4876-a878-c44536d5451b</span></span>
-<span><span class="co">## 2 ae55b2d3-62a1-419e-9f9a-5ddfac356db4 0b4acc9e-3933-4d74-916a-a53c4a0665e6</span></span>
-<span><span class="co">## 3 ae55b2d3-62a1-419e-9f9a-5ddfac356db4 84421569-822a-4001-a9a6-a00a5a0badb7</span></span>
-<span><span class="co">## 4 ae55b2d3-62a1-419e-9f9a-5ddfac356db4 4dd2d4fd-fe77-42b6-8e18-409b6ab0fee1</span></span>
-<span><span class="co">## 5 ae55b2d3-62a1-419e-9f9a-5ddfac356db4 4504e5d1-1351-4c28-95b7-ab72833e9881</span></span>
-<span><span class="co">## 6 ae55b2d3-62a1-419e-9f9a-5ddfac356db4 b7c3e5ad-4ffc-4fc4-acbf-1dfcbd2e5382</span></span></code></pre>
+<span><span class="co">## 1 ae55b2d3-62a1-419e-9f9a-5ddfac356db4 052db59c-a4b7-42c9-ac6b-bd611c0d6800</span></span>
+<span><span class="co">## 2 ae55b2d3-62a1-419e-9f9a-5ddfac356db4 af173fe8-7bee-407f-bfd8-3a5b2d9c669a</span></span>
+<span><span class="co">## 3 ae55b2d3-62a1-419e-9f9a-5ddfac356db4 4d3fe219-ed90-4a7b-9d94-7c46d0bc844a</span></span>
+<span><span class="co">## 4 ae55b2d3-62a1-419e-9f9a-5ddfac356db4 32ff2d93-9967-4161-9e01-f45c4a546e4d</span></span>
+<span><span class="co">## 5 ae55b2d3-62a1-419e-9f9a-5ddfac356db4 b7c3e5ad-4ffc-4fc4-acbf-1dfcbd2e5382</span></span>
+<span><span class="co">## 6 ae55b2d3-62a1-419e-9f9a-5ddfac356db4 1432ce04-3c54-4876-a878-c44536d5451b</span></span></code></pre>
 <p>One possible way to verify that file IDs are matching case UUIDS is
 to browse to the Genomic Data Commons webpage with the specific file
 UUID. Here we look at the first file UUID entry in the output
@@ -1524,7 +1515,7 @@ UUID. Here we look at the first file UUID entry in the output
 <h5 id="filenametobarcode---using-file-names-as-input">
 <code>filenameToBarcode()</code> - Using file names as input<a class="anchor" aria-label="anchor" href="#filenametobarcode---using-file-names-as-input"></a>
 </h5>
-<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">fquery</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://bioconductor.github.io/GenomicDataCommons/reference/query.html" class="external-link">files</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu">GenomicDataCommons</span><span class="fu">::</span><span class="fu"><a href="http://bioconductor.github.io/GenomicDataCommons/reference/filtering.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">~</span> <span class="va">cases.project.project_id</span> <span class="op">==</span> <span class="st">"TCGA-ACC"</span> <span class="op">&amp;</span></span>
 <span>        <span class="va">data_category</span> <span class="op">==</span> <span class="st">"Copy Number Variation"</span> <span class="op">&amp;</span></span>
@@ -1533,27 +1524,27 @@ UUID. Here we look at the first file UUID entry in the output
 <span><span class="va">fnames</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="http://bioconductor.github.io/GenomicDataCommons/reference/results.html" class="external-link">results</a></span><span class="op">(</span><span class="va">fquery</span><span class="op">)</span><span class="op">$</span><span class="va">file_name</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/ID-translation.html" class="external-link">filenameToBarcode</a></span><span class="op">(</span><span class="va">fnames</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">##                                                                      file_name</span></span>
-<span><span class="co">## 1      BLAIN_p_TCGA_282_304_b2_N_GenomeWideSNP_6_G04_1348440.grch38.seg.v2.txt</span></span>
-<span><span class="co">## 2      BLAIN_p_TCGA_282_304_b2_N_GenomeWideSNP_6_C06_1348468.grch38.seg.v2.txt</span></span>
-<span><span class="co">## 3      AQUAE_p_TCGA_112_304_b2_N_GenomeWideSNP_6_B09_1348398.grch38.seg.v2.txt</span></span>
-<span><span class="co">## 4      AQUAE_p_TCGA_112_304_b2_N_GenomeWideSNP_6_F11_1348304.grch38.seg.v2.txt</span></span>
-<span><span class="co">## 5 GAMED_p_TCGA_B_312_313_314_NSP_GenomeWideSNP_6_E05_1361692.grch38.seg.v2.txt</span></span>
-<span><span class="co">## 6      BLAIN_p_TCGA_282_304_b2_N_GenomeWideSNP_6_E03_1348586.grch38.seg.v2.txt</span></span>
+<pre><code><span><span class="co">##                                                                 file_name</span></span>
+<span><span class="co">## 1 BLAIN_p_TCGA_282_304_b2_N_GenomeWideSNP_6_C08_1348584.grch38.seg.v2.txt</span></span>
+<span><span class="co">## 2 AQUAE_p_TCGA_112_304_b2_N_GenomeWideSNP_6_F07_1348352.grch38.seg.v2.txt</span></span>
+<span><span class="co">## 3 AQUAE_p_TCGA_112_304_b2_N_GenomeWideSNP_6_D08_1348404.grch38.seg.v2.txt</span></span>
+<span><span class="co">## 4 AQUAE_p_TCGA_112_304_b2_N_GenomeWideSNP_6_D03_1348390.grch38.seg.v2.txt</span></span>
+<span><span class="co">## 5 AQUAE_p_TCGA_112_304_b2_N_GenomeWideSNP_6_F06_1348360.grch38.seg.v2.txt</span></span>
+<span><span class="co">## 6 AQUAE_p_TCGA_112_304_b2_N_GenomeWideSNP_6_A06_1348274.grch38.seg.v2.txt</span></span>
 <span><span class="co">##                                file_id</span></span>
-<span><span class="co">## 1 e201e15a-ed81-4337-b302-c8aee15e34b7</span></span>
-<span><span class="co">## 2 442e6974-473d-49c8-8cdb-ccce226ef345</span></span>
-<span><span class="co">## 3 483e3c6b-966c-462a-b836-4c0a6868048e</span></span>
-<span><span class="co">## 4 c08b06c5-dbfc-40f4-9be4-520d3e1d6328</span></span>
-<span><span class="co">## 5 cf00f0a4-4a71-4b1b-a559-5ba7db28a184</span></span>
-<span><span class="co">## 6 aadd01bb-6897-4a7a-813b-e94981268913</span></span>
+<span><span class="co">## 1 aaaf1c3d-3969-4297-9db4-35153a2aefa5</span></span>
+<span><span class="co">## 2 2b059b73-ef28-407a-9efb-1b5ba5c37f66</span></span>
+<span><span class="co">## 3 bcf8dfe2-335c-4c2d-a6f2-9807dd16b346</span></span>
+<span><span class="co">## 4 c7c23df4-d1a8-47c1-9394-1948114dc756</span></span>
+<span><span class="co">## 5 6c555e27-f52b-45b3-a614-bff242884745</span></span>
+<span><span class="co">## 6 61f6fa34-57f7-4f9b-a5d5-f56749701c1c</span></span>
 <span><span class="co">##   cases.samples.portions.analytes.aliquots.submitter_id</span></span>
-<span><span class="co">## 1                          TCGA-OR-A5K0-01A-11D-A29H-01</span></span>
-<span><span class="co">## 2                          TCGA-OR-A5K0-10B-01D-A29K-01</span></span>
-<span><span class="co">## 3                          TCGA-OR-A5L6-10C-01D-A29K-01</span></span>
-<span><span class="co">## 4                          TCGA-OR-A5L6-01A-11D-A29H-01</span></span>
-<span><span class="co">## 5                          TCGA-OR-A5KS-10A-01D-A309-01</span></span>
-<span><span class="co">## 6                          TCGA-OR-A5JO-01A-11D-A29H-01</span></span></code></pre>
+<span><span class="co">## 1                          TCGA-OR-A5J6-10A-01D-A29K-01</span></span>
+<span><span class="co">## 2                          TCGA-OR-A5LM-01A-11D-A29H-01</span></span>
+<span><span class="co">## 3                          TCGA-OR-A5LA-01A-11D-A29H-01</span></span>
+<span><span class="co">## 4                          TCGA-OR-A5KO-10A-01D-A29K-01</span></span>
+<span><span class="co">## 5                          TCGA-OR-A5LD-01A-11D-A29H-01</span></span>
+<span><span class="co">## 6                          TCGA-OR-A5LS-10A-01D-A29K-01</span></span></code></pre>
 <p>See the <code>TCGAutils</code> vignette page for more details.</p>
 <div class="infobox">
 <p><strong>Key points</strong></p>
@@ -1590,19 +1581,19 @@ of the following indices:</p>
 <code>MultiAssayExperiment</code>. For example, the following will
 return any rows named “MAPK14” or “IGFBP2”, and remove any assays where
 no rows match:</p>
-<div class="sourceCode" id="cb103"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">miniACC</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"MAPK14"</span>, <span class="st">"IGFBP2"</span><span class="op">)</span>, , <span class="op">]</span></span></code></pre></div>
 <p>The following will keep only patients of pathological stage IV, and
 all their associated assays:</p>
-<div class="sourceCode" id="cb104"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb101"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">stg4</span> <span class="op">&lt;-</span> <span class="va">miniACC</span><span class="op">$</span><span class="va">pathologic_stage</span> <span class="op">==</span> <span class="st">"stage iv"</span></span>
 <span><span class="co"># remove NA values from vector</span></span>
 <span><span class="va">miniACC</span><span class="op">[</span>, <span class="va">stg4</span> <span class="op">&amp;</span> <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">stg4</span><span class="op">)</span>, <span class="op">]</span></span></code></pre></div>
 <p>And the following will keep only the RNA-seq dataset, and only
 patients for which this assay is available:</p>
-<div class="sourceCode" id="cb105"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">miniACC</span><span class="op">[</span>, , <span class="st">"RNASeq2GeneNorm"</span><span class="op">]</span></span></code></pre></div>
-<pre><code><span><span class="co">## Warning: 'experiments' dropped; see 'metadata'</span></span></code></pre>
+<pre><code><span><span class="co">## Warning: 'experiments' dropped; see 'drops()'</span></span></code></pre>
 <pre><code><span><span class="co">## harmonizing input:</span></span>
 <span><span class="co">##   removing 306 sampleMap rows not in names(experiments)</span></span>
 <span><span class="co">##   removing 13 colData rownames not in sampleMap 'primary'</span></span></code></pre>
@@ -1626,7 +1617,7 @@ function for extracting a single element of the
 the use of <code>experiments(mae)[[1L]]</code>. For example, both of the
 following extract the <code>ExpressionSet</code> object containing
 RNA-seq data:</p>
-<div class="sourceCode" id="cb108"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb105"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">miniACC</span><span class="op">[[</span><span class="fl">1L</span><span class="op">]</span><span class="op">]</span></span></code></pre></div>
 <pre><code><span><span class="co">## class: SummarizedExperiment </span></span>
 <span><span class="co">## dim: 198 79 </span></span>
@@ -1637,7 +1628,7 @@ RNA-seq data:</p>
 <span><span class="co">## colnames(79): TCGA-OR-A5J1-01A-11R-A29S-07 TCGA-OR-A5J2-01A-11R-A29S-07</span></span>
 <span><span class="co">##   ... TCGA-PK-A5HA-01A-11R-A29S-07 TCGA-PK-A5HB-01A-11R-A29S-07</span></span>
 <span><span class="co">## colData names(0):</span></span></code></pre>
-<div class="sourceCode" id="cb110"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb107"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## equivalently</span></span>
 <span><span class="va">miniACC</span><span class="op">[[</span><span class="st">"RNASeq2GeneNorm"</span><span class="op">]</span><span class="op">]</span></span></code></pre></div>
 <pre><code><span><span class="co">## class: SummarizedExperiment </span></span>
@@ -1657,7 +1648,7 @@ RNA-seq data:</p>
 </h4>
 <p><code><a href="https://rdrr.io/r/stats/complete.cases.html" class="external-link">complete.cases()</a></code> shows which patients have complete data
 for all assays:</p>
-<div class="sourceCode" id="cb112"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb109"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/complete.cases.html" class="external-link">complete.cases</a></span><span class="op">(</span><span class="va">miniACC</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">##    Mode   FALSE    TRUE </span></span>
 <span><span class="co">## logical      49      43</span></span></code></pre>
@@ -1666,7 +1657,7 @@ simply, <code><a href="http://waldronlab.io/MultiAssayExperiment/reference/Multi
 rearrange each <code>ExperimentList</code> element so its columns
 correspond exactly to rows of <code>colData</code> in the same
 order:</p>
-<div class="sourceCode" id="cb114"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb111"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">accmatched</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html" class="external-link">intersectColumns</a></span><span class="op">(</span><span class="va">miniACC</span><span class="op">)</span></span></code></pre></div>
 <p>Note, the column names of the assays in <code>accmatched</code> are
 not the same because of assay-specific identifiers, but they have been
@@ -1674,7 +1665,7 @@ automatically re-arranged to correspond to the same patients. In these
 TCGA assays, the first three <code>-</code> delimited positions
 correspond to patient, ie the first patient is
 <em>TCGA-OR-A5J2</em>:</p>
-<div class="sourceCode" id="cb115"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb112"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">accmatched</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## CharacterList of length 5</span></span>
 <span><span class="co">## [["RNASeq2GeneNorm"]] TCGA-OR-A5J2-01A-11R-A29S-07 ...</span></span>
@@ -1690,13 +1681,13 @@ correspond to patient, ie the first patient is
 assay, and aligns them in identical order. For example, to keep only
 genes where data are available for RNA-seq, GISTIC copy number, and
 somatic mutations:</p>
-<div class="sourceCode" id="cb117"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb114"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">accmatched2</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html" class="external-link">intersectRows</a></span><span class="op">(</span><span class="va">miniACC</span><span class="op">[</span>, ,</span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"RNASeq2GeneNorm"</span>, <span class="st">"gistict"</span>, <span class="st">"Mutations"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## Warning: 'experiments' dropped; see 'metadata'</span></span></code></pre>
+<pre><code><span><span class="co">## Warning: 'experiments' dropped; see 'drops()'</span></span></code></pre>
 <pre><code><span><span class="co">## harmonizing input:</span></span>
 <span><span class="co">##   removing 126 sampleMap rows not in names(experiments)</span></span></code></pre>
-<div class="sourceCode" id="cb120"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb117"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">rownames</a></span><span class="op">(</span><span class="va">accmatched2</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## CharacterList of length 3</span></span>
 <span><span class="co">## [["RNASeq2GeneNorm"]] DIRAS3 G6PD KDR ERBB3 AKT1S1 ... RET CDKN2A MACC1 CHGA</span></span>
@@ -1717,13 +1708,13 @@ somatic mutations:</p>
 <code>SummarizedExperiment</code> convention. The <code>assay</code>
 (singular) method will extract the first element of the
 <code>ExperimentList</code> and will return a <code>matrix</code>.</p>
-<div class="sourceCode" id="cb122"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb119"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/SummarizedExperiment/man/SummarizedExperiment-class.html" class="external-link">assay</a></span><span class="op">(</span><span class="va">miniACC</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## [1] "matrix" "array"</span></span></code></pre>
 <p>The <code>assays</code> (plural) method will return a
 <code>SimpleList</code> of the data with each element being a
 <code>matrix</code>.</p>
-<div class="sourceCode" id="cb124"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb121"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/SummarizedExperiment/man/SummarizedExperiment-class.html" class="external-link">assays</a></span><span class="op">(</span><span class="va">miniACC</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## List of length 5</span></span>
 <span><span class="co">## names(5): RNASeq2GeneNorm gistict RPPAArray Mutations miRNASeqGene</span></span></code></pre>
@@ -1798,7 +1789,7 @@ name), <em>value</em> is the numeric measurement (gene expression, copy
 number, presence of a non-silent mutation, etc), and following these are
 the <em>vital_status</em> and <em>days_to_death</em> colData columns
 that have been added:</p>
-<div class="sourceCode" id="cb126"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb123"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html" class="external-link">longFormat</a></span><span class="op">(</span><span class="va">miniACC</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"TP53"</span>, <span class="st">"CTNNB1"</span><span class="op">)</span>, , <span class="op">]</span>,</span>
 <span>    colDataCols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"vital_status"</span>, <span class="st">"days_to_death"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## harmonizing input:</span></span>
@@ -1838,7 +1829,7 @@ that have been added:</p>
 <p>In <em>wide</em> format, each feature from each assay goes in a
 separate column, with one row per primary identifier (patient). Here,
 each variable becomes a new column:</p>
-<div class="sourceCode" id="cb129"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb126"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html" class="external-link">wideFormat</a></span><span class="op">(</span><span class="va">miniACC</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"TP53"</span>, <span class="st">"CTNNB1"</span><span class="op">)</span>, , <span class="op">]</span>,</span>
 <span>    colDataCols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"vital_status"</span>, <span class="st">"days_to_death"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## harmonizing input:</span></span>
@@ -1912,7 +1903,7 @@ is is to provide data for benchmarking and analysis.</p>
 <p>Users can access the data for a particular technology with the
 appropriate function. For example, to obtain a small data.frame of what
 data is available for <code>scNMT</code>, the user would enter:</p>
-<div class="sourceCode" id="cb132"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb129"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/SingleCellMultiModal/man/scNMT.html" class="external-link">scNMT</a></span><span class="op">(</span><span class="st">"mouse_gastrulation"</span>, dry.run <span class="op">=</span> <span class="cn">TRUE</span>, version <span class="op">=</span> <span class="st">'2.0.0'</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">##     ah_id         mode file_size rdataclass rdatadateadded rdatadateremoved</span></span>
 <span><span class="co">## 1  EH3753      acc_cgi   21.1 Mb     matrix     2020-09-03             &lt;NA&gt;</span></span>
@@ -1931,7 +1922,7 @@ data is available for <code>scNMT</code>, the user would enter:</p>
 <p>We can see that there are a few assays for each modality.</p>
 <p>The user can also use the help function to get a list of all the
 functions available in the package:</p>
-<div class="sourceCode" id="cb134"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb131"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/help.html" class="external-link">help</a></span><span class="op">(</span>package <span class="op">=</span> <span class="st">"SingleCellMultiModal"</span>, help_type <span class="op">=</span> <span class="st">"html"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
