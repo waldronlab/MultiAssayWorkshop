@@ -9,6 +9,4 @@ ENV CRAN='https://packagemanager.posit.co/cran/__linux__/jammy/latest'
 
 COPY inst/scripts /home/rstudio/scripts
 
-RUN bash ./scripts/add_cranapt_jammy.sh
-
 RUN sudo R -f ./scripts/install_deps.R
