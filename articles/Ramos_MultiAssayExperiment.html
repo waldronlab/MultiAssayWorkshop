@@ -109,7 +109,7 @@ Geistlinger</h4>
 NY<br><h4 data-toc-skip class="author">Levi
 Waldron</h4>
             <address class="author_afil">
-      CUNY School of Public Health, New York, NY<br><h4 data-toc-skip class="date">September 26, 2023</h4>
+      CUNY School of Public Health, New York, NY<br><h4 data-toc-skip class="date">November 21, 2023</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/waldronlab/MultiAssayWorkshop/blob/HEAD/vignettes/Ramos_MultiAssayExperiment.Rmd" class="external-link"><code>vignettes/Ramos_MultiAssayExperiment.Rmd</code></a></small>
       <div class="hidden name"><code>Ramos_MultiAssayExperiment.Rmd</code></div>
@@ -1009,40 +1009,40 @@ service.</p>
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">cbio</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/cBioPortalData/man/cBioPortal.html" class="external-link">cBioPortal</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/cBioPortalData/man/cBioPortal.html" class="external-link">getStudies</a></span><span class="op">(</span><span class="va">cbio</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 391 × 13</span></span></span>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 393 × 13</span></span></span>
 <span><span class="co">##    name          description publicStudy groups status importDate allSampleCount</span></span>
 <span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Adrenocortic… <span style="color: #949494;">"</span>TCGA Adre… TRUE        PUBLIC      0 2023-06-1…             92</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Acute Myeloi… <span style="color: #949494;">"</span>TCGA Acut… TRUE        PUBLIC      0 2023-06-1…            200</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Bladder Urot… <span style="color: #949494;">"</span>TCGA Blad… TRUE        PUBLIC      0 2023-06-1…            413</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Breast Invas… <span style="color: #949494;">"</span>TCGA Brea… TRUE        PUBLIC      0 2023-06-1…           <span style="text-decoration: underline;">1</span>108</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Kidney Renal… <span style="color: #949494;">"</span>TCGA Kidn… TRUE        PUBLIC      0 2023-06-1…            538</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Cervical Squ… <span style="color: #949494;">"</span>TCGA Cerv… TRUE        PUBLIC      0 2023-06-1…            310</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Cholangiocar… <span style="color: #949494;">"</span>TCGA Chol… TRUE        PUBLIC      0 2023-06-1…             51</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Kidney Chrom… <span style="color: #949494;">"</span>TCGA Kidn… TRUE        PUBLIC      0 2023-06-1…            113</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Colorectal A… <span style="color: #949494;">"</span>TCGA Colo… TRUE        PUBLIC      0 2023-06-1…            640</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span> Lymphoid Neo… <span style="color: #949494;">"</span>TCGA Lymp… TRUE        PUBLIC      0 2023-06-1…             48</span></span>
-<span><span class="co">## <span style="color: #949494;"># ℹ 381 more rows</span></span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Kidney Renal… <span style="color: #949494;">"</span>TCGA Kidn… TRUE        PUBLIC      0 2023-06-1…            538</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Cervical Squ… <span style="color: #949494;">"</span>TCGA Cerv… TRUE        PUBLIC      0 2023-06-1…            310</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Cholangiocar… <span style="color: #949494;">"</span>TCGA Chol… TRUE        PUBLIC      0 2023-06-1…             51</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Kidney Chrom… <span style="color: #949494;">"</span>TCGA Kidn… TRUE        PUBLIC      0 2023-06-1…            113</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Colorectal A… <span style="color: #949494;">"</span>TCGA Colo… TRUE        PUBLIC      0 2023-06-1…            640</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Lymphoid Neo… <span style="color: #949494;">"</span>TCGA Lymp… TRUE        PUBLIC      0 2023-06-1…             48</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> Esophageal C… <span style="color: #949494;">"</span>TCGA Esop… TRUE        PUBLIC      0 2023-06-1…            186</span></span>
+<span><span class="co">## <span style="color: #949494;"># ℹ 383 more rows</span></span></span>
 <span><span class="co">## <span style="color: #949494;"># ℹ 6 more variables: readPermission &lt;lgl&gt;, studyId &lt;chr&gt;, cancerTypeId &lt;chr&gt;,</span></span></span>
 <span><span class="co">## <span style="color: #949494;">#   referenceGenome &lt;chr&gt;, pmid &lt;chr&gt;, citation &lt;chr&gt;</span></span></span></code></pre>
 <p>We can also see the build status of the datasets using the
 <code>buildReport</code> argument.</p>
 <div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/cBioPortalData/man/cBioPortal.html" class="external-link">getStudies</a></span><span class="op">(</span><span class="va">cbio</span>, buildReport <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 391 × 15</span></span></span>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 393 × 15</span></span></span>
 <span><span class="co">##    name          description publicStudy groups status importDate allSampleCount</span></span>
 <span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Adrenocortic… <span style="color: #949494;">"</span>TCGA Adre… TRUE        PUBLIC      0 2023-06-1…             92</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 2</span> Acute Myeloi… <span style="color: #949494;">"</span>TCGA Acut… TRUE        PUBLIC      0 2023-06-1…            200</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 3</span> Bladder Urot… <span style="color: #949494;">"</span>TCGA Blad… TRUE        PUBLIC      0 2023-06-1…            413</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Breast Invas… <span style="color: #949494;">"</span>TCGA Brea… TRUE        PUBLIC      0 2023-06-1…           <span style="text-decoration: underline;">1</span>108</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Kidney Renal… <span style="color: #949494;">"</span>TCGA Kidn… TRUE        PUBLIC      0 2023-06-1…            538</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Cervical Squ… <span style="color: #949494;">"</span>TCGA Cerv… TRUE        PUBLIC      0 2023-06-1…            310</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Cholangiocar… <span style="color: #949494;">"</span>TCGA Chol… TRUE        PUBLIC      0 2023-06-1…             51</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Kidney Chrom… <span style="color: #949494;">"</span>TCGA Kidn… TRUE        PUBLIC      0 2023-06-1…            113</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Colorectal A… <span style="color: #949494;">"</span>TCGA Colo… TRUE        PUBLIC      0 2023-06-1…            640</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span> Lymphoid Neo… <span style="color: #949494;">"</span>TCGA Lymp… TRUE        PUBLIC      0 2023-06-1…             48</span></span>
-<span><span class="co">## <span style="color: #949494;"># ℹ 381 more rows</span></span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> Kidney Renal… <span style="color: #949494;">"</span>TCGA Kidn… TRUE        PUBLIC      0 2023-06-1…            538</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> Cervical Squ… <span style="color: #949494;">"</span>TCGA Cerv… TRUE        PUBLIC      0 2023-06-1…            310</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> Cholangiocar… <span style="color: #949494;">"</span>TCGA Chol… TRUE        PUBLIC      0 2023-06-1…             51</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> Kidney Chrom… <span style="color: #949494;">"</span>TCGA Kidn… TRUE        PUBLIC      0 2023-06-1…            113</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Colorectal A… <span style="color: #949494;">"</span>TCGA Colo… TRUE        PUBLIC      0 2023-06-1…            640</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Lymphoid Neo… <span style="color: #949494;">"</span>TCGA Lymp… TRUE        PUBLIC      0 2023-06-1…             48</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> Esophageal C… <span style="color: #949494;">"</span>TCGA Esop… TRUE        PUBLIC      0 2023-06-1…            186</span></span>
+<span><span class="co">## <span style="color: #949494;"># ℹ 383 more rows</span></span></span>
 <span><span class="co">## <span style="color: #949494;"># ℹ 8 more variables: readPermission &lt;lgl&gt;, studyId &lt;chr&gt;, cancerTypeId &lt;chr&gt;,</span></span></span>
 <span><span class="co">## <span style="color: #949494;">#   referenceGenome &lt;chr&gt;, pmid &lt;chr&gt;, citation &lt;chr&gt;, api_build &lt;lgl&gt;,</span></span></span>
 <span><span class="co">## <span style="color: #949494;">#   pack_build &lt;lgl&gt;</span></span></span></code></pre>
@@ -1058,18 +1058,17 @@ cleaning to be represented with <code>MultiAssayExperiment</code>.</p>
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">cBioPortalData</span><span class="op">)</span></span>
 <span></span>
 <span><span class="op">(</span><span class="va">uvm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/cBioPortalData/man/cBioDataPack.html" class="external-link">cBioDataPack</a></span><span class="op">(</span><span class="st">"uvm_tcga"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## A MultiAssayExperiment object of 9 listed</span></span>
+<pre><code><span><span class="co">## A MultiAssayExperiment object of 8 listed</span></span>
 <span><span class="co">##  experiments with user-defined names and respective classes.</span></span>
-<span><span class="co">##  Containing an ExperimentList class object of length 9:</span></span>
+<span><span class="co">##  Containing an ExperimentList class object of length 8:</span></span>
 <span><span class="co">##  [1] cna_hg19.seg: RaggedExperiment with 7618 rows and 80 columns</span></span>
-<span><span class="co">##  [2] CNA: SummarizedExperiment with 24776 rows and 80 columns</span></span>
-<span><span class="co">##  [3] linear_CNA: SummarizedExperiment with 24776 rows and 80 columns</span></span>
-<span><span class="co">##  [4] methylation_hm450: SummarizedExperiment with 15469 rows and 80 columns</span></span>
-<span><span class="co">##  [5] mutations_extended: RaggedExperiment with 2174 rows and 80 columns</span></span>
-<span><span class="co">##  [6] mutations_mskcc: RaggedExperiment with 2174 rows and 80 columns</span></span>
-<span><span class="co">##  [7] RNA_Seq_v2_expression_median: SummarizedExperiment with 20531 rows and 80 columns</span></span>
-<span><span class="co">##  [8] RNA_Seq_v2_mRNA_median_all_sample_Zscores: SummarizedExperiment with 20531 rows and 80 columns</span></span>
-<span><span class="co">##  [9] RNA_Seq_v2_mRNA_median_Zscores: SummarizedExperiment with 20440 rows and 80 columns</span></span>
+<span><span class="co">##  [2] cna: SummarizedExperiment with 24776 rows and 80 columns</span></span>
+<span><span class="co">##  [3] linear_cna: SummarizedExperiment with 24776 rows and 80 columns</span></span>
+<span><span class="co">##  [4] methylation_hm450: SummarizedExperiment with 15468 rows and 80 columns</span></span>
+<span><span class="co">##  [5] mrna_seq_v2_rsem_zscores_ref_all_samples: SummarizedExperiment with 20531 rows and 80 columns</span></span>
+<span><span class="co">##  [6] mrna_seq_v2_rsem_zscores_ref_diploid_samples: SummarizedExperiment with 20440 rows and 80 columns</span></span>
+<span><span class="co">##  [7] mrna_seq_v2_rsem: SummarizedExperiment with 20531 rows and 80 columns</span></span>
+<span><span class="co">##  [8] mutations: RaggedExperiment with 2174 rows and 80 columns</span></span>
 <span><span class="co">## Functionality:</span></span>
 <span><span class="co">##  experiments() - obtain the ExperimentList instance</span></span>
 <span><span class="co">##  colData() - the primary/phenotype DataFrame</span></span>
