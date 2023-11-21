@@ -92,9 +92,10 @@ jobs:
       # https://github.com/sigstore/cosign-installer
       - name: Install cosign
         if: github.event_name != 'pull_request'
-        uses: sigstore/cosign-installer@1e95c1de343b5b0c23352d6417ee3e48d5bcd422
-        with:
-          cosign-release: 'v1.4.0'
+        uses: sigstore/cosign-installer@v3
+        
+      - name: Show cosign version
+        run: cosign version
 
       - name: Setup Docker buildx
         uses: docker/setup-buildx-action@v3
