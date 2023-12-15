@@ -1,0 +1,105 @@
+---
+title: "SingleCellMultiModal Introduction"
+date: "`r BiocStyle::doc_date()`"
+vignette: |
+  %\VignetteIndexEntry{SingleCellMultiModal Introduction}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+output:
+    BiocStyle::html_document:
+      toc_float: true
+runtime: shiny
+Package: SingleCellMultiModal
+bibliography: MultiAssay.bib
+---
+
+# Installation
+
+```{r,eval=FALSE}
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+BiocManager::install("SingleCellMultiModal")
+```
+
+## Load packages
+
+```{r,include=TRUE,results="hide",message=FALSE,warning=FALSE}
+library(SingleCellMultiModal)
+library(MultiAssayExperiment)
+```
+
+# Introduction
+
+This package introduces a suite of single-cell multimodal landmark datasets for
+benchmarking and testing multimodal analysis methods via the `ExperimentHub`
+Bioconductor package. The scope of this package is to provide efficient access
+to a selection of curated, pre-integrated, publicly available landmark datasets
+for methods development and benchmarking.
+
+## Representation
+
+Users can obtain integrative representations of multiple modalities as a
+`MultiAssayExperiment`, a common core Bioconductor data structure relied on by
+dozens of multimodal data analysis packages. `MultiAssayExperiment` harmonizes
+data management of multiple experimental assays performed on an overlapping set
+of specimens. Although originally developed for patient data from multi-omics
+cancer studies, the `MultiAssayExperiment` framework naturally applies also to
+single cells. A schematic of the data structure can be seen below. In this
+context, "patients" are replaced by "cells". We use `MultiAssayExperiment`
+because it provides a familiar user experience by extending
+`SummarizedExperiment` concepts and providing open ended compatibility with
+standard data classes present in Bioconductor such as the
+`SingleCellExperiment`.
+
+```{r,echo=FALSE}
+imgurl <- paste0(
+    "https://github.com/waldronlab/MultiAssayExperiment/blob/",
+    "c3c59a094e5a08111ee98b9f69579db5634d9fd4/vignettes/",
+    "MultiAssayExperiment.png?raw=true"
+)
+knitr::include_graphics(
+    path = imgurl
+)
+```
+
+## Datasets
+
+Here we show a table of available datasets from the `SingleCellMultiModal`
+experiment data package:
+
+```{r}
+DT::datatable(
+    SingleCellMultiModal::ontomap(),
+    caption = "Available datasets in SingleCellMultiModal"
+)
+```
+
+Note that each dataset has its own dedicated function that can also be invoked
+with `SingleCellMultiModal()`. For example, the `SingleCellMultiModal()`
+function can be used to access the `MultiAssayExperiment` object for the
+`mouse_gastrulation` dataset:
+
+```{r,eval=FALSE}
+SingleCellMultiModal::SingleCellMultiModal("mouse_gastrulation")
+```
+
+but can also be called individually with the dedicated function, `scNMT()` (as
+seen in the `function_name` column).
+
+```{r}
+scNMT(
+    DataType = "mouse_gastrulation",
+    modes = "*",
+    version = "2.0.0",
+    dry.run = TRUE
+) |>
+    knitr::kable()
+```
+
+# Session Information
+
+```{r,echo=FALSE}
+sessionInfo()
+```
+

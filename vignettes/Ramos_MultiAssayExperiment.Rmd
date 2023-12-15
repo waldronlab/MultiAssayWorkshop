@@ -1049,13 +1049,7 @@ scNMT("mouse_gastrulation", dry.run = TRUE, version = '2.0.0')
 
 We can see that there are a few assays for each modality.
 
-The user can also use the help function to get a list of all the functions
-available in the package:
-
-```{r, eval=FALSE}
-help(package = "SingleCellMultiModal", help_type = "html")
-```
-
+See the `SingleCellMultiModal` tutorial above for more information.
 
 [Broad GDAC Firehose]: https://gdac.broadinstitute.org
 [The Cancer Genome Atlas]: https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga
