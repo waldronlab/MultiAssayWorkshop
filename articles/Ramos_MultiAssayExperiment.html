@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">MultiAssayWorkshop</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.18.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.18.1</span>
       </span>
     </div>
 
@@ -54,6 +54,9 @@
     </li>
     <li>
       <a href="../tutorials/cBioPortalData_Intro.html">Download and Use cBioPortal Data</a>
+    </li>
+    <li>
+      <a href="../articles/SingleCellMultiModal.html">SingleCellMultiModal Intro</a>
     </li>
   </ul>
 </li>
@@ -109,7 +112,7 @@ Geistlinger</h4>
 NY<br><h4 data-toc-skip class="author">Levi
 Waldron</h4>
             <address class="author_afil">
-      CUNY School of Public Health, New York, NY<br><h4 data-toc-skip class="date">November 21, 2023</h4>
+      CUNY School of Public Health, New York, NY<br><h4 data-toc-skip class="date">December 15, 2023</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/waldronlab/MultiAssayWorkshop/blob/HEAD/vignettes/Ramos_MultiAssayExperiment.Rmd" class="external-link"><code>vignettes/Ramos_MultiAssayExperiment.Rmd</code></a></small>
       <div class="hidden name"><code>Ramos_MultiAssayExperiment.Rmd</code></div>
@@ -1009,7 +1012,7 @@ service.</p>
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">cbio</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/cBioPortalData/man/cBioPortal.html" class="external-link">cBioPortal</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/cBioPortalData/man/cBioPortal.html" class="external-link">getStudies</a></span><span class="op">(</span><span class="va">cbio</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 393 × 13</span></span></span>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 395 × 13</span></span></span>
 <span><span class="co">##    name          description publicStudy groups status importDate allSampleCount</span></span>
 <span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Adrenocortic… <span style="color: #949494;">"</span>TCGA Adre… TRUE        PUBLIC      0 2023-06-1…             92</span></span>
@@ -1022,14 +1025,14 @@ service.</p>
 <span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Colorectal A… <span style="color: #949494;">"</span>TCGA Colo… TRUE        PUBLIC      0 2023-06-1…            640</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Lymphoid Neo… <span style="color: #949494;">"</span>TCGA Lymp… TRUE        PUBLIC      0 2023-06-1…             48</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;">10</span> Esophageal C… <span style="color: #949494;">"</span>TCGA Esop… TRUE        PUBLIC      0 2023-06-1…            186</span></span>
-<span><span class="co">## <span style="color: #949494;"># ℹ 383 more rows</span></span></span>
+<span><span class="co">## <span style="color: #949494;"># ℹ 385 more rows</span></span></span>
 <span><span class="co">## <span style="color: #949494;"># ℹ 6 more variables: readPermission &lt;lgl&gt;, studyId &lt;chr&gt;, cancerTypeId &lt;chr&gt;,</span></span></span>
 <span><span class="co">## <span style="color: #949494;">#   referenceGenome &lt;chr&gt;, pmid &lt;chr&gt;, citation &lt;chr&gt;</span></span></span></code></pre>
 <p>We can also see the build status of the datasets using the
 <code>buildReport</code> argument.</p>
 <div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/cBioPortalData/man/cBioPortal.html" class="external-link">getStudies</a></span><span class="op">(</span><span class="va">cbio</span>, buildReport <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 393 × 15</span></span></span>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 395 × 15</span></span></span>
 <span><span class="co">##    name          description publicStudy groups status importDate allSampleCount</span></span>
 <span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 1</span> Adrenocortic… <span style="color: #949494;">"</span>TCGA Adre… TRUE        PUBLIC      0 2023-06-1…             92</span></span>
@@ -1042,7 +1045,7 @@ service.</p>
 <span><span class="co">## <span style="color: #BCBCBC;"> 8</span> Colorectal A… <span style="color: #949494;">"</span>TCGA Colo… TRUE        PUBLIC      0 2023-06-1…            640</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 9</span> Lymphoid Neo… <span style="color: #949494;">"</span>TCGA Lymp… TRUE        PUBLIC      0 2023-06-1…             48</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;">10</span> Esophageal C… <span style="color: #949494;">"</span>TCGA Esop… TRUE        PUBLIC      0 2023-06-1…            186</span></span>
-<span><span class="co">## <span style="color: #949494;"># ℹ 383 more rows</span></span></span>
+<span><span class="co">## <span style="color: #949494;"># ℹ 385 more rows</span></span></span>
 <span><span class="co">## <span style="color: #949494;"># ℹ 8 more variables: readPermission &lt;lgl&gt;, studyId &lt;chr&gt;, cancerTypeId &lt;chr&gt;,</span></span></span>
 <span><span class="co">## <span style="color: #949494;">#   referenceGenome &lt;chr&gt;, pmid &lt;chr&gt;, citation &lt;chr&gt;, api_build &lt;lgl&gt;,</span></span></span>
 <span><span class="co">## <span style="color: #949494;">#   pack_build &lt;lgl&gt;</span></span></span></code></pre>
@@ -1497,12 +1500,12 @@ a single case UUID.</p>
 <div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/ID-translation.html" class="external-link">UUIDtoUUID</a></span><span class="op">(</span><span class="st">"ae55b2d3-62a1-419e-9f9a-5ddfac356db4"</span>, to_type <span class="op">=</span> <span class="st">"file_id"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">##                                case_id                        files.file_id</span></span>
-<span><span class="co">## 1 ae55b2d3-62a1-419e-9f9a-5ddfac356db4 052db59c-a4b7-42c9-ac6b-bd611c0d6800</span></span>
-<span><span class="co">## 2 ae55b2d3-62a1-419e-9f9a-5ddfac356db4 af173fe8-7bee-407f-bfd8-3a5b2d9c669a</span></span>
-<span><span class="co">## 3 ae55b2d3-62a1-419e-9f9a-5ddfac356db4 4d3fe219-ed90-4a7b-9d94-7c46d0bc844a</span></span>
-<span><span class="co">## 4 ae55b2d3-62a1-419e-9f9a-5ddfac356db4 32ff2d93-9967-4161-9e01-f45c4a546e4d</span></span>
-<span><span class="co">## 5 ae55b2d3-62a1-419e-9f9a-5ddfac356db4 b7c3e5ad-4ffc-4fc4-acbf-1dfcbd2e5382</span></span>
-<span><span class="co">## 6 ae55b2d3-62a1-419e-9f9a-5ddfac356db4 1432ce04-3c54-4876-a878-c44536d5451b</span></span></code></pre>
+<span><span class="co">## 1 ae55b2d3-62a1-419e-9f9a-5ddfac356db4 e6265f05-3e0d-408a-a7bd-484f083724ba</span></span>
+<span><span class="co">## 2 ae55b2d3-62a1-419e-9f9a-5ddfac356db4 f65f8685-b253-4935-a12d-2aab2682b3ac</span></span>
+<span><span class="co">## 3 ae55b2d3-62a1-419e-9f9a-5ddfac356db4 9428be7f-3873-45e6-a883-84e63f92103c</span></span>
+<span><span class="co">## 4 ae55b2d3-62a1-419e-9f9a-5ddfac356db4 dce252bc-5930-4dc4-aa5b-4912c0aa7b81</span></span>
+<span><span class="co">## 5 ae55b2d3-62a1-419e-9f9a-5ddfac356db4 052db59c-a4b7-42c9-ac6b-bd611c0d6800</span></span>
+<span><span class="co">## 6 ae55b2d3-62a1-419e-9f9a-5ddfac356db4 f249a5b5-4172-4250-a5f7-002165e45a53</span></span></code></pre>
 <p>One possible way to verify that file IDs are matching case UUIDS is
 to browse to the Genomic Data Commons webpage with the specific file
 UUID. Here we look at the first file UUID entry in the output
@@ -1523,27 +1526,27 @@ UUID. Here we look at the first file UUID entry in the output
 <span><span class="va">fnames</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="http://bioconductor.github.io/GenomicDataCommons/reference/results.html" class="external-link">results</a></span><span class="op">(</span><span class="va">fquery</span><span class="op">)</span><span class="op">$</span><span class="va">file_name</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/TCGAutils/man/ID-translation.html" class="external-link">filenameToBarcode</a></span><span class="op">(</span><span class="va">fnames</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">##                                                                 file_name</span></span>
-<span><span class="co">## 1 BLAIN_p_TCGA_282_304_b2_N_GenomeWideSNP_6_C08_1348584.grch38.seg.v2.txt</span></span>
-<span><span class="co">## 2 AQUAE_p_TCGA_112_304_b2_N_GenomeWideSNP_6_F07_1348352.grch38.seg.v2.txt</span></span>
-<span><span class="co">## 3 AQUAE_p_TCGA_112_304_b2_N_GenomeWideSNP_6_D08_1348404.grch38.seg.v2.txt</span></span>
-<span><span class="co">## 4 AQUAE_p_TCGA_112_304_b2_N_GenomeWideSNP_6_D03_1348390.grch38.seg.v2.txt</span></span>
-<span><span class="co">## 5 AQUAE_p_TCGA_112_304_b2_N_GenomeWideSNP_6_F06_1348360.grch38.seg.v2.txt</span></span>
-<span><span class="co">## 6 AQUAE_p_TCGA_112_304_b2_N_GenomeWideSNP_6_A06_1348274.grch38.seg.v2.txt</span></span>
+<pre><code><span><span class="co">##                                                                      file_name</span></span>
+<span><span class="co">## 1      AQUAE_p_TCGA_112_304_b2_N_GenomeWideSNP_6_F10_1348394.grch38.seg.v2.txt</span></span>
+<span><span class="co">## 2      AQUAE_p_TCGA_112_304_b2_N_GenomeWideSNP_6_B08_1348416.grch38.seg.v2.txt</span></span>
+<span><span class="co">## 3      AQUAE_p_TCGA_112_304_b2_N_GenomeWideSNP_6_E09_1348242.grch38.seg.v2.txt</span></span>
+<span><span class="co">## 4      AQUAE_p_TCGA_112_304_b2_N_GenomeWideSNP_6_A07_1348264.grch38.seg.v2.txt</span></span>
+<span><span class="co">## 5      BLAIN_p_TCGA_282_304_b2_N_GenomeWideSNP_6_F01_1348434.grch38.seg.v2.txt</span></span>
+<span><span class="co">## 6 GAMED_p_TCGA_B_312_313_314_NSP_GenomeWideSNP_6_E06_1361784.grch38.seg.v2.txt</span></span>
 <span><span class="co">##                                file_id</span></span>
-<span><span class="co">## 1 aaaf1c3d-3969-4297-9db4-35153a2aefa5</span></span>
-<span><span class="co">## 2 2b059b73-ef28-407a-9efb-1b5ba5c37f66</span></span>
-<span><span class="co">## 3 bcf8dfe2-335c-4c2d-a6f2-9807dd16b346</span></span>
-<span><span class="co">## 4 c7c23df4-d1a8-47c1-9394-1948114dc756</span></span>
-<span><span class="co">## 5 6c555e27-f52b-45b3-a614-bff242884745</span></span>
-<span><span class="co">## 6 61f6fa34-57f7-4f9b-a5d5-f56749701c1c</span></span>
+<span><span class="co">## 1 4ea747a7-890d-4f0a-a7e3-ede6e6315594</span></span>
+<span><span class="co">## 2 81754b77-e4b0-4123-baba-c2a8fbfaa487</span></span>
+<span><span class="co">## 3 4b488f8d-ddab-4fc9-a82e-0b29b0e1c173</span></span>
+<span><span class="co">## 4 536609b5-6b6a-4f15-b266-b0a0634d2361</span></span>
+<span><span class="co">## 5 18bfa23c-e013-4650-9878-5a1b15aacc45</span></span>
+<span><span class="co">## 6 5dfae645-caa6-4021-8f29-54e3cf043d33</span></span>
 <span><span class="co">##   cases.samples.portions.analytes.aliquots.submitter_id</span></span>
-<span><span class="co">## 1                          TCGA-OR-A5J6-10A-01D-A29K-01</span></span>
-<span><span class="co">## 2                          TCGA-OR-A5LM-01A-11D-A29H-01</span></span>
-<span><span class="co">## 3                          TCGA-OR-A5LA-01A-11D-A29H-01</span></span>
-<span><span class="co">## 4                          TCGA-OR-A5KO-10A-01D-A29K-01</span></span>
-<span><span class="co">## 5                          TCGA-OR-A5LD-01A-11D-A29H-01</span></span>
-<span><span class="co">## 6                          TCGA-OR-A5LS-10A-01D-A29K-01</span></span></code></pre>
+<span><span class="co">## 1                          TCGA-OR-A5KW-01A-11D-A29H-01</span></span>
+<span><span class="co">## 2                          TCGA-OR-A5KW-10A-01D-A29K-01</span></span>
+<span><span class="co">## 3                          TCGA-PK-A5H9-01A-11D-A29H-01</span></span>
+<span><span class="co">## 4                          TCGA-PK-A5H9-10A-01D-A29K-01</span></span>
+<span><span class="co">## 5                          TCGA-OR-A5JA-01A-11D-A29H-01</span></span>
+<span><span class="co">## 6                          TCGA-OR-A5L1-01A-11D-A309-01</span></span></code></pre>
 <p>See the <code>TCGAutils</code> vignette page for more details.</p>
 <div class="infobox">
 <p><strong>Key points</strong></p>
@@ -1919,10 +1922,8 @@ data is available for <code>scNMT</code>, the user would enter:</p>
 <span><span class="co">## 12 EH3765 met_promoter   18.7 Mb     matrix     2020-09-03             &lt;NA&gt;</span></span>
 <span><span class="co">## 13 EH3766          rna   43.5 Mb     matrix     2020-09-03             &lt;NA&gt;</span></span></code></pre>
 <p>We can see that there are a few assays for each modality.</p>
-<p>The user can also use the help function to get a list of all the
-functions available in the package:</p>
-<div class="sourceCode" id="cb131"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/help.html" class="external-link">help</a></span><span class="op">(</span>package <span class="op">=</span> <span class="st">"SingleCellMultiModal"</span>, help_type <span class="op">=</span> <span class="st">"html"</span><span class="op">)</span></span></code></pre></div>
+<p>See the <code>SingleCellMultiModal</code> tutorial above for more
+information.</p>
 </div>
 <div class="section level3">
 <h3 class="unnumbered" id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
