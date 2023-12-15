@@ -3,7 +3,7 @@ name: MAE Workshop Check
 on: push
 
 env:
-  cache-version: v2
+  cache-version: v3
 
 jobs:
   r-build-and-check:
