@@ -97,9 +97,27 @@ scNMT(
     knitr::kable()
 ```
 
+# Individual vignettes
+
+To see the technology specific vignettes, use the following command to list the
+vignettes:
+
+```{r,eval=FALSE}
+help(package = "SingleCellMultiModal")
+```
+
+and click on
+
+* <u>[User guides, package vignettes and other documentation.](http://127.0.0.1:44879/help/library/SingleCellMultiModal/doc/index.html)</u>
+
+in the Help pane of RStudio. 
+
 # Session Information
+
+<details> <summary> Click to expand </summary>
 
 ```{r,echo=FALSE}
 sessionInfo()
 ```
 
+</details>
