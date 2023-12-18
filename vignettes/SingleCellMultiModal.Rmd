@@ -108,6 +108,12 @@ help(package = "SingleCellMultiModal")
 
 and click on
 
+```{r,echo=FALSE}
+options(
+  list(help_type = "html", help.ports = 44879)
+)
+```
+
 * <u>[User guides, package vignettes and other documentation.](http://127.0.0.1:44879/help/library/SingleCellMultiModal/doc/index.html)</u>
 
 in the Help pane of RStudio. 
