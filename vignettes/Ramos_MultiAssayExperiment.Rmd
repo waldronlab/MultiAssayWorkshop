@@ -57,7 +57,7 @@ opts_chunk$set(out.width="100%", cache=TRUE)
 * Docker users can run this workshop locally via:
 
 ```
-docker run -e PASSWORD=bioc -p 8787:8787 mr148/multiassayworkshop:latest
+docker run -e PASSWORD=bioc -p 8787:8787 ghcr.io/waldronlab/multiassayworkshop:latest
 ```
 
 ## Requirements: R/Bioconductor packages

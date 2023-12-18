@@ -77,6 +77,21 @@ the `curatedTCGAData` and `cBioPortalData` packages.
 | Creating and importing TCGA multi-assay datasets | 10m |
 | Subsetting and reshaping multi-assay data | 10m |
 
+## Docker Commands for Workshop
+
+The Docker image for this workshop is available on the GitHub Container
+Registry. Pull (download) the image with the following command: 
+
+```
+docker pull ghcr.io/waldronlab/multiassayworkshop:latest
+```
+
+Run the workshop with Docker by using the following command:
+
+```
+docker run -e PASSWORD=bioc -p 8787:8787 ghcr.io/waldronlab/multiassayworkshop:latest
+```
+
 ## Workshop goals and objectives
 
 ### Learning goals

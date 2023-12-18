@@ -52,7 +52,7 @@ License: Artistic-2.0
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 URL: https://waldronlab.github.io/MultiAssayWorkshop/,
-  docker.io/mr148/multiassayworkshop
+  ghcr.io/waldronlab/multiassayworkshop
 BugReports: https://github.com/waldronlab/MultiAssayWorkshop/issues/new
 VignetteBuilder: knitr
-DockerImage: docker.io/mr148/multiassayworkshop:latest
+DockerImage: ghcr.io/waldronlab/multiassayworkshop:latest
