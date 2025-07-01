@@ -1,6 +1,6 @@
 Package: MultiAssayWorkshop
 Title: Multi-omic Integration and Analysis of cBioPortal and TCGA data with MultiAssayExperiment
-Version: 3.18.1
+Version: 3.21.0
 Authors@R: c(person("Marcel", "Ramos", email = "marcel.ramos@roswellpark.org",
     role = c("aut", "cre")),
     person("Ludwig", "Geistlinger", email = "Ludwig.Geistlinger@sph.cuny.edu",
@@ -13,7 +13,7 @@ Description: In this workshop, attendees will learn to access and analyze data
   MultiAssayExperiment data container to manage multiple genomic experiments.
   Some knowledge of R and basic Bioconductor structures, such as
   SummarizedExperiment, is required.
-Depends: R (>= 4.3.0)
+Depends: R (>= 4.5.0)
 Imports:
   MultiAssayExperiment,
   GenomicRanges,
