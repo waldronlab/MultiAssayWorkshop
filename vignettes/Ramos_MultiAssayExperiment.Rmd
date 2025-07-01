@@ -605,11 +605,13 @@ library(cBioPortalData)
 ### cBioPortalData
 
 ```{r}
-(
-    urcc <- cBioPortalData(
-        cbio, studyId = "urcc_mskcc_2016", genePanelId = "IMPACT341"
-    )
+urcc <- cBioPortalData(
+    api = cbio,
+    studyId = "urcc_mskcc_2016",
+    genePanelId = "IMPACT341",
+    molecularProfileIds = "urcc_mskcc_2016_mutations"
 )
+urcc
 ```
 
 ::: {.infobox data-latex=""}
