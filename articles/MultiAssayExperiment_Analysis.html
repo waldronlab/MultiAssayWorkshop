@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MultiAssayExperiment: Example multi-omic analyses with public data • MultiAssayWorkshop</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
@@ -112,7 +112,7 @@ Geistlinger</h4>
 NY<br><h4 data-toc-skip class="author">Levi
 Waldron</h4>
             <address class="author_afil">
-      CUNY School of Public Health, New York, NY<br><h4 data-toc-skip class="date">December 18, 2023</h4>
+      CUNY School of Public Health, New York, NY<br><h4 data-toc-skip class="date">July 01, 2025</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/waldronlab/MultiAssayWorkshop/blob/HEAD/vignettes/MultiAssayExperiment_Analysis.Rmd" class="external-link"><code>vignettes/MultiAssayExperiment_Analysis.Rmd</code></a></small>
       <div class="hidden name"><code>MultiAssayExperiment_Analysis.Rmd</code></div>
@@ -147,7 +147,7 @@ of assays?<a class="anchor" aria-label="anchor" href="#how-many-miniacc-samples-
 diagram to answer this question:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"miniACC"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="http://waldronlab.io/MultiAssayExperiment/reference/upsetSamples.html" class="external-link">upsetSamples</a></span><span class="op">(</span><span class="va">miniACC</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://github.com/waldronlab/MultiAssayExperiment/reference/upsetSamples.html" class="external-link">upsetSamples</a></span><span class="op">(</span><span class="va">miniACC</span><span class="op">)</span></span></code></pre></div>
 <p><img src="MultiAssayExperiment_Analysis_files/figure-html/unnamed-chunk-2-1.png" width="700"></p>
 <p>In this dataset only 43 samples have all 5 assays, 32 are missing
 reverse-phase protein (RPPAArray), 12 have only mutations and gistict, 2
@@ -207,7 +207,7 @@ pathology<a class="anchor" aria-label="anchor" href="#multivariate-cox-regressio
 <p>Choose the <em>EZH2</em> gene for demonstration. This subsetting will
 drop assays with no row named EZH2:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">wideacc</span> <span class="op">=</span> <span class="fu"><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html" class="external-link">wideFormat</a></span><span class="op">(</span><span class="va">miniACC</span><span class="op">[</span><span class="st">"EZH2"</span>, , <span class="op">]</span>,</span>
+<code class="sourceCode R"><span><span class="va">wideacc</span> <span class="op">=</span> <span class="fu"><a href="https://github.com/waldronlab/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html" class="external-link">wideFormat</a></span><span class="op">(</span><span class="va">miniACC</span><span class="op">[</span><span class="st">"EZH2"</span>, , <span class="op">]</span>,</span>
 <span>    colDataCols<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"vital_status"</span>, <span class="st">"days_to_death"</span>, <span class="st">"pathology_N_stage"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## harmonizing input:</span></span>
 <span><span class="co">##   removing 216 sampleMap rows not in names(experiments)</span></span></code></pre>
@@ -280,8 +280,8 @@ needed:</p>
 <p>Align the rows and columns, keeping only samples with both assays
 available:</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">subacc</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html" class="external-link">intersectColumns</a></span><span class="op">(</span><span class="va">subacc</span><span class="op">)</span></span>
-<span><span class="va">subacc</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html" class="external-link">intersectRows</a></span><span class="op">(</span><span class="va">subacc</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">subacc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://github.com/waldronlab/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html" class="external-link">intersectColumns</a></span><span class="op">(</span><span class="va">subacc</span><span class="op">)</span></span>
+<span><span class="va">subacc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://github.com/waldronlab/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html" class="external-link">intersectRows</a></span><span class="op">(</span><span class="va">subacc</span><span class="op">)</span></span></code></pre></div>
 <p>Create a list of numeric matrices:</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">subacc.list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/SummarizedExperiment/man/SummarizedExperiment-class.html" class="external-link">assays</a></span><span class="op">(</span><span class="va">subacc</span><span class="op">)</span></span></code></pre></div>
@@ -317,7 +317,7 @@ element of the list subacc.list <em>list</em> that was extracted from
 the subacc <em>MultiAssayExperiment</em>, but let’s do it by subsetting
 and extracting from the <em>MultiAssayExperiment</em>:</p>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html" class="external-link">wideFormat</a></span><span class="op">(</span><span class="va">subacc</span><span class="op">[</span><span class="st">"EIF4E"</span>, , <span class="op">]</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://github.com/waldronlab/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html" class="external-link">wideFormat</a></span><span class="op">(</span><span class="va">subacc</span><span class="op">[</span><span class="st">"EIF4E"</span>, , <span class="op">]</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## DataFrame with 6 rows and 3 columns</span></span>
 <span><span class="co">##        primary RNASeq2GeneNorm_EIF4E gistict_EIF4E</span></span>
@@ -361,7 +361,7 @@ genome doubling, so neither make sense to scale and center). So it is
 just as well to do the following one by one, concatenating each PCA
 results to the MultiAssayExperiment:</p>
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">miniACC2</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html" class="external-link">intersectColumns</a></span><span class="op">(</span><span class="va">miniACC</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">miniACC2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://github.com/waldronlab/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html" class="external-link">intersectColumns</a></span><span class="op">(</span><span class="va">miniACC</span><span class="op">)</span></span>
 <span><span class="va">miniACC2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">miniACC2</span>,</span>
 <span>    rnaseqPCA <span class="op">=</span> <span class="fu">getLoadings</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/SummarizedExperiment/man/SummarizedExperiment-class.html" class="external-link">assays</a></span><span class="op">(</span><span class="va">miniACC2</span><span class="op">)</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>, dolog<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>,</span>
 <span>    gistictPCA <span class="op">=</span> <span class="fu">getLoadings</span><span class="op">(</span></span>
@@ -383,7 +383,7 @@ results to the MultiAssayExperiment:</p>
 <pre><code><span><span class="co">## harmonizing input:</span></span>
 <span><span class="co">##   removing 215 sampleMap rows not in names(experiments)</span></span></code></pre>
 <div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-methods.html" class="external-link">experiments</a></span><span class="op">(</span><span class="va">miniACC2</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://github.com/waldronlab/MultiAssayExperiment/reference/MultiAssayExperiment-methods.html" class="external-link">experiments</a></span><span class="op">(</span><span class="va">miniACC2</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## ExperimentList class object of length 5:</span></span>
 <span><span class="co">##  [1] rnaseqPCA: matrix with 10 rows and 43 columns</span></span>
 <span><span class="co">##  [2] gistictPCA: matrix with 10 rows and 43 columns</span></span>
@@ -407,7 +407,7 @@ of principal components are arbitrary)</li>
 itself).</li>
 </ul>
 <div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="http://waldronlab.io/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html" class="external-link">wideFormat</a></span><span class="op">(</span><span class="va">miniACC2</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fl">1</span><span class="op">]</span></span>
+<code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://github.com/waldronlab/MultiAssayExperiment/reference/MultiAssayExperiment-helpers.html" class="external-link">wideFormat</a></span><span class="op">(</span><span class="va">miniACC2</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fl">1</span><span class="op">]</span></span>
 <span><span class="va">mycors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/cor.html" class="external-link">cor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">as.matrix</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">mycors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">abs</a></span><span class="op">(</span><span class="va">mycors</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/diag.html" class="external-link">diag</a></span><span class="op">(</span><span class="va">mycors</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="cn">NA</span></span></code></pre></div>
@@ -441,7 +441,7 @@ and PC1 of the protein assay.</p>
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.9.</p>
 </div>
 
       </footer>

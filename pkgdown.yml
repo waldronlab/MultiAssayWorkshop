@@ -1,14 +1,14 @@
 pandoc: 3.1.1
-pkgdown: 2.0.7
+pkgdown: 2.0.9
 pkgdown_sha: ~
 articles:
+  cBioPortal_Studies: cBioPortal_Studies.html
+  curatedTCGAData_ref: curatedTCGAData_ref.html
   MultiAssayExperiment_Analysis: MultiAssayExperiment_Analysis.html
   Ramos_MultiAssayExperiment: Ramos_MultiAssayExperiment.html
   SingleCellMultiModal: SingleCellMultiModal.html
   TCGAutilsCheatsheet: TCGAutilsCheatsheet.html
-  cBioPortal_Studies: cBioPortal_Studies.html
-  curatedTCGAData_ref: curatedTCGAData_ref.html
-last_built: 2023-12-18T15:21Z
+last_built: 2025-07-01T15:36Z
 urls:
   reference: https://waldronlab.io/MultiAssayWorkshop/reference
   article: https://waldronlab.io/MultiAssayWorkshop/articles
