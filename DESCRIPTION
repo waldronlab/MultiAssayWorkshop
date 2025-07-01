@@ -38,6 +38,7 @@ Imports:
   TENxIO,
   pheatmap
 Suggests:
+  DT,
   kableExtra,
   knitr,
   readr,
