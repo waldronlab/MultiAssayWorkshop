@@ -619,7 +619,7 @@ to fetch. For example, the `urcc_mskcc_2016` study has molecular profiles:
 
 ```{r}
 (mp <- molecularProfiles(cbio, studyId = "urcc_mskcc_2016"))
-mp$molecularProfileId
+mp[["molecularProfileId"]]
 ```
 
 It also requires specifying a subset of genes, using either 'genes' with a 
@@ -637,19 +637,22 @@ argument will subset available genes to those in the panel, whether or not that
 panel was used in the study. If you want all available data, use the `cBioDataPack`
 function instead.
 
-From the [full text publication](https://pmc.ncbi.nlm.nih.gov/articles/PMC5059781/) of the [urcc_mskcc_2016](https://www.cbioportal.org/study/summary?id=urcc_mskcc_2016)
-study, we know that the study used the IMPACT230 gene panel, so we will specify 
-that.
+
+From the [@Chen2016-ba] publication of the [urcc_mskcc_2016][] study, we know
+that the study used the `IMPACT230` gene panel, so we will specify that.
 
 ```{r}
 urcc <- cBioPortalData(
     api = cbio,
     studyId = "urcc_mskcc_2016",
     genePanelId = "IMPACT230",
-    molecularProfileIds = c("urcc_mskcc_2016_cna", "urcc_mskcc_2016_mutations")
+    molecularProfileIds =
+        c("urcc_mskcc_2016_cna", "urcc_mskcc_2016_mutations")
 )
 urcc
 ```
+
+[urc_mskcc_2016]: https://www.cbioportal.org/study/summary?id=urcc_mskcc_2016
 
 ::: {.infobox data-latex=""}
 
@@ -1094,3 +1097,4 @@ See the `SingleCellMultiModal` tutorial above for more information.
 [The Cancer Genome Atlas]: https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga
 
 ## References
+
