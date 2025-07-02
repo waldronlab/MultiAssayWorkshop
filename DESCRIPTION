@@ -1,6 +1,7 @@
 Package: MultiAssayWorkshop
 Title: Multi-omic Integration and Analysis of cBioPortal and TCGA data with MultiAssayExperiment
 Version: 3.21.3
+Date: 2025-07-01
 Authors@R: c(person("Marcel", "Ramos", email = "marcel.ramos@roswellpark.org",
     role = c("aut", "cre")),
     person("Ludwig", "Geistlinger", email = "Ludwig.Geistlinger@sph.cuny.edu",
@@ -59,4 +60,3 @@ URL: https://waldronlab.github.io/MultiAssayWorkshop/,
 BugReports: https://github.com/waldronlab/MultiAssayWorkshop/issues/new
 VignetteBuilder: knitr
 DockerImage: ghcr.io/waldronlab/multiassayworkshop:latest
-Date: 2025-07-01
