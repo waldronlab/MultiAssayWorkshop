@@ -39,6 +39,7 @@ Imports:
   pheatmap
 Suggests:
   DT,
+  GenomeInfoDb,
   kableExtra,
   knitr,
   readr,

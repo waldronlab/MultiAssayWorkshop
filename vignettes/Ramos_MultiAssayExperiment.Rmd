@@ -79,6 +79,7 @@ library(TCGAutils)
 library(SingleCellMultiModal)
 library(UpSetR)
 library(GenomicDataCommons)
+library(GenomeInfoDb)
 ```
 
 ### Citing MultiAssayExperiment
