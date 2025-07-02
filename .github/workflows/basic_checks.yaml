@@ -57,6 +57,7 @@ jobs:
            PATH=$PATH:$HOME/bin/ Rscript -e 'pkgdown::build_site()'
 
       - name: Upload pkgdown artifact
+        if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v3
         with:
           path: docs
