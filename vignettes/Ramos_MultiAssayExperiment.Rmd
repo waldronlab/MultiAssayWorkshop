@@ -561,11 +561,13 @@ tail(colnames(colData(acc)), 10)
 
 ## `cBioPortalData`
 
-To date, the [cBio Genomics Portal](https://www.cbioportal.org/) provides
-access to more than 300 datasets collected and curated from different
-instutions.
+The [cBioPortal for Cancer Genomics](https://www.cbioportal.org/) provides
+access to hundreds of datasets collected and curated from different
+institutions. cBioPortalData is an R/Bioconductor client to download these datasets
+and integrate them using the MultiAssayExperiment data class. There is a more 
+detailed workshop dedicated to [cBioPortalData](https://cbioportal.github.io/2020-cbioportal-r-workshop/).
 
-There are two main ways of accessing this data:
+There are two main ways of accessing this data using the cBioPortalData package:
 
 1. `cBioDataPack` - tarball (`.tar.gz`) data files
 2. `cBioPortalData` - data from the API
@@ -579,11 +581,14 @@ This will allow us to subsequently generate queries for the service.
 
 ```{r}
 cbio <- cBioPortal()
-getStudies(cbio)
 ```
 
-We can also see the build status of the datasets using the `buildReport`
-argument.
+This function can also access local and private cBioPortal servers; see `?cBioPortal`. 
+
+Setting the `buildReport` argument to the `getStudies` function adds two columns 
+indicating whether the study can be accessed via API (for accessing data only for 
+specific genes, gene panels, or molecular assays), and via data-pack (for accessing
+all available data).
 
 ```{r}
 getStudies(cbio, buildReport = TRUE)
@@ -591,10 +596,14 @@ getStudies(cbio, buildReport = TRUE)
 
 This adds two additional columns to the end of the dataset reporting
 the status of the builds. Not all studies can be converted to
-`MultiAssayExperiment`. Some studies require additonal cleaning
+`MultiAssayExperiment`. Some studies require additional cleaning
 to be represented with `MultiAssayExperiment`.
 
 ### cBioDataPack
+The `cBioDataPack` function downloads complete datasets and integrates them as 
+a `MultiAssayExperiment` object. The `names.field` argument allows changing how
+GenomicRanges are labelled (HUGO, Entrez, Gene Names). There are other arguments
+but you're unlikely to use them.
 
 ```{r,include=TRUE,message=FALSE,warning=FALSE}
 library(cBioPortalData)
@@ -604,12 +613,40 @@ library(cBioPortalData)
 
 ### cBioPortalData
 
+This function accesses data from the cBioPortal API. 
+It requires specifying which of the available molecular profiles for a given study
+to fetch. For example, the `urcc_mskcc_2016` study has molecular profiles:
+
+```{r}
+(mp <- molecularProfiles(cbio, studyId = "urcc_mskcc_2016"))
+mp$molecularProfileId
+```
+
+It also requires specifying a subset of genes, using either 'genes' with a 
+vector of Entrez IDs, or 'genePanelId' with a gene panel ID:
+
+```{r}
+genePanels(cbio)
+getGenePanel(cbio, genePanelId= "IMPACT230")
+```
+
+The `getGenePanel` option only really makes sense for studies that employed 
+targeted sequencing of a gene panel, or that employed whole-exome or whole-genome
+assays, if you are content with only the subset of genes in the panel. This 
+argument will subset available genes to those in the panel, whether or not that
+panel was used in the study. If you want all available data, use the `cBioDataPack`
+function instead.
+
+From the [full text publication](https://pmc.ncbi.nlm.nih.gov/articles/PMC5059781/) of the [urcc_mskcc_2016](https://www.cbioportal.org/study/summary?id=urcc_mskcc_2016)
+study, we know that the study used the IMPACT230 gene panel, so we will specify 
+that.
+
 ```{r}
 urcc <- cBioPortalData(
     api = cbio,
     studyId = "urcc_mskcc_2016",
-    genePanelId = "IMPACT341",
-    molecularProfileIds = "urcc_mskcc_2016_mutations"
+    genePanelId = "IMPACT230",
+    molecularProfileIds = c("urcc_mskcc_2016_cna", "urcc_mskcc_2016_mutations")
 )
 urcc
 ```
