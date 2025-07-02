@@ -9,6 +9,10 @@ on:
     branches:
       - devel
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 env:
   R_REMOTES_NO_ERRORS_FROM_WARNINGS: TRUE
   R_REMOTES_STANDALONE: TRUE
