@@ -1012,7 +1012,7 @@ column of the `colData`.
 
 ### Transformation / reshaping
 
-The `longFormat` or `wideFormat` functions will "reshape" and combine
+The `longForm` or `wideFormat` functions will "reshape" and combine
 experiments with each other and with `colData` into one `DataFrame`. These
 functions provide compatibility with most of the common R/Bioconductor functions
 for regression, machine learning, and visualization.
@@ -1020,7 +1020,7 @@ for regression, machine learning, and visualization.
 _Note_. It is best to remove technical replicates before performing these operations
 to minimize the number of `NA` values, esp. to `wideFormat`.
 
-#### `longFormat`
+#### `longForm`
 
 In _long_ format a single column provides all assay results, with additional
 optional `colData` columns whose values are repeated as necessary. Here *assay*
@@ -1032,7 +1032,7 @@ etc), and following these are the *vital_status* and *days_to_death* colData
 columns that have been added:
 
 ```{r}
-longFormat(miniACC[c("TP53", "CTNNB1"), , ],
+longForm(miniACC[c("TP53", "CTNNB1"), , ],
     colDataCols = c("vital_status", "days_to_death"))
 ```
 
@@ -1056,7 +1056,7 @@ wideFormat(miniACC[c("TP53", "CTNNB1"), , ],
 * Knowing how to subset a `MultiAssayExperiment` object is important to
 be able to restrict observations and measurements to particular phenotypes
 or sample types
-* Functions such as `longFormat` and `wideFormat` are helpful for downstream
+* Functions such as `longForm` and `wideFormat` are helpful for downstream
 analysis functions that require a certain type of input format
 
 :::
