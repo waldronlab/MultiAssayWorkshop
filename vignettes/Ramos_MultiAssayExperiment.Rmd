@@ -678,7 +678,6 @@ A number of helper functions are available for managing datasets from
 
 - Conversions of `SummarizedExperiment` to `RangedSummarizedExperiment` based
 on `TxDb.Hsapiens.UCSC.hg19.knownGene` for:
-    - `mirToRanges()`: microRNA
     - `symbolsToRanges()`: gene symbols
     - `qreduceTCGA()`: convert `RaggedExperiment` objects to
 `RangedSummarizedExperiment` with one row per gene symbol, for:
@@ -687,18 +686,6 @@ on `TxDb.Hsapiens.UCSC.hg19.knownGene` for:
 non-silent mutation and a value of 0 for no mutation or silent mutation
 
 ### (1) Conversion of row metadata for `curatedTCGAData` objects
-
-#### `mirToRanges`
-
-microRNA assays obtained from `curatedTCGAData` have annotated sequences
-that can be converted to genomic ranges using the `mirbase.db` package.
-The function looks up all sequences and converts them to ('hg19') ranges.
-For those rows that cannot be found, an 'unranged' assay is introduced
-in the resulting MultiAssayExperiment object.
-
-```{r}
-mirToRanges(acc)
-```
 
 #### `qreduceTCGA`
 
