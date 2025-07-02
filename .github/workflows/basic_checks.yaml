@@ -111,6 +111,6 @@ jobs:
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          tags: >
+          tags: |
             ${{ env.REGISTRY }}/${{ github.repository_owner }}/${{ env.CONT_IMG_NAME }}:latest
             ${{ env.REGISTRY }}/${{ github.repository_owner }}/${{ env.CONT_IMG_NAME }}:devel
